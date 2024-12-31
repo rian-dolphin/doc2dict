@@ -17,6 +17,24 @@ def get_node_styles(node):
         return {}
     return standardize_css(style)
 
+def get_indent(styles):
+    """Extract indent amount from styles"""
+    margin_left = styles.get('margin-left', ['0'])[0]
+    text_indent = styles.get('text-indent', ['0'])[0]
+    
+    # Convert percentages to float
+    try:
+        margin = float(margin_left.rstrip('%')) if '%' in margin_left else float(margin_left)
+    except ValueError:
+        margin = 0
+        
+    try:
+        indent = float(text_indent.rstrip('%')) if '%' in text_indent else float(text_indent)
+    except ValueError:
+        indent = 0
+        
+    return margin + indent
+
 def iterwalk(root, include_text):
     def walk(node, inherited_styles=None):
         current_styles = dict(inherited_styles or {})
@@ -50,7 +68,6 @@ def is_inline(node, styles):
     if node.tag in {'span', 'a', 'strong', 'em', 'b', 'i'}:
         return True
     display = styles.get('display', [''])[0]
-    # flex should NOT be treated as inline
     return display == 'inline'
 
 def html_reduction(tree):
@@ -60,10 +77,14 @@ def html_reduction(tree):
     current_line = []
     row_content = []
     in_row = False
+    current_indent = 0
     
     def flush_line():
         if current_line:
-            items = [item.strip() for item in current_line if item.strip()]
+            items = [
+                {"text": item.strip(), "indent": current_indent} 
+                for item in current_line if item.strip()
+            ]
             if items:
                 lines.append(items)
             current_line.clear()
@@ -72,9 +93,12 @@ def html_reduction(tree):
         if node.tag in skip_elements:
             continue
 
-        # Handle flex containers
         is_flex = styles.get('display', [''])[0] == 'flex'
         
+        # Update current indent when entering a new block or flex container
+        if event == "start" and (node.tag in blocks or is_flex):
+            current_indent = get_indent(styles)
+
         # Handle table rows
         if node.tag == 'tr':
             if event == "start":
@@ -82,7 +106,7 @@ def html_reduction(tree):
                 row_content = []
             elif event == "end":
                 if row_content:
-                    lines.append(row_content)
+                    lines.append([{"text": text, "indent": 0} for text in row_content])
                 in_row = False
                 row_content = []
                 continue
@@ -101,7 +125,7 @@ def html_reduction(tree):
                 if text_content:
                     text = text_content.strip()
                     if text:
-                        lines.append([text])
+                        lines.append([{"text": text, "indent": current_indent}])
             elif event == "end":
                 flush_line()
         elif event == "start" and text_content:
@@ -111,6 +135,8 @@ def html_reduction(tree):
     
     flush_line()
     return lines
+
+
 # Usage:
 if __name__ == "__main__":
     tree = HTMLParser(open('10k/bumble.html').read())
