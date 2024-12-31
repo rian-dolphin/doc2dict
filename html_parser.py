@@ -18,11 +18,9 @@ def get_node_styles(node):
     return standardize_css(style)
 
 def get_indent(styles):
-    """Extract indent amount from styles"""
     margin_left = styles.get('margin-left', ['0'])[0]
     text_indent = styles.get('text-indent', ['0'])[0]
     
-    # Convert percentages to float
     try:
         margin = float(margin_left.rstrip('%')) if '%' in margin_left else float(margin_left)
     except ValueError:
@@ -34,6 +32,38 @@ def get_indent(styles):
         indent = 0
         
     return margin + indent
+
+def get_text_style(node, styles):
+    """Extract text styling from both tags and CSS"""
+    # Initialize with default values
+    text_style = {
+        'bold': False,
+        'italic': False,
+        'underline': False
+    }
+    
+    # Check HTML tags
+    if node.tag in {'b', 'strong'}:
+        text_style['bold'] = True
+    if node.tag in {'i', 'em'}:
+        text_style['italic'] = True
+    if node.tag == 'u':
+        text_style['underline'] = True
+        
+    # Check CSS styles
+    font_weight = styles.get('font-weight', [''])[0]
+    if font_weight in {'bold', '700', '800', '900'}:
+        text_style['bold'] = True
+        
+    font_style = styles.get('font-style', [''])[0]
+    if font_style == 'italic':
+        text_style['italic'] = True
+        
+    text_decoration = styles.get('text-decoration', [''])[0]
+    if 'underline' in text_decoration:
+        text_style['underline'] = True
+        
+    return text_style
 
 def iterwalk(root, include_text):
     def walk(node, inherited_styles=None):
@@ -54,18 +84,19 @@ def iterwalk(root, include_text):
             elif text_transform == 'capitalize':
                 text_content = text_content.capitalize()
 
-        yield ("start", node, current_styles, text_content)
+        text_style = get_text_style(node, current_styles)
+        yield ("start", node, current_styles, text_content, text_style)
         for child in node.iter(include_text=include_text):
             if child is not node:
                 yield from walk(child, current_styles)
-        yield ("end", node, current_styles, text_content)
+        yield ("end", node, current_styles, text_content, text_style)
     
     for node in root.iter(include_text=include_text):
         if node is not root:
             yield from walk(node)
 
 def is_inline(node, styles):
-    if node.tag in {'span', 'a', 'strong', 'em', 'b', 'i'}:
+    if node.tag in {'span', 'a', 'strong', 'em', 'b', 'i', 'u'}:  # Added 'u'
         return True
     display = styles.get('display', [''])[0]
     return display == 'inline'
@@ -78,26 +109,33 @@ def html_reduction(tree):
     row_content = []
     in_row = False
     current_indent = 0
+    current_style = None
     
     def flush_line():
         if current_line:
             items = [
-                {"text": item.strip(), "indent": current_indent} 
+                {
+                    "text": item.strip(), 
+                    "indent": current_indent,
+                    "bold": current_style.get('bold', False) if current_style else False,
+                    "italic": current_style.get('italic', False) if current_style else False,
+                    "underline": current_style.get('underline', False) if current_style else False
+                } 
                 for item in current_line if item.strip()
             ]
             if items:
                 lines.append(items)
             current_line.clear()
 
-    for event, node, styles, text_content in iterwalk(tree.body, include_text=True):
+    for event, node, styles, text_content, text_style in iterwalk(tree.body, include_text=True):
         if node.tag in skip_elements:
             continue
 
         is_flex = styles.get('display', [''])[0] == 'flex'
         
-        # Update current indent when entering a new block or flex container
         if event == "start" and (node.tag in blocks or is_flex):
             current_indent = get_indent(styles)
+            current_style = text_style
 
         # Handle table rows
         if node.tag == 'tr':
@@ -106,41 +144,51 @@ def html_reduction(tree):
                 row_content = []
             elif event == "end":
                 if row_content:
-                    lines.append([{"text": text, "indent": 0} for text in row_content])
+                    lines.append([{
+                        "text": text, 
+                        "indent": 0,
+                        "bold": False,
+                        "italic": False,
+                        "underline": False
+                    } for text in row_content])
                 in_row = False
                 row_content = []
                 continue
 
-        # If we're in a table row, collect all text
         if in_row and event == "start" and text_content:
             text = text_content.strip()
             if text:
                 row_content.append(text)
             continue
             
-        # Normal block and flex handling
         if (node.tag in blocks or is_flex) and not is_inline(node, styles):
             if event == "start":
                 flush_line()
                 if text_content:
                     text = text_content.strip()
                     if text:
-                        lines.append([{"text": text, "indent": current_indent}])
+                        lines.append([{
+                            "text": text, 
+                            "indent": current_indent,
+                            "bold": text_style['bold'],
+                            "italic": text_style['italic'],
+                            "underline": text_style['underline']
+                        }])
             elif event == "end":
                 flush_line()
         elif event == "start" and text_content:
             text = text_content.strip()
             if text:
                 current_line.append(text)
+                current_style = text_style
     
     flush_line()
     return lines
 
 
 # Usage:
-if __name__ == "__main__":
-    tree = HTMLParser(open('10k/bumble.html').read())
-    s = time()
-    reduced_form = html_reduction(tree)
-    print(f"Processing time: {time()-s:.3f} seconds")
-    format_list_html(reduced_form)
+tree = HTMLParser(open('10k/bumble.html').read())
+s = time()
+reduced_form = html_reduction(tree)
+print(f"Processing time: {time()-s:.3f} seconds")
+format_list_html(reduced_form)

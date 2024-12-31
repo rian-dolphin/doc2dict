@@ -2,12 +2,10 @@ import webbrowser
 import os
 
 def format_list_html(nested_list):
-    # Define a list of pleasing background colors for multi-item rows
-    colors = ['#F3E6FF', '#FFE6E6', '#E6FFE6', '#FFE6F3', '#E6FFFF', '#FFF3E6']
-    
-    # Define a distinct color for single items
-    # Using a soft purple that's different from the other colors but still pleasing
-    single_item_color = '#E6F3FF'
+    # Simplified color scheme
+    single_line_color = '#E6F3FF'  # Blue hue
+    multi_first_color = '#E6FFE6'  # Green hue
+    multi_rest_color = '#FFE6E6'   # Red hue
     
     html_content = """
 <html>
@@ -34,38 +32,51 @@ def format_list_html(nested_list):
 <body>
 """
     
+    def get_styled_text(item):
+        """Helper function to apply text styling"""
+        if not isinstance(item, dict):
+            return str(item)
+            
+        text = item.get('text', '')
+        style_properties = []
+        
+        if item.get('bold', False):
+            style_properties.append('font-weight: bold')
+        if item.get('italic', False):
+            style_properties.append('font-style: italic')
+        if item.get('underline', False):
+            style_properties.append('text-decoration: underline')
+            
+        if style_properties:
+            return f"<span style='{'; '.join(style_properties)}'>{text}</span>"
+        return text
+    
     for items in nested_list:
         if isinstance(items, list):
-            # Get the indent from the first item if it exists
             first_indent = items[0].get('indent', 0) if isinstance(items[0], dict) else 0
             html_content += f"<div class='row' style='padding-left: {first_indent}em'>\n"
             
-            # If it's a single item in a list, use the single item color
-            if len(items) == 1:
-                color = single_item_color
-            else:
-                color = colors[0]  # Start with first color
-                
             for i, item in enumerate(items):
-                if len(items) > 1:
-                    color = colors[i % len(colors)]  # Only cycle colors for multi-item rows
-                if isinstance(item, dict):
-                    text = item.get('text', '')
+                # Single item -> blue
+                if len(items) == 1:
+                    color = single_line_color
+                # Multiple items: first -> green, rest -> red
                 else:
-                    text = str(item)
-                html_content += f"    <span class='item' style='background-color: {color}'>{text}</span>\n"
+                    color = multi_first_color if i == 0 else multi_rest_color
+                    
+                styled_text = get_styled_text(item)
+                html_content += f"    <span class='item' style='background-color: {color}'>{styled_text}</span>\n"
             
             html_content += "</div>\n"
         else:
-            # Handle single item case
             if isinstance(items, dict):
-                text = items.get('text', '')
                 indent = items.get('indent', 0)
+                styled_text = get_styled_text(items)
             else:
-                text = str(items)
+                styled_text = str(items)
                 indent = 0
                 
-            html_content += f"<div class='row' style='padding-left: {indent}em'><span class='item' style='background-color: {single_item_color}'>{text}</span></div>\n"
+            html_content += f"<div class='row' style='padding-left: {indent}em'><span class='item' style='background-color: {single_line_color}'>{styled_text}</span></div>\n"
     
     html_content += """
 </body>
