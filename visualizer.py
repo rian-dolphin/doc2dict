@@ -26,6 +26,7 @@ def format_list_html(nested_list):
         border-radius: 5px;
         margin-right: 15px;
         margin-bottom: 10px;
+        display: inline-block;
     }
 </style>
 </head>
@@ -37,7 +38,8 @@ def format_list_html(nested_list):
         if not isinstance(item, dict):
             return str(item)
             
-        text = item.get('text', '')
+        height = str(item.get('height', ''))
+        text = 'height:' + height + ', ' + item.get('text', '')
         style_properties = []
         
         if item.get('bold', False):
@@ -46,7 +48,9 @@ def format_list_html(nested_list):
             style_properties.append('font-style: italic')
         if item.get('underline', False):
             style_properties.append('text-decoration: underline')
-            
+        if height:  # Change height to font-size
+            style_properties.append(f'font-size: {height}')
+                
         if style_properties:
             return f"<span style='{'; '.join(style_properties)}'>{text}</span>"
         return text
@@ -72,11 +76,13 @@ def format_list_html(nested_list):
             if isinstance(items, dict):
                 indent = items.get('indent', 0)
                 styled_text = get_styled_text(items)
+                height = items.get('height', '')
+                height_style = f'height: {height};' if height else ''
+                html_content += f"<div class='row' style='padding-left: {indent}em'><span class='item' style='background-color: {single_line_color}; {height_style}'>{styled_text}</span></div>\n"
             else:
                 styled_text = str(items)
                 indent = 0
-                
-            html_content += f"<div class='row' style='padding-left: {indent}em'><span class='item' style='background-color: {single_line_color}'>{styled_text}</span></div>\n"
+                html_content += f"<div class='row' style='padding-left: {indent}em'><span class='item' style='background-color: {single_line_color}'>{styled_text}</span></div>\n"
     
     html_content += """
 </body>

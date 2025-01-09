@@ -1,0 +1,181 @@
+<XBRL>
+<?xml version="1.0" encoding="US-ASCII" standalone="no"?>
+    <!-- Field: Doc-Info; Name: Generator; Value: GoFiler Complete; Version: 5.11a -->
+    <!-- Field: Doc-Info; Name: VendorURI; Value: https://www.novaworks.com -->
+    <!-- Field: Doc-Info; Name: Status; Value: 0x00000000 -->
+<link:linkbase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:xbrli="http://www.xbrl.org/2003/instance" xsi:schemaLocation="http://www.xbrl.org/2003/linkbase http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd">
+    <link:roleRef roleURI="http://nestbuilder.com/role/Cover" xlink:href="nbc-20211130.xsd#Cover" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/BalanceSheets" xlink:href="nbc-20211130.xsd#BalanceSheets" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/BalanceSheetsParenthetical" xlink:href="nbc-20211130.xsd#BalanceSheetsParenthetical" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/StatementsOfOperations" xlink:href="nbc-20211130.xsd#StatementsOfOperations" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/StatementOfChangesInStockholdersEquityDeficit" xlink:href="nbc-20211130.xsd#StatementOfChangesInStockholdersEquityDeficit" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/StatementsOfCashFlows" xlink:href="nbc-20211130.xsd#StatementsOfCashFlows" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/OrganizationAndNatureOfBusiness" xlink:href="nbc-20211130.xsd#OrganizationAndNatureOfBusiness" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/SummaryOfSignificantAccountingPolicies" xlink:href="nbc-20211130.xsd#SummaryOfSignificantAccountingPolicies" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/GoingConcern" xlink:href="nbc-20211130.xsd#GoingConcern" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/PropertyAndEquipment" xlink:href="nbc-20211130.xsd#PropertyAndEquipment" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/AccountsPayableAndAccruedExpenses" xlink:href="nbc-20211130.xsd#AccountsPayableAndAccruedExpenses" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/RelatedPartyTransactions" xlink:href="nbc-20211130.xsd#RelatedPartyTransactions" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/StockholdersDeficit" xlink:href="nbc-20211130.xsd#StockholdersDeficit" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/CommitmentsAndContingencies" xlink:href="nbc-20211130.xsd#CommitmentsAndContingencies" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/ConvertiblePromissoryNotesPayable" xlink:href="nbc-20211130.xsd#ConvertiblePromissoryNotesPayable" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/PaycheckProtectionProgramsbaLoan" xlink:href="nbc-20211130.xsd#PaycheckProtectionProgramsbaLoan" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/IncomeTaxes" xlink:href="nbc-20211130.xsd#IncomeTaxes" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/SummaryOfSignificantAccountingPoliciesPolicies" xlink:href="nbc-20211130.xsd#SummaryOfSignificantAccountingPoliciesPolicies" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/SummaryOfSignificantAccountingPoliciesTables" xlink:href="nbc-20211130.xsd#SummaryOfSignificantAccountingPoliciesTables" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/PropertyAndEquipmentTables" xlink:href="nbc-20211130.xsd#PropertyAndEquipmentTables" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/AccountsPayableAndAccruedExpensesTables" xlink:href="nbc-20211130.xsd#AccountsPayableAndAccruedExpensesTables" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/StockholdersDeficitTables" xlink:href="nbc-20211130.xsd#StockholdersDeficitTables" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/IncomeTaxesTables" xlink:href="nbc-20211130.xsd#IncomeTaxesTables" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/ScheduleOfAnti-dilutiveSecuritiesOutstandingDetails" xlink:href="nbc-20211130.xsd#ScheduleOfAnti-dilutiveSecuritiesOutstandingDetails" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/SummaryOfSignificantAccountingPoliciesDetailsNarrative" xlink:href="nbc-20211130.xsd#SummaryOfSignificantAccountingPoliciesDetailsNarrative" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/GoingConcernDetailsNarrative" xlink:href="nbc-20211130.xsd#GoingConcernDetailsNarrative" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/ScheduleOfPropertyAndEquipmentDetails" xlink:href="nbc-20211130.xsd#ScheduleOfPropertyAndEquipmentDetails" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/PropertyAndEquipmentDetailsNarrative" xlink:href="nbc-20211130.xsd#PropertyAndEquipmentDetailsNarrative" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/ScheduleOfAccountsPayableAndAccruedExpensesDetails" xlink:href="nbc-20211130.xsd#ScheduleOfAccountsPayableAndAccruedExpensesDetails" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/RelatedPartyTransactionsDetailsNarrative" xlink:href="nbc-20211130.xsd#RelatedPartyTransactionsDetailsNarrative" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/ScheduleOfCommonStockWarrantsOutstandingDetails" xlink:href="nbc-20211130.xsd#ScheduleOfCommonStockWarrantsOutstandingDetails" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/ScheduleOfCommonStockWarrantsOutstandingAndWarrantExercisableDetails" xlink:href="nbc-20211130.xsd#ScheduleOfCommonStockWarrantsOutstandingAndWarrantExercisableDetails" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/ScheduleOfAssumptionOfBlack-scholesOptionPricingModelDetails" xlink:href="nbc-20211130.xsd#ScheduleOfAssumptionOfBlack-scholesOptionPricingModelDetails" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/StockholdersDeficitDetailsNarrative" xlink:href="nbc-20211130.xsd#StockholdersDeficitDetailsNarrative" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/CommitmentsAndContingenciesDetailsNarrative" xlink:href="nbc-20211130.xsd#CommitmentsAndContingenciesDetailsNarrative" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/ConvertiblePromissoryNotesPayableDetailsNarrative" xlink:href="nbc-20211130.xsd#ConvertiblePromissoryNotesPayableDetailsNarrative" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/PaycheckProtectionProgramsbaLoanDetailsNarrative" xlink:href="nbc-20211130.xsd#PaycheckProtectionProgramsbaLoanDetailsNarrative" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/ScheduleOfEffectiveIncomeTaxRateDetails" xlink:href="nbc-20211130.xsd#ScheduleOfEffectiveIncomeTaxRateDetails" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/ScheduleOfDeferredTaxAssetsAndLiabilitiesDetails" xlink:href="nbc-20211130.xsd#ScheduleOfDeferredTaxAssetsAndLiabilitiesDetails" xlink:type="simple" />
+    <link:roleRef roleURI="http://nestbuilder.com/role/IncomeTaxesDetailsNarrative" xlink:href="nbc-20211130.xsd#IncomeTaxesDetailsNarrative" xlink:type="simple" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/Cover" xlink:title="00000001 - Document - Cover" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/BalanceSheets" xlink:title="00000002 - Statement - Balance Sheets">
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_AssetsCurrent" xlink:label="loc_us-gaapAssetsCurrent" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_CashAndCashEquivalentsAtCarryingValue" xlink:label="loc_us-gaapCashAndCashEquivalentsAtCarryingValue" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapAssetsCurrent" xlink:to="loc_us-gaapCashAndCashEquivalentsAtCarryingValue" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_Assets" xlink:label="loc_us-gaapAssets" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapAssets" xlink:to="loc_us-gaapAssetsCurrent" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_LiabilitiesCurrent" xlink:label="loc_us-gaapLiabilitiesCurrent" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_AccountsPayableAndAccruedLiabilitiesCurrent" xlink:label="loc_us-gaapAccountsPayableAndAccruedLiabilitiesCurrent" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapLiabilitiesCurrent" xlink:to="loc_us-gaapAccountsPayableAndAccruedLiabilitiesCurrent" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_ShortTermBorrowings" xlink:label="loc_us-gaapShortTermBorrowings" />
+      <link:calculationArc order="2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapLiabilitiesCurrent" xlink:to="loc_us-gaapShortTermBorrowings" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_ConvertibleNotesPayableCurrent" xlink:label="loc_us-gaapConvertibleNotesPayableCurrent" />
+      <link:calculationArc order="3" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapLiabilitiesCurrent" xlink:to="loc_us-gaapConvertibleNotesPayableCurrent" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_Liabilities" xlink:label="loc_us-gaapLiabilities" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapLiabilities" xlink:to="loc_us-gaapLiabilitiesCurrent" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_StockholdersEquity" xlink:label="loc_us-gaapStockholdersEquity" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_PreferredStockValue" xlink:label="loc_us-gaapPreferredStockValue" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapStockholdersEquity" xlink:to="loc_us-gaapPreferredStockValue" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_CommonStockValue" xlink:label="loc_us-gaapCommonStockValue" />
+      <link:calculationArc order="2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapStockholdersEquity" xlink:to="loc_us-gaapCommonStockValue" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_AdditionalPaidInCapital" xlink:label="loc_us-gaapAdditionalPaidInCapital" />
+      <link:calculationArc order="3" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapStockholdersEquity" xlink:to="loc_us-gaapAdditionalPaidInCapital" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_TreasuryStockValue" xlink:label="loc_us-gaapTreasuryStockValue" />
+      <link:calculationArc order="4" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapStockholdersEquity" xlink:to="loc_us-gaapTreasuryStockValue" xlink:type="arc" weight="-1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_RetainedEarningsAccumulatedDeficit" xlink:label="loc_us-gaapRetainedEarningsAccumulatedDeficit" />
+      <link:calculationArc order="5" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapStockholdersEquity" xlink:to="loc_us-gaapRetainedEarningsAccumulatedDeficit" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_LiabilitiesAndStockholdersEquity" xlink:label="loc_us-gaapLiabilitiesAndStockholdersEquity" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapLiabilitiesAndStockholdersEquity" xlink:to="loc_us-gaapLiabilities" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_CommitmentsAndContingencies" xlink:label="loc_us-gaapCommitmentsAndContingencies" />
+      <link:calculationArc order="2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapLiabilitiesAndStockholdersEquity" xlink:to="loc_us-gaapCommitmentsAndContingencies" xlink:type="arc" weight="1" />
+      <link:calculationArc order="3" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapLiabilitiesAndStockholdersEquity" xlink:to="loc_us-gaapStockholdersEquity" xlink:type="arc" weight="1" />
+    </link:calculationLink>
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/BalanceSheetsParenthetical" xlink:title="00000003 - Statement - Balance Sheets (Parenthetical)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/StatementsOfOperations" xlink:title="00000004 - Statement - Statements of Operations">
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_GrossProfit" xlink:label="loc_us-gaapGrossProfit" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_RevenueFromContractWithCustomerExcludingAssessedTax" xlink:label="loc_us-gaapRevenueFromContractWithCustomerExcludingAssessedTax" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapGrossProfit" xlink:to="loc_us-gaapRevenueFromContractWithCustomerExcludingAssessedTax" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_CostOfRevenue" xlink:label="loc_us-gaapCostOfRevenue" />
+      <link:calculationArc order="2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapGrossProfit" xlink:to="loc_us-gaapCostOfRevenue" xlink:type="arc" weight="-1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_OperatingExpenses" xlink:label="loc_us-gaapOperatingExpenses" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_LaborAndRelatedExpense" xlink:label="loc_us-gaapLaborAndRelatedExpense" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapOperatingExpenses" xlink:to="loc_us-gaapLaborAndRelatedExpense" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_SellingAndMarketingExpense" xlink:label="loc_us-gaapSellingAndMarketingExpense" />
+      <link:calculationArc order="2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapOperatingExpenses" xlink:to="loc_us-gaapSellingAndMarketingExpense" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_GeneralAndAdministrativeExpense" xlink:label="loc_us-gaapGeneralAndAdministrativeExpense" />
+      <link:calculationArc order="3" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapOperatingExpenses" xlink:to="loc_us-gaapGeneralAndAdministrativeExpense" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_OperatingIncomeLoss" xlink:label="loc_us-gaapOperatingIncomeLoss" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapOperatingIncomeLoss" xlink:to="loc_us-gaapGrossProfit" xlink:type="arc" weight="1" />
+      <link:calculationArc order="2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapOperatingIncomeLoss" xlink:to="loc_us-gaapOperatingExpenses" xlink:type="arc" weight="-1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_NonoperatingIncomeExpense" xlink:label="loc_us-gaapNonoperatingIncomeExpense" />
+      <link:loc xlink:type="locator" xlink:href="nbc-20211130.xsd#NBC_GainOnForgivenessOfPaycheckProtectionProgramLoan" xlink:label="loc_NBCGainOnForgivenessOfPaycheckProtectionProgramLoan" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapNonoperatingIncomeExpense" xlink:to="loc_NBCGainOnForgivenessOfPaycheckProtectionProgramLoan" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_GainsLossesOnExtinguishmentOfDebt" xlink:label="loc_us-gaapGainsLossesOnExtinguishmentOfDebt" />
+      <link:calculationArc order="2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapNonoperatingIncomeExpense" xlink:to="loc_us-gaapGainsLossesOnExtinguishmentOfDebt" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_NetIncomeLoss" xlink:label="loc_us-gaapNetIncomeLoss" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest" xlink:label="loc_us-gaapIncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapNetIncomeLoss" xlink:to="loc_us-gaapIncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_IncomeTaxExpenseBenefit" xlink:label="loc_us-gaapIncomeTaxExpenseBenefit" />
+      <link:calculationArc order="2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapNetIncomeLoss" xlink:to="loc_us-gaapIncomeTaxExpenseBenefit" xlink:type="arc" weight="-1" />
+    </link:calculationLink>
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/StatementOfChangesInStockholdersEquityDeficit" xlink:title="00000005 - Statement - Statement of Changes in Stockholders&apos; Equity (Deficit)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/StatementsOfCashFlows" xlink:title="00000006 - Statement - Statements of Cash Flows">
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_NetCashProvidedByUsedInOperatingActivities" xlink:label="loc_us-gaapNetCashProvidedByUsedInOperatingActivities" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_NetIncomeLoss" xlink:label="loc_us-gaapNetIncomeLoss" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapNetCashProvidedByUsedInOperatingActivities" xlink:to="loc_us-gaapNetIncomeLoss" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="nbc-20211130.xsd#NBC_GainOnForgivenessOfPaycheckProtectionProgramLoan" xlink:label="loc_NBCGainOnForgivenessOfPaycheckProtectionProgramLoan" />
+      <link:calculationArc order="2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapNetCashProvidedByUsedInOperatingActivities" xlink:to="loc_NBCGainOnForgivenessOfPaycheckProtectionProgramLoan" xlink:type="arc" weight="-1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_GainsLossesOnExtinguishmentOfDebt" xlink:label="loc_us-gaapGainsLossesOnExtinguishmentOfDebt" />
+      <link:calculationArc order="3" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapNetCashProvidedByUsedInOperatingActivities" xlink:to="loc_us-gaapGainsLossesOnExtinguishmentOfDebt" xlink:type="arc" weight="-1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_IncreaseDecreaseInInterestPayableNet" xlink:label="loc_us-gaapIncreaseDecreaseInInterestPayableNet" />
+      <link:calculationArc order="4" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapNetCashProvidedByUsedInOperatingActivities" xlink:to="loc_us-gaapIncreaseDecreaseInInterestPayableNet" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_IncreaseDecreaseInAccountsPayableAndAccruedLiabilities" xlink:label="loc_us-gaapIncreaseDecreaseInAccountsPayableAndAccruedLiabilities" />
+      <link:calculationArc order="5" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapNetCashProvidedByUsedInOperatingActivities" xlink:to="loc_us-gaapIncreaseDecreaseInAccountsPayableAndAccruedLiabilities" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_NetCashProvidedByUsedInFinancingActivities" xlink:label="loc_us-gaapNetCashProvidedByUsedInFinancingActivities" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_RepaymentsOfConvertibleDebt" xlink:label="loc_us-gaapRepaymentsOfConvertibleDebt" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapNetCashProvidedByUsedInFinancingActivities" xlink:to="loc_us-gaapRepaymentsOfConvertibleDebt" xlink:type="arc" weight="-1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_PaymentsForRepurchaseOfPreferredStockAndPreferenceStock" xlink:label="loc_us-gaapPaymentsForRepurchaseOfPreferredStockAndPreferenceStock" />
+      <link:calculationArc order="2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapNetCashProvidedByUsedInFinancingActivities" xlink:to="loc_us-gaapPaymentsForRepurchaseOfPreferredStockAndPreferenceStock" xlink:type="arc" weight="-1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_ProceedsFromBankDebt" xlink:label="loc_us-gaapProceedsFromBankDebt" />
+      <link:calculationArc order="3" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapNetCashProvidedByUsedInFinancingActivities" xlink:to="loc_us-gaapProceedsFromBankDebt" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_ProceedsFromConvertibleDebt" xlink:label="loc_us-gaapProceedsFromConvertibleDebt" />
+      <link:calculationArc order="4" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapNetCashProvidedByUsedInFinancingActivities" xlink:to="loc_us-gaapProceedsFromConvertibleDebt" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_CashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect" xlink:label="loc_us-gaapCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect" xlink:to="loc_us-gaapNetCashProvidedByUsedInOperatingActivities" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_NetCashProvidedByUsedInInvestingActivities" xlink:label="loc_us-gaapNetCashProvidedByUsedInInvestingActivities" />
+      <link:calculationArc order="2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect" xlink:to="loc_us-gaapNetCashProvidedByUsedInInvestingActivities" xlink:type="arc" weight="1" />
+      <link:calculationArc order="3" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapCashCashEquivalentsRestrictedCashAndRestrictedCashEquivalentsPeriodIncreaseDecreaseIncludingExchangeRateEffect" xlink:to="loc_us-gaapNetCashProvidedByUsedInFinancingActivities" xlink:type="arc" weight="1" />
+    </link:calculationLink>
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/OrganizationAndNatureOfBusiness" xlink:title="00000007 - Disclosure - ORGANIZATION AND NATURE OF BUSINESS" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/SummaryOfSignificantAccountingPolicies" xlink:title="00000008 - Disclosure - SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/GoingConcern" xlink:title="00000009 - Disclosure - GOING CONCERN" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/PropertyAndEquipment" xlink:title="00000010 - Disclosure - PROPERTY AND EQUIPMENT" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/AccountsPayableAndAccruedExpenses" xlink:title="00000011 - Disclosure - ACCOUNTS PAYABLE AND ACCRUED EXPENSES" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/RelatedPartyTransactions" xlink:title="00000012 - Disclosure - RELATED PARTY TRANSACTIONS" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/StockholdersDeficit" xlink:title="00000013 - Disclosure - STOCKHOLDERS&#8217; DEFICIT" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/CommitmentsAndContingencies" xlink:title="00000014 - Disclosure - COMMITMENTS AND CONTINGENCIES" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/ConvertiblePromissoryNotesPayable" xlink:title="00000015 - Disclosure - CONVERTIBLE PROMISSORY NOTES PAYABLE" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/PaycheckProtectionProgramsbaLoan" xlink:title="00000016 - Disclosure - PAYCHECK PROTECTION PROGRAM/SBA LOAN" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/IncomeTaxes" xlink:title="00000017 - Disclosure - INCOME TAXES" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/SummaryOfSignificantAccountingPoliciesPolicies" xlink:title="00000018 - Disclosure - SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES (Policies)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/SummaryOfSignificantAccountingPoliciesTables" xlink:title="00000019 - Disclosure - SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES (Tables)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/PropertyAndEquipmentTables" xlink:title="00000020 - Disclosure - PROPERTY AND EQUIPMENT (Tables)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/AccountsPayableAndAccruedExpensesTables" xlink:title="00000021 - Disclosure - ACCOUNTS PAYABLE AND ACCRUED EXPENSES (Tables)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/StockholdersDeficitTables" xlink:title="00000022 - Disclosure - STOCKHOLDERS&#8217; DEFICIT (Tables)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/IncomeTaxesTables" xlink:title="00000023 - Disclosure - INCOME TAXES (Tables)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/ScheduleOfAnti-dilutiveSecuritiesOutstandingDetails" xlink:title="00000024 - Disclosure - SCHEDULE OF ANTI-DILUTIVE SECURITIES OUTSTANDING (Details)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/SummaryOfSignificantAccountingPoliciesDetailsNarrative" xlink:title="00000025 - Disclosure - SUMMARY OF SIGNIFICANT ACCOUNTING POLICIES (Details Narrative)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/GoingConcernDetailsNarrative" xlink:title="00000026 - Disclosure - GOING CONCERN (Details Narrative)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/ScheduleOfPropertyAndEquipmentDetails" xlink:title="00000027 - Disclosure - SCHEDULE OF PROPERTY AND EQUIPMENT (Details)">
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_PropertyPlantAndEquipmentNet" xlink:label="loc_us-gaapPropertyPlantAndEquipmentNet" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_MachineryAndEquipmentGross" xlink:label="loc_us-gaapMachineryAndEquipmentGross" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapPropertyPlantAndEquipmentNet" xlink:to="loc_us-gaapMachineryAndEquipmentGross" xlink:type="arc" weight="1" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_AccumulatedDepreciationDepletionAndAmortizationPropertyPlantAndEquipment" xlink:label="loc_us-gaapAccumulatedDepreciationDepletionAndAmortizationPropertyPlantAndEquipment" />
+      <link:calculationArc order="2" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapPropertyPlantAndEquipmentNet" xlink:to="loc_us-gaapAccumulatedDepreciationDepletionAndAmortizationPropertyPlantAndEquipment" xlink:type="arc" weight="-1" />
+    </link:calculationLink>
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/PropertyAndEquipmentDetailsNarrative" xlink:title="00000028 - Disclosure - PROPERTY AND EQUIPMENT (Details Narrative)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/ScheduleOfAccountsPayableAndAccruedExpensesDetails" xlink:title="00000029 - Disclosure - SCHEDULE OF ACCOUNTS PAYABLE AND ACCRUED EXPENSES (Details)">
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_AccountsPayableAndAccruedLiabilitiesCurrent" xlink:label="loc_us-gaapAccountsPayableAndAccruedLiabilitiesCurrent" />
+      <link:loc xlink:type="locator" xlink:href="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd#us-gaap_AccountsPayableAndOtherAccruedLiabilitiesCurrent" xlink:label="loc_us-gaapAccountsPayableAndOtherAccruedLiabilitiesCurrent" />
+      <link:calculationArc order="1" xlink:arcrole="http://www.xbrl.org/2003/arcrole/summation-item" xlink:from="loc_us-gaapAccountsPayableAndAccruedLiabilitiesCurrent" xlink:to="loc_us-gaapAccountsPayableAndOtherAccruedLiabilitiesCurrent" xlink:type="arc" weight="1" />
+    </link:calculationLink>
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/RelatedPartyTransactionsDetailsNarrative" xlink:title="00000030 - Disclosure - RELATED PARTY TRANSACTIONS (Details Narrative)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/ScheduleOfCommonStockWarrantsOutstandingDetails" xlink:title="00000031 - Disclosure - SCHEDULE OF COMMON STOCK WARRANTS OUTSTANDING (Details)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/ScheduleOfCommonStockWarrantsOutstandingAndWarrantExercisableDetails" xlink:title="00000032 - Disclosure - SCHEDULE OF COMMON STOCK WARRANTS OUTSTANDING AND WARRANT EXERCISABLE (Details)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/ScheduleOfAssumptionOfBlack-scholesOptionPricingModelDetails" xlink:title="00000033 - Disclosure - SCHEDULE OF ASSUMPTION OF BLACK-SCHOLES OPTION PRICING MODEL (Details)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/StockholdersDeficitDetailsNarrative" xlink:title="00000034 - Disclosure - STOCKHOLDERS&#8217; DEFICIT (Details Narrative)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/CommitmentsAndContingenciesDetailsNarrative" xlink:title="00000035 - Disclosure - COMMITMENTS AND CONTINGENCIES (Details Narrative)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/ConvertiblePromissoryNotesPayableDetailsNarrative" xlink:title="00000036 - Disclosure - CONVERTIBLE PROMISSORY NOTES PAYABLE (Details Narrative)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/PaycheckProtectionProgramsbaLoanDetailsNarrative" xlink:title="00000037 - Disclosure - PAYCHECK PROTECTION PROGRAM/SBA LOAN (Details Narrative)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/ScheduleOfEffectiveIncomeTaxRateDetails" xlink:title="00000038 - Disclosure - SCHEDULE OF EFFECTIVE INCOME TAX RATE (Details)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/ScheduleOfDeferredTaxAssetsAndLiabilitiesDetails" xlink:title="00000039 - Disclosure - SCHEDULE OF DEFERRED TAX ASSETS AND LIABILITIES (Details)" />
+    <link:calculationLink xlink:type="extended" xlink:role="http://nestbuilder.com/role/IncomeTaxesDetailsNarrative" xlink:title="00000040 - Disclosure - INCOME TAXES (Details Narrative)" />
+</link:linkbase>
+</XBRL>

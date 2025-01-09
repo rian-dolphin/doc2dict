@@ -1,7 +1,4 @@
-from selectolax.parser import HTMLParser
-from time import time
-from visualizer import format_list_html
-
+# Core functionality (original)
 def standardize_css(style):
     if not style: 
         return {}
@@ -17,26 +14,8 @@ def get_node_styles(node):
         return {}
     return standardize_css(style)
 
-def get_indent(styles):
-    margin_left = styles.get('margin-left', ['0'])[0]
-    text_indent = styles.get('text-indent', ['0'])[0]
-    
-    try:
-        margin = float(margin_left.rstrip('%')) if '%' in margin_left else float(margin_left)
-    except ValueError:
-        margin = 0
-        
-    try:
-        indent = float(text_indent.rstrip('%')) if '%' in text_indent else float(text_indent)
-    except ValueError:
-        indent = 0
-        
-    return margin + indent
-
-def get_text_style(node, styles):
-    """Extract text styling from both tags and CSS"""
-    # Initialize with default values
-    text_style = {
+def get_text_style(node, styles, inherited_style=None):
+    text_style = inherited_style.copy() if inherited_style else {
         'bold': False,
         'italic': False,
         'underline': False
@@ -65,8 +44,30 @@ def get_text_style(node, styles):
         
     return text_style
 
+def get_indent(styles):
+    margin_left = styles.get('margin-left', ['0'])[0]
+    text_indent = styles.get('text-indent', ['0'])[0]
+    
+    try:
+        margin = float(margin_left.rstrip('%')) if '%' in margin_left else float(margin_left)
+    except ValueError:
+        margin = 0
+        
+    try:
+        indent = float(text_indent.rstrip('%')) if '%' in text_indent else float(text_indent)
+    except ValueError:
+        indent = 0
+        
+    return margin + indent
+
+def is_inline(node, styles):
+    if node.tag in {'span', 'a', 'strong', 'em', 'b', 'i', 'u'}:
+        return True
+    display = styles.get('display', [''])[0]
+    return display == 'inline'
+
 def iterwalk(root, include_text):
-    def walk(node, inherited_styles=None):
+    def walk(node, inherited_styles=None, inherited_text_style=None):
         current_styles = dict(inherited_styles or {})
         node_styles = get_node_styles(node)
         current_styles.update(node_styles)
@@ -84,45 +85,125 @@ def iterwalk(root, include_text):
             elif text_transform == 'capitalize':
                 text_content = text_content.capitalize()
 
-        text_style = get_text_style(node, current_styles)
+        text_style = get_text_style(node, current_styles, inherited_text_style)
+        
         yield ("start", node, current_styles, text_content, text_style)
         for child in node.iter(include_text=include_text):
             if child is not node:
-                yield from walk(child, current_styles)
+                yield from walk(child, current_styles, text_style)
         yield ("end", node, current_styles, text_content, text_style)
     
     for node in root.iter(include_text=include_text):
         if node is not root:
             yield from walk(node)
 
-def is_inline(node, styles):
-    if node.tag in {'span', 'a', 'strong', 'em', 'b', 'i', 'u'}:  # Added 'u'
-        return True
-    display = styles.get('display', [''])[0]
-    return display == 'inline'
+# New height calculation functionality (add/modify these sections)
+def parse_font_size(size_str, base_size):
+    """Parse font size with precise point-to-pixel conversion"""
+    try:
+        if size_str.endswith('pt'):
+            # Convert points to pixels (1pt = 1.333px)
+            return float(size_str[:-2]) * 1.333
+        elif size_str.endswith('px'):
+            return float(size_str[:-2])
+        elif size_str.endswith('%'):
+            return base_size * float(size_str[:-1]) / 100
+        elif size_str.endswith('em'):
+            return base_size * float(size_str[:-2])
+        elif size_str.endswith('rem'):
+            return 16 * float(size_str[:-3])  # rem is relative to root (usually 16px)
+        return float(size_str)  # Assume pixels if no unit
+    except ValueError:
+        return base_size  # Return base size if parsing fails
+
+def get_effective_style(node, parent_styles=None):
+    """Get combined styles considering element and parent context"""
+    styles = {}
+    
+    # Start with parent styles
+    if parent_styles:
+        styles.update(parent_styles)
+    
+    # Add element's own styles
+    element_styles = get_node_styles(node)
+    for key, value in element_styles.items():
+        if key in {'font-size', 'line-height', 'margin-top', 'margin-bottom',
+                  'padding-top', 'padding-bottom', 'border-top', 'border-bottom'}:
+            styles[key] = value
+            
+    return styles
+
+def calculate_compound_height(node, inherited_size=None):
+    """Calculate exact height based on all style factors"""
+    base_size = inherited_size or 16
+    styles = get_effective_style(node)
+    
+    # Get font size
+    if 'font-size' in styles:
+        font_size = parse_font_size(styles['font-size'][0], base_size)
+    else:
+        font_size = base_size
+        
+    # Calculate line height (default 1.2 if not specified)
+    line_height_mult = 1.2
+    if 'line-height' in styles:
+        try:
+            line_height_mult = float(styles['line-height'][0])
+        except ValueError:
+            pass
+            
+    content_height = font_size * line_height_mult
+    
+    # Add margins, padding, borders
+    spacing = 0
+    for prop in ['margin-top', 'margin-bottom', 'padding-top', 'padding-bottom']:
+        if prop in styles:
+            spacing += parse_font_size(styles[prop][0], base_size)
+            
+    # Handle borders
+    if 'border-top' in styles:
+        border_value = styles['border-top'][0].split()[0]
+        spacing += parse_font_size(border_value, base_size)
+    if 'border-bottom' in styles:
+        border_value = styles['border-bottom'][0].split()[0]
+        spacing += parse_font_size(border_value, base_size)
+
+    # round to 2 decimal places
+    font_size = round(font_size, 2)
+    content_height = round(content_height, 2)
+    spacing = round(spacing, 2)
+        
+    return {
+        'font_size': font_size,
+        'content_height': content_height,
+        'total_height': content_height + spacing
+    }
 
 def html_reduction(tree):
+    """Main processing function"""
     blocks = {'p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'article', 'section', 'li'}
     skip_elements = {'script', 'style', 'noscript'}
     lines = []
     current_line = []
     row_content = []
     in_row = False
-    current_indent = 0
-    current_style = None
+    inherited_size = 16  # Base font size
     
     def flush_line():
         if current_line:
-            items = [
-                {
-                    "text": item.strip(), 
-                    "indent": current_indent,
-                    "bold": current_style.get('bold', False) if current_style else False,
-                    "italic": current_style.get('italic', False) if current_style else False,
-                    "underline": current_style.get('underline', False) if current_style else False
-                } 
-                for item in current_line if item.strip()
-            ]
+            items = []
+            for item in current_line:
+                if item.strip():
+                    height_metrics = calculate_compound_height(current_node, inherited_size)
+                    items.append({
+                        "text": item.strip(),
+                        "indent": get_indent(current_styles),
+                        "bold": current_text_style.get('bold', False),
+                        "italic": current_text_style.get('italic', False),
+                        "underline": current_text_style.get('underline', False),
+                        "height": height_metrics['total_height'],
+                        "font_size": height_metrics['font_size']
+                    })
             if items:
                 lines.append(items)
             current_line.clear()
@@ -131,25 +212,31 @@ def html_reduction(tree):
         if node.tag in skip_elements:
             continue
 
-        is_flex = styles.get('display', [''])[0] == 'flex'
+        current_node = node
+        current_styles = styles
+        current_text_style = text_style
         
-        if event == "start" and (node.tag in blocks or is_flex):
-            current_indent = get_indent(styles)
-            current_style = text_style
+        if event == "start":
+            # Update inherited size based on parent styles
+            if 'font-size' in styles:
+                inherited_size = parse_font_size(styles['font-size'][0], inherited_size)
 
-        # Handle table rows
+        # Process content based on node type
         if node.tag == 'tr':
             if event == "start":
                 in_row = True
                 row_content = []
             elif event == "end":
                 if row_content:
+                    height_metrics = calculate_compound_height(node, inherited_size)
                     lines.append([{
-                        "text": text, 
+                        "text": text,
                         "indent": 0,
                         "bold": False,
                         "italic": False,
-                        "underline": False
+                        "underline": False,
+                        "height": height_metrics['total_height'],
+                        "font_size": height_metrics['font_size']
                     } for text in row_content])
                 in_row = False
                 row_content = []
@@ -161,18 +248,21 @@ def html_reduction(tree):
                 row_content.append(text)
             continue
             
-        if (node.tag in blocks or is_flex) and not is_inline(node, styles):
+        if (node.tag in blocks or styles.get('display', [''])[0] == 'flex') and not is_inline(node, styles):
             if event == "start":
                 flush_line()
                 if text_content:
                     text = text_content.strip()
                     if text:
+                        height_metrics = calculate_compound_height(node, inherited_size)
                         lines.append([{
-                            "text": text, 
-                            "indent": current_indent,
+                            "text": text,
+                            "indent": get_indent(styles),
                             "bold": text_style['bold'],
                             "italic": text_style['italic'],
-                            "underline": text_style['underline']
+                            "underline": text_style['underline'],
+                            "height": height_metrics['total_height'],
+                            "font_size": height_metrics['font_size']
                         }])
             elif event == "end":
                 flush_line()
@@ -180,15 +270,6 @@ def html_reduction(tree):
             text = text_content.strip()
             if text:
                 current_line.append(text)
-                current_style = text_style
     
     flush_line()
     return lines
-
-
-# Usage:
-tree = HTMLParser(open('10k/bumble.html').read())
-s = time()
-reduced_form = html_reduction(tree)
-print(f"Processing time: {time()-s:.3f} seconds")
-format_list_html(reduced_form)

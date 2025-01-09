@@ -1,0 +1,68 @@
+{
+    "submission": {
+        "ACCESSION-NUMBER": "0000072633-21-000024",
+        "TYPE": "10-K",
+        "PUBLIC-DOCUMENT-COUNT": "5",
+        "PERIOD": "20211031",
+        "FILING-DATE": "20211230",
+        "DATE-OF-FILING-DATE-CHANGE": "20211230",
+        "FILER": {
+            "COMPANY-DATA": {
+                "CONFORMED-NAME": "NORTH EUROPEAN OIL ROYALTY TRUST",
+                "CIK": "0000072633",
+                "ASSIGNED-SIC": "6792",
+                "IRS-NUMBER": "222084119",
+                "STATE-OF-INCORPORATION": "NH",
+                "FISCAL-YEAR-END": "1031"
+            },
+            "FILING-VALUES": {
+                "FORM-TYPE": "10-K",
+                "ACT": "34",
+                "FILE-NUMBER": "001-08245",
+                "FILM-NUMBER": "211532046"
+            },
+            "BUSINESS-ADDRESS": {
+                "STREET1": "P O BOX 187",
+                "STREET2": "5 N. LINCOLN STREET",
+                "CITY": "KEENE",
+                "STATE": "NH",
+                "ZIP": "03431",
+                "PHONE": "7327414008"
+            },
+            "MAIL-ADDRESS": {
+                "STREET1": "P O BOX 187",
+                "STREET2": "5 N. LINCOLN STREET",
+                "CITY": "KEENE",
+                "STATE": "NH",
+                "ZIP": "03431"
+            }
+        }
+    },
+    "documents": [
+        {
+            "TYPE": "10-K",
+            "SEQUENCE": "1",
+            "FILENAME": "tenk2021.htm"
+        },
+        {
+            "TYPE": "EX-4",
+            "SEQUENCE": "2",
+            "FILENAME": "x4-123021.htm"
+        },
+        {
+            "TYPE": "EX-31",
+            "SEQUENCE": "3",
+            "FILENAME": "x31-123021.htm"
+        },
+        {
+            "TYPE": "EX-32",
+            "SEQUENCE": "4",
+            "FILENAME": "x32-123021.htm"
+        },
+        {
+            "TYPE": "EX-99",
+            "SEQUENCE": "5",
+            "FILENAME": "x99-113021.htm"
+        }
+    ]
+}

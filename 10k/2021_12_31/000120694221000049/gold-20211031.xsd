@@ -1,0 +1,381 @@
+<XBRL>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--XBRL Document Created with Wdesk from Workiva-->
+<!--Copyright 2021 Workiva-->
+<!--r:9b8f7b78-4a66-4b08-8559-14573d62a976,g:384bd88d-46fb-4cc4-bcf8-c354e77a6942-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:gold="http://www.goldengrainenergy.com/20211031" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:dtr-types="http://www.xbrl.org/dtr/type/2020-01-21" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.goldengrainenergy.com/20211031">
+  <xs:import namespace="http://fasb.org/srt/2021-01-31" schemaLocation="https://xbrl.fasb.org/srt/2021/elts/srt-2021-01-31.xsd"/>
+  <xs:import namespace="http://fasb.org/us-gaap/2021-01-31" schemaLocation="https://xbrl.fasb.org/us-gaap/2021/elts/us-gaap-2021-01-31.xsd"/>
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.xbrl.org/2003/xlink-2003-12-31.xsd"/>
+  <xs:import namespace="http://www.xbrl.org/2003/instance" schemaLocation="http://www.xbrl.org/2003/xbrl-instance-2003-12-31.xsd"/>
+  <xs:import namespace="http://www.xbrl.org/2003/linkbase" schemaLocation="http://www.xbrl.org/2003/xbrl-linkbase-2003-12-31.xsd"/>
+  <xs:import namespace="http://www.xbrl.org/dtr/type/2020-01-21" schemaLocation="https://www.xbrl.org/dtr/type/2020-01-21/types.xsd"/>
+  <xs:import namespace="http://xbrl.sec.gov/dei/2021" schemaLocation="https://xbrl.sec.gov/dei/2021/dei-2021.xsd"/>
+  <xs:annotation>
+    <xs:appinfo>
+      <link:linkbaseRef xmlns:xlink="http://www.w3.org/1999/xlink" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="gold-20211031_lab.xml" xlink:role="http://www.xbrl.org/2003/role/labelLinkbaseRef" xlink:type="simple"/>
+      <link:linkbaseRef xmlns:xlink="http://www.w3.org/1999/xlink" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="gold-20211031_pre.xml" xlink:role="http://www.xbrl.org/2003/role/presentationLinkbaseRef" xlink:type="simple"/>
+      <link:linkbaseRef xmlns:xlink="http://www.w3.org/1999/xlink" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="gold-20211031_cal.xml" xlink:role="http://www.xbrl.org/2003/role/calculationLinkbaseRef" xlink:type="simple"/>
+      <link:linkbaseRef xmlns:xlink="http://www.w3.org/1999/xlink" xlink:arcrole="http://www.w3.org/1999/xlink/properties/linkbase" xlink:href="gold-20211031_def.xml" xlink:role="http://www.xbrl.org/2003/role/definitionLinkbaseRef" xlink:type="simple"/>
+      <link:roleType id="CoverPageDocument" roleURI="http://www.goldengrainenergy.com/role/CoverPageDocument">
+        <link:definition>0001001 - Document - Cover Page Document</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="BalanceSheet" roleURI="http://www.goldengrainenergy.com/role/BalanceSheet">
+        <link:definition>1001002 - Statement - Balance Sheet</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="BalanceSheetBalanceSheetParenthetical" roleURI="http://www.goldengrainenergy.com/role/BalanceSheetBalanceSheetParenthetical">
+        <link:definition>1002003 - Statement - Balance Sheet Balance Sheet Parenthetical</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="StatementofOperations" roleURI="http://www.goldengrainenergy.com/role/StatementofOperations">
+        <link:definition>1003004 - Statement - Statement of Operations</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="StatementofCashFlows" roleURI="http://www.goldengrainenergy.com/role/StatementofCashFlows">
+        <link:definition>1004005 - Statement - Statement of Cash Flows</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="ConsolidatedStatementsofChangesinMembersEquity" roleURI="http://www.goldengrainenergy.com/role/ConsolidatedStatementsofChangesinMembersEquity">
+        <link:definition>1005006 - Statement - Consolidated Statements of Changes in Members' Equity</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="ConsolidatedStatementsofChangesinMembersEquityParenthetical" roleURI="http://www.goldengrainenergy.com/role/ConsolidatedStatementsofChangesinMembersEquityParenthetical">
+        <link:definition>1006007 - Statement - Consolidated Statements of Changes in Members' Equity Parenthetical</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SummaryofSignificantAccountingPolicies" roleURI="http://www.goldengrainenergy.com/role/SummaryofSignificantAccountingPolicies">
+        <link:definition>2101101 - Disclosure - Summary of Significant Accounting Policies</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SummaryofSignificantAccountingPoliciesPolicies" roleURI="http://www.goldengrainenergy.com/role/SummaryofSignificantAccountingPoliciesPolicies">
+        <link:definition>2202201 - Disclosure - Summary of Significant Accounting Policies (Policies)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SummaryofSignificantAccountingPoliciesProductionDetails" roleURI="http://www.goldengrainenergy.com/role/SummaryofSignificantAccountingPoliciesProductionDetails">
+        <link:definition>2403401 - Disclosure - Summary of Significant Accounting Policies Production (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SummaryofSignificantAccountingPoliciesMarketableSecuritiesDetails" roleURI="http://www.goldengrainenergy.com/role/SummaryofSignificantAccountingPoliciesMarketableSecuritiesDetails">
+        <link:definition>2404402 - Disclosure - Summary of Significant Accounting Policies Marketable Securities (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SummaryofSignificantAccountingPoliciesPropertyandEquipmentDetails" roleURI="http://www.goldengrainenergy.com/role/SummaryofSignificantAccountingPoliciesPropertyandEquipmentDetails">
+        <link:definition>2405403 - Disclosure - Summary of Significant Accounting Policies Property and Equipment (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SummaryofSignificantAccountingPoliciesConcentrationRiskDetails" roleURI="http://www.goldengrainenergy.com/role/SummaryofSignificantAccountingPoliciesConcentrationRiskDetails">
+        <link:definition>2406404 - Disclosure - Summary of Significant Accounting Policies Concentration Risk (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SummaryofSignificantAccountingPoliciesRecentAccountingPronouncementsDetails" roleURI="http://www.goldengrainenergy.com/role/SummaryofSignificantAccountingPoliciesRecentAccountingPronouncementsDetails">
+        <link:definition>2407405 - Disclosure - Summary of Significant Accounting Policies Recent Accounting Pronouncements (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SummaryofSignificantAccountingPoliciesDetails" roleURI="http://www.goldengrainenergy.com/role/SummaryofSignificantAccountingPoliciesDetails">
+        <link:definition>2408406 - Disclosure - Summary of Significant Accounting Policies (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SummaryofSignificantAccountingPoliciesDeferredRevenueGrantRecDetails" roleURI="http://www.goldengrainenergy.com/role/SummaryofSignificantAccountingPoliciesDeferredRevenueGrantRecDetails">
+        <link:definition>2409407 - Disclosure - Summary of Significant Accounting Policies Deferred Revenue/Grant Rec (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="Inventory" roleURI="http://www.goldengrainenergy.com/role/Inventory">
+        <link:definition>2110102 - Disclosure - Inventory</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="InventoryTables" roleURI="http://www.goldengrainenergy.com/role/InventoryTables">
+        <link:definition>2311301 - Disclosure - Inventory (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="InventoryDetails" roleURI="http://www.goldengrainenergy.com/role/InventoryDetails">
+        <link:definition>2412408 - Disclosure - Inventory (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="BankFinancing" roleURI="http://www.goldengrainenergy.com/role/BankFinancing">
+        <link:definition>2113103 - Disclosure - Bank Financing</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="BankFinancingLongTermDebtDetails" roleURI="http://www.goldengrainenergy.com/role/BankFinancingLongTermDebtDetails">
+        <link:definition>2414409 - Disclosure - Bank Financing Long Term Debt (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RelatedPartyTransactions" roleURI="http://www.goldengrainenergy.com/role/RelatedPartyTransactions">
+        <link:definition>2115104 - Disclosure - Related Party Transactions</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RelatedPartyTransactionsDetails" roleURI="http://www.goldengrainenergy.com/role/RelatedPartyTransactionsDetails">
+        <link:definition>2416410 - Disclosure - Related Party Transactions (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="EmployeeBenefitPlan" roleURI="http://www.goldengrainenergy.com/role/EmployeeBenefitPlan">
+        <link:definition>2117105 - Disclosure - Employee Benefit Plan</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="EmployeeBenefitPlanDetails" roleURI="http://www.goldengrainenergy.com/role/EmployeeBenefitPlanDetails">
+        <link:definition>2418411 - Disclosure - Employee Benefit Plan (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="CommitmentsContingenciesandAgreements" roleURI="http://www.goldengrainenergy.com/role/CommitmentsContingenciesandAgreements">
+        <link:definition>2119106 - Disclosure - Commitments, Contingencies and Agreements</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="CommitmentsContingenciesandAgreementsTables" roleURI="http://www.goldengrainenergy.com/role/CommitmentsContingenciesandAgreementsTables">
+        <link:definition>2320302 - Disclosure - Commitments, Contingencies and Agreements (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="CommitmentsContingenciesandAgreementsDetails" roleURI="http://www.goldengrainenergy.com/role/CommitmentsContingenciesandAgreementsDetails">
+        <link:definition>2421412 - Disclosure - Commitments, Contingencies and Agreements (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RiskManagement" roleURI="http://www.goldengrainenergy.com/role/RiskManagement">
+        <link:definition>2122107 - Disclosure - Risk Management</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RiskManagementTables" roleURI="http://www.goldengrainenergy.com/role/RiskManagementTables">
+        <link:definition>2323303 - Disclosure - Risk Management (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RiskManagementDerivativeInstrumentsIncomeStatementDetails" roleURI="http://www.goldengrainenergy.com/role/RiskManagementDerivativeInstrumentsIncomeStatementDetails">
+        <link:definition>2424413 - Disclosure - Risk Management Derivative Instruments - Income Statement (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RiskManagementDerivativeInstrumentsBalanceSheetLocationDetails" roleURI="http://www.goldengrainenergy.com/role/RiskManagementDerivativeInstrumentsBalanceSheetLocationDetails">
+        <link:definition>2425414 - Disclosure - Risk Management Derivative Instruments - Balance Sheet Location (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="RiskManagementLongTermPurchaseCommitmentsDetails" roleURI="http://www.goldengrainenergy.com/role/RiskManagementLongTermPurchaseCommitmentsDetails">
+        <link:definition>2426415 - Disclosure - Risk Management Long-Term Purchase Commitments (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FairValueMeasurements" roleURI="http://www.goldengrainenergy.com/role/FairValueMeasurements">
+        <link:definition>2127108 - Disclosure - Fair Value Measurements</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FairValueMeasurementsTables" roleURI="http://www.goldengrainenergy.com/role/FairValueMeasurementsTables">
+        <link:definition>2328304 - Disclosure - Fair Value Measurements (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="FairValueMeasurementsDetails" roleURI="http://www.goldengrainenergy.com/role/FairValueMeasurementsDetails">
+        <link:definition>2429416 - Disclosure - Fair Value Measurements (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="Investments" roleURI="http://www.goldengrainenergy.com/role/Investments">
+        <link:definition>2130109 - Disclosure - Investments</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="InvestmentsTables" roleURI="http://www.goldengrainenergy.com/role/InvestmentsTables">
+        <link:definition>2331305 - Disclosure - Investments (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="InvestmentsDetails" roleURI="http://www.goldengrainenergy.com/role/InvestmentsDetails">
+        <link:definition>2432417 - Disclosure - Investments (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SegmentReporting" roleURI="http://www.goldengrainenergy.com/role/SegmentReporting">
+        <link:definition>2133110 - Disclosure - Segment Reporting</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SegmentReportingTables" roleURI="http://www.goldengrainenergy.com/role/SegmentReportingTables">
+        <link:definition>2334306 - Disclosure - Segment Reporting (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SegmentReportingDetails" roleURI="http://www.goldengrainenergy.com/role/SegmentReportingDetails">
+        <link:definition>2435418 - Disclosure - Segment Reporting (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="MembersEquity" roleURI="http://www.goldengrainenergy.com/role/MembersEquity">
+        <link:definition>2136111 - Disclosure - Members' Equity</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="MembersEquityDetails" roleURI="http://www.goldengrainenergy.com/role/MembersEquityDetails">
+        <link:definition>2437419 - Disclosure - Members' Equity (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="LeaseObligations" roleURI="http://www.goldengrainenergy.com/role/LeaseObligations">
+        <link:definition>2138112 - Disclosure - Lease Obligations</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="LeaseObligationsTables" roleURI="http://www.goldengrainenergy.com/role/LeaseObligationsTables">
+        <link:definition>2339307 - Disclosure - Lease Obligations (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="LeaseObligationsDetails" roleURI="http://www.goldengrainenergy.com/role/LeaseObligationsDetails">
+        <link:definition>2440420 - Disclosure - Lease Obligations (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="GroupInsurance" roleURI="http://www.goldengrainenergy.com/role/GroupInsurance">
+        <link:definition>2141113 - Disclosure - Group Insurance</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="QuarterlyFinancialReportingUnaudited" roleURI="http://www.goldengrainenergy.com/role/QuarterlyFinancialReportingUnaudited">
+        <link:definition>2142114 - Disclosure - Quarterly Financial Reporting (Unaudited)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="QuarterlyFinancialReportingUnauditedTables" roleURI="http://www.goldengrainenergy.com/role/QuarterlyFinancialReportingUnauditedTables">
+        <link:definition>2343308 - Disclosure - Quarterly Financial Reporting (Unaudited) (Tables)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="QuarterlyFinancialReportingUnauditedDetails" roleURI="http://www.goldengrainenergy.com/role/QuarterlyFinancialReportingUnauditedDetails">
+        <link:definition>2444421 - Disclosure - Quarterly Financial Reporting (Unaudited) (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SubsequentEvents" roleURI="http://www.goldengrainenergy.com/role/SubsequentEvents">
+        <link:definition>2145115 - Disclosure - Subsequent Events</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+      <link:roleType id="SubsequentEventsDetails" roleURI="http://www.goldengrainenergy.com/role/SubsequentEventsDetails">
+        <link:definition>2446422 - Disclosure - Subsequent Events (Details)</link:definition>
+        <link:usedOn>link:presentationLink</link:usedOn>
+        <link:usedOn>link:calculationLink</link:usedOn>
+        <link:usedOn>link:definitionLink</link:usedOn>
+      </link:roleType>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element id="gold_OtherEquityInvestmentsMember" abstract="true" name="OtherEquityInvestmentsMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_CornOilMember" abstract="true" name="CornOilMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_AbsoluteEnergyMember" abstract="true" name="AbsoluteEnergyMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_SegmentReconciliationMember" abstract="true" name="SegmentReconciliationMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_ProductUsagePercentageNextTwelveMonths" abstract="false" name="ProductUsagePercentageNextTwelveMonths" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:percentItemType"/>
+  <xs:element id="gold_ShareBasedCompensationPercentageOfNetIncome" abstract="false" name="ShareBasedCompensationPercentageOfNetIncome" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:percentItemType"/>
+  <xs:element id="gold_EthanolMember" abstract="true" name="EthanolMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_EmployeeBenefitPlansAbstract" abstract="true" name="EmployeeBenefitPlansAbstract" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+  <xs:element id="gold_InsuranceFromBusinessInterruption" abstract="false" name="InsuranceFromBusinessInterruption" nillable="true" xbrli:periodType="duration" xbrli:balance="credit" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType"/>
+  <xs:element id="gold_TaxIncrementalFinancingMember" abstract="true" name="TaxIncrementalFinancingMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_FairValueMeasurementsAbstract" abstract="true" name="FairValueMeasurementsAbstract" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+  <xs:element id="gold_DerivativeInstrumentsRealizedGainLossRecognizedInIncomeNet" abstract="false" name="DerivativeInstrumentsRealizedGainLossRecognizedInIncomeNet" nillable="true" xbrli:periodType="duration" xbrli:balance="credit" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType"/>
+  <xs:element id="gold_CrescoUnionSavingsBankMember" abstract="true" name="CrescoUnionSavingsBankMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_DistillersGrainsMember" abstract="true" name="DistillersGrainsMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_InventoryAbstract" abstract="true" name="InventoryAbstract" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+  <xs:element id="gold_EquityMethodInvestmentsNumberofEntities" abstract="false" name="EquityMethodInvestmentsNumberofEntities" nillable="true" xbrli:periodType="instant" substitutionGroup="xbrli:item" type="xbrli:integerItemType"/>
+  <xs:element id="gold_AnnualProductionCapacity" abstract="false" name="AnnualProductionCapacity" nillable="true" xbrli:periodType="instant" substitutionGroup="xbrli:item" type="dtr-types:volumeItemType"/>
+  <xs:element id="gold_BalanceSheetAbstract" abstract="true" name="BalanceSheetAbstract" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+  <xs:element id="gold_QuarterlyFinancialReportedUnauditedAbstract" abstract="true" name="QuarterlyFinancialReportedUnauditedAbstract" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+  <xs:element id="gold_EthanolProductionInvestmentsSegmentMember" abstract="true" name="EthanolProductionInvestmentsSegmentMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_GroupInsuranceTextBlock" abstract="false" name="GroupInsuranceTextBlock" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:textBlockItemType"/>
+  <xs:element id="gold_RiskManagementAbstract" abstract="true" name="RiskManagementAbstract" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+  <xs:element id="gold_FarmCreditServicesOfAmericaMember" abstract="true" name="FarmCreditServicesOfAmericaMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_CommitmentsContingenciesAndAgreementsAbstract" abstract="true" name="CommitmentsContingenciesAndAgreementsAbstract" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+  <xs:element id="gold_PropertyAndEquipmentAbstract" abstract="true" name="PropertyAndEquipmentAbstract" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+  <xs:element id="gold_CornMember" abstract="true" name="CornMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_GuardianEnergyMember" abstract="true" name="GuardianEnergyMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_OtherSegmentsMember" abstract="true" name="OtherSegmentsMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_MembersEquityParentheticalAbstract" abstract="true" name="MembersEquityParentheticalAbstract" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+  <xs:element id="gold_ProductionSegmentMember" abstract="true" name="ProductionSegmentMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_HomelandEnergySolutionsMember" abstract="true" name="HomelandEnergySolutionsMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_GrantAgreementTaxIncrementFinancingMoniesPeriod" abstract="false" name="GrantAgreementTaxIncrementFinancingMoniesPeriod" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+  <xs:element id="gold_DerivativeInstrumentsUnrealizedGainLossRecognizedInIncomeNet" abstract="false" name="DerivativeInstrumentsUnrealizedGainLossRecognizedInIncomeNet" nillable="true" xbrli:periodType="duration" xbrli:balance="credit" substitutionGroup="xbrli:item" type="xbrli:monetaryItemType"/>
+  <xs:element id="gold_GroupInsuranceAbstract" abstract="true" name="GroupInsuranceAbstract" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+  <xs:element id="gold_ConsolidatedStatementsOfChangesInMembersEquityAbstract" abstract="true" name="ConsolidatedStatementsOfChangesInMembersEquityAbstract" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+  <xs:element id="gold_DocumentAndEntityInformationAbstract" abstract="true" name="DocumentAndEntityInformationAbstract" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+  <xs:element id="gold_FixedPriceMember" abstract="true" name="FixedPriceMember" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:domainItemType"/>
+  <xs:element id="gold_ProductUsagePercentageNext24Months" abstract="false" name="ProductUsagePercentageNext24Months" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="dtr-types:percentItemType"/>
+  <xs:element id="gold_BankFinancingAbstract" abstract="true" name="BankFinancingAbstract" nillable="true" xbrli:periodType="duration" substitutionGroup="xbrli:item" type="xbrli:stringItemType"/>
+</xs:schema>
+</XBRL>
