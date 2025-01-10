@@ -57,7 +57,10 @@ def format_list_html(nested_list):
     
     for items in nested_list:
         if isinstance(items, list):
-            first_indent = items[0].get('indent', 0) if isinstance(items[0], dict) else 0
+            first_indent = items[0].get('indent', 0) if isinstance(items[0], dict) else 0 
+
+            # WIP please update
+            first_indent = first_indent * 0.125
             html_content += f"<div class='row' style='padding-left: {first_indent}em'>\n"
             
             for i, item in enumerate(items):
@@ -74,7 +77,6 @@ def format_list_html(nested_list):
             html_content += "</div>\n"
         else:
             if isinstance(items, dict):
-                indent = items.get('indent', 0)
                 styled_text = get_styled_text(items)
                 height = items.get('height', '')
                 height_style = f'height: {height};' if height else ''
