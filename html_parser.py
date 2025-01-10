@@ -45,38 +45,47 @@ def get_text_style(node, styles, inherited_style=None):
     return text_style
 
 def get_indent(styles):
+    # Handle direct indentation
     margin_left = styles.get('margin-left', ['0'])[0]
     text_indent = styles.get('text-indent', ['0'])[0]
-    
+    text_align = styles.get('text-align', ['left'])[0]  # default to left
+
     def convert_to_pixels(value):
         try:
             if value.endswith('in'):
-                # 1 inch = 96 pixels
                 return float(value.rstrip('in')) * 96
             elif value.endswith('cm'):
-                # 1 cm = ~37.8 pixels
                 return float(value.rstrip('cm')) * 37.8
             elif value.endswith('mm'):
-                # 1 mm = ~3.78 pixels
                 return float(value.rstrip('mm')) * 3.78
             elif value.endswith('pt'):
-                # 1 point = 1.333 pixels
                 return float(value.rstrip('pt')) * 1.333
             elif value.endswith('px'):
                 return float(value.rstrip('px'))
             elif value.endswith('%'):
-                # For percentage, we might want to base this on something
                 return float(value.rstrip('%'))
             else:
                 return float(value)
         except ValueError:
             return 0
-    
+
+    # Calculate physical indentation in pixels
     margin = convert_to_pixels(margin_left)
     indent = convert_to_pixels(text_indent)
-        
-    return margin + indent
-
+    
+    # Convert alignment to positions on 0-100 scale
+    # left = 0, center = 50, right = 100
+    if text_align == 'center':
+        return 50
+    elif text_align == 'right':
+        return 100
+    else:  # left or justify
+        # Convert physical indent to percentage (assuming standard page width of ~700px)
+        # This is approximate - might need to adjust the scaling factor
+        page_width = 700  # assumed page width in pixels
+        position = ((margin + indent) / page_width) * 100
+        return min(100, position)  # cap at 100
+    
 def is_inline(node, styles):
     if node.tag in {'span', 'a', 'strong', 'em', 'b', 'i', 'u'}:
         return True
