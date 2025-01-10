@@ -192,15 +192,15 @@ def html_reduction(tree):
     def flush_line():
         if current_line:
             items = []
-            for item in current_line:
-                if item.strip():
+            for text, style in current_line:
+                if text.strip():
                     height_metrics = calculate_compound_height(current_node, inherited_size)
                     items.append({
-                        "text": item.strip(),
+                        "text": text.strip(),
                         "indent": get_indent(current_styles),
-                        "bold": current_text_style.get('bold', False),
-                        "italic": current_text_style.get('italic', False),
-                        "underline": current_text_style.get('underline', False),
+                        "bold": style.get('bold', False),
+                        "italic": style.get('italic', False),
+                        "underline": style.get('underline', False),
                         "height": height_metrics['total_height'],
                         "font_size": height_metrics['font_size']
                     })
@@ -232,12 +232,12 @@ def html_reduction(tree):
                     lines.append([{
                         "text": text,
                         "indent": 0,
-                        "bold": False,
-                        "italic": False,
-                        "underline": False,
+                        "bold": style['bold'],  # Use captured style
+                        "italic": style['italic'],  # Use captured style
+                        "underline": style['underline'],  # Use captured style
                         "height": height_metrics['total_height'],
                         "font_size": height_metrics['font_size']
-                    } for text in row_content])
+                    } for text, style in row_content])  # Unpack both text and style
                 in_row = False
                 row_content = []
                 continue
@@ -245,7 +245,8 @@ def html_reduction(tree):
         if in_row and event == "start" and text_content:
             text = text_content.strip()
             if text:
-                row_content.append(text)
+                # Store both text and style
+                row_content.append((text, text_style))
             continue
             
         if (node.tag in blocks or styles.get('display', [''])[0] == 'flex') and not is_inline(node, styles):
@@ -269,7 +270,7 @@ def html_reduction(tree):
         elif event == "start" and text_content:
             text = text_content.strip()
             if text:
-                current_line.append(text)
+                current_line.append((text, text_style))  # Store tuple of (text, style)
     
     flush_line()
     return lines

@@ -21,3 +21,13 @@ I'll work to make this optimized for SEC filings using mapping dicts
 ### Benchmarks
 Bumble 10k
 50ms to load, 80ms to iterate through
+
+# note:
+current issue is bold inheritance not working
+todo writeup of how parser works
+write up of rules
+visualize ruleset
+
+publish to python
+
+Generalized-parser? or maybe miruvor 

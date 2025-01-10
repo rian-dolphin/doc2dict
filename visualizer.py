@@ -39,7 +39,7 @@ def format_list_html(nested_list):
             return str(item)
             
         height = str(item.get('height', ''))
-        text = 'height:' + height + ', ' + item.get('text', '')
+        text = item.get('text', '')
         style_properties = []
         
         if item.get('bold', False):
