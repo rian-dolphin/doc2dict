@@ -23,7 +23,6 @@ Bumble 10k
 50ms to load, 80ms to iterate through
 
 # note:
-current issue is bold inheritance not working
 todo writeup of how parser works
 write up of rules
 visualize ruleset
@@ -31,3 +30,12 @@ visualize ruleset
 publish to python
 
 Generalized-parser? or maybe miruvor 
+
+
+ident not working?
+
+TODO:
+main just write default ruleset
+setup mapping dicts
+
+then we can worry about bullets etc

@@ -48,15 +48,32 @@ def get_indent(styles):
     margin_left = styles.get('margin-left', ['0'])[0]
     text_indent = styles.get('text-indent', ['0'])[0]
     
-    try:
-        margin = float(margin_left.rstrip('%')) if '%' in margin_left else float(margin_left)
-    except ValueError:
-        margin = 0
-        
-    try:
-        indent = float(text_indent.rstrip('%')) if '%' in text_indent else float(text_indent)
-    except ValueError:
-        indent = 0
+    def convert_to_pixels(value):
+        try:
+            if value.endswith('in'):
+                # 1 inch = 96 pixels
+                return float(value.rstrip('in')) * 96
+            elif value.endswith('cm'):
+                # 1 cm = ~37.8 pixels
+                return float(value.rstrip('cm')) * 37.8
+            elif value.endswith('mm'):
+                # 1 mm = ~3.78 pixels
+                return float(value.rstrip('mm')) * 3.78
+            elif value.endswith('pt'):
+                # 1 point = 1.333 pixels
+                return float(value.rstrip('pt')) * 1.333
+            elif value.endswith('px'):
+                return float(value.rstrip('px'))
+            elif value.endswith('%'):
+                # For percentage, we might want to base this on something
+                return float(value.rstrip('%'))
+            else:
+                return float(value)
+        except ValueError:
+            return 0
+    
+    margin = convert_to_pixels(margin_left)
+    indent = convert_to_pixels(text_indent)
         
     return margin + indent
 
