@@ -1,41 +1,33 @@
-# Generalized Parsers
+# doc2dict (NOT READY FOR USE YET)
 
-This is a repo for parsing human readable datatypes into machine optimized form.
+Convert HTML, XML, and PDFs into dictionaries using an algorithimic approach, e.g. [unstructured.io](https://unstructured.io/) but open-source and without LLMs.
 
-### Planned Parsers
-1. HTML Parser
-2. PDF/IMAGE Parser
+Parsers
+1. HTML Parser (WIP)
+2. XML Parser (WIP)
+3. PDF/IMAGE Parser (Planned)
 
+## Installation
+```
+pip install doc2dict
+```
 
-### Strategy
-1. Reduce form
-2. Use rules to convert reduced form to hierarchies in nested json
+## Quickstart
+```
+# something about xml, html here showcasing viz as well as parsing
+```
+
+### General Strategy
+1. Reduce complicated underlying stucture to only necessary components
+2. Use rules to map reduced form into a nested dictionary 
+3. Apply mapping dicts to provide fine-grained control over dictionary names
 
 ### Add-ons
-I'll work to make this optimized for SEC filings using mapping dicts
+* Mapping dicts for every SEC form and attachment (WIP)
 
-### Speed
-* Don't worry too much about speed. under 1s for 100 pages is fine. with multiprocessing thats like 1000 pages / second. 
-* If optimization matters, we will rewrite in C or Cython.
+### Speed (WIP)
+* Target - 10,000 pages per second for HTML parser
+* Will rewrite in Cython or C bindings if better performance needed.
 
-### Benchmarks
-Bumble 10k
-50ms to load, 80ms to iterate through
-
-# note:
-todo writeup of how parser works
-write up of rules
-visualize ruleset
-
-publish to python
-
-Generalized-parser? or maybe miruvor 
-
-
-ident not working?
-
-TODO:
-main just write default ruleset
-setup mapping dicts
-
-then we can worry about bullets etc
+### Current Benchmarks
+* Bumble 10k (100 pages), 50ms to load, 80ms to iterate through

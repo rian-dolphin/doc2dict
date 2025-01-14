@@ -1,0 +1,9 @@
+mapping dicts
+e.g. item 1 -> item 1
+
+precursor goes -> before
+
+after -> after
+
+prior
+post
