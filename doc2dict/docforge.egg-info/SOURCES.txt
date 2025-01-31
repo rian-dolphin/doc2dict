@@ -1,9 +1,0 @@
-setup.py
-docforge/__init__.py
-docforge/html_parser.py
-docforge/visualizer.py
-docforge.egg-info/PKG-INFO
-docforge.egg-info/SOURCES.txt
-docforge.egg-info/dependency_links.txt
-docforge.egg-info/requires.txt
-docforge.egg-info/top_level.txt

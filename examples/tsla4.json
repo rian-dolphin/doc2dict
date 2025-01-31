@@ -1,0 +1,1288 @@
+{
+    "ownershipDocument": {
+        "schemaVersion": "X0306",
+        "documentType": "4",
+        "periodOfReport": "2022-12-12",
+        "notSubjectToSection16": "0",
+        "issuer": {
+            "issuerCik": "0001318605",
+            "issuerName": "Tesla, Inc.",
+            "issuerTradingSymbol": "TSLA"
+        },
+        "reportingOwner": {
+            "reportingOwnerId": {
+                "rptOwnerCik": "0001494730",
+                "rptOwnerName": "Musk Elon"
+            },
+            "reportingOwnerAddress": {
+                "rptOwnerStreet1": "C/O TESLA, INC.",
+                "rptOwnerStreet2": "1 TESLA ROAD",
+                "rptOwnerCity": "AUSTIN",
+                "rptOwnerState": "TX",
+                "rptOwnerZipCode": "78725"
+            },
+            "reportingOwnerRelationship": {
+                "isDirector": "1",
+                "isOfficer": "1",
+                "isTenPercentOwner": "1",
+                "isOther": "0",
+                "officerTitle": "CEO"
+            }
+        },
+        "nonDerivativeTable": {
+            "nonDerivativeTransaction": [
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-12"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "1820804"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "168.055",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $167.550 to $168.540, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "443796628"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-12"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "1020447"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "168.929",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $168.550 to $169.540, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "442776181"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-12"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "363749"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "169.976",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $169.550 to $170.360, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "442412432"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "235418"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "157.55",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $157.020 to $158.010, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "442177014"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "626066"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "158.51",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $158.020 to $159.010, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "441550948"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "702969"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "159.52",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $159.020 to $160.010, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "440847979"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "2294072"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "160.754",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $160.020 to $161.010, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "438553907"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "1868138"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "161.444",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $161.020 to $162.010, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "436685769"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "2208110"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "162.425",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $162.020 to $163.010, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "434477659"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "466672"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "163.546",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $163.020 to $164.010, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "434010987"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "234591"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "164.246",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $164.020 to $165.010, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "433776396"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "89471"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "165.728",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $165.020 to $165.920, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "433686925"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "380964"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "166.515",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $166.020 to $167.010, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "433305961"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "473518"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "167.587",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $167.020 to $168.010, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "432832443"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "240269"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "168.529",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $168.020 to $168.950, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "432592174"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "129795"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "169.449",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $169.080 to $170.070, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "432462379"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "148750"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "170.527",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $170.090 to $171.080, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "432313629"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "540935"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "171.682",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $171.090 to $172.080, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "431772694"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "378017"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "172.615",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $172.090 to $173.080, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "431394677"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "720996"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "173.586",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $173.090 to $174.040, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "430673681"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "135704"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "174.654",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $174.130 to $174.890, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "430537977"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-13"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "45545"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "176.702",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $176.400 to $177.150, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "430492432"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-14"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "615047"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "156.141",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $155.430 to $156.420, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "429877385"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-14"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "1782089"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "156.952",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $156.430 to $157.420, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "428095296"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-14"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "1157065"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "157.979",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $157.430 to $158.420, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "426938231"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-14"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "1391103"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "158.93",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $158.430 to $159.420, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "425547128"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-14"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "1309003"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "159.879",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $159.430 to $160.420, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "424238125"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-14"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "568261"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "160.933",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $160.430 to $161.400, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "423669864"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                },
+                {
+                    "securityTitle": {
+                        "value": "Common Stock"
+                    },
+                    "transactionDate": {
+                        "value": "2022-12-14"
+                    },
+                    "deemedExecutionDate": null,
+                    "transactionCoding": {
+                        "transactionFormType": "4",
+                        "transactionCode": "S",
+                        "equitySwapInvolved": "0"
+                    },
+                    "transactionTimeliness": {
+                        "value": null
+                    },
+                    "transactionAmounts": {
+                        "transactionShares": {
+                            "value": "47432"
+                        },
+                        "transactionPricePerShare": {
+                            "value": "161.517",
+                            "footnote": "The price reported in Column 4 is a weighted average price. These shares were sold in multiple transactions at prices ranging from $161.430 to $161.590, inclusive. The reporting person undertakes to provide Tesla, Inc., any security holder of Tesla, Inc. or the staff of the Securities and Exchange Commission, upon request, full information regarding the number of shares sold at each separate price within the range set forth in this footnote."
+                        },
+                        "transactionAcquiredDisposedCode": {
+                            "value": "D"
+                        }
+                    },
+                    "postTransactionAmounts": {
+                        "sharesOwnedFollowingTransaction": {
+                            "value": "423622432"
+                        }
+                    },
+                    "ownershipNature": {
+                        "directOrIndirectOwnership": {
+                            "value": "I"
+                        },
+                        "natureOfOwnership": {
+                            "value": "by Trust",
+                            "footnote": "The Elon Musk Revocable Trust dated July 22, 2003, for which the reporting person is the trustee."
+                        }
+                    }
+                }
+            ]
+        },
+        "ownerSignature": {
+            "signatureName": "By: Aaron Beckman by Power of Attorney For: Elon Musk",
+            "signatureDate": "2022-12-14"
+        }
+    }
+}

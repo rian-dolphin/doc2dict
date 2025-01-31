@@ -1,0 +1,10 @@
+setup.py
+doc2dict/__init__.py
+doc2dict/html_parser.py
+doc2dict/visualizer.py
+doc2dict/xml_parser.py
+doc2dict.egg-info/PKG-INFO
+doc2dict.egg-info/SOURCES.txt
+doc2dict.egg-info/dependency_links.txt
+doc2dict.egg-info/requires.txt
+doc2dict.egg-info/top_level.txt
