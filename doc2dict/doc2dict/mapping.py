@@ -1,3 +1,5 @@
+import re
+
 class JSONTransformer:
     def __init__(self, mapping_dict):
         """Initialize transformer with mapping dictionary."""
@@ -104,3 +106,150 @@ class JSONTransformer:
                 result = self._remove_used_content(result, transformation['match'])
         
         return result
+
+class RuleProcessor:
+    def __init__(self, rules_dict):
+        self.rules = rules_dict
+        
+    def _apply_remove_rules(self, lines):
+        if 'remove' not in self.rules:
+            return lines
+            
+        result = lines.copy()
+        for rule in self.rules['remove']:
+            pattern = rule['pattern']
+            match_type = rule.get('match_type', 'exact')
+            
+            if match_type == 'exact':
+                result = [line for line in result if pattern != line]
+            elif match_type == 'strip':
+                result = [line for line in result if pattern != line.strip()]
+                
+        return result
+        
+    def _find_matching_end(self, lines, start_idx, end_pattern):
+        """Find matching end pattern considering nesting."""
+        pattern_name = None
+        nesting_level = 1
+        
+        for i in range(start_idx + 1, len(lines)):
+            line = lines[i]
+            
+            # Check for nested start patterns
+            if pattern_name and re.match(pattern_name, line):
+                nesting_level += 1
+            # Check for end pattern
+            elif re.match(end_pattern, line):
+                nesting_level -= 1
+                if nesting_level == 0:
+                    return i
+                    
+        return len(lines) - 1
+        
+    def _process_block(self, lines, start_idx, rule, mappings):
+        """Process a block of content, handling nested blocks."""
+        content = []
+        current_idx = start_idx + 1
+        end_idx = None
+        
+        if rule.get('end'):
+            end_idx = self._find_matching_end(lines, start_idx, rule['end'])
+        else:
+            # If no end pattern, collect until next hierarchy match
+            for i in range(start_idx + 1, len(lines)):
+                if any(re.match(r['pattern'], lines[i]) 
+                      for r in mappings if r.get('hierarchy') is not None):
+                    end_idx = i - 1
+                    break
+            if end_idx is None:
+                end_idx = len(lines) - 1
+                
+        # Process content between start and end
+        while current_idx < end_idx:
+            line = lines[current_idx]
+            matched = False
+            
+            # Check for nested patterns
+            for nested_rule in mappings:
+                if re.match(nested_rule['pattern'], line):
+                    nested_content, next_idx = self._process_block(
+                        lines, current_idx, nested_rule, mappings
+                    )
+                    if nested_content:
+                        content.append(nested_content)
+                    current_idx = next_idx + 1
+                    matched = True
+                    break
+                    
+            if not matched:
+                content.append(line)
+                current_idx += 1
+                
+        return {
+            'type': rule['name'],
+            'content': content
+        }, end_idx
+        
+    def _apply_mapping_rules(self, lines):
+        if 'mappings' not in self.rules:
+            return {'content': lines}
+            
+        result = {'content': []}
+        mappings = sorted(
+            self.rules['mappings'],
+            key=lambda x: x.get('hierarchy', float('inf'))
+        )
+        
+        i = 0
+        current_section = None
+        
+        while i < len(lines):
+            line = lines[i]
+            matched = False
+            
+            for rule in mappings:
+                if re.match(rule['pattern'], line):
+                    if rule.get('hierarchy') is not None:
+                        # Handle hierarchical section
+                        current_section = {
+                            'type': rule['name'],
+                            'text': line,
+                            'content': []
+                        }
+                        result['content'].append(current_section)
+                        i += 1
+                    else:
+                        # Handle block with potential nesting
+                        block, end_idx = self._process_block(lines, i, rule, mappings)
+                        if current_section:
+                            current_section['content'].append(block)
+                        else:
+                            result['content'].append(block)
+                        i = end_idx + 1
+                    matched = True
+                    break
+                    
+            if not matched:
+                if current_section:
+                    current_section['content'].append(line)
+                else:
+                    result['content'].append(line)
+                i += 1
+                
+        return result
+
+class DocumentProcessor:
+    def __init__(self, config):
+        self.rules = config.get('rules', {})
+        self.transformations = config.get('transformations', [])
+        self.rule_processor = RuleProcessor(self.rules)
+        self.json_transformer = JSONTransformer({'transformations': self.transformations}) if self.transformations else None
+        
+    def process(self, lines):
+        filtered_lines = self.rule_processor._apply_remove_rules(lines)
+        structured_data = self.rule_processor._apply_mapping_rules(filtered_lines)
+        
+        if self.json_transformer:
+            structured_data = self.json_transformer.transform(structured_data)
+            
+        return structured_data
