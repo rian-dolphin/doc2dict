@@ -73,13 +73,13 @@
         "",
         {
             "type": "part",
-            "text": "                                  PART I",
+            "text": "parti",
             "content": [
                 "",
                 "",
                 {
                     "type": "item",
-                    "text": "ITEM ONE - BUSINESS",
+                    "text": "itemone",
                     "content": [
                         "",
                         "     Aeroflex Incorporated,  through its subsidiaries (collectively,  unless the",
@@ -196,7 +196,6 @@
                         "technology used in the manufacture of fast switching frequency  synthesizers and",
                         "components.",
                         "",
-                        "<PAGE>                             ",
                         "",
                         "     A frequency synthesizer is a device or circuit that synthetically  produces",
                         "a large number of frequencies based upon a single reference frequency.  The best",
@@ -330,7 +329,6 @@
                         "LANTIRN  system which directs firing of Maverick  missiles from various  fighter",
                         "aircraft.",
                         "",
-                        "<PAGE>                                     ",
                         "",
                         "     The  Company  has  completed   development  and  has  recently  received  a",
                         "production  order for the next  generation  polygon  rotary scanner for the U.S.",
@@ -637,13 +635,12 @@
                         "reflects Huxley's income, net of tax.",
                         "",
                         "",
-                        "<PAGE>                                    ",
                         ""
                     ]
                 },
                 {
                     "type": "item",
-                    "text": "ITEM TWO - PROPERTIES",
+                    "text": "itemtwo",
                     "content": [
                         "",
                         "     The executive  offices of the Company and the  manufacturing  facilities of",
@@ -685,7 +682,7 @@
                 },
                 {
                     "type": "item",
-                    "text": "ITEM THREE - LEGAL PROCEEDINGS",
+                    "text": "itemthree",
                     "content": [
                         "",
                         "     Filtron Co. Inc.,  (\"Filtron\") a subsidiary of the Company whose operations",
@@ -711,7 +708,7 @@
                 },
                 {
                     "type": "item",
-                    "text": "ITEM FOUR - SUBMISSION OF MATTERS TO A VOTE OF SECURITY HOLDERS",
+                    "text": "itemfour",
                     "content": [
                         "",
                         "     Not applicable.",
@@ -722,12 +719,12 @@
         },
         {
             "type": "part",
-            "text": "                                  PART II",
+            "text": "partii",
             "content": [
                 "",
                 {
                     "type": "item",
-                    "text": "ITEM FIVE - MARKET FOR THE COMPANY'S COMMON EQUITY",
+                    "text": "itemfive",
                     "content": [
                         "            AND RELATED STOCKHOLDER MATTERS",
                         "",
@@ -791,7 +788,7 @@
                 },
                 {
                     "type": "item",
-                    "text": "ITEM SIX - SELECTED FINANCIAL DATA",
+                    "text": "itemsix",
                     "content": [
                         "",
                         "                      AEROFLEX INCORPORATED AND SUBSIDIARIES",
@@ -889,7 +886,7 @@
                 },
                 {
                     "type": "item",
-                    "text": "ITEM SEVEN - MANAGEMENT'S DISCUSSION AND ANALYSIS OF",
+                    "text": "itemseven",
                     "content": [
                         "             FINANCIAL CONDITION AND RESULTS OF OPERATIONS",
                         "",
@@ -1122,7 +1119,7 @@
                 },
                 {
                     "type": "item",
-                    "text": "ITEM EIGHT - FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA",
+                    "text": "itemeight",
                     "content": [
                         "",
                         "     The following financial statements of the Company and its subsidiaries, and",
@@ -2672,7 +2669,7 @@
                 },
                 {
                     "type": "item",
-                    "text": "ITEM NINE - DISAGREEMENTS ON ACCOUNTING AND FINANCIAL",
+                    "text": "itemnine",
                     "content": [
                         "            DISCLOSURE",
                         "",
@@ -2684,7 +2681,7 @@
         },
         {
             "type": "part",
-            "text": "                                 PART III",
+            "text": "partiii",
             "content": [
                 "",
                 "     The  information  required by Part III is  incorporated by reference to the",
@@ -2697,12 +2694,12 @@
         },
         {
             "type": "part",
-            "text": "                                  PART IV",
+            "text": "partiv",
             "content": [
                 "",
                 {
                     "type": "item",
-                    "text": "ITEM FOURTEEN - EXHIBITS, FINANCIAL STATEMENT SCHEDULES,",
+                    "text": "itemfour",
                     "content": [
                         "                 AND REPORTS ON FORM 8-K",
                         "",
@@ -2772,7 +2769,6 @@
                         "",
                         "  27   Financial Data Schedule",
                         "",
-                        "<PAGE>                                    ",
                         "",
                         "     The following undertakings are incorporated by reference into the Company's",
                         "Registration  Statements on Form S-8 (Registration Nos.  33-75496,  33-88868 and",
@@ -2836,7 +2832,6 @@
                         "delivered,  but within such 120 day period the annual report for the last ",
                         "fiscal year will be furnished to each such employee.",
                         "",
-                        "<PAGE> ",
                         "",
                         "             (2) The undersigned registrant hereby undertakes to transmit or ",
                         "cause to be transmitted  to all  employees  participating  in the plan who do ",
@@ -2938,7 +2933,6 @@
                         "-----------------------",
                         "John S. Patton",
                         "",
-                        "<PAGE>                                                          S-1",
                         "",
                         "                              AEROFLEX INCORPORATED",
                         "                                 AND SUBSIDIARIES",

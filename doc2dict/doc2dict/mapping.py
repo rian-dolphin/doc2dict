@@ -77,36 +77,60 @@ class JSONTransformer:
             return result if result else None
             
         return data
+        
+    def _apply_standardization(self, data, transformation):
+        """Apply standardization rules to transform text based on regex pattern."""
+        if isinstance(data, dict):
+            if data.get('type') == transformation['match']['type'] and 'text' in data:
+                pattern = transformation['match']['text_pattern']
+                match = re.match(pattern, data['text'])
+                if match:
+                    value = match.group(1)
+                    # Store in specified field from config
+                    output_field = transformation['output'].get('field', 'text')  # default to text if not specified
+                    data[output_field] = transformation['output']['format'].format(value.lower())
+                    
+            # Process all nested structures
+            for value in data.values():
+                if isinstance(value, (dict, list)):
+                    self._apply_standardization(value, transformation)
+                    
+        elif isinstance(data, list):
+            for item in data:
+                if isinstance(item, (dict, list)):
+                    self._apply_standardization(item, transformation)
 
     def transform(self, data):
         """Transform the data according to the mapping dictionary."""
         result = data.copy()
         
         for transformation in self.mapping_dict['transformations']:
-            # Build mapping from ids to their content
-            self._build_mapping(result, transformation)
-            
-            search_key = transformation['search']['key']
-            search_id = transformation['search']['identifier']
-            output_key = transformation['output']['key']
-            
-            # Find all references that need transformation
-            refs = self._find_refs(result, search_key)
-            
-            # Transform each reference
-            for ref in refs:
-                ref_id = ref[search_key].get(search_id)
-                if ref_id in self.id_to_text:
-                    # Replace reference with content
-                    ref[output_key] = self.id_to_text[ref_id]
-                    del ref[search_key]
-            
-            # Remove the original content if specified
-            if transformation['match'].get('remove_after_use', False):
-                result = self._remove_used_content(result, transformation['match'])
+            if transformation.get('type') == 'standardize':
+                self._apply_standardization(result, transformation)
+            else:
+                # Original reference replacement logic
+                self._build_mapping(result, transformation)
+                
+                search_key = transformation['search']['key']
+                search_id = transformation['search']['identifier']
+                output_key = transformation['output']['key']
+                
+                # Find all references that need transformation
+                refs = self._find_refs(result, search_key)
+                
+                # Transform each reference
+                for ref in refs:
+                    ref_id = ref[search_key].get(search_id)
+                    if ref_id in self.id_to_text:
+                        # Replace reference with content
+                        ref[output_key] = self.id_to_text[ref_id]
+                        del ref[search_key]
+                
+                # Remove the original content if specified
+                if transformation['match'].get('remove_after_use', False):
+                    result = self._remove_used_content(result, transformation['match'])
         
         return result
-
 class RuleProcessor:
     def __init__(self, rules_dict):
         self.rules = rules_dict
@@ -118,12 +142,8 @@ class RuleProcessor:
         result = lines.copy()
         for rule in self.rules['remove']:
             pattern = rule['pattern']
-            match_type = rule.get('match_type', 'exact')
-            
-            if match_type == 'exact':
-                result = [line for line in result if pattern != line]
-            elif match_type == 'strip':
-                result = [line for line in result if pattern != line.strip()]
+            # Convert each line that doesn't match the regex
+            result = [line for line in result if not re.match(pattern, line)]
                 
         return result
         
