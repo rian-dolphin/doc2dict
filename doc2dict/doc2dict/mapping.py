@@ -98,7 +98,50 @@ class JSONTransformer:
             for item in data:
                 if isinstance(item, (dict, list)):
                     self._apply_standardization(item, transformation)
-                    
+
+
+    def _apply_trim(self, data, transformation):
+        """Apply trim transformation to remove content before specified occurrences."""
+        if not isinstance(data, dict) or 'content' not in data:
+            return data
+
+        match_type = transformation['match']['type']
+        expected = transformation['match'].get('expected')
+        trim_before = transformation.get('trim_before', 0)
+        output_type = transformation['output']['type']
+        
+        # Find indices of all matching sections
+        matches = []
+        for i, item in enumerate(data['content']):
+            if isinstance(item, dict) and item.get('type') == match_type:
+                matches.append(i)
+                
+        if not matches:
+            return data
+            
+        # If we have more than expected number of matches, trim
+        if expected and len(matches) > expected:
+            # Get index of last match in TOC
+            start_idx = matches[-trim_before] if trim_before and trim_before <= len(matches) else matches[-1]
+            
+            # Create new structure
+            result = {'content': []}
+            
+            # Handle content before trim point
+            before_content = data['content'][:start_idx + 1]
+            if before_content:
+                result['content'].append({
+                    'type': output_type,
+                    'content': before_content
+                })
+            
+            # Keep rest of content
+            result['content'].extend(data['content'][start_idx + 1:])
+            
+            data['content'] = result['content']
+        
+        return data
+
     def _apply_consecutive_merge(self, data, transformation):
         """Merge consecutive sections with same type and text."""
         if isinstance(data, dict):
@@ -150,6 +193,8 @@ class JSONTransformer:
                 self._apply_standardization(result, transformation)
             elif transformation.get('type') == 'merge_consecutive':
                 self._apply_consecutive_merge(result, transformation)
+            elif transformation.get('type') == 'trim':
+                self._apply_trim(result, transformation)
             else:
                 # Reference replacement logic
                 self._build_mapping(result, transformation)
@@ -185,7 +230,7 @@ class RuleProcessor:
             result = [line for line in result if not re.match(pattern, line)]
                 
         return result
-    
+     
     def _join_consecutive_strings(self, content_list):
         """Join consecutive strings in a content list."""
         if not content_list:

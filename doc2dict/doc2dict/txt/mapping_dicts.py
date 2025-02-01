@@ -40,7 +40,7 @@ dict_10k["rules"]["mappings"].extend([
             {
                 "type": "hierarchy",
                 "name": "item",
-                "pattern": r"^ITEM\s",
+                "pattern": r"^\s*ITEM\s",
                 "hierarchy": 1
             },
             ])
@@ -62,7 +62,7 @@ dict_10k['transformations'] = [
         "type": "standardize", 
         "match": {
             "type": "item",
-            "text_pattern": r"^ITEM\s+(\d+|ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN)"
+            "text_pattern": r"^\s*ITEM\s+(\d+|ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN)"
         },
         "output": {
             "format": "item{}",
@@ -73,6 +73,17 @@ dict_10k['transformations'] = [
         "type": "merge_consecutive",
         "match": {
             "types": ["part", "item"]  # sections types to check for merging
+        }
+    },
+    {
+        "type": "trim",
+        "match": {
+            "type": "part",  # or 'item'
+            "expected": 1    # expected number of occurrences
+        },
+        "trim_before": 1,
+        "output": {
+            "type": "introduction"
         }
     }
     
