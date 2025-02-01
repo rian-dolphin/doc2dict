@@ -1,6 +1,7 @@
 
 dict_sgml = {
     "rules": {
+        "join_text": "\n",
         "remove": [
             {
                 "pattern": r"^<PAGE>",

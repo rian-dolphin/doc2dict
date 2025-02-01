@@ -146,6 +146,33 @@ class RuleProcessor:
             result = [line for line in result if not re.match(pattern, line)]
                 
         return result
+    
+    def _join_consecutive_strings(self, content_list):
+        """Join consecutive strings in a content list."""
+        if not content_list:
+            return content_list
+            
+        result = []
+        current_strings = []
+        
+        for item in content_list:
+            if isinstance(item, str):
+                current_strings.append(item)
+            else:
+                # If we have collected strings, join them and add to result
+                if current_strings:
+                    result.append(self.rules.get('join_text').join(current_strings))
+                    current_strings = []
+                # Process nested structure
+                if isinstance(item, dict) and 'content' in item:
+                    item['content'] = self._join_consecutive_strings(item['content'])
+                result.append(item)
+        
+        # Don't forget strings at the end
+        if current_strings:
+            result.append(self.rules.get('join_text').join(current_strings))
+            
+        return result
         
     def _find_matching_end(self, lines, start_idx, end_pattern):
         """Find matching end pattern considering nesting."""
@@ -271,6 +298,12 @@ class RuleProcessor:
                 if isinstance(parent.get('content'), list):
                     parent['content'].append(line)
                 i += 1
+
+
+        # Join consecutive strings in content if specified
+        if self.rules.get('join_text') is not None:
+            result['content'] = self._join_consecutive_strings(result['content'])
+               
                 
         return result
 
