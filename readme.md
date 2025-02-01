@@ -31,3 +31,11 @@ pip install doc2dict
 
 ### Current Benchmarks
 * Bumble 10k (100 pages), 50ms to load, 80ms to iterate through
+
+### TODO
+* rebuild engine. to handle css, html. start from scratch ish, but explain what general features to add
+* then add them in, bold, italic, underline (and derivatives from e.g. tables etc)
+* add height of READABLE not font
+* add indent
+* then move to mapping rules
+* then move to mapping dict

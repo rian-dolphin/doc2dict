@@ -1,3 +1,3 @@
-from .html_parser import html_reduction
-from .visualizer import format_list_html
-from .xml_parser import parse_xml
+from .html.html_parser import html_reduction
+from .html.visualizer import format_list_html
+from .xml.parser import xml2dict

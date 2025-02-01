@@ -1,0 +1,2860 @@
+                   SECURITIES AND EXCHANGE COMMISSION
+                         Washington, D.C.  20549
+
+                                FORM 10-K
+
+              ANNUAL REPORT PURSUANT TO SECTION 13 OR 15(d)
+                 OF THE SECURITIES EXCHANGE ACT OF 1934
+                 For the fiscal year ended June 30, 1995
+                                   or
+            TRANSITION REPORT PURSUANT TO SECTION 13 OR 15(d)
+                 OF THE SECURITIES EXCHANGE ACT OF 1934
+For the transition period from                      to
+
+                       Commission File No. 1-8037
+
+                             Aeroflex Incorporated
+
+           (Exact name of registrant as specified in its charter)
+
+               Delaware                          11-1974412
+
+     (State or other jurisdiction of          (I.R.S. Employer
+     incorporation or organization)          Identification No.)
+
+35 South Service Road, Plainview, New York     11803
+
+(Address of Principal Executive Offices)      (Zip Code)
+
+Registrant's telephone number, including area code: (516) 694-6700
+
+
+
+Securities registered pursuant to Section 12(b) of the Act:
+
+                                         Name of Each Exchange on
+          Title of Class                    Which Registered
+          --------------                 --------------------------
+     Common Stock, $.10 par value        New York Stock Exchange
+
+Securities registered pursuant to Section 12(g) of the Act:   None
+                                                              ---------------
+                                                              (Title of Class)
+
+     Indicate  by check mark  whether the  registrant  (1) has filed all reports
+required to be filed by Section 13 or 15(d) of the  Securities  Exchange  Act of
+1934  during  the  preceding  12 months  (or for such  shorter  period  that the
+registrant was required to file such reports),  and (2) has been subject to such
+filing requirements for the past 90 days. Yes X No
+
+     Indicate by check mark if disclosure of delinquent  filers pursuant to Item
+405 of Regulation S-K is not contained herein, and will not be contained, to the
+best of registrant's  knowledge,  in definitive proxy or information  statements
+incorporated by reference in Part III of this Form 10-K or any amendment to this
+Form 10-K [ ].
+
+     State the aggregate market value of the voting stock held by non-affiliates
+of the registrant. (The aggregate market value shall be computed by reference to
+the price at which the stock was sold,  or the average  bid and asked  prices of
+such stock,  as of a specified date within 60 days prior to the date of filing).
+As of September 14, 1995 - approximately $55,263,500.
+
+     Indicate  the  number of  shares  outstanding  of each of the  registrant's
+classes of common stock, as of the latest  practicable  date (applicable only to
+corporate registrants).  Common Stock, par value $.10 per share;  outstanding as
+of September 14, 1995 - 11,874,209 (excluding 84,105 shares held in treasury).
+
+     Documents incorporated by reference: Parts II and IV - The Annual Report to
+Stockholders for the fiscal year ended June 30, 1995 to the extent  specifically
+identified or  incorporated  herein.  Part III - Registrant's  definitive  proxy
+statement to be filed pursuant to Regulation 16A of the Securities Act of 1934.
+
+<PAGE>
+                                  PART I
+
+
+ITEM ONE - BUSINESS
+
+     Aeroflex Incorporated,  through its subsidiaries (collectively,  unless the
+context  requires  otherwise,  referred to as the "Company" or  "Aeroflex") is a
+diversified   manufacturer  of  advanced   technology  systems  and  components,
+primarily  for  government  and  defense  contractors,  and shock and  vibration
+isolation  and  control  systems  for the  commercial,  industrial  and  defense
+markets.  Aeroflex also provides defense  consulting  services involving systems
+analysis,  design and  engineering  primarily to government  contractors and the
+U.S. Armed Forces.
+
+     Operations  are  grouped  into  two  segments:   electronics  and  isolator
+products.  These  segments,  their  products  and the  markets  they  serve  are
+described below.
+
+     In March 1995,  the Company,  pursuant to a Board of Directors  resolution,
+adopted a plan to consolidate its Puerto Rican manufacturing operations into its
+existing  facilities  in New York and New Jersey.  The Company  intends to cease
+manufacturing  operations  in Puerto  Rico by August 31,  1995 and  expects  the
+consolidation to be complete by October 1995.
+
+     As of June 30, 1995, the Company has accounted for certain segments, namely
+commercial and custom envelopes  (Huxley  Envelope Corp.) and  telecommunication
+systems  services  (T-CAS  Corp.)  as  discontinued  operations.  The  following
+description  of the  Company's  business  does not  include  these  discontinued
+operations.  These  segments  are  described  under  the  caption  "Discontinued
+Operations".
+
+Electronics
+-----------
+
+Microelectronics - ("Circuit Technology")
+-----------------------------------------
+     Since 1974,  the Company has been  engaged in the design,  manufacture  and
+sale  of  state-of-the-art   microelectronic   assemblies  for  the  electronics
+industry.  In January 1994, the Company  acquired  substantially  all of the net
+operating assets of the microelectronics  division of Marconi Circuit Technology
+Corporation,  which manufactures a wide variety of  microelectronic  assemblies.
+This  acquisition  increased  the range of  products  offered and  enhanced  the
+Company's engineering capability.
+
+     The Company's microelectronic  assemblies are called "Hybrids" because they
+combine elements of integrated  circuit and printed circuit board  technologies.
+They provide many of the advantages of integrated  circuits  relative to printed
+circuit  boards,  such as  miniaturization,  increased  capability  and  greater
+reliability and environmental  stability.  However,  unlike integrated circuits,
+they can be  economically  manufactured  in  quantities  of  hundreds to several
+thousands. Hybrids are multi-layered electronic circuits,  containing very small
+and barely  visible  passive and active  elements  (those that carry,  transmit,
+receive,  generate or amplify signals) which are mounted and wired together on a
+single multi- layered ceramic surface in patterns  designed to perform  specific
+electronic functions. These functions include amplification,  switching,  signal
+conversion,  voltage  regulation  and  decoding of microwave  signals.  They are
+especially suited to aircraft,  spacecraft,  missile and industrial applications
+where space is limited,  such as in navigation  equipment,  airborne  computers,
+sonar systems, medical diagnostic instrumentation and computer instrumentation.
+
+
+
+
+<PAGE>
+      One such Hybrid  Microcircuit  product family,  the  MIL-STD-1553  Data
+Bus product line, has a particular broad range of applications. These 
+microcircuits, which have been adopted by the  Tri-services  (Army,  Navy,  
+and Air Force) as a standard  interface,  act as a digital data  communication
+link between various computer-based equipment.
+
+     A series of Monolithic Data-bus  Transceivers and Remote Terminals has been
+introduced  by the Company,  many of which are  described by "Standard  Military
+Devices" (SMD) drawings,  thereby  facilitating  their use in current and future
+avionic systems.
+
+     The Company's  Microcircuits are used on numerous avionic systems including
+the F-16 and F-18 aircraft and the AMRAAM and Tomahawk-cruise missiles. They are
+also  qualified  for  possible  future use on the  updates  to older  platforms,
+including F-15, F-14 and Space Shuttle. The Data-bus microcircuits are used in a
+wide variety of aerospace and seaboard  navigation and communication  systems. A
+Motor  Drive  Hybrid  microcircuit  has  been  qualified  for  the  AN/PVS-6,  a
+miniature, eyesafe, laser rangefinder which entered production in 1993.
+
+     The Company has production  contracts for the Serial  Interface  Module and
+Current  Mode  Coupler  Module  used on the  ARINC  629  Data-bus  which  is the
+commercial  equivalent of  MIL-STD-1553.  This  commercial  data  communications
+interface  is used  on the  Boeing  777.
+
+     Multichip  Modules  ("MCM's")  are a  further  advancement  of  the  hybrid
+microcircuit technology, in which large digital devices such as microprocessors,
+SRAM and EEPROM memories are combined with multilayer  ceramic  packages to form
+complex  digital  systems or subsystems.  Multichip  modules  perform  functions
+similar to hybrids,  except the emphasis is on  miniaturizing  and  synthesizing
+digital functions such as microprocessor  systems and mass memories. The Company
+has been qualified on several MCM designs on both the F-16 and new F-22 Advanced
+Tactical Fighter (ATF). Application specific multi-chip modules have significant
+market potential in avionics, workstations, telecommunications and satellites.
+
+     The Company has expanded its standard  memory module  product line with the
+addition of thirteen new memory modules.  these products,  which consist of SRAM
+and Flash memory  modules,  take  advantage of the  Company's  multichip  module
+expertise. They are designed to be used for a wide range of computer and general
+purpose circuit board applications.
+
+     The  Company  continues  to expand the market for the R4400  microprocessor
+modules  with the sale of  evaluation  devices for several new  avionics/missile
+applications.  The Intel I486 dual  microprocessor  module is being increasingly
+ordered for avionics and missile applications, in production quantities.
+
+Instrument Products - ("Comstron" and "Lintek")
+----------------------------------------------
+     Frequency Synthesizers and Components
+     -------------------------------------
+
+     In November 1989, the Company acquired Comstron Corporation which is now an
+operating  division  of  Aeroflex  Laboratories  Incorporated,   a  wholly-owned
+subsidiary  of Aeroflex.  Comstron is a leader in radio  frequency and microwave
+technology used in the manufacture of fast switching frequency  synthesizers and
+components.
+
+<PAGE>                             
+
+     A frequency synthesizer is a device or circuit that synthetically  produces
+a large number of frequencies based upon a single reference frequency.  The best
+way to tune a radio or  receiver  is with a crystal  frequency  reference.  When
+multiple frequencies are necessary, multiple crystals and switches are required.
+Eventually it becomes first  impractical,  and then  impossible,  to use a large
+number of crystals due to size  constraints.  A frequency  synthesizer  replaces
+millions or billions of crystals.
+
+     The Company's  synthesizers operate in a broad frequency range of 10 MHz to
+40GHz with excellent spectral purity.  Their small size and modular construction
+allow for easy systems  configuration  and facilitation of repair.  The Company,
+together with Hewlett  Packard,  helped develop the Modular  Measurement  System
+(MMS) standard which has been selected as the architecture underlying the RF and
+microwave  sections  of a number of  automated  test  equipment  (ATE)  systems,
+including  CASS, the U.S.  Navy's next  generation  automated  test system.  The
+synthesizers  also  significantly  improve the  performance  and  reliability of
+existing radars.  The Company's  synthesizers have been selected by Westinghouse
+to  upgrade  its TPS 63 and 70 series  radars.  Additionally,  the  synthesizers
+improve the performance of threat  simulators as well as radar cross section and
+antenna measurement systems.
+
+     With the 1993 introduction of the new model FS-5000 synthesizer series, the
+Company  strengthened  its  leadership  position  in  the  Ultra-Fast  Switching
+Frequency  Synthesizer market. The FS-5000 series is ten times faster, less than
+half  the  size  and  offers  superior  performance  to the  Company's  previous
+synthesizers.
+
+     Component  technology,  which contributes to the synthesizer's  exceptional
+performance,  includes custom microwave and RF hybrids and filters  manufactured
+by the Company.
+
+     Radar Cross-Section and Antenna Pattern Measurement
+     ---------------------------------------------------
+
+     In January  1995,  the  Company  acquired  Lintek  Inc.  as a wholly  owned
+subsidiary  of  Aeroflex.  Aeroflex  Lintek  Corp.  is a  leader  in high  speed
+instrumentation radar systems and antenna measurement systems. These systems are
+used by the Department of Defense and by industry.  Lintek Inc. was incorporated
+in 1988 for the purpose of developing and selling instrumentation radar systems,
+and  currently has systems in place with many of the large  aerospace  companies
+and with major government laboratories.
+
+     The   instrumentation   radar   systems  are  used  to  measure  the  radar
+reflectivity  or Radar  Cross  Section  (RCS),  both  scale  models  and  actual
+examples,  of aircraft and other objects.  These  measurements  are made in many
+diverse  environments  from factory  floor,  to  laboratory,  to flight lines or
+aircraft carriers.  These radar systems operate in the frequency range of 100MHz
+to 100GHz.  In addition to the radar system hardware,  Aeroflex Lintek Corp. has
+developed various analytical  processing and display algorithms to assist in the
+interpretation of the radar data.
+
+     Aeroflex  Lintek has three lines of radar  systems:  the Elan  series,  the
+Model 5000, and the Model 4000. These systems vary in price and performance. The
+Company  believes  that the Elan series radar system is the highest  performance
+system in the industry,  the Model 5000 is the price performance leader, and the
+Model 4000 is the low cost entry level system.
+
+     The antenna measurement systems are used in the design and manufacturing of
+all types of antennas. This product line is derived from the expertise gained in
+high speed data acquisition and display techniques used in instrumentation radar
+products.  These products comprise a growing  portion of Aeroflex  Lintek's 
+sales due to the growth in personal  communications  and the demand for these  
+systems abroad.
+
+<PAGE>
+
+Electronic Systems
+------------------
+
+     Building on  technology  acquired  from  Comstron,  Aeroflex  develops  and
+manufactures   complex   communications  and  guidance  systems  and  subsystems
+including HF, VHF and UHF receivers,  communications  jammer emulators,  weather
+radar receivers, up/down converters, frequency agile radar local oscillators and
+low  phase  noise  frequency  sources.  The  Company  is  participating  in  two
+significant  system upgrade  programs.  It has developed a phase shifter for the
+U.S. Air Force's mid-life upgrade F-16 Identification Friend or Foe (IFF) system
+and a tunable solid state local  oscillator for the U.S. Navy MK-92 fire control
+radar.
+
+     Aeroflex  also  designs and develops  special  purpose  microprocessor  and
+memory boards for severe  service  applications,  including the digital  control
+unit for the  PATHFINDER  pod-mounted  night vision  system,  and a  militarized
+version of Intel's  286/10  multibus  boards for the Airport  Surface  Detection
+Equipment (ASDE) program.
+
+     Since 1980,  through its  wholly-owned  subsidiary,  Aeroflex Systems Corp.
+("Aeroflex  Systems"),  the Company has been  supplying  analytical,  design and
+engineering,  and specialized  computer  software  support  services to military
+contractors  involved in major weapon  systems  programs  and to the U.S.  Armed
+Forces. These services include providing personnel and specialized  expertise at
+all stages of a project's design and production  related to: system  reliability
+and  maintainability;   the  development  and  operation  of  systems  to  track
+differences in the component  configuration of each unit built in a program; the
+analysis and interpretation,  by means of specialized computer software, of test
+data to assist in  modifying  a  system's  design;  the  design  and  operation,
+throughout  the life of a system,  of  strategies  and programs for  maintaining
+appropriate  spare parts  inventories,  planning  repair  schedules and managing
+other logistical  matters;  and the training of contractor or military personnel
+with regard to all these applications.
+
+     Aeroflex  Systems  is  active  on  several  DOD  Post  Production   Support
+initiatives  to  reduce  the  high  cost  of  spare  parts  and  to  enable  the
+establishment of competitive  procurements  for items previously  available from
+only a single  manufacturer.  Its parts Breakout Project for the Navy Department
+is  one  such  program  that  will  enable  the  government  to  make  follow-on
+procurements on a competitive basis.
+
+Electro-Optics
+--------------
+
+Scanning Devices
+----------------
+
+     Since 1975, the Company has been engaged in the development and manufacture
+of  electro-optical  scanning  devices used in infra-red  night vision  systems.
+These  systems  detect  temperature   differences  in  the  infra-red  radiation
+emanating from objects in target areas. The differences are then  electronically
+amplified  and  converted to visible  light to create a visual image of the zone
+being scanned,  enabling accurate  observation and weapon firing control through
+smoke,  darkness and battlefield haze. The common module device  manufactured by
+the Company  consists of a metal framed  module  containing  a two-sided  mirror
+which,  on one side,  receives  the  infra-red  radiation  and  reflects it onto
+cryogenically  cooled electronic  receptors and, on the other side, reflects the
+amplified  visible  image to the  viewer.  The mirror is driven by small  torque
+motors in a repetitive  motion to provide a wider scan of the target  area.  The
+Company  has shipped  more than  30,000  common  module  scanner  units to date.
+Applications  include the TOW anti-tank  missile systems of the M-1 Abrams tank,
+the M2/M3  Bradley  Fighting  Vehicle and the AH-1 Super Cobra  helicopter,  the
+Hellfire  and  the  Stinger  target  acquisition  systems  of  the  OH-58D  AHIP
+helicopter,  the TADS/PNVS system of the AH64 Apache attack helicopter,  and the
+LANTIRN  system which directs firing of Maverick  missiles from various  fighter
+aircraft.
+
+<PAGE>                                     
+
+     The  Company  has  completed   development  and  has  recently  received  a
+production  order for the next  generation  polygon  rotary scanner for the U.S.
+Army's thermal  weapons sight (TWS),  under  contract to Hughes  Electro-Optical
+Data Systems Group. TWS is a low cost,  lightweight  thermal imaging device that
+detects  targets  based on  thermal  radiation  contrasts  with  background  and
+utilizes a solid state thermal cooling system.  This scanner is intended for use
+on standard issue U.S. Army assault rifles and crew served weapons.
+
+     The polygon scanner  assembly  consists of a polygon mirror, a brushless DC
+motor and a magnetic encoder.  Unlike scanners that oscillate a mirror,  the TWS
+assembly  scans a scene by  rotating a polygon  with  twelve-mirrored  sides ten
+revolutions  per second.  As each side of the  polygon  sweeps by, it produces a
+continuous succession of scans.  Constant rotational speed,  synchronized to the
+system's clock reference, is maintained by a phase lock servo-control loop.
+
+     Stabilization and Tracking Devices
+     ---------------------------------- 
+
+     Since 1961,  the Company has been  engaged in the design,  development  and
+production of stabilization  tracking devices and systems. These are dynamically
+positioned  pedestals  on or in  moving  vehicles  such  as  trucks,  ships  and
+aircraft,  upon which tracking  equipment,  such as a radar antenna, is mounted.
+The  pedestal,  through  the  continuous  balancing  action  of  gyroscopes  and
+servo-mechanical  stabilizers  operating  in all three  dimensions,  enables the
+mounted  equipment  to remain  almost  perfectly  balanced and  motionless.  The
+equipment can then automatically  track or focus on a target as accurately as if
+it were on solid  ground  despite  the  motion  of the  vehicle.  The  Company's
+stabilization   and  tracking   devices  are  a  part  of  major   surveillance,
+reconnaissance  and weapon firing control  systems and play an important role in
+high altitude  aircraft as well as in other aircraft,  ships and ground vehicles
+which require precise, highly stable mounting for cameras,  antennae and lasers.
+Specific  applications  include the precise mirror  pointing system for the LACE
+satellite  UVPI  experiment  and the antenna  pedestal  assembly  for the AC130H
+gunship aircraft.
+
+          Magnetic Motors
+          ---------------
+     Magnetic motor products consist of electronically  commutated  brushless DC
+motors, actuators, torque motors, solid state magnetic sensors and AC motors.
+
+     Brushless DC motors differ from  conventional DC motors in that the current
+which produces  mechanical  energy is applied to stationary coils via electronic
+switches  without  physical  contact  rather than by  stationary  rods  brushing
+against the  rotating  coil.  By avoiding  friction,  sparks and the wearing and
+fragmenting of the brush rods, brushless DC motors provide cleaner operation and
+longer  maintenance-free  life than conventional motors.  These  characteristics
+make brushless DC motors  well-suited for use in vacuum situations such as outer
+space  where  lubricants  needed  to  slow  brushwear   dissipate  rapidly,   in
+environments  containing  volatile  or  explosive  materials  and gases,  and in
+applications  where  clean  operation  is  critical.  The users of these  motors
+include  major  contractors  engaged in military and  aerospace  technology  and
+companies manufacturing jet engines, aircraft windshield wipers, medical and lab
+equipment,  as well as cryogenic super-cooling pumps. Platforms using the motors
+include the Maverick  Missile,  Space  Shuttle,  M-1 Abrams tank and the Galileo
+spacecraft.  Actuators operate various mechanisms on spacecraft,  satellites and
+aircraft, including the forward wing mechanism of the Beech Starship.
+
+
+
+<PAGE>
+                                     
+      Torque motors are DC motors which convert  electrical current to 
+mechanical force for  precisely  controlled,  usually  repetitive  movement,  
+over  limited distances  and arcs less than 180  degrees.  These  motors are  
+utilized in the Company's  stabilization systems and infra-red scanner modules,
+as well as other applications  where  precise  movement  is  required,  such  
+as for  positioning antennae, optical systems, mechanical vanes and valves.
+
+     The Company's solid state magnetic sensors provide precise  positioning and
+precise  measurement  and  control of speed in a variety of  products  including
+tachometers, computer peripheral equipment and heavy industrial machines.
+
+     The Company also  manufactures  various types of AC  electrical  mechanisms
+sold either  separately or as part of assemblies such as industrial and military
+fans, blowers, gear motors, induction motors, generators and tachometers.
+
+Isolator Products
+-----------------
+
+     Since 1961,  the Company has been engaged in the  development,  manufacture
+and sale of severe service shock and vibration isolation systems.  These devices
+consist  of  helically-wound  steel wire rope  contained  between  rugged  metal
+retainer  bars,  and are used to store  and  dissipate  potentially  destructive
+vibration and shock.  The purchasers of helical  isolators are  manufacturers or
+users  of  equipment  sensitive  to  shock  and  vibration  who  need to  reduce
+shock/vibration  to levels  compatible  with  equipment  fragility to extend the
+useful life of this equipment.  Isolators are also used to prevent vibrations in
+equipment from causing  disturbances  to surrounding  equipment,  structures and
+configurations. They are manufactured in a variety of materials and with special
+anti-corrosion  coatings  according  to  each  customer's   specifications.   In
+addition,  a line  of  isolated  systems  evolved  in  response  to  the  custom
+requirements of customers. Systems capability includes integrated avionics trays
+and bases, skids and pallets.
+
+     Markets for helical  isolation  systems  include the  military,  aerospace,
+geophysical  exploration,  aircraft,  communications,  transportation  and power
+plants.  Specific  applications  include  sensitive mobile  equipment,  reusable
+shipping containers,  shipboard electronics and navigational equipment, avionics
+and other  airborne gear,  nuclear and seismic  construction,  power  generation
+equipment, and heavy duty rotating and reciprocating machines.
+
+     In October 1983,  the Company  acquired  Vibration  Mountings and Controls,
+Inc.  ("VMC"),  which  manufactures  a line of  off-the-shelf  noise,  shock and
+vibration  control  devices  including  a  commercial  version  of the cup mount
+isolator  referred  to below.  These  rubber  and  spring  isolators,  which are
+manufactured in a wide variety of sizes, strengths and configurations,  are used
+primarily  in  commercial  applications  to protect  heavy  rotating  equipment,
+heating,  ventilating and air  conditioning  pumps and  compressors,  and diesel
+engines.  In December 1986, the Company acquired the operating assets of Korfund
+Dynamics Corporation ("KDC"), a manufacturer of an industrial line of spring and
+rubber shock mounts.
+
+     A complementary line of off-the-shelf  elastomeric cupmounts was introduced
+in fiscal 1991.  The cupmount is a  lightweight,  low profile  isolator which is
+available in two sizes and two types of elastomer-silicone  for high temperature
+applications  and neoprene where extreme high  temperature is not a factor.  The
+elastomer-in-compression   design  is  particularly  effective  in  interrupting
+structure borne noise transmission.  Cupmount isolators are produced and sold in
+large quantities and appeal to different  segments of existing  isolator markets
+and numerous industrial markets.
+
+<PAGE>
+
+    During  fiscal  1992,  the Company  introduced  two new series of wire rope
+isolators,  the arch and the circular  arch.  The arch isolator  offers  greater
+stability than the helical isolator for severe shock  applications  such as Navy
+shipboard  electronic  equipment.  The circular arch was developed in a compact,
+circular  configuration  to fit into smaller  space  envelopes  and compete on a
+performance and cost basis with existing  competitive  proprietary  designs.  In
+fiscal 1995,  the Company has  successfully  introduced the circular arch to the
+industrial  market  as an  improved  solution  to shock and  vibration  problems
+encountered with computers in the mobile market.
+
+     During the last several  years,  the Company has developed and introduced a
+series of new  products  to the  marketplace  to broaden the VMC and KDC product
+lines.  These new  complementary  products have enabled the Company to enter new
+markets,  namely, the off-highway market,  portable power market,  truck and bus
+market and the seismic marketplace.
+
+Competition
+-----------
+
+     In all phases of its continuing  operations,  the Company  competes in both
+performance  and  price  with  companies  considerably  larger  than  itself  in
+financial  resources and sales, and which are more diversified than the Company.
+In the manufacturing of stabilization  and tracking  devices,  scanning devices,
+frequency  synthesizers,  radar  cross-section  and antenna pattern  measurement
+instrumentation and isolators, there are several major competitors manufacturing
+similar or comparable products. In the manufacture of microelectronics, magnetic
+motors and electronic systems, there are numerous nationwide, regional and local
+competitors  manufacturing and distributing similar or comparable products.  The
+engineering and support services  division  competes  primarily on the local and
+regional levels.  The Company believes that in all of its operations it competes
+favorably  in the  principal  competitive  factors of  technology,  performance,
+reliability, quality, customer service and price.
+
+     To the extent  that the  Company is engaged in  government  contracts,  its
+success or  failure,  to a large  measure,  is based upon its ability to compete
+successfully  for contracts and to complete  them at a profit.  Such  government
+business is  necessarily  affected by many  factors  such as  variations  in the
+military requirements of the government and defense budget allocations.
+
+Government Sales
+----------------
+     Approximately 74% and 72% of the Company's sales from continuing operations
+for fiscal 1995 and 1994,  respectively,  were to agencies of the United  States
+Government  or to prime  defense  contractors  or  subcontractors  of the United
+States Government.  The Company's  government contracts have been awarded either
+on a bid basis or after  negotiation.  The contracts  are primarily  fixed price
+contracts,  though the Company also has government  contracts providing for cost
+plus fixed fee. The contracts of the Company with the United  States  Government
+and prime defense contractors or subcontractors contain customary provisions for
+termination at the convenience of the government  without cause. In the event of
+such termination,  the Company is entitled to reimbursement for its costs and to
+receive a reasonable profit, if any, on the work done prior to termination.
+
+     Revenues  and costs on  government  contracts  are  recognized  based  upon
+shipments or billings on manufacturing contracts.  Revenues and costs on certain
+consulting contracts are recognized based upon costs incurred.
+
+
+<PAGE>
+
+                                     
+     In certain  product  areas,  the Company has suffered  reductions  in sales
+volume due to cutbacks in the  military  budget.  In other  product  areas,  the
+Company  has  experienced  increased  sales  volume  due  to  a  realignment  of
+government  spending  towards  upgrading  existing systems instead of purchasing
+completely new systems.  The overall effect of the cutbacks and  realignment has
+not been material to the Company.
+
+Marketing and Distribution
+--------------------------
+     The Company  markets  its  products  through an internal  sales force of 30
+persons and over 120 sales representative  organizations  located nationwide and
+worldwide.  The Company's engineers and marketing  personnel,  many of whom have
+technical  backgrounds,  advise prospective  purchasers  regarding the Company's
+products and how such products can be custom  designed to be  incorporated  into
+specific government programs and other applications. These efforts are supported
+by product  brochures  and by  published  articles and  advertisements  in trade
+journals.
+
+Product Research and Development
+--------------------------------
+     The Company's product development efforts primarily involve engineering and
+design  relating to the  improvement  of existing  products or the adaptation of
+such products to new applications. The Company's efforts also include developing
+prototype  components  to bid on  specific  programs.  Several of the  Company's
+executive officers and almost all of its engineers have been involved at various
+times and to  varying  degrees  in these  activities.  Product  development  and
+similar costs not recoverable under contractual arrangements are expensed in the
+year incurred. These costs were approximately $2,389,000 and $694,000 for fiscal
+1995 and 1994,  respectively.  The increased  expenditures were primarily in the
+microelectronics product line, incurred to develop additional new products.
+
+Backlog
+-------
+     At June 30,  1995,  the  Company's  backlog  of  orders  was  approximately
+$34,681,000.  Approximately  75% was scheduled to be delivered on or before June
+30, 1996.  Approximately  85% of this backlog  represents orders for military or
+national defense purposes.
+
+     At June 30,  1994,  the  Company's  backlog  of  orders  was  approximately
+$40,950,000.  Approximately  83% was  scheduled to be delivered  before June 30,
+1995.  Approximately  89% of this  backlog  represented  orders for  military or
+national defense purposes.
+
+Principal Materials
+-------------------
+     The principal materials used by the Company in manufacturing and assembling
+its products are steel, aluminum,  rubber, magnetic materials,  iron and copper.
+Many of the  component  parts  used by the  Company  in its  products  are  also
+purchased,  including  semiconductors,  transformers,  amplifiers,  bearings and
+ceramic materials.  These materials and components,  none of which are presently
+in short supply, are purchased from time to time on the open market. The Company
+has no long-term commitments for their purchase.
+
+Patents and Trademarks
+----------------------
+     The Company owns several patents, patent licenses and trademarks. While the
+Company considers that in the aggregate its patents and trademarks are important
+in its operations, it does not consider that one or any group of them is of such
+importance that termination could materially affect its business.
+
+
+<PAGE>
+
+Employees
+---------
+     As of June 30, 1995 the Company had  approximately  650 employees,  of whom
+approximately  360 were engaged in a manufacturing  capacity,  and approximately
+290 in clerical,  administrative,  engineering or sales positions. Approximately
+240  employees  of the  Company  are  covered by various  collective  bargaining
+agreements. The Company considers its employee relations to be satisfactory.
+
+Financial Information About Industry Segments
+---------------------------------------------
+     The  sales  and  operating   profits  of  each  industry  segment  and  the
+identifiable  assets attributable to each industry segment for each of the three
+years in the  period  ended  June 30,  1995 are set forth in Note 16 of Notes to
+Consolidated  Financial  Statements,   which  note  is  incorporated  herein  by
+reference.
+
+                           Discontinued Operations
+
+     The Company has accounted for certain segments as discontinued  operations.
+A description of these operations is as follows:
+
+     Commercial and Custom Envelopes
+     --------------------------------
+
+     In November 1993, the Company sold  substantially  all of the net operating
+assets of its wholly-owned  subsidiary,  Huxley Envelope Corp.  ("Huxley"),  for
+$5,550,000.  Huxley is a manufacturer  of specialized  envelopes for high-volume
+direct-mail  users. The loss on disposal of $2,108,000 in fiscal 1994 represents
+a loss from  Huxley's  operations  of  $187,000  and a loss on its  disposal  of
+$1,921,000.  The sale did not  include  Huxley's  New  York  City  manufacturing
+facility which was sold in the fourth  quarter of fiscal 1995 for  approximately
+$2,400,000. The sale of the facility, along with the resolution of certain other
+contingencies, resulted in a net of tax gain of $240,000.
+
+     Telecommunication Systems Services
+     ----------------------------------
+
+     Through T-CAS Corp. ("T-CAS"), a wholly-owned subsidiary which was acquired
+in 1988,  the  Company  also  specialized  in the design and  implementation  of
+telecommunications  and  electronic  systems  for  government,   industrial  and
+commercial  customers  nationwide and abroad.  T-CAS' services  included systems
+concepts and  operational  criteria,  detailed  engineering  designs,  equipment
+specifications,    site   preparation,    construction,    field    engineering,
+installations,  on-site training and technical assistance. The Company's plan to
+discontinue this operation  included the completion of existing contracts (which
+were completed at June 30, 1993) and an orderly dissolution.
+
+     In September  1993, the Company entered into an agreement with the U.S. Air
+Force  in  full  settlement  of  claims  against  the  U.S.  Air  Force  on  two
+telecommunication contracts. The settlement represents a final mutual release of
+all claims between the parties relative to these two contracts. In May 1995, the
+Company  received  $170,000  in  settlement  of another  claim  against a former
+customer. These settlements, together with other unrelated settlements of claims
+and  adjustments  of previously  recorded loss  reserves,  resulted in after tax
+gains of $2,295,000 and $222,000, which were included in discontinued operations
+in the  first  quarter  of  fiscal  1994 and  fourth  quarter  of  fiscal  1995,
+respectively.
+
+     Income from discontinued operations for the fiscal year ended June 30, 1993
+reflects Huxley's income, net of tax.
+
+
+<PAGE>                                    
+
+ITEM TWO - PROPERTIES
+
+     The executive  offices of the Company and the  manufacturing  facilities of
+Aeroflex Laboratories  Incorporated,  a subsidiary of the Company,  occupying an
+aggregate of approximately 69,000 square feet, are located in premises which the
+Company owns in Plainview,  Long Island,  New York.  An  industrial  development
+agency  loan  is  secured  by the  premises,  with  an  outstanding  balance  of
+approximately $230,000 at June 30, 1995.
+
+     Aeroflex Laboratories  Incorporated also leases manufacturing facilities in
+Farmingdale,  Long  Island,  New York and Boca Raton,  Florida of  approximately
+20,000  and  11,000  square  feet,  respectively.  The  annual  rental  of these
+properties is approximately $118,000 and $72,000 respectively.
+
+     The  manufacturing   operations  of  the  Company's  subsidiary,   Aeroflex
+International,  Inc., are located in approximately  40,000 square feet of leased
+premises located in Caguas West Industrial Park, Caguas,  Puerto Rico. There are
+three leases,  each covering part of the premises,  expiring  through 1996.  The
+annual  rentals are  approximately  $137,000.  In connection  with the Company's
+restructuring  of its  operations,  it expects to have vacated these premises by
+October 31, 1995.
+
+     The Company's  subsidiary,  Aeroflex Lintek Corp.,  occupies  approximately
+8,500 square feet of space in Powell,  Ohio.  This  property  contains an annual
+rental of $42,000.
+
+     The Company's  subsidiary,  Aeroflex  Systems Corp.,  leases  approximately
+2,000 square feet of office space in Oxon Hill,  Maryland.  The annual rental on
+this property is approximately $22,000.
+
+     The Company's subsidiary,  Vibration Mountings and Controls, Inc., conducts
+manufacturing  operations at a plant located in  Bloomingdale,  New Jersey.  The
+plant, which the Company owns, consists of approximately 72,000 square feet.
+
+     The Company  believes that its  facilities are adequate for its current and
+presently foreseeable needs.
+
+ITEM THREE - LEGAL PROCEEDINGS
+
+     Filtron Co. Inc.,  ("Filtron") a subsidiary of the Company whose operations
+were  discontinued  in October 1991,  was one of several  defendants  named in a
+personal injury action initiated in 1994 by several plaintiffs in the Supreme
+Court of the State of New York, County of Kings.
+
+     According  to  the  allegations  of the  Amended  Verified  Complaint,  the
+plaintiffs,  who are current or former  employees  of a company to whom  Filtron
+sold  RFI   filters/capacitors,   and  their  wives,  are  seeking  to  recover,
+respectively,  directly and  derivatively,  on diverse  theories of  negligence,
+strict liability and breach of warranty,  for injuries  allegedly  suffered from
+exposure to a liquid  substance or material  which  Filtron  incorporated  for a
+period  of  time  in the  RFI  filters/capacitors  which  it  manufactured.  The
+plaintiffs are seeking damages which cumulatively may exceed $500 million.
+
+     Considering  its various  defenses,  together  with its  product  liability
+insurance, in the opinion of management of the Company the outcome of the action
+against  its  subsidiary  will  not  have a  materially  adverse  effect  on the
+Company's consolidated financial statements.
+
+ITEM FOUR - SUBMISSION OF MATTERS TO A VOTE OF SECURITY HOLDERS
+
+     Not applicable.
+
+<PAGE>
+                                  PART II
+
+ITEM FIVE - MARKET FOR THE COMPANY'S COMMON EQUITY
+            AND RELATED STOCKHOLDER MATTERS
+
+    (a) The Common Stock trades on the New York Stock  Exchange under the symbol
+ARX. The following  table shows the quarterly  range of the high and low closing
+prices for the Common  Stock,  as  reported  by the  National  Quotation  Bureau
+Incorporated, for the calendar periods indicated.
+
+<TABLE>
+<CAPTION>
+
+                                                         Common Stock
+
+                                                    High              Low
+                                                    ----              ----
+<S>                                                <C>               <C>
+
+1993
+----
+First Quarter................................      $2.00             $1.75
+Second Quarter...............................       2.25              1.75
+Third Quarter................................       3.63              2.25
+Fourth Quarter...............................       3.88              3.13
+
+1994
+----
+First Quarter................................       5.00              3.75
+Second Quarter...............................       4.75              3.63
+Third Quarter................................       4.13              3.63
+Fourth Quarter...............................       4.00              3.50
+
+1995
+----
+First Quarter................................       4.38              3.50
+Second Quarter...............................       4.88              3.63
+Third Quarter (through August 31)............       5.63              4.25  
+</TABLE>
+
+
+    (b) As of August 31, 1995, there were approximately 1,400 record holders of
+the Company's Common Stock.
+
+     (c) The  Company  has never paid any cash  dividends  on its Common  Stock.
+There have been no stock dividends declared or paid by the Company on its Common
+Stock during the past three years.  Future dividends,  if any, will be dependent
+upon the earnings and  financial  position of the Company and such other factors
+as the Board of Directors  shall deem  appropriate.  In addition,  the Company's
+existing  Revolving  Credit  Agreement   prohibits,   and  its  7-  1/2%  Senior
+Subordinated  Convertible  Debenture  Indenture Agreement limits, it from paying
+cash dividends.
+
+<PAGE>
+
+ITEM SIX - SELECTED FINANCIAL DATA
+
+                      AEROFLEX INCORPORATED AND SUBSIDIARIES
+                             SELECTED FINANCIAL DATA
+                 (In thousands except ratios and per share data)
+
+<TABLE>
+<CAPTION>
+
+                                                  Year ended June 30,
+
+                                    1995       1994       1993       1992       1991
+                                    ----       ----       ----       ----       ----
+<S>                                <C>       <C>        <C>        <C>        <C>
+
+Earnings Statement Data (4) (5)
+  Net Sales...................... $ 71,113   $ 65,602   $ 52,031   $ 48,109   $ 48,778
+  Income (Loss) from
+    Continuing Operations........    6,587(1)(2)5,850(3)   1,736        227    (6,758)
+  Income (Loss) from
+    Discontinued Operations......      462        187        500        635   (24,916)
+  Extraordinary Item-Tax Benefit
+    of Loss Carryovers (5).......     -          -          -           143       -
+  Net Income (Loss)..............    7,049      6,037(3)   2,236      1,005   (31,674)
+  Income (Loss) from Continuing
+    Operations Per Common Share
+    and Common Share Equivalent
+      Primary.................... $  .53(1)(2)$ .55(3)  $  .20     $  .03     $  .(81)
+      Fully Diluted..............    .52(1)(2)  .50(3)     .19        .03        .(81)
+  Net Income (Loss) Per Common
+    Share and Common Share
+    Equivalent
+      Primary....................    .57        .57        .26        .12       (3.81)
+      Fully Diluted..............    .55        .51        .24        .12       (3.81)
+  Weighted Average Number of
+    Common Shares and Common
+    Share Equivalents Outstanding
+      Primary....................   12,352     10,526      8,757      8,661      8,319
+      Fully Diluted..............   14,249     12,401     10,920      8,661      8,319
+
+
+                                                        June 30,
+
+                                    1995       1994       1993       1992       1991
+                                    ----       ----       ----       ----       ----
+Balance Sheet Data
+  Working Capital................ $ 31,533   $ 28,572   $ 14,982   $ 15,751   $ 21,055
+  Total Assets...................   71,936     71,016     60,185     62,473     80,105
+  Long-term Debt
+    (including current portion)..   13,787     18,408     21,871     28,098     45,530
+  Stockholders' Equity...........   46,344     39,571     27,208     25,025     23,705
+Other Statistics (5)
+  After Tax Profit Margin (Loss)
+    from (continuing operations)..    9.3%(1)(2) 8.9%(3)    3.3%       0.5%     (13.9)%
+  Return on Average Stockholders'
+    Equity (from continuing
+    operations)..................    15.3%(1)(2)17.5%(3)    6.6%       0.9%     (17.3)%
+  Stockholders' Equity
+    Per Share (6)                 $   3.95   $   3.37   $   3.14   $   2.87   $   2.80
+
+<FN>
+
+(1)  Includes  $2,000,000  ($.14 per share fully  diluted  and $.16  primary) of
+     insurance proceeds received on the death of the former chairman.
+(2)  Includes a $1,494,000 net of tax restructuring charge ($.10 per share fully
+     diluted and $.12 primary) for the  consolidation  of the  Company's  Puerto
+     Rican operations into its domestic facilities.
+(3)  Includes  income tax  benefit of  $1,716,000,  or $.14 per share  ($.16 per
+     share primary for the year),  relating to the  recognition  of a portion of
+     the Company's unrealized net operating loss carryforward in accordance with
+     Statement of Financial Accounting Standards No. 109.
+(4)  See Note 3 to the  Consolidated  Financial  Statements  for a discussion of
+     discontinued operations.
+(5)  In fiscal  1995,  1994,  and 1993 the tax  benefit  from prior  years' loss
+     carryforwards was presented as a part of the provision for income taxes; in
+     1992 it was presented as an extraordinary item.
+(6)  Calculated by dividing  stockholders'  equity, at the end of the year,
+     by the number of shares outstanding at the end of the year.
+
+</FN>
+</TABLE>
+
+<PAGE>
+
+ITEM SEVEN - MANAGEMENT'S DISCUSSION AND ANALYSIS OF
+             FINANCIAL CONDITION AND RESULTS OF OPERATIONS
+
+Results of Operations
+
+Fiscal 1995 Compared to Fiscal 1994
+
+Net sales  increased to  $71,113,000  in fiscal 1995 from  $65,602,000 in fiscal
+1994.  Income from continuing  operations for fiscal 1995 improved to $6,587,000
+including  $2,000,000 of insurance  proceeds received on the death of the former
+chairman  and  a  net  of  tax  restructuring   charge  of  $1,494,000  for  the
+consolidation  of the  Company's  Puerto  Rican  operations  into  its  existing
+domestic  facilities.   Fiscal  1994  income  from  continuing   operations  was
+$5,850,000  including an income tax benefit of $1,716,000 for the recognition of
+a portion of the Company's unrealized net operating loss carryforward.
+
+Net sales in the electronics segment increased to $55,607,000 for the year ended
+June 30, 1995 from  $51,585,000  for the year ended June 30, 1994 primarily as a
+result of the  acquisition of the  microelectronics  division of Marconi Circuit
+Technology  Corporation  in January 1994,  the  acquisition  of Lintek,  Inc. in
+January  1995 and  increased  sales  volume  of  electronic  systems.  Operating
+profits,  exclusive of the  restructuring  charge,  improved by  $1,788,000 as a
+result of the higher sales and improved  margins,  partially offset by increased
+research and development costs primarily in the microelectronics division.
+
+Net sales in the isolator products segment increased to $15,506,000 for the year
+ended June 30,  1995 from  $14,017,000  for the year ended  June 30,  1994.  The
+increase is attributable to higher sales volumes in all product areas within the
+segment commercial, industrial and military. Operating profits, exclusive of the
+restructuring  charge,  increased  by  $220,000.  The  increase  in  volume  was
+partially  offset by an unfavorable  change in the product mix and lower margins
+in the military isolator division.
+
+Cost of sales as a percentage of sales decreased to 66.9% from 68.9% between the
+two years as a result of improved  profit  margins  primarily in the  instrument
+products  division.  Selling,  general and  administrative  costs  increased  to
+$15,752,000 from $14,214,000  primarily due to a $1,695,000 increase in research
+and development costs.
+
+Interest expense  increased to $1,464,000 from  $1,440,000.  Decreased levels of
+borrowings were offset by increased  interest  rates.  Interest and other income
+increased by $487,000 as a result of the  short-term  investments  made with the
+proceeds from the 7-1/2% debentures.
+
+The income tax  provisions  for the years ended June 30, 1995 and 1994  differed
+from the amounts computed by applying the U.S. Federal income tax rate to income
+from continuing  operations before income taxes primarily as a result of the tax
+benefits of loss carryforwards (both realized and unrealized).  In addition, the
+income tax provision for the year ended June 30, 1995,  was further  impacted by
+the non-taxable life insurance proceeds of $2,000,000.
+
+Income from discontinued  operations for the year ended June 30, 1995 includes a
+gain related to the sale of the former Huxley Envelope Corp. ("Huxley") building
+of $240,000 and a gain related to T-CAS Corp. ("T-CAS") of $222,000. Income from
+discontinued operations for the year ended June 30, 1994 was comprised of a loss
+related to Huxley of $2,108,000 and a gain related to T-CAS of $2,295,000.
+
+<PAGE>
+
+
+In November 1993, the Company sold substantially all of the net operating assets
+of its Huxley subsidiary.  The disposal is being accounted for as a discontinued
+operation,  and, accordingly,  Huxley's operations have been reported separately
+from continuing  operations.  The loss of $2,108,000 in fiscal 1994 represents a
+loss  from  Huxley's  operations  of  $187,000  and a loss  on the  disposal  of
+$1,921,000. The gain of $240,000 in fiscal 1995, is due primarily to a gain from
+the sale of the former Huxley building.
+
+In September 1993, the Company entered into an agreement with the U.S. Air Force
+in full  settlement of claims against the U.S. Air Force for extra work,  delays
+and other out-of-scope costs on two  telecommunication  contracts which were the
+primary  reasons  for T-CAS' loss in 1991.  The  settlement  represents  a final
+mutual  release  of all  claims  between  the  parties  relative  to  these  two
+contracts.  The settlement,  together with other unrelated settlements of claims
+and adjustments of previously  recorded loss reserves,  resulted in an after tax
+gain of $2,295,000  which was included in  discontinued  operations in the first
+quarter of fiscal 1994. The gain of $222,000 in fiscal 1995, is due primarily to
+a settlement of another claim against a former customer.
+
+Fiscal 1994 Compared to Fiscal 1993
+
+Net sales  increased by 26% to  $65,602,000  in fiscal 1994 from  $52,031,000 in
+fiscal 1993.  Income from  continuing  operations  improved to  $5,850,000  from
+$1,736,000.
+
+Net sales in the electronics segment increased to $51,585,000 for the year ended
+June 30, 1994 from  $39,145,000  for the year ended June 30, 1993 primarily as a
+result of increased volume of  microelectronics.  Effective January 1, 1994, the
+Company  acquired the  microelectronics  division of Marconi Circuit  Technology
+Corporation  ("Marconi") and, accordingly,  the net sales of the Company include
+the  acquired  division  for the period  from  January 1, to June 30, 1994 which
+sales were approximately  $8,300,000.  Operating profits increased by $2,245,000
+in this  segment as a result of the greater  sales  volume and  increased  gross
+profit margins partially offset by increased selling, general and administrative
+costs.
+
+Net sales in the isolator products segment increased to $14,017,000 for the year
+ended June 30, 1994 from $12,886,000 for the previous year primarily as a result
+of increased sales in the commercial and industrial  markets.  Operating profits
+increased by $495,000 as a result of the  increased  sales and  increased  gross
+profit   margins,   offset,   in  part,  by  increased   selling,   general  and
+administrative costs.
+
+Cost of sales as a percentage of sales decreased to 68.9% from 69.8% as a result
+of improved profit margins in both segments. Selling, general and administrative
+costs as a percentage of sales  decreased to 21.7% from 22.5% as the Company has
+been able to contain such costs despite increased sales.
+
+Interest expense decreased to $1,440,000 from $1,828,000 due to decreased levels
+of borrowings. Interest and other income were lower by $95,000, primarily due to
+the  lower  interest  income  as a  result  of the  sale of  certain  marketable
+securities and lower interest rates.
+
+The  income  tax  provisions  for the years  ended  June 30,  1994 and 1993 were
+different from the amounts computed by applying the U.S. Federal income tax rate
+to income from continuing  operations  before income taxes primarily as a result
+of the tax benefits of loss  carryforwards  and the exemption of the earnings of
+the Company's Puerto Rican subsidiary from U.S. Federal income taxes. The income
+tax benefit for the year ended June 30,  1994  includes a benefit of  $1,716,000
+relating  to  a  portion  of  the  Company's   unrealized   net  operating  loss
+carryforward  recognized in accordance  with  Statement of Financial  Accounting
+Standards  No. 109.  The income tax  provision  for the year ended June 30, 1993
+also included a $150,000 charge in excess of previously  recorded provisions for
+an agreed  settlement  of open U.S.  Federal  income tax for years 1986  through
+1990.
+
+<PAGE>
+
+Income  from  discontinued  operations  for the year  ended  June  30,  1994 was
+comprised of a loss related to Huxley of $2,108,000  and a gain related to T-CAS
+of $2,295,000.  Income from discontinued  operations for the year ended June 30,
+1993 reflects Huxley's income, net of tax, for that period.
+
+Liquidity and Capital Resources
+
+June 30, 1995 Compared To June 30, 1994
+---------------------------------------
+
+The Company's  working  capital at June 30, 1995 was  $31,533,000 as compared to
+$28,572,000  at June 30, 1994.  The current ratio  increased to 3.5 to 1 at June
+30, 1995 from 3.3 to 1 at June 30, 1994. The increases were primarily due to the
+increase in cash and cash equivalent balances to $11,330,000 from $8,238,000.
+
+Cash provided from operating activities was $8,300,000  (including $2,000,000 of
+life insurance proceeds) for the year ended June 30, 1995 and $5,477,000 for the
+year ended June 30, 1994.  Cash used by investing  activities of $21,000 in 1995
+was primarily for capital expenditures, which were substantially offset by funds
+provided by the sale of the former  Huxley  building.  The net cash  provided by
+operating  and  investing  activities  was used to  reduce  outstanding  debt by
+$4,939,000 for the year ended June 30, 1995.  Cash and cash  equivalents at June
+30, 1995 includes  $6,800,000  invested in commercial  paper and certificates of
+deposit.
+
+As of April 11, 1994, the Company  entered into a revised  revolving  credit and
+term loan  agreement  with two banks  which is secured by  accounts  receivable,
+inventory and the Company's  stockholdings in certain of its  subsidiaries.  The
+agreement provides for a revolving credit line of $16,000,000,  which expires on
+March 31, 1997, and a term loan of $4,000,000, which was repaid during the third
+quarter of 1995. See Note 9 to the Consolidated Financial Statements.
+
+During June 1994, the Company  completed a sale of $10,000,000  principal amount
+of 7-1/2% Senior Subordinated  Convertible  Debentures to non-U.S.  persons. The
+debentures  are due June 15, 2004 subject to prior sinking fund payments of 10%,
+10%, 15% and 15% of the principal  amount on September 15, 2000,  2001, 2002 and
+2003,  respectively.  The debentures are convertible  into the Company's  common
+stock at a price of $5-5/8 per share.
+
+The Company  believes that  internally  generated  funds and available  lines of
+credit  will  be  sufficient  for  its  working  capital  requirements,  capital
+expenditure  needs,  restructuring  costs and the  servicing of its debt for the
+fiscal  year  ending  June  30,  1996.  At June 30,  1995,  the  Company  had no
+borrowings under its revolving credit and term loan agreement.
+
+In November 1993, the Company disposed of its Huxley  subsidiary,  excluding its
+New York City manufacturing facility, for $5,550,000. The net cash proceeds from
+the sale were used to repay  indebtedness  under the  revolving  credit and term
+loan  agreement.  The land and building were sold in the fourth  quarter of 1995
+for approximately $2,400,000.
+
+In January 1994,  the Company  acquired  substantially  all of the net operating
+assets  of  the   microelectronics   division  of  Marconi  Circuit   Technology
+Corporation for $5,650,000.  The operations acquired have been consolidated with
+the Company's wholly-owned subsidiary, Aeroflex Laboratories,  Incorporated. The
+acquired  division's net sales of  microelectronic  products were  approximately
+$17,500,000 for the twelve months ended December 31, 1993.
+
+A subsidiary of the Company whose  operations were  discontinued in 1991, is one
+of several  defendants  named in a personal  injury action  initiated in August,
+1994,  by a group of  plaintiffs.  The  plaintiffs  are  seeking  damages  which
+cumulatively may exceed $500 million. The complaint alleges, among other things,
+that the plaintiffs  suffered injuries from exposure to substances  contained in
+products sold by the subsidiary to one of its customers. Considering its various
+defenses,  together  with its  product  liability  insurance,  in the opinion of
+management of the Company, the outcome of the action against its subsidiary will
+not have a materially  adverse  effect on the Company's  consolidated  financial
+statements.
+
+Management  believes that  potential  reductions  in military  spending will not
+materially  affect its  operations.  In certain  product areas,  the Company has
+suffered  reductions in sales volume due to cutbacks in the military budget.  In
+other product areas, the Company has experienced increased sales volume due to a
+realignment of government spending towards upgrading existing systems instead of
+purchasing  completely  new  systems.  The overall  effect of the  cutbacks  and
+realignment has not been material to the Company.
+
+The Company's  backlog of orders at June 30, 1995 and 1994 was  $34,681,000  and
+$40,950,000, respectively.
+
+At  June  30,  1995,  the  Company  had  net  operating  loss  carryforwards  of
+approximately $14,000,000 for Federal income tax purposes.
+
+At  June  30,  1995  and  1994  the  Company  had  $1,312,000  and   $1,506,000,
+respectively,  of prior years'  Puerto Rican source  earnings  held in qualified
+Puerto Rican  investments  which enable the Company to take advantage of reduced
+withholding  taxes to be paid when these earnings are  repatriated.  See Notes 5
+and 12 to the Consolidated Financial Statements.
+
+Under present tax laws, the earnings of the Company's  Puerto Rican facility are
+substantially  exempt from United States  income tax and  partially  exempt from
+Puerto Rican income  taxes.  As a result of the  consolidation  of the Company's
+Puerto Rican  operations into its domestic  facilities (Note 2) the Company will
+no longer have this partial exemption from income taxes.
+
+The  Company is  undergoing  routine  audits by various  taxing  authorities  of
+several  of its U.S.  Federal,  state  and local  income  tax  returns  covering
+different  periods  from 1991 to 1993.  Management  believes  that the  probable
+outcome of these various  audits should not materially  affect the  consolidated
+financial statements of the Company.
+
+<PAGE>
+
+ITEM EIGHT - FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA
+
+     The following financial statements of the Company and its subsidiaries, and
+the reports  thereon of KPMG Peat  Marwick  LLP and  Deloitte & Touche LLP dated
+August 11, 1995 and August 12, 1994, respectively, are set forth below.
+
+          -    Consolidated balance sheets at June 30, 1995 and 1994.
+
+          -    Consolidated statements of earnings,  stockholders' equity and
+               cash flows for the years ended June 30, 1995, 1994 and 1993.
+
+          -    Notes to consolidated financial statements.
+
+                              AEROFLEX INCORPORATED
+                                AND SUBSIDIARIES
+
+                           CONSOLIDATED BALANCE SHEETS
+
+<TABLE>
+<CAPTION>
+
+
+ASSETS                                                            June 30,
+                                                            1995            1994
+                                                            ----            ----
+<S>                                                    <C>             <C>
+
+Current Assets:
+  Cash and cash equivalents (Note 1)                   $ 11,330,000    $  8,238,000
+
+  Current portion of invested cash (Notes 5 and 9)          635,000         150,000
+
+  Accounts receivable, less allowance for doubtful
+    accounts of $437,000 and $434,000 at
+    June 30, 1995 and 1994, respectively (Note 9)        18,898,000      16,804,000
+  Inventories (Notes 6 and 9)                            12,330,000      14,087,000
+  Deferred income taxes (Note 12)                           467,000         640,000
+  Prepaid expenses and other current assets                 605,000         937,000
+                                                        -----------      ----------
+
+
+       Total Current Assets                              44,265,000      40,856,000
+
+Invested Cash (Notes 5 and 9)                               677,000       1,356,000
+
+Property, Plant and Equipment, net (Notes 7 and 9)       13,859,000      13,180,000
+
+Cost in  Excess  of Fair  Value of Net  Assets of
+  Businesses  Acquired,  net of
+  accumulated amortization of $1,780,000 and
+  $1,475,000, at June 30, 1995
+  and 1994, respectively (Note 1)                        10,297,000      10,602,000
+
+Net Assets of Discontinued Operations (Note 3)                 -          2,403,000
+
+Deferred Income Taxes (Note 12)                             589,000         403,000
+
+Other Assets                                              2,249,000       2,216,000
+                                                       ------------     -----------  
+
+
+Total Assets                                           $ 71,936,000    $ 71,016,000
+                                                       ============    ============ 
+
+
+<FN>
+                 See notes to consolidated financial statements
+</FN>
+</TABLE>
+<PAGE>
+
+                              AEROFLEX INCORPORATED
+                                AND SUBSIDIARIES
+
+                           CONSOLIDATED BALANCE SHEETS
+
+<TABLE>
+<CAPTION>
+
+
+LIABILITIES AND STOCKHOLDERS' EQUITY                              June 30,
+
+                                                            1995            1994
+                                                            ----            ---- 
+<S>                                                    <C>             <C>
+
+Current Liabilities:
+  Current portion of long-term debt (Note 9)           $  1,936,000    $    820,000
+
+  Accounts payable                                        3,343,000       3,222,000
+
+  Accrued expenses and other current liabilities
+    (Note 8)                                              6,916,000       7,580,000
+  Income taxes payable (Note 12)                            537,000         662,000
+                                                        -----------     -----------
+       Total Current Liabilities                         12,732,000      12,284,000
+                                                        -----------     -----------                              
+Long-Term Debt (Note 9)                                   1,851,000       7,588,000
+                                                        -----------     -----------
+Other Long-Term Liabilities                               1,009,000       1,573,000
+                                                        -----------     -----------
+Senior Subordinated Convertible Debentures (Note 10)     10,000,000      10,000,000
+                                                        -----------     -----------
+
+
+Commitments and Contingencies
+  (Notes 2, 3, 4, 5, 10, 12, 14 and 15)
+
+Stockholders' Equity (Notes 9 and 11):
+  Preferred stock, par value $.10 per share;
+    authorized 1,000,000 shares:
+    Series A Junior Participating Preferred stock,
+    par value $.10 per share; authorized 150,000 shares        -               -
+  Common stock, par value $.10 per share; authorized
+    25,000,000 shares; issued 11,818,000 and 11,799,000
+    shares at June 30, 1995 and 1994, respectively        1,182,000       1,180,000
+  Additional paid-in capital                             56,101,000      56,116,000
+  Accumulated deficit                                   (10,584,000)    (17,633,000)
+                                                        -----------     -----------  
+
+                                                         46,699,000      39,663,000
+  Less:  Treasury stock, at cost (92,000 and
+    58,000 shares at June 30, 1995 and 1994,
+    respectively)                                           355,000          92,000
+                                                        -----------     -----------
+                                                         46,344,000      39,571,000
+                                                        -----------     ----------- 
+Total Liabilities and Stockholders' Equity              $71,936,000     $71,016,000
+                                                        ===========     ===========
+
+
+<FN>
+                 See notes to consolidated financial statements
+</FN>
+</TABLE>
+<PAGE>
+
+                     AEROFLEX INCORPORATED AND SUBSIDIARIES
+
+                       CONSOLIDATED STATEMENTS OF EARNINGS
+
+<TABLE>
+<CAPTION>
+                                                      Year Ended June 30,
+
+                                               1995           1994           1993
+                                               ----           ----           ----
+<S>                                       <C>            <C>            <C>
+ 
+Net Sales                                 $ 71,113,000   $ 65,602,000   $ 52,031,000
+Cost of Sales                               47,542,000     45,168,000     36,320,000
+                                          ------------   ------------   ------------
+  Gross Profit                              23,571,000     20,434,000     15,711,000
+Selling, General and Administrative Costs   15,752,000     14,214,000     11,695,000
+Restructuring Charge (Note 2)                1,669,000           -              -
+                                           -----------   ------------    -----------
+  Operating Income                           6,150,000      6,220,000      4,016,000
+                                           -----------   ------------    -----------  
+Other Income (Expense)
+  Life Insurance Proceeds (Note 13)          2,000,000           -              -
+  Interest Expense                          (1,464,000)    (1,440,000)    (1,828,000)
+  Other Income (including interest and
+    dividends of $669,000, $163,000 and
+    $283,000)                                  751,000        264,000        359,000
+                                            ----------     ----------     ---------- 
+  Total Other Income (Expense)               1,287,000     (1,176,000)    (1,469,000)
+                                            ----------     ----------     ----------   
+Income From Continuing Operations
+  Before Income Taxes                        7,437,000      5,044,000      2,547,000
+Provision (Benefit) For Income Taxes
+  (Note 12)                                    850,000       (806,000)*      811,000
+                                            ----------     ----------      --------- 
+  Income From Continuing Operations          6,587,000      5,850,000      1,736,000
+                                            ----------     ----------      ---------
+
+Discontinued Operations (Note 3):
+  Income (loss) from operations of
+    discontinued subsidiaries, net of
+    income taxes                                  -          (187,000)       500,000
+  Gain on disposal of subsidiaries,
+    net of income taxes                        462,000        374,000           -
+                                           -----------    -----------    -----------
+  Income From Discontinued Operations          462,000        187,000        500,000
+                                           -----------    -----------    -----------
+Net Income                                 $ 7,049,000    $ 6,037,000    $ 2,236,000
+                                           ===========    ===========    =========== 
+
+Income Per Common Share:
+ Primary
+  Continuing Operations                      $ .53          $ .55*         $ .20
+  Discontinued Operations                      .04            .02            .06
+                                             -----          -----          -----                   
+  Net Income                                 $ .57          $ .57          $ .26
+                                             =====          =====          ===== 
+ Fully Diluted
+  Continuing Operations                      $ .52          $ .50*         $ .19
+  Discontinued Operations                      .03            .01            .05
+                                             -----          -----          -----  
+  Net Income                                 $ .55          $ .51          $ .24
+                                             =====          =====          =====  
+Weighted Average Number of Common
+  Shares Outstanding
+   Primary                                  12,352,000     10,526,000      8,757,000
+   Fully Diluted                            14,249,000     12,401,000     10,920,000
+                                            ==========     ==========     ==========  
+
+<FN>
+* Includes  income tax benefit of $1,716,000  relating to the  recognition  of a
+  portion  of the  Company's  unrealized  net  operating  loss  carryforward  in
+  accordance with Statement of Financial Accounting Standards No. 109.
+
+                 See notes to consolidated financial statements
+</FN>
+</TABLE>
+
+<PAGE>
+
+                              AEROFLEX INCORPORATED
+                                AND SUBSIDIARIES
+
+                 CONSOLIDATED STATEMENTS OF STOCKHOLDERS' EQUITY
+
+                    Years Ended June 30, 1995, 1994 and 1993
+
+<TABLE>
+<CAPTION>
+
+                                                                            Retained
+                                                             Additional     Earnings
+                                           Common Stock        Paid-in    (Accumulated        Treasury Stock
+                           Total        Shares    Par Value    Capital       Deficit)      Shares        Cost
+                           -----        ------    ---------    -------       -------       ------------------
+<S>                     <C>           <C>        <C>         <C>          <C>
+
+Balance, July 1, 1992   $25,025,000   9,905,000  $  990,000  $57,139,000  $(25,906,000)   1,181,000 $(7,198,000)
+Retirement of Treasury
+  Stock                        -     (1,181,000)   (118,000)  (7,080,000)         -      (1,181,000)  7,198,000
+Warrants Issued to
+  Placement Agent            39,000        -           -          39,000          -            -            -
+Treasury Stock Received
+  from the Employee
+  Stock Ownership Plan      (92,000)       -           -            -             -          58,000     (92,000)
+                        
+Net Income                2,236,000        -           -            -        2,236,000         -            -
+                         ----------   ---------   ---------   ----------    ----------     --------     --------    
+Balance, June 30, 1993   27,208,000   8,724,000     872,000   50,098,000   (23,670,000)      58,000     (92,000)
+
+
+Stock Issued Upon
+  Conversion of
+  Debentures (Note 10)    6,131,000   3,050,000     305,000    5,826,000          -            -            -
+Stock Issued Upon
+  Exercise of Stock
+  Options                    64,000      25,000       3,000       61,000          -            -            -
+Warrants Issued to
+  Placement Agent
+  (Note 10)                 131,000        -           -         131,000          -            -            -
+Net Income                6,037,000        -           -            -        6,037,000         -            -
+                         ----------  ----------- ----------   ----------    ----------     ---------    --------        
+
+Balance, June 30, 1994   39,571,000  11,799,000   1,180,000   56,116,000   (17,633,000)      58,000      (92,000)
+                         
+Treasury Stock Received
+  from the Employee
+  Stock Ownership Plan      (28,000)       -           -            -             -           7,000      (28,000)
+Retirement of Treasury
+  Stock                        -        (65,000)     (6,000)    (114,000)         -         (65,000)     120,000
+Purchase of Treasury
+  Stock                    (355,000)       -           -            -             -          92,000     (355,000)
+Stock Issued Upon Exercise
+  of Stock Options          107,000      84,000       8,000       99,000          -            -            -
+
+Net Income                7,049,000        -           -            -        7,049,000         -            -
+                         ----------  ----------  ----------  -----------  ------------      -------    ---------
+Balance, June 30, 1995  $46,344,000  11,818,000  $1,182,000  $56,101,000  $(10,584,000)      92,000    $(355,000)
+                        ===========  ==========  ==========  ===========  ============      =======    =========
+
+
+<FN>
+                 See notes to consolidated financial statements
+</FN>
+</TABLE>
+<PAGE>
+
+                     AEROFLEX INCORPORATED AND SUBSIDIARIES
+                      CONSOLIDATED STATEMENTS OF CASH FLOWS
+
+<TABLE>
+<CAPTION>
+
+                                                     Year Ended June 30,
+                                               1995           1994           1993
+                                               ----           ----           ----
+<S>                                       <C>            <C>            <C>
+
+Cash Flows From Operating Activities:
+  Net income                              $  7,049,000   $  6,037,000   $  2,236,000
+  Adjustments to reconcile net income
+    to net cash provided by operating
+    activities:
+      Gain from discontinued operations       (462,000)      (187,000)      (500,000)
+      Depreciation and amortization          3,133,000      2,931,000      2,835,000
+      Provision for losses on accounts
+        receivable                              10,000        173,000         79,000
+      Deferred income taxes                    (13,000)    (1,450,000)      (243,000)
+      Other                                    (79,000)        13,000        (12,000)
+Change in  operating  assets and  
+    liabilities  net of effects  from 
+    purchase of businesses:
+      Decrease (increase) in accounts
+        receivable                          (1,965,000)    (2,091,000)      (134,000)
+      Decrease (increase) in inventories     2,263,000        565,000        724,000
+      Decrease (increase) in prepaid
+        expenses and other assets             (279,000)      (689,000)       170,000
+      Increase (decrease) in accounts
+        payable, accrued expenses and
+        other long-term liabilities         (1,232,000)       949,000        223,000
+      Increase (decrease) in income
+        taxes payable                         (125,000)      (774,000)       859,000
+                                            ----------      ---------      ---------
+Net Cash Provided By
+  Operating Activities                       8,300,000      5,477,000      6,237,000
+                                            ----------      ---------      ---------
+Cash Flows From Investing Activities:
+  Payment for purchase of businesses,
+    net of cash acquired                      (536,000)    (5,650,000)          -
+  Net cash provided by (used in)
+    discontinued operations                  3,058,000      5,643,000        359,000
+  Capital expenditures                      (2,919,000)    (2,205,000)    (1,995,000)
+  Proceeds from sale of property,
+    plant and equipment                        182,000         27,000        583,000
+  Decrease (increase) in invested cash         194,000      1,904,000      2,567,000
+                                             ---------      ---------      ---------
+Net Cash Provided By (Used In)
+  Investing Activities                         (21,000)      (281,000)     1,514,000
+                                             ---------      ---------      --------- 
+Cash Flows From Financing Activities:
+  Net proceeds from debenture offering            -         9,220,000      6,101,000
+  Borrowings under debt agreements             293,000      1,991,000      6,570,000
+  Net debt repayments                       (5,232,000)    (8,593,000)   (20,224,000)
+  Purchase of treasury stock                  (355,000)          -              -
+  Proceeds from the exercise of stock
+    options                                    107,000         64,000           -
+                                            ----------      ---------     ----------   
+Net Cash Provided By (Used In)
+  Financing Activities                      (5,187,000)     2,682,000     (7,553,000)
+                                            ----------      ---------     ----------   
+Net Increase In Cash and
+  Cash Equivalents                           3,092,000      7,878,000        198,000
+Cash and Cash Equivalents At Beginning
+  Of Year                                    8,238,000        360,000        162,000
+                                           -----------    -----------     ---------- 
+Cash and Cash Equivalents At End Of Year   $11,330,000    $ 8,238,000     $  360,000
+                                           ===========    ===========     ==========
+
+
+<FN>
+                 See notes to consolidated financial statements
+</FN>
+</TABLE>
+<PAGE>
+
+                     AEROFLEX INCORPORATED AND SUBSIDIARIES
+                   NOTES TO CONSOLIDATED FINANCIAL STATEMENTS
+
+
+Years Ended June 30, 1995, 1994 and 1993
+
+ 1. Summary of Significant Accounting Principles and Policies:
+
+    Principles of Consolidation
+    ---------------------------
+    The accompanying  consolidated  financial statements include the accounts of
+    Aeroflex  Incorporated  (formerly  ARX,  Inc.)  and its  subsidiaries  ("the
+    Company"),  all of which are  wholly-owned.  As of June 30, 1995 the Company
+    has accounted for certain  subsidiaries,  namely  telecommunication  systems
+    services (T-CAS Corp.) and commercial and custom envelopes  (Huxley Envelope
+    Corp.),  as  discontinued  operations.  These  subsidiaries  have  not  been
+    consolidated as part of the Company's  continuing  operations  (Note 3). All
+    significant intercompany balances and transactions have been eliminated.
+
+    Inventories
+    ----------- 
+    Inventories are stated at the lower of cost (first-in, first-out) or market.
+
+    Revenue and Cost Recognition on Contracts
+    -----------------------------------------
+    Revenue  and costs on  contracts  are  recognized  based upon  shipments  or
+    billings for  manufacturing  contracts  and upon costs  incurred for certain
+    engineering and support  services  contracts.  Estimated costs at completion
+    are  based  upon  engineering  and  production  estimates.   Provisions  for
+    estimated losses on contracts-in-process are recorded in the period in which
+    such losses are first determined.
+
+    Property, Plant and Equipment
+    -----------------------------
+    Property,   plant  and   equipment  is  stated  at  cost  less   accumulated
+    depreciation  computed on a  straight-line  basis over the estimated  useful
+    lives of the related assets.  Leasehold  improvements are amortized over the
+    life of the lease or the estimated life of the asset, whichever is shorter.
+
+    Research and Development Costs
+    ------------------------------ 
+    All  research and  development  costs are charged to expense as incurred and
+    are classified as selling,  general and administrative  costs.  Research and
+    development expenses were approximately $2,389,000,  $694,000 and $1,225,000
+    during the fiscal years 1995, 1994 and 1993, respectively.
+
+    Intangible Assets
+    -----------------
+    Intangible assets are recorded at cost, less accumulated  amortization.  The
+    excess of  purchase  price over the fair value of assets  acquired  is being
+    amortized  on a  straight-line  basis  over a period of 40 years  except for
+    certain costs  allocated to patents which are amortized  over 15 years,  the
+    remaining life of the patents at the time they were acquired by the Company.
+    The Company periodically  evaluates the recoverability of the carrying value
+    of its intangible assets and the related  amortization  periods. The Company
+    assesses  the   recoverability   of   unamortized   goodwill  based  on  the
+    undiscounted projected future earnings of the related businesses. As of June
+    30,  1995,  the cost in excess  of fair  value of net  assets of  businesses
+    acquired   consists   substantially  of  $9,202,000   related  to  the  1989
+    acquisition   of  Comstron   Corporation,   a   manufacturer   of  frequency
+    synthesizers, subsystems and components.
+
+    Invested Cash
+    -------------
+    Invested cash consists primarily of certificates of deposit, having original
+    maturities  of greater  than  three  months,  and is carried at cost,  which
+    approximates market.
+
+    Income Per Share
+    ----------------
+    Income per share is  computed  based  upon the  weighted  average  number of
+    common shares  outstanding  after giving  effect to the assumed  exercise of
+    dilutive  stock options and warrants and, for fully  diluted  purposes,  the
+    assumed conversion of debentures.
+
+    Cash and Cash Equivalents
+    -------------------------
+    The Company  considers all highly liquid  investments  having  maturities of
+    three months or less at the date of acquisition to be cash equivalents.
+
+    Income Taxes
+    ------------
+
+    The Company adopted Statement of Financial Accounting Standards ("SFAS") No.
+    109, "Accounting for Income Taxes", in the fourth quarter of fiscal 1993.  
+    The effect of the change in accounting principle did not have a significant
+    impact on the 1993 financial statements.  Under SFAS No. 109, deferred tax 
+    assets and liabilities are measured based upon the differences between the
+    financial accounting and tax bases of assets and liabilities.
+
+    Reclassifications
+    -----------------
+    Reclassifications have been made to the 1994 and 1993 consolidated financial
+    statements to conform to the 1995 presentation.
+
+ 2. Restructuring Charge:
+    In March 1995,  the Company,  pursuant to a Board of  Directors  resolution,
+    adopted a plan to consolidate its Puerto Rican manufacturing operations into
+    its existing  facilities in New York and New Jersey.  The Company intends to
+    cease manufacturing operations in Puerto Rico by August 31, 1995 and expects
+    the  consolidation  to be complete by October 1995. In connection  with this
+    restructuring,  the Company has recorded a charge to earnings of  $1,669,000
+    in fiscal 1995, representing costs of abandonment of leasehold improvements,
+    severance costs for  approximately 100 employees,  lease termination  costs,
+    write-down of excess equipment and other related costs. This amount includes
+    non-cash costs of approximately $597,000.
+
+ 3. Discontinued Operations:
+    In November  1993, the Company sold  substantially  all of the net operating
+    assets of its wholly-owned subsidiary, Huxley Envelope Corp. ("Huxley"), for
+    $5,550,000.   Huxley  is  a  manufacturer   of  specialized   envelopes  for
+    high-volume  direct-mail  users.  The sale did not include Huxley's New York
+    City  manufacturing  facility which was sold in the fourth quarter of fiscal
+    1995 for approximately $2,400,000.  The sale of the facility, along with the
+    resolution of certain other contingencies,  resulted in a net of tax gain of
+    $240,000.
+
+    Effective  June 30, 1991,  the Board of Directors of the Company  approved a
+    formal plan to discontinue  the operations of its  wholly-owned  subsidiary,
+    T-CAS Corp.  ("T-CAS"),  which was involved in the design and implementation
+    of telecommunication  and electronic systems. The plan called for completion
+    of existing contracts and an orderly  dissolution.  As of June 30, 1993, all
+    contracts were completed.
+
+    In September  1993, the Company  entered into an agreement with the U.S. Air
+    Force  in full  settlement  of  claims  against  the U.S.  Air  Force on two
+    telecommunication  contracts.  The  settlement  represents  a  final  mutual
+    release of all claims  between the parties  relative to these two contracts.
+    In May 1995,  the Company  received  $170,000 in settlement of another claim
+    against a former customer. These settlements,  together with other unrelated
+    settlements of claims and adjustments of previously  recorded loss reserves,
+    resulted in after tax gains of $2,295,000 and $222,000,  which were included
+    in  discontinued  operations  in the first quarter of fiscal 1994 and fourth
+    quarter of fiscal 1995, respectively.
+
+    Huxley  and  T-CAS  have  been  reported  as  discontinued  operations  and,
+    accordingly,  the Company's  equity earnings (loss) from these  subsidiaries
+    and the estimated gain (loss) on disposal,  sale or discontinuance have been
+    reported separately from continuing operations.
+
+<PAGE>
+
+    The income from discontinued operations is as follows:
+<TABLE>
+<CAPTION>
+
+                                           Year Ended June 30,
+                                 1995            1994           1993
+                                 ----            ----           ----
+<S>                           <C>            <C>            <C>
+ 
+    Operating Revenues:
+        Huxley                $       -      $  4,868,000   $ 15,307,000
+        T-CAS                         -         2,195,000        179,000
+                              -----------    ------------   ------------           
+                              $       -      $  7,063,000   $ 15,486,000
+                              ===========    ============   ============
+
+     Income (loss) from operations before income taxes:
+        Huxley                $       -      $   (187,000)  $    528,000
+        T-CAS                         -              -              -
+                              -----------    ------------   ------------
+                                      -          (187,000)       528,000
+     Provision for 
+        income taxes                  -              -            28,000
+                              -----------    ------------   ------------ 
+
+     Income (loss) from
+       operations                     -          (187,000)       500,000
+                              -----------    ------------   ------------
+     Estimated gain (loss) 
+       on disposition 
+       (net of tax):
+        Huxley                     240,000     (1,921,000)          -
+        T-CAS                      222,000      2,295,000           - 
+                              ------------     ----------    -----------
+                                   462,000        374,000           -
+                              ------------     ----------    -----------     
+     Income from discontinued
+       operations             $    462,000     $  187,000     $  500,000
+                              ============     ==========     ==========
+</TABLE>
+
+     The  assets  and  liabilities  of the  discontinued  operations  have  been
+     reclassified  on the balance  sheet from the historic  classifications  and
+     combined  under the caption "net assets of  discontinued  operations".  The
+     balance at June 30, 1994 consists primarily of the Huxley land and building
+     which were sold in fiscal  1995.  Intercompany  interest  expense  has been
+     allocated  to the loss  from  discontinued  operations  based  upon the net
+     assets of discontinued operations.
+
+     Net assets of discontinued operations consist of the following:
+
+<TABLE>
+<CAPTION>
+                                                 June 30,
+                                                   1994
+                                                  ---------
+<S>                                              <C>
+
+        Assets                                   $ 3,066,000
+        Liabilities                                 (663,000)
+                                                 -----------          
+        Net Assets                               $ 2,403,000
+                                                 ===========   
+
+</TABLE>
+
+ 4. Acquisition of Businesses:
+
+    In January 1995, the Company acquired substantially all of the net operating
+    assets of Lintek, Inc. ("Lintek") for $537,000 plus contingent consideration
+    based on the  next  five  years'  earnings  to a  maximum  of an  additional
+    $675,000.  Any  contingent  consideration  paid will be  recorded as cost in
+    excess of fair value of net assets  acquired.  Lintek designs,  develops and
+    manufactures radar cross section and antenna pattern measurement systems for
+    commercial and military applications, as well as surface penetrating radars.
+    The acquired company's net sales were approximately  $2,600,000 for the year
+    ended  December 31, 1994. On a pro forma basis,  had the Lintek  acquisition
+    taken  place  as of the  beginning  of the  periods  presented,  results  of
+    operations for those periods would not have been materially affected.
+
+<PAGE>
+
+    Effective January 1, 1994, the Company acquired substantially all of the net
+    operating  assets  of  the  microelectronics  division  of  Marconi  Circuit
+    Technology   Corporation   ("Circuit   Tech")  for  $5,650,000  and  assumed
+    liabilities  of  $3,115,000.  The purchase was financed  through  borrowings
+    under  the  Company's  revolving  line of  credit  agreement.  The  acquired
+    division's  net  sales  of   microelectronic   products  were  approximately
+    $17,500,000 for the twelve months ended December 31, 1993.
+
+    Summarized  below are the  unaudited  pro forma results of operations of the
+    Company as if Circuit Tech had been  acquired at the beginning of the fiscal
+    periods presented:
+<TABLE>
+<CAPTION>
+
+                                         Pro Forma Year Ended
+                                               June 30,
+                                         ---------------------  
+                                     1994           1993
+                                     ----           ----
+                                (in thousands, except per share data)
+
+<S>                                <C>            <C>    
+                                
+    Net Sales                      $ 73,757       $ 71,543
+    Income (Loss) From
+      Continuing Operations           5,703         (1,455)
+    Net Income (Loss)                 5,890           (955)
+
+    Earnings Per Share
+      Primary
+        Income (Loss) From
+          Continuing Operations      $  .54         $ (.17)
+        Net Income (Loss)               .56           (.11)
+      Fully Diluted
+        Income (Loss) From
+          Continuing Operations         .48             *
+        Net Income (Loss)               .50             *
+
+
+<FN>
+    *   Due to the loss, the effect of the debentures, options and warrants is
+        anti-dilutive.
+</FN>
+</TABLE>
+
+    The pro  forma  financial  information  presented  above is not  necessarily
+    indicative of either the results of operations  that would have occurred had
+    the acquisition  taken place at the beginning of the periods presented or of
+    future operating results of the combined companies.
+
+    The acquisitions have been accounted for as purchases and, accordingly,  the
+    acquired  assets  and  liabilities  assumed  have  been  recorded  at  their
+    estimated fair values at the respective dates of acquisition.  The operating
+    results  of  Circuit  Tech  and  Lintek  are  included  in the  consolidated
+    statements of earnings from the respective acquisition dates.
+
+ 5. Invested Cash:
+
+    Invested cash  represents  prior years' Puerto Rican source earnings held in
+    qualified  Puerto  Rican  investments  which  enables  the  Company  to take
+    advantage  of reduced  withholding  taxes to be paid when the  Puerto  Rican
+    source  earnings  are  repatriated.   These  funds  are  currently  invested
+    primarily in certificates of deposit and become  available for  repatriation
+    at the lower  withholding  tax rates  through  the year  1999.  Despite  the
+    cessation of operations  in Puerto Rico,  the funds will still be maintained
+    in such investments for the required statutory periods.
+
+<PAGE>
+
+
+ 6. Inventories:
+    Inventories consist of the following:
+
+<TABLE>
+<CAPTION>
+
+                                                     June 30,
+                                          1995                 1994
+                                          ----                 ----
+<S>                                   <C>                <C>
+
+    Raw materials                     $ 5,509,000        $ 5,706,000
+    Work-in-process                     3,398,000          5,800,000
+    Finished goods                      3,423,000          2,581,000
+                                      -----------        ----------- 
+                                      $12,330,000        $14,087,000
+                                      ===========        ===========
+</TABLE>
+
+    Inventories  include  contracts-in-process  of $1,076,000  and $3,163,000 at
+    June  30,  1995 and  1994,  respectively,  which  consist  substantially  of
+    unbilled material, labor and overhead costs.
+
+ 7. Property, Plant and Equipment:
+
+    Property, plant and equipment consists of the following:
+
+<TABLE>
+<CAPTION>
+
+                                                 June 30,
+                                          1995                1994
+                                          ----                ----
+  <S>                                 <C>                 <C>
+
+    Land                              $    725,000        $    725,000
+    Building and leasehold
+      improvements                      11,141,000          10,422,000
+    Machinery, equipment, tools
+      and dies                          18,494,000          18,665,000
+    Furniture and fixtures               5,339,000           5,001,000
+    Assets recorded under
+      capital leases                     2,160,000           2,034,000
+    Transportation equipment                59,000              82,000
+                                      ------------        ------------            
+                                        37,918,000          36,929,000  
+    Less accumulated depreciation
+      and amortization                  24,059,000          23,749,000
+                                      ------------        ------------ 
+                                      $ 13,859,000        $ 13,180,000
+                                      ============        ============
+</TABLE>
+
+ 8.  Accrued Expenses and Other Current Liabilities:
+
+    Accrued  expenses and other current  liabilities  include accrued  salaries,
+    wages and other  compensation  of $2,380,000 and $2,545,000 at June 30, 1995
+    and 1994, respectively.
+
+ 9. Long-Term Debt and Credit Arrangements:
+
+    Long-term debt consists of the following:
+
+<TABLE>
+<CAPTION>
+
+                                                   June 30,
+                                           1995               1994
+                                           ----               ---- 
+<S>                                   <C>                 <C>
+
+    Revolving credit and term
+      loan agreement (a)              $       -           $  4,000,000
+    Bank loans (b)                         822,000             972,000
+    Equipment loan (c)                     900,000           1,200,000
+    Capitalized lease
+      obligations (d)                    1,795,000           1,895,000
+    Other                                  270,000             341,000
+                                      ------------        ------------
+                                         3,787,000           8,408,000
+    Less current maturities              1,936,000             820,000
+                                      ------------        ------------
+                                      $  1,851,000        $  7,588,000
+                                      ============        ============
+</TABLE>
+
+<PAGE>
+
+    (a) As of April 11, 1994, the Company  replaced a previous  agreement with a
+    revised  revolving  credit and term loan  agreement  with two banks which is
+    secured by accounts receivable, inventory and the Company's stockholdings in
+    certain of its subsidiaries.  The Agreement  provides for a revolving credit
+    line of  $16,000,000,  which  expires on March 31, 1997,  and a term loan of
+    $4,000,000,  which was repaid during the third quarter of 1995. The interest
+    rate on borrowings  under this agreement is at various rates  depending upon
+    certain financial ratios, with the present rate substantially  equivalent to
+    the prime rate (9% at June 30,  1995).  The Company  paid a facility  fee of
+    $100,000,  and is required to pay a commitment  fee of 1/4% per annum of the
+    average  unused  portion  of the  revolving  credit  line.  The terms of the
+    agreement  require  compliance  with  certain  covenants  including  minimum
+    consolidated working capital and tangible net worth,  maintenance of certain
+    financial ratios,  limitations on capital expenditures and lease commitments
+    and prohibition of the payment of cash dividends.
+
+    (b) The Company has loans with a bank bearing interest at rates ranging from
+    4.91% to 6.38%.  These loans  mature at various  dates  through 1999 and are
+    fully collateralized by the invested cash.
+
+    (c) The Company had a loan with a financial  institution bearing interest at
+    a floating  rate of 5/8% over the prime  rate  which was  secured by certain
+    machinery and equipment. The loan was fully repaid in July 1995.
+
+    (d) The Company has several  capitalized  lease  obligations  with financial
+    institutions  which have various terms through 1999 and aggregate  quarterly
+    installments of $111,000.
+
+        Aggregate long-term debt as of June 30, 1995 matures in each fiscal year
+        as follows:
+<TABLE>
+<S>                           <C>                               <C>
+
+          1996...............$ 1,936,000    1999...............    496,000
+          1997...............    513,000    2000...............    404,000
+          1998...............    438,000    Thereafter.........       -
+                                                               -----------  
+                                                               $ 3,787,000
+                                                               =========== 
+</TABLE>
+
+    Interest paid was  $1,333,000,  $1,435,000 and  $2,288,000  during the years
+    ended June 30, 1995, 1994 and 1993, respectively.
+
+10. Senior Subordinated Convertible Debentures:
+    During June 1994,  the Company  completed  a sale of  $10,000,000  principal
+    amount of 7-1/2%  Senior  Subordinated  Convertible  Debentures  to non-U.S.
+    persons.  The debentures are due June 15, 2004 subject to prior sinking fund
+    payments of 10%, 10%, 15%, and 15% of the principal  amount on September 15,
+    2000, 2001, 2002 and 2003, respectively. The debentures are convertible into
+    the Company's  common stock at a price of $5-5/8 per share.  The Company may
+    redeem  the  debentures  at a price of  107-1/2%  of the  principal  amount,
+    declining by 1.5 points per year beginning June 15, 1996 to 100% at June 15,
+    2000 and thereafter  except that the Company can make such redemption  prior
+    to December 15, 1995 under  certain  conditions.  The net proceeds  from the
+    offering were used  initially to retire  certain bank  indebtedness  and for
+    general  working capital with excess proceeds placed in temporary short term
+    bank related  investments.  The cost of issuing these debentures,  $947,000,
+    included a 6% fee paid and 100,000 warrants, exercisable at $6.75 per share,
+    issued to the placement  agent.  This amount is included in the Consolidated
+    Balance Sheet under the caption "Other Assets" and is being amortized over
+    the term of the debentures as interest expense.
+
+<PAGE>
+
+    During the quarter ended December 31, 1992, the Company  completed a sale of
+    $6,870,000  of  principal  amount  of  7%  Convertible  Senior  Subordinated
+    Debentures.  On February 14, 1994,  the Company called for redemption all of
+    the outstanding  debentures at 109% of the principal amount.  The debentures
+    were  convertible  into the  Company's  common stock at a price of $2.25 per
+    share.  As of March 31,  1994,  all but  $8,000 of the  principal  amount of
+    debentures had been presented for  conversion,  resulting in the issuance of
+    approximately  3,050,000 shares of common stock. The $8,000 was redeemed and
+    the issue was retired.
+
+11. Stockholders' Equity:
+
+    (a)  Stock Option Plans
+
+    Under stock option plans approved by the Company's shareholders, options may
+    be granted to purchase shares of the Company's  common stock  exercisable at
+    prices  equal to the fair market value on the date of grant.  The  Incentive
+    Stock Option Plan,  which  expired in September  1991,  provided for options
+    which become exercisable in two or three equal annual installments beginning
+    one year  from the date of grant  and  expire  five  years  from the date of
+    grant.  During 1990, the Company's  shareholders  approved the Non-Qualified
+    Stock Option Plan which provides for options which become exercisable in one
+    or more  installments  and  expire  five  years  from the date of grant.  In
+    December  1993,  the Board of Directors  adopted the Outside  Director Stock
+    Option Plan which  provides  for options to  non-employee  directors,  which
+    become  exercisable in three installments and expire ten years from the date
+    of grant. In November 1994, the shareholders approved this plan and the 1994
+    Non-Qualified  Stock  Option Plan which  provides  for options  which become
+    exercisable in one or more  installments and expire five years from the date
+    of grant.
+
+    Additional  information  with respect to the Company's stock option plans is
+    as follows:
+
+<TABLE>
+<CAPTION>
+
+                                      Shares          Shares
+                       Range of        Under         Available
+                       Exercise     Outstanding     for Future
+                        Prices        Options         Options
+                       ---------    ------------     --------- 
+<S>                    <C>          <C>             <C>
+
+       Balance
+       July 1,
+        1992          $1.50-$7.73   1,395,000        *(80,000)
+       Authorized          -             -            900,000
+       Granted        $2.00-$2.25     213,000        (213,000)
+       Canceled       $2.25-$7.73    (238,000)        238,000
+       Termination
+       of Plan             -             -           (468,000)
+                      -----------    ----------      ----------
+</TABLE>
+    
+<PAGE>
+<TABLE>
+<CAPTION>
+
+
+                                      Shares          Shares
+                       Range of        Under         Available
+                       Exercise     Outstanding     for Future
+                        Prices        Options         Options
+                      -----------   ------------    -----------
+<S>                   <C>           <C>              <C>
+
+       Balance,
+       June 30,
+        1993          $1.50-$4.25   1,370,000         377,000
+       Authorized          -             -            250,000
+       Granted        $2.38-$4.70     440,000        (440,000)
+       Canceled          $4.50        (60,000)         60,000
+       Exercised      $2.25-$2.63     (25,000)            -
+                      -----------   ----------       ---------- 
+       Balance,
+       June 30,
+        1994          $1.50-$4.70   1,725,000         247,000
+       Authorized          -             -          1,500,000
+       Granted        $3.88-$4.18   1,160,000      (1,160,000)
+       Canceled       $2.63-$3.88    (209,000)        100,000
+       Exercised      $2.25-$3.63     (84,000)           -
+                      -----------   ----------      ---------- 
+       Balance,
+       June 30,
+        1995          $1.50-$4.70   2,592,000         687,000
+                      ===========   =========       ========== 
+
+<FN>
+
+  * The  number of shares  under  options  granted  as of July 1, 1992  included
+    395,000  shares at $2.25  which were  granted in  February  1992  subject to
+    shareholder approval of a 900,000 share increase in the number of authorized
+    shares under the Non-Qualified Stock Option Plan. The shareholders  approved
+    the  increase  in November  1992 and,  accordingly,  the 900,000  shares are
+    included in the number of shares authorized during 1993.
+
+</FN>
+</TABLE>
+
+    At June 30, 1995  options to purchase  approximately  1,764,000  shares were
+    exercisable at prices ranging from $1.50 to $4.70.
+
+    (b)  Stock Warrants
+    In March 1985,  the Company  issued  40,000 common stock  purchase  warrants
+    each, to two officers of the Company, which expired on September 30, 1994.
+
+    (c)  Shareholders' Rights Plan
+    In August 1988, the Company's  Board of Directors  approved a  Shareholders'
+    Rights Plan which provided for a dividend distribution of one right for each
+    share to  holders  of record of the  Company's  common  shares on August 31,
+    1988. The rights will become exercisable only in the event a person or group
+    accumulates  20 percent or more of the Company's  common  shares,  or if any
+    person  or group  announces  an offer  which  would  result  in it owning 20
+    percent or more of the common  shares.  The rights  will  expire  August 30,
+    1998. Each right will entitle the holder to buy one one-hundredth of a share
+    of a new  series of  Series A Junior  Participating  Preferred  Stock of the
+    Company at the price of $25. In addition, upon the occurrence of a merger or
+    other  business  combination,  or  the  acquisition  by a  person  or  group
+    ("Acquiring Person") of 25 percent or more of the common shares,  holders of
+    the rights,  other than the Acquiring  Person,  will be entitled to purchase
+    either common shares of the Company or common shares of the Acquiring Person
+    at half their market value.
+
+    The Company will be entitled to redeem the rights for $0.01 per right at any
+    time until the tenth day following a public  announcement of the acquisition
+    of a 20 percent position in its common shares.
+
+<PAGE>
+
+
+12. Income Taxes:
+
+    The provision (benefit) for income taxes consists of the following:
+<TABLE>
+<CAPTION>
+
+                                          Year Ended June 30,
+                                     1995          1994          1993
+<S>                                  <C>           <C>           <C>
+
+       Current:
+         Federal                 $   307,000   $   229,000   $   704,000
+         State and local             454,000       379,000       276,000
+         U.S. Territory              102,000        36,000        74,000
+                                  ----------    ----------   -----------     
+                                     863,000       644,000     1,054,000
+                                  ----------    ----------   -----------
+       Deferred:
+         Federal                      43,000    (1,238,000)      (79,000)
+         State and local             (54,000)     (275,000)       (4,000)
+         U.S. Territory               (2,000)       63,000      (160,000)
+                                 ------------  -----------   -----------
+                                     (13,000)   (1,450,000)     (243,000)
+                                 -----------   -----------   -----------
+                                 $   850,000   $  (806,000)  $   811,000
+                                 ===========   ===========   ===========
+</TABLE>
+
+
+    The provision  (benefit) for income taxes varies from the amount computed by
+    applying  the  U.S.  Federal  income  tax  rate to  income  from  continuing
+    operations before income taxes as a result of the following:
+
+<TABLE>
+<CAPTION>
+
+                                          Year Ended June 30,
+                                     1995          1994          1993
+                                     ----          ----          ----
+<S>                               <C>           <C>           <C>
+
+       Tax at statutory rate     $ 2,529,000   $ 1,715,000   $   866,000
+       Utilization of net
+        operating loss
+        carryforwards             (1,702,000)   (1,105,000)     (429,000)
+       Reassessment of valuation
+        allowance                       -       (1,716,000)         -
+       State, local and U.S.
+        Territory income taxes       392,000       318,000       241,000
+       Exemption of Puerto Rican
+        subsidiary's earnings from
+        U.S. Federal income
+        taxes (Note 2)               (17,000)     (540,000)     (414,000)
+       IRS settlement                   -             -          150,000
+       Withholding tax on
+        repatriation of
+        Puerto Rican source
+        earnings                      33,000       209,000       144,000
+       Alternative minimum
+        tax                           97,000       156,000        28,000
+       Amortization of goodwill      104,000       104,000       104,000
+       Officers' life insurance
+        premiums and (proceeds)     (658,000)       46,000        48,000
+       Other                          72,000         7,000        73,000
+                                  ----------    ----------    ----------
+                                  $  850,000    $ (806,000)   $  811,000
+                                  ==========    ==========    ==========
+
+</TABLE>
+<PAGE>
+
+    At June 30, 1995 and 1994 the deferred tax assets and liabilities  consisted
+of:
+
+<TABLE>
+<CAPTION>
+
+                                                          June 30,
+                                                  1995             1994
+                                                  ----             ----
+<S>                                          <C>              <C>
+
+    
+       Accounts receivable                   $    154,000    $    155,000
+       Inventories                              2,239,000       1,878,000
+       Accrued expenses                           169,000         432,000
+       Less valuation allowance                (1,371,000)     (1,825,000)
+                                             ------------    ------------ 
+         Current assets                         1,191,000         640,000
+       Tollgate taxes                            (724,000)           -
+                                             ------------    ------------
+         Net current assets                       467,000         640,000
+                                             ------------    ------------ 
+       Other long-term liabilities                358,000         683,000
+       Unrealized capital loss                  1,598,000       3,204,000
+       Tax loss carryforwards                   5,319,000       7,421,000
+       Tax credit carryforwards                 1,530,000       1,730,000
+       Capital loss carryforwards               2,768,000       1,291,000
+       Less valuation allowance                (9,588,000)    (11,890,000)
+                                             ------------    ------------
+         Non-current assets                     1,985,000       2,439,000
+                                             ------------    ------------
+       Property, plant and equipment           (1,169,000)       (920,000)
+       Patents                                   (215,000)       (237,000)
+       Other                                      (12,000)        (30,000)
+       Tollgate taxes                                -           (849,000)
+                                             ------------    ------------
+        Long-term liabilities                  (1,396,000)     (2,036,000)
+                                             ------------    ------------    
+         Net non-current assets                   589,000         403,000
+                                             ------------    ------------
+           Total                             $  1,056,000    $  1,043,000
+                                             ============    ============
+</TABLE>
+
+    In accordance with SFAS No. 109, the Company  records a valuation  allowance
+    against  deferred  tax assets if it is more likely than not that some or all
+    of the  deferred  tax asset will not be realized.  The  valuation  allowance
+    decreased  by  $2,756,000  during  fiscal 1995  primarily as a result of the
+    utilization of net operating loss carryforwards.  The income tax benefit for
+    the year ended June 30, 1994  includes  $1,716,000  related to a decrease in
+    the valuation allowance against unrealized tax loss carryforwards,  since it
+    was considered  more likely than not that such assets would be realized.  At
+    June  30,  1995,  the  Company  had  net  operating  loss  carryforwards  of
+    approximately  $14,000,000  for Federal  income tax  purposes  which  expire
+    through 2006.
+
+    For fiscal 1995 and prior  years,  the  earnings of Aeroflex  International,
+    Inc. (the Company's Puerto Rican subsidiary) were substantially  exempt from
+    United States income taxes.  These  earnings  currently  were also partially
+    exempt from Puerto Rican income taxes. As a result of the  consolidation  of
+    the Company's Puerto Rican operations into its domestic  facilities (Note 2)
+    the Company will no longer have this partial exemption from income taxes.
+
+<PAGE>
+
+    The Company is undergoing  routine audits by various  taxing  authorities of
+    several of its state and local income tax returns covering different periods
+    from 1991 to 1993.  Management  believes that the probable  outcome of these
+    various  audits  should not  materially  affect the  consolidated  financial
+    statements of the Company.  The income tax provision for the year ended June
+    30,  1993  included  a  $150,000  charge in excess  of  previously  recorded
+    provisions  for an agreed  settlement  of open U.S.  Federal  income tax for
+    years 1986 through 1990.
+
+    The Company made income tax payments of $1,004,000,  $1,432,000 and $311,000
+    and received  refunds of $16,000,  $9,000 and $30,000 during the years ended
+    June 30, 1995, 1994 and 1993, respectively.
+
+13. Employment Contracts and Life Insurance Proceeds:
+
+    In September 1991, the former Chairman of the Company retired for reasons of
+    ill health.  Pursuant to his employment contract,  the Company was obligated
+    for disability benefits through 1997. Upon his death in 1995, the Company is
+    required to pay a portion of these  benefits  to his widow.  The net present
+    value of these amounts,  totalling $146,000 and $643,000 as of June 30, 1995
+    and 1994,  respectively,  are included in other  long-term  liabilities  and
+    accrued expenses.
+
+    During fiscal 1995, the Company received $2,000,000 of insurance proceeds on
+    the death of the former Chairman.
+
+    In July 1994, the Company entered into employment agreements with certain of
+    its  officers  for the period July 1, 1994 through June 30, 1999 with annual
+    remuneration ranging from $200,000 to $250,000, plus additional compensation
+    based upon  earnings of the Company.  Future  minimum  payments  under these
+    contracts are $700,000 per year. In addition, these officers have the option
+    to terminate their employment  agreements upon change in the present control
+    of the Company,  as defined,  and receive  lump sum payments  equal to three
+    times annual compensation, as defined.
+
+14. Employee Benefit Plans:
+
+    The Company has established an Employee  Stock  Ownership Plan ("the Plan")
+    which  covers substantially   all  employees  not  covered  by  collective
+    bargaining agreements and who meet certain service requirements.  The annual
+    contribution to the Plan is determined by the Company's Board of Directors.
+    For the plan years  ended  December  31,  1994,  1993 and 1992 the Board of
+    Directors did not elect to make a contribution to the Plan. During 1995, the
+    Company received a favorable  determination letter from the Internal Revenue
+    Service for the  termination  of the Plan and intends to complete the formal
+    termination of the Plan prior to December 31, 1995.
+
+    The Aeroflex Incorporated Employees' 401(k) Plan was established pursuant to
+    Section 401(k) of the Internal  Revenue Code ("the  Retirement  Plan").  All
+    employees of the Company and certain  subsidiaries  who are not members of a
+    collective bargaining agreement may participate in the Retirement Plan. Each
+    participant   has  the  option  to  contribute  a  portion  of  his  or  her
+    compensation.  For the  1995,  1994 and 1993  calendar  years,  the Board of
+    Directors  has  elected to provide an  employer  contribution,  which  vests
+    immediately,   equal  to  30%,  30%  and  25%,  respectively,   of  employee
+    contributions  subject to certain  limitations.  The Retirement Plan expense
+    for the  fiscal  years  ended  June 30,  1995,  1994 and 1993 was  $219,000,
+    $160,000 and $55,000, respectively.
+
+    Effective January 1, 1994, the Company established a Supplemental  Executive
+    Retirement Plan ("the SERP") which covers certain of its officers.  The SERP
+    expense for the fiscal year ended June 30, 1995 was $347,000. As of June 30,
+    1995, the Company has  contributed  $159,000 to a trust  established to fund
+    its SERP liability.
+
+<PAGE>
+
+15. Commitments:
+
+    a.  Operating Leases
+
+    Several of the  Company's  operating  facilities  and certain  machinery and
+    equipment are leased under agreements  expiring through 1999. The leases for
+    machinery and equipment  generally  contain  options to purchase at the then
+    fair market value of the related leased assets.
+
+    Future minimum  payments under  operating  leases as of June 30, 1995 are as
+    follows for the fiscal years:
+
+<TABLE>
+<S>                           <C>                              <C>
+
+
+          1996...............$   628,000    1999...............     58,000
+          1997...............    424,000    2000...............      3,000
+          1998...............    295,000    Thereafter.........       -
+                                                               -----------        
+                                                               $ 1,408,000
+                                                               ===========
+</TABLE>
+
+    Rental expense was $837,000,  $647,000 and $481,000  during the fiscal years
+    1995, 1994 and 1993, respectively.
+
+    b.  Legal Matter
+
+    A subsidiary of the Company whose  operations were  discontinued in 1991, is
+    one of several  defendants  named in a personal  injury action  initiated in
+    August,  1994, by a group of plaintiffs.  The plaintiffs are seeking damages
+    which  cumulatively may exceed $500 million.  The complaint  alleges,  among
+    other  things,  that the  plaintiffs  suffered  injuries  from  exposure  to
+    substances  contained  in  products  sold  by the  subsidiary  to one of its
+    customers.  Considering  its  various  defenses,  together  with its product
+    liability insurance, in the opinion of management of the Company the outcome
+    of the action  against its  subsidiary  will not have a  materially  adverse
+    effect on the Company's consolidated financial statements.
+
+16. Business Segments:
+
+    The Company's business segments of continuing  operations and major products
+    included in each segment, are as follows:
+
+    Electronics:                   Isolator Products:
+    a)Microelectronics             a)Commercial spring and rubber isolators(VMC)
+      (Circuit Technology)         b)Industrial spring and rubber isolators
+    b)Instrument products            (Korfund)
+       (Comstron and Lintek)       c)Military wire-rope isolators
+    c)Electro-optics                 (Aeroflex International)
+      - Scanning devices
+      - Stabilization and tracking
+        devices
+      - Magnetic motors
+
+<PAGE>
+
+    The Company is a manufacturer of advanced  technology systems and components
+    primarily for government and defense contractors. Approximately 74%, 72% and
+    75% of the  Company's  sales  for the  fiscal  years  1995,  1994 and  1993,
+    respectively,  were to agencies of the United States  government or to prime
+    defense contractors or subcontractors of the United States government.
+
+<TABLE>
+<CAPTION>
+                                                     Year Ended June 30,
+
+                                              1995           1994           1993
+                                              ----           ----           ----
+<S>                                       <C>            <C>             <C>
+
+     Net sales:
+       Electronics                        $ 55,607,000   $ 51,585,000   $ 39,145,000
+       Isolator Products                    15,506,000     14,017,000     12,886,000
+                                          ------------   ------------   ------------   
+         Net sales                        $ 71,113,000   $ 65,602,000   $ 52,031,000
+                                          ============   ============   ============ 
+
+     Operating profit:
+       Electronics                        $  8,103,000   $  6,315,000   $  4,070,000
+       Isolator Products                     2,377,000      2,157,000      1,662,000
+                                          ------------   ------------   ------------ 
+                                            10,480,000      8,472,000      5,732,000
+       Restructuring costs                  (1,669,000)*         -              -
+       General corporate expenses           (2,661,000)    (2,252,000)    (1,716,000)
+       Interest expense                     (1,464,000)    (1,440,000)    (1,828,000)
+       Interest and other income             2,751,000        264,000        359,000
+                                          ------------   ------------   ------------  
+         Income from continuing
+          operations before income taxes  $  7,437,000   $  5,044,000   $  2,547,000
+                                          ============   ============   ============  
+
+     Identifiable assets:
+       Electronics                        $ 48,055,000   $ 45,068,000   $ 34,178,000
+       Isolator Products                    10,159,000     11,244,000     12,062,000
+       Corporate                            13,722,000     14,704,000     13,945,000
+                                          ------------   ------------   ------------
+         Total assets                     $ 71,936,000   $ 71,016,000   $ 60,185,000
+                                          ============   ============   ============
+
+     Capital expenditures:
+       Electronics                        $  2,348,000   $  1,914,000   $  1,004,000
+       Isolator Products                       554,000        289,000        984,000
+       Corporate                                17,000          2,000          7,000
+                                          ------------   ------------   ------------
+         Total capital expenditures       $  2,919,000   $  2,205,000   $  1,995,000
+                                          ============   ============   ============
+
+     Depreciation and amortization
+      expense:
+       Electronics                        $  2,181,000   $  1,857,000   $  1,617,000
+       Isolator Products                       717,000        840,000        937,000
+       Corporate                               235,000        234,000        281,000
+                                          ------------   ------------   ------------
+         Total depreciation and
+          amortization                    $  3,133,000   $  2,931,000   $  2,835,000
+                                          ============   ============   ============
+
+<FN> 
+    * Approximately 35% and 65% of the restructuring  charge is allocable to the
+      electronics and isolator products segments, respectively.
+</FN>
+</TABLE>
+
+<PAGE>
+
+                          Independent Auditors' Report
+
+To the Board of Directors and Stockholders of Aeroflex Incorporated
+Plainview, New York
+
+     We have audited the  accompanying  consolidated  balance  sheet of Aeroflex
+Incorporated and  subsidiaries as of June 30, 1995 and the related  consolidated
+statements of earnings,  stockholders'  equity, and cash flows for the year then
+ended.  These  financial  statements  are the  responsibility  of the  Company's
+management.  Our  responsibility  is to express  an  opinion on these  financial
+statements based on our audit.
+
+     We conducted  our audit in  accordance  with  generally  accepted  auditing
+standards.  Those standards require that we plan and perform the audit to obtain
+reasonable assurance about whether the financial statements are free of material
+misstatement.  An audit includes examining, on a test basis, evidence supporting
+the amounts and disclosures in the financial statements.  An audit also includes
+assessing the  accounting  principles  used and  significant  estimates  made by
+management,  as well as evaluating the overall financial statement presentation.
+We believe that our audit provides a reasonable basis for our opinion.
+
+     In our opinion,  the consolidated  financial  statements  referred to above
+present fairly,  in all material  respects,  the financial  position of Aeroflex
+Incorporated  and  subsidiaries  as of June 30,  1995 and the  results  of their
+operations  and their cash flows for the year then  ended,  in  conformity  with
+generally accepted accounting principles.
+
+/s/ KPMG PEAT MARWICK LLP
+August 11, 1995
+Jericho, New York
+<PAGE>
+
+                          Independent Auditors' Report
+
+
+The Board of Directors and Stockholders
+Aeroflex Incorporated:
+
+     Under date of August 11,  1995,  we  reported on the  consolidated  balance
+sheet of Aeroflex  Incorporated  and  subsidiaries  as of June 30, 1995, and the
+related  consolidated  statements of earnings,  stockholders'  equity,  and cash
+flows for the year then ended,  as contained in the fiscal 1995 annual report to
+stockholders.  These consolidated  financial statements and our report thereon
+are included in the annual  report on Form 10-K for the year 1995. In connection
+with our audit of the aforementioned  consolidated financial statements, we also
+have audited the related financial  statement schedule as listed in item 14(a)2.
+The  financial  statement  schedule  is  the  responsibility  of  the  Company's
+management.  Our  responsibility  is to  express  an  opinion  on the  financial
+statement schedule based on our audit.
+
+     In our opinion,  the  financial  statement  schedule,  when  considered  in
+relation  to the  basic  consolidated  financial  statements  taken  as a whole,
+presents fairly, in all material respects, the information set forth therein.
+
+
+/s/ KPMG PEAT MARWICK LLP
+Jericho, New York
+August 11, 1995
+<PAGE>
+
+                          Independent Auditors' Report
+
+
+
+To the Board of Directors and Stockholders of 
+Aeroflex Incorporated
+Plainview, New York
+
+     We have audited the  accompanying  consolidated  balance  sheet of Aeroflex
+Incorporated  (formerly ARX, Inc.) and subsidiaries as of June 30, 1994, and the
+related  consolidated  statements of earnings,  stockholders'  equity,  and cash
+flows for each of the two years in the period  ended June 30,  1994.  Our audits
+also included the financial  statement schedule listed in the Index AT item 
+14(a)2. These   financial   statements   and  financial   statement   schedule 
+are  the responsibility of the Company's management.  Our responsibility is to 
+express an opinion on these financial statements and the financial statement 
+schedule based on our audits.
+
+     We conducted  our audits in accordance  with  generally  accepted  auditing
+standards.  Those standards require that we plan and perform the audit to obtain
+reasonable assurance about whether the financial statements are free of material
+misstatement.  An audit includes examining, on a test basis, evidence supporting
+the amounts and disclosures in the financial statements.  An audit also includes
+assessing the  accounting  principles  used and  significant  estimates  made by
+management,  as well as evaluating the overall financial statement presentation.
+We believe that our audits provide a reasonable basis for our opinion.
+
+     In our opinion,  such consolidated  financial statements present fairly, in
+all material  respects,  the  financial  position of Aeroflex  Incorporated  and
+subsidiaries as of June 30, 1994, and the results of their  operations and their
+cash  flows  for each of the two  years in the  period  ended  June 30,  1994 in
+conformity with generally accepted accounting principles.
+
+     Also, in our opinion, such financial statement schedule, when considered in
+relation  to the  basic  consolidated  financial  statements  taken  as a whole,
+presents fairly in all material respects the information set forth therein.
+
+
+/s/DELOITTE & TOUCHE LLP
+Jericho, New York
+August 12, 1994
+
+<PAGE>
+
+ITEM NINE - DISAGREEMENTS ON ACCOUNTING AND FINANCIAL
+            DISCLOSURE
+
+      None.
+
+<PAGE>
+                                 PART III
+
+     The  information  required by Part III is  incorporated by reference to the
+Company's  definitive  proxy  statement in connection with its Annual Meeting of
+Stockholders  scheduled  to be held in  November  1995,  to be  filed  with  the
+Securities  and Exchange  Commission  within 120 days  following  the end of the
+Company's fiscal year ended June 30, 1995.
+
+<PAGE>
+                                  PART IV
+
+ITEM FOURTEEN - EXHIBITS, FINANCIAL STATEMENT SCHEDULES,
+                 AND REPORTS ON FORM 8-K
+
+  (a)  1.   Financial Statements
+
+       See Item Eight
+
+                                               Filed Herewith
+                                               on Page Number (2)
+                                               ------------------
+       2.   Schedules
+            II        Valuation and Qualifying Accounts            S-1
+
+<PAGE>
+ 
+      Schedules  other than those  listed are omitted  because  they are 
+not applicable or are not required.
+
+  (b)  Reports on Form 8-K:
+
+       None.
+
+  (c)  Exhibits
+
+     3.1 Certificate of Incorporation,  as amended (Exhibit 3.1 of Annual Report
+on Form 10-K for the year ended June 30, 1987)
+
+     3.2 By-Laws,  as amended (Exhibit 3.2 of Annual Report on Form 10-K for the
+year ended June 30, 1987)
+
+     4.1 Second  Amended and Restated  Loan and Security  Agreement  dated as of
+April 11, 1994 among the Registrant, certain of its subsidiaries,  Chemical Bank
+and National  Westminster  Bank, USA,  together with a first  amendment  thereto
+(Exhibit 4.1 of Annual Report on Form 10-K for the year ended June 30, 1994)
+
+     4.2 Indenture  Agreement  between  Registrant and American Stock Transfer &
+Trust  Company  dated as of June 23, 1994  (Exhibit 4.2 of Annual Report on Form
+10-K for the year ended June 30, 1994)
+
+     10.1 1989  Non-Qualified  Stock Option Plan,  as amended  (Exhibit  10.8 of
+Annual Report on Form 10-K for the year ended June 30, 1990).
+
+     10.2 1994 Non-Qualified Stock Option Plan (Exhibit 10.2 of Annual Report on
+Form 10-K for the year ended June 30, 1994)
+
+     10.3 1994  Outside  Directors  Stock  Option Plan  (Exhibit  10.3 of Annual
+Report on Form 10-K for the year ended June 30, 1994)
+
+     10.4 Asset Purchase Agreement dated as of January 14, 1994 between Aeroflex
+Laboratories  Incorporated and Marconi Circuit Technology Corporation (Exhibit 2
+of Report on Form 8-K dated January 14, 1994) .
+
+  11   Computation of Earnings Per Common Share
+
+  22   The following is a list of the Company's subsidiaries:
+
+                                                 State of
+           Name                                Incorporation
+           ----                                --------------
+       Aeroflex International Inc.                Delaware
+       Aeroflex Laboratories Incorporated         Delaware
+       Aeroflex Lintek Corp.                      Ohio
+       Aeroflex Systems Corp.                     Delaware
+       Vibration Mountings and Controls, Inc.     New York
+
+  23.1 Consent of Deloitte & Touche LLP
+  23.2 Consent of KPMG Peat Marwick LLP
+
+  27   Financial Data Schedule
+
+<PAGE>                                    
+
+     The following undertakings are incorporated by reference into the Company's
+Registration  Statements on Form S-8 (Registration Nos.  33-75496,  33-88868 and
+33-88878).
+
+(a)    The undersigned registrant hereby undertakes:
+
+     (1) To file,  during any period in which  offers or sales are being made, a
+post-effective amendment to this registration statement:
+
+          (i)  To  include  any  prospectus  required  by  section  10(a)(3)
+of  the Securities Act of 1933;
+
+          (ii) To reflect in the  prospectus  any facts or events  arising  
+after the effective date of the registration  statement (or the most recent 
+post-effective amendment  thereof)  which,  individually  or  in  the  
+aggregate,  represent  a fundamental change in the information set forth in the
+registration statement;
+
+          (iii) To  include  any  material  information  with  respect to the 
+plan or distribution  not  previously  disclosed  in the  registration  
+statement or any material change to such information in the registration 
+statement;
+
+     Provided, however, that paragraphs (a)(1)(i) and (a)(1)(ii) do not apply if
+the  registration  statement  is on Form S-3 or Form  S-8,  and the  information
+required to be included in a  post-effective  amendment by those  paragraphs  is
+contained in periodic reports filed by the registrant  pursuant to Section 13 or
+Section 15(d) of the Securities  Exchange Act of 1934 that are  incorporated  by
+reference in the registration statement.
+
+     (2) For the purpose of determining  any liability  under the Securities Act
+of  1933,  each  such  post-effective  amendment  shall  be  deemed  to be a new
+registration  statement  relating to the  securities  offered  therein,  and the
+offering of such  securities at that time shall be deemed to be the initial bona
+fide offering thereof.
+
+     (3) To remove from registration by means of a post-effective  amendment any
+of the securities being registered which remain unsold at the termination of the
+offering.
+
+          (b) The  undersigned  registrant  hereby  undertakes  that, for 
+purposes of determining  any liability  under the Securities Act of 1933, each 
+filing of the registrant's  annual  report  pursuant to Section  13(a) or 
+Section 15(d) of the Securities  Exchange  Act of 1934  (and,  where  
+applicable,  each  filing of an employee  benefit  plan's  annual  report  
+pursuant  to  Section  15(d)  of  the Securities  Exchange  Act of 1934)  that 
+is  incorporated  by  reference  in the registration  statement  relating to 
+the  securities  offered  therein,  and the offering of such  securities at 
+that time shall be deemed to be the initial bona fide offering thereof.
+
+         (f) (1) The undersigned registrant hereby undertakes to deliver or 
+cause to be delivered with the prospectus to each employee to whom the 
+prospectus is sent or given a copy of the  registrant's  annual report to 
+stockholders for its last fiscal year, unless such employee  otherwise has 
+received a copy of such report, in which case the registrant shall state in the
+prospectus that it will promptly furnish,  without  charge,  a copy of such  
+report  on  written  request  of the employee.  If the last fiscal year of the 
+registrant  has ended within 120 days prior to the use of the prospectus,  the 
+annual report of the registrant for the preceding  fiscal year may be so  
+delivered,  but within such 120 day period the annual report for the last 
+fiscal year will be furnished to each such employee.
+
+<PAGE> 
+
+             (2) The undersigned registrant hereby undertakes to transmit or 
+cause to be transmitted  to all  employees  participating  in the plan who do 
+not  otherwise receive such material as stockholders of the registrant,  at the
+time and in the manner such material is sent to its stockholders,  copies of 
+all reports,  proxy statements and other communications distributed to its 
+stockholders generally.
+
+            (3) Where  interests in a plan are  registered  herewith,  the  
+undersigned registrant  and plan hereby  undertake  to  transmit or cause to 
+be  transmitted without charge,  to any participant in the plan who makes a 
+written  request,  a copy of the then latest annual report of the plan who 
+makes a written request, a copy of the then latest annual  report of the plan 
+filed  pursuant to Section 15(d) of the Securities  Exchange Act of 1934 
+(Form 11-K). If such report is filed separately on Form 11-K, such form shall 
+be delivered upon written  request.  If such report is filed as a part of the  
+registrant's  annual report on Form 10-K, that entire report (excluding 
+exhibits) shall be delivered upon written request.  If  such  report  is  filed
+as a part  of the  registrant's  annual  report  to stockholders  delivered  
+pursuant to paragraph  (1) or (2) of this  undertaking, additional delivery 
+shall not be required.
+
+          (4) If the  registrant is a foreign  private  issuer,  eligible to use
+Form 20-F,  then the registrant  shall  undertake to deliver or cause to be 
+delivered with the  prospectus to each employee to whom the prospectus is sent 
+or given, a copy of the registrant's latest filing on Form 20-F in lieu of the 
+annual report to stockholders.
+  
+             (i) Insofar as indemnification for liabilities arising under the 
+Securities Act of 1933 may be permitted to directors,  officers and controlling
+persons of the  registrant  pursuant  to  the  foregoing  provisions,   or  
+otherwise,  the registrant  has been advised that in the opinion of the  
+Securities and Exchange Commission such indemnification is against public 
+policy as expressed in the act and is, therefore,  unenforceable. In the event
+that a claim for indemnification against such  liabilities  (other than the 
+payment by the registrant of expenses incurred or paid by a director,  officer 
+or controlling person of the registrant in the successful defense of any action,
+suit or proceeding) is asserted by such director,  officer or controlling person
+in connection with the securities being registered, the registrant will, unless 
+in the opinion of its counsel the matter has been  settled by  controlling  
+precedent,  submit to a court of  appropriate jurisdiction the question whether 
+such  indemnification  by it is against public policy as expressed in the Act 
+and will be governed by the final adjudication of such issue.
+
+
+<PAGE>
+                                    
+      Pursuant  to the  requirements  of  Section  13 or 15(d) of the  
+Securities Exchange  Act of 1934,  the  Company has duly caused this report to 
+be signed on its behalf by the  undersigned,  thereunto  duly  authorized on 
+the 20th day of September 1995.
+
+                                                  Aeroflex Incorporated   
+
+                                                  By:    /s/ Harvey R. Blau
+                                                  Harvey R. Blau, Chairman
+
+     Pursuant to the  requirements of the Securities  Exchange Act of 1934, this
+report has been signed below on September 20, 1995 by the  following  persons in
+the capacities indicated:
+
+
+/s/ Harvey R. Blau                        Chairman of the Board
+-----------------------                   (Chief Executive Officer)
+Harvey R. Blau
+
+/s/ Michael Gorin                         President and Director
+-----------------------                   (Chief Financial Officer)
+Michael Gorin
+
+/s/ Leonard Borow                         Executive Vice President, Secretary
+-----------------------                   and Director (Chief Operating Officer)
+Leonard Borow 
+
+/s/ Robert Bradley, Sr.                   Director
+-----------------------
+Robert Bradley, Sr.
+
+/s/ Milton Brenner                        Director
+-----------------------
+Milton Brenner
+
+/s/ Ernest E. Courchene, Jr.              Director
+-----------------------
+Ernest E. Courchene, Jr.
+
+/s/ Jerome Fox                            Director
+-----------------------
+Jerome Fox
+
+                                          Director
+-----------------------
+Donald S. Jones
+
+/s/ Eugene Novikoff                       Director
+-----------------------
+Eugene Novikoff
+
+/s/ John S. Patton                        Director
+-----------------------
+John S. Patton
+
+<PAGE>                                                          S-1
+
+                              AEROFLEX INCORPORATED
+                                 AND SUBSIDIARIES
+                 SCHEDULE II - VALUATION AND QUALIFYING ACCOUNTS
+
+
+
+Column A             Column B          Column C        Column D    Column E
+--------             --------          --------        --------    --------  
+                                        Additions
+                                           Charged
+                    Balance at Charged to  to other                Balance at
+                    beginning  costs and   accounts    Deductions   end of
+Description         of period  expenses    -describe   -describe    period
+-----------         ---------  ---------   ---------   ----------  -----------
+
+YEAR ENDED
+  JUNE 30, 1995:
+
+Allowance for
+ doubtful
+ accounts          $  434,000 $   10,000  $     -     $    7,000(A)$  437,000
+                   ========== ==========  =========   ==========   ========== 
+Reserve for
+ inventory
+ obsolescence      $3,478,000 $  968,000  $     -     $   66,000(B)$4,380,000
+                   ========== ==========  =========   ==========   ==========   
+
+
+YEAR ENDED
+  JUNE 30, 1994:
+
+Allowance for
+ doubtful
+ accounts         $  283,000  $  173,000  $     -     $   22,000(A)$  434,000
+                  ==========  ==========  ==========  ==========   ==========
+Reserve for
+ inventory
+ obsolescence     $2,467,000  $1,069,000  $     -     $   58,000(B)$3,478,000
+                  ==========  ==========  ==========  ==========   ==========
+
+
+YEAR ENDED JUNE 30, 1993:
+
+Allowance for
+  doubtful
+  accounts       $  312,000  $   79,000   $     -     $   108,000(A)$  283,000
+                 ==========  ==========   ==========  ===========   ==========
+
+Reserve for
+  inventory
+  obsolescence   $2,023,000  $  703,000   $    -      $   259,000(B)$2,467,000
+                 ==========  ==========   ==========  ===========   ========== 
+
+
+
+
+Note:  (A) - Net write-offs of uncollectible amounts.
+       (B) - Write-off of inventory.
+
+<PAGE>
+
+Quarterly Financial Data (Unaudited):
+(In thousands except per share data and footnotes)
+
+<TABLE>
+<CAPTION>
+
+                                            Quarter                    Year Ended
+1995                          First    Second    Third     Fourth       June 30
+----                          -----    ------    -----     -------     ----------
+<S>                          <C>       <C>      <C>       <C>          <C>
+
+Net Sales                   $14,027   $15,821   $19,750   $21,515      $71,113
+Gross Profit                  4,385     5,052     6,762     7,372       23,571
+Income From
+  Continuing Operations     $   715   $ 3,084(1)$   683(2)$ 2,105(2)   $ 6,587(1)(2)
+Income From Discontinued
+  Operations                   -         -         -          462          462
+                            -------   -------   -------   -------      -------  
+Net Income                  $   715   $ 3,084   $   683   $ 2,567      $ 7,049
+                            =======   =======   =======   =======      =======  
+Income Per Share:
+  Primary:
+    Continuing Operations    $ .06     $ .25(1) $ .06(2)  $ .17(2)     $ .53(1)(2)
+    Discontinued Operations     -         -         -       .04          .04
+                             -----     -----    -----     -----        -----      
+    Net Income               $ .06     $ .25    $ .06     $ .21        $ .57
+                             =====     =====    =====     =====        ===== 
+  Fully Diluted:
+    Continuing Operations    $ .06     $ .23(1) $ .06(2)  $ .16(2)     $ .52(1)(2)
+    Discontinued Operations     -         -         -       .03          .03
+                            ------     -----    -----     -----        -----
+   Net Income                $ .06     $ .23    $ .06     $ .19        $ .55
+                            ======     =====    =====     =====        =====
+
+<FN>
+
+(1) Includes  $2,000,000 ($.14 per share fully diluted and $.16 primary) for the
+    quarter  ended  December  31, 1994 and year ended June 30, 1995 of insurance
+    proceeds received on the death of the former chairman.
+
+(2) Includes a $1,494,000 net of tax restructuring  charge ($.10 per share fully
+    diluted  and  $.12  primary)  for the  year  ended  June  30,  1995  for the
+    consolidation  of the  Company's  Puerto Rican  operation  into its domestic
+    facilities.  The net of tax  charge  was  $1,035,000  ($.07 per share  fully
+    diluted and $.08  primary)  and $459,000  ($.03 per share fully  diluted and
+    $.04  primary)  for the  quarters  ended March 31,  1995 and June 30,  1995,
+    respectively.
+
+</FN>
+</TABLE>
+
+<TABLE>
+<CAPTION>
+
+                                            Quarter                    Year Ended
+1994                          First    Second    Third     Fourth       June 30
+----                          -----    ------    -----     ------      ----------
+<S>                           <C>      <C>       <C>       <C>         <C>
+
+Net Sales                   $11,701   $13,371   $19,187   $21,343      $65,602
+Gross Profit                  3,709     4,125     5,534     7,066       20,434
+Income From
+  Continuing Operations     $   352   $   749   $ 1,171   $ 3,578 (3)  $ 5,850 (3)
+Income (Loss) From
+  Discontinued Operations     2,273    (2,086)     -         -             187
+                            -------   -------   -------   -------      -------  
+Net Income (Loss)           $ 2,625   $(1,337)  $ 1,171   $ 3,578      $ 6,037
+                            =======   =======   =======   =======      =======
+Income (Loss) Per Share:
+  Primary:
+    Continuing Operations    $ .04     $ .08     $ .11     $ .29 (3)    $ .55 (3)
+    Discontinued Operations    .25      (.22)       -         -           .02
+                             -----     -----     -----     -----        ----- 
+    Net Income (Loss)        $ .29     $(.14)    $ .11     $ .29        $ .57
+                             =====     =====     =====     =====        ===== 
+  Fully Diluted:
+    Continuing Operations    $ .04     $ .07     $ .10     $ .29 (3)    $ .50 (3)
+    Discontinued Operations    .19      (.17)       -         -           .01
+                             -----     -----     -----     -----        -----
+    Net Income (Loss)        $ .23     $(.10)    $ .10     $ .29        $ .51
+                             =====     =====     =====     =====        =====
+
+<FN>
+
+(3) Includes income tax benefit of $1,716,000, or $.14 per share ($.16 per share
+    primary  for the  year),  relating  to the  recognition  of a portion of the
+    Company's  unrealized net operating  loss  carryforward  in accordance  with
+    Statement of Financial Accounting Standards No. 109.
+
+</FN>
+</TABLE>
+
+Since per share  information is computed  independently for each quarter and the
+full  year,  based  on the  respective  average  number  of  common  and  common
+equivalent shares  outstanding,  the sum of the quarterly per share amounts does
+not necessarily equal the per share amounts for each year.
