@@ -185,6 +185,10 @@ class RuleProcessor:
                 content.append(line)
                 current_idx += 1
                 
+        # Include end pattern line if keep_end is True
+        if rule.get('keep_end', False) and end_idx < len(lines):
+            content.append(lines[end_idx])
+                
         return {
             'type': rule['name'],
             'content': content
@@ -195,14 +199,15 @@ class RuleProcessor:
             return {'content': lines}
             
         result = {'content': []}
+        hierarchy_stack = [result]  # Stack to track current parent at each level
+        
+        # Sort mappings by hierarchy level
         mappings = sorted(
             self.rules['mappings'],
             key=lambda x: x.get('hierarchy', float('inf'))
         )
         
         i = 0
-        current_section = None
-        
         while i < len(lines):
             line = lines[i]
             matched = False
@@ -210,30 +215,41 @@ class RuleProcessor:
             for rule in mappings:
                 if re.match(rule['pattern'], line):
                     if rule.get('hierarchy') is not None:
-                        # Handle hierarchical section
-                        current_section = {
+                        # Create new section
+                        new_section = {
                             'type': rule['name'],
                             'text': line,
                             'content': []
                         }
-                        result['content'].append(current_section)
+                        
+                        # Find correct parent based on hierarchy level
+                        while len(hierarchy_stack) > rule['hierarchy'] + 1:
+                            hierarchy_stack.pop()
+                            
+                        # Add to parent's content
+                        parent = hierarchy_stack[-1]
+                        if isinstance(parent.get('content'), list):
+                            parent['content'].append(new_section)
+                        
+                        # Update hierarchy stack
+                        hierarchy_stack.append(new_section)
                         i += 1
+                        
                     else:
                         # Handle block with potential nesting
                         block, end_idx = self._process_block(lines, i, rule, mappings)
-                        if current_section:
-                            current_section['content'].append(block)
-                        else:
-                            result['content'].append(block)
+                        parent = hierarchy_stack[-1]
+                        if isinstance(parent.get('content'), list):
+                            parent['content'].append(block)
                         i = end_idx + 1
+                        
                     matched = True
                     break
                     
             if not matched:
-                if current_section:
-                    current_section['content'].append(line)
-                else:
-                    result['content'].append(line)
+                parent = hierarchy_stack[-1]
+                if isinstance(parent.get('content'), list):
+                    parent['content'].append(line)
                 i += 1
                 
         return result

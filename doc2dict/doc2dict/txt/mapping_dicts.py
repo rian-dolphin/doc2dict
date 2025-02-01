@@ -10,7 +10,7 @@ dict_10k = {
             {
                 "type": "hierarchy",
                 "name": "part",
-                "pattern": r"^PART\s",
+                "pattern": r"^\s*PART\s",
                 "hierarchy": 0
             },
             {
@@ -27,7 +27,8 @@ dict_10k = {
             {
                 "name": "caption",
                 "pattern": r"^<CAPTION>",
-                "end": r"^<S>"
+                "end": r"^<S>",
+                "keep_end": True
             },
             {
                 "name": "footnote",
