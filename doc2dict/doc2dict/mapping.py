@@ -86,8 +86,7 @@ class JSONTransformer:
                 match = re.match(pattern, data['text'])
                 if match:
                     value = match.group(1)
-                    # Store in specified field from config
-                    output_field = transformation['output'].get('field', 'text')  # default to text if not specified
+                    output_field = transformation['output'].get('field', 'text')
                     data[output_field] = transformation['output']['format'].format(value.lower())
                     
             # Process all nested structures
@@ -99,6 +98,48 @@ class JSONTransformer:
             for item in data:
                 if isinstance(item, (dict, list)):
                     self._apply_standardization(item, transformation)
+                    
+    def _apply_consecutive_merge(self, data, transformation):
+        """Merge consecutive sections with same type and text."""
+        if isinstance(data, dict):
+            if 'content' in data and isinstance(data['content'], list):
+                new_content = []
+                current_section = None
+                
+                for item in data['content']:
+                    if (isinstance(item, dict) and 
+                        item.get('type') in transformation['match']['types'] and 
+                        'text' in item):
+                        # If we have a matching previous section
+                        if (current_section and 
+                            current_section['type'] == item['type'] and 
+                            current_section['text'] == item['text']):
+                            # Merge content
+                            current_section['content'].extend(item['content'])
+                        else:
+                            if current_section:
+                                new_content.append(current_section)
+                            current_section = item
+                    else:
+                        if current_section:
+                            new_content.append(current_section)
+                            current_section = None
+                        new_content.append(item)
+                        
+                if current_section:
+                    new_content.append(current_section)
+                    
+                data['content'] = new_content
+                
+            # Process nested structures
+            for value in data.values():
+                if isinstance(value, (dict, list)):
+                    self._apply_consecutive_merge(value, transformation)
+                    
+        elif isinstance(data, list):
+            for item in data:
+                if isinstance(item, (dict, list)):
+                    self._apply_consecutive_merge(item, transformation)
 
     def transform(self, data):
         """Transform the data according to the mapping dictionary."""
@@ -107,30 +148,29 @@ class JSONTransformer:
         for transformation in self.mapping_dict['transformations']:
             if transformation.get('type') == 'standardize':
                 self._apply_standardization(result, transformation)
+            elif transformation.get('type') == 'merge_consecutive':
+                self._apply_consecutive_merge(result, transformation)
             else:
-                # Original reference replacement logic
+                # Reference replacement logic
                 self._build_mapping(result, transformation)
                 
                 search_key = transformation['search']['key']
                 search_id = transformation['search']['identifier']
                 output_key = transformation['output']['key']
                 
-                # Find all references that need transformation
                 refs = self._find_refs(result, search_key)
                 
-                # Transform each reference
                 for ref in refs:
                     ref_id = ref[search_key].get(search_id)
                     if ref_id in self.id_to_text:
-                        # Replace reference with content
                         ref[output_key] = self.id_to_text[ref_id]
                         del ref[search_key]
                 
-                # Remove the original content if specified
                 if transformation['match'].get('remove_after_use', False):
                     result = self._remove_used_content(result, transformation['match'])
         
         return result
+
 class RuleProcessor:
     def __init__(self, rules_dict):
         self.rules = rules_dict
@@ -142,7 +182,6 @@ class RuleProcessor:
         result = lines.copy()
         for rule in self.rules['remove']:
             pattern = rule['pattern']
-            # Convert each line that doesn't match the regex
             result = [line for line in result if not re.match(pattern, line)]
                 
         return result
@@ -246,7 +285,7 @@ class RuleProcessor:
             return {'content': lines}
             
         result = {'content': []}
-        hierarchy_stack = [result]  # Stack to track current parent at each level
+        hierarchy_stack = [result]
         
         # Sort mappings by hierarchy level
         mappings = sorted(
@@ -298,12 +337,10 @@ class RuleProcessor:
                 if isinstance(parent.get('content'), list):
                     parent['content'].append(line)
                 i += 1
-
-
-        # Join consecutive strings in content if specified
+                
+        # Join text content if specified
         if self.rules.get('join_text') is not None:
             result['content'] = self._join_consecutive_strings(result['content'])
-               
                 
         return result
 

@@ -68,5 +68,12 @@ dict_10k['transformations'] = [
             "format": "item{}",
             "field": "text"  # Could also be "text" or any other field name
         }
+    },
+    {
+        "type": "merge_consecutive",
+        "match": {
+            "types": ["part", "item"]  # sections types to check for merging
+        }
     }
+    
 ]
