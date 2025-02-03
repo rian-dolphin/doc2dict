@@ -34,13 +34,13 @@ dict_10k["rules"]["mappings"].extend([
     {
                 "type": "hierarchy",
                 "name": "part",
-                "pattern": r"^\s*PART\s",
+                "pattern": r"^\s*(PART|Part)\s",
                 "hierarchy": 0
             },
             {
                 "type": "hierarchy",
                 "name": "item",
-                "pattern": r"^\s*ITEM\s",
+                "pattern": r"^\s*(ITEM|Item)\s",
                 "hierarchy": 1
             },
             ])
@@ -51,7 +51,7 @@ dict_10k['transformations'] = [
         "type": "standardize",
         "match": {
             "type": "part",
-            "text_pattern": r"^\s*PART\s+([IVX]+)"
+            "text_pattern": r"^\s*(?:PART|Part)\s+([IVX]+)"
         },
         "output": {
             "format": "part{}",
@@ -62,7 +62,7 @@ dict_10k['transformations'] = [
         "type": "standardize", 
         "match": {
             "type": "item",
-            "text_pattern": r"^\s*ITEM\s+(\d+|ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN)"
+            "text_pattern": r"^\s*(?:ITEM|Item)\s+(\d+|ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN|[0-9]+)"
         },
         "output": {
             "format": "item{}",
@@ -76,15 +76,15 @@ dict_10k['transformations'] = [
         }
     },
     {
-    "type": "trim",
-    "match": {
-        "type": "part",  # or "item"
-        "expected": 1
-    },
-    "output": {
-        "type": "introduction",
-        "separator": "\n"
+        "type": "trim",
+        "match": {
+            "type": "item",  # or "item"
+            "expected": 1
+        },
+        "output": {
+            "type": "introduction",
+            "separator": "\n"
+        }
     }
-}
     
 ]

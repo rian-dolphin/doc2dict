@@ -129,7 +129,6 @@ class JSONTransformer:
 
 
     def _apply_trim(self, data, transformation):
-        """Apply trim transformation to wrap content before duplicate sections."""
         if not isinstance(data, dict) or 'content' not in data:
             return data
 
@@ -137,32 +136,39 @@ class JSONTransformer:
         expected = transformation['match'].get('expected')
         output_type = transformation['output']['type']
         
-        # Find all sections with matching type and their text values
+        # Find matches at any level
         matches = []
-        for i, item in enumerate(data['content']):
-            if isinstance(item, dict) and item.get('type') == match_type and 'text' in item:
-                matches.append({
-                    'index': i,
-                    'text': item['text']
-                })
-                
+        def find_matches(content, current_path=[]):
+            for i, item in enumerate(content):
+                if isinstance(item, dict):
+                    if item.get('type') == match_type and 'text' in item:
+                        matches.append({
+                            'path': current_path + [i],
+                            'text': item['text']
+                        })
+                    if 'content' in item:
+                        find_matches(item['content'], current_path + [i, 'content'])
+        
+        find_matches(data['content'])
         if not matches:
             return data
-            
+                
         # Group matches by their text to find duplicates
         text_groups = {}
         for match in matches:
             text = match['text']
             if text not in text_groups:
                 text_groups[text] = []
-            text_groups[text].append(match['index'])
+            text_groups[text].append(match['path'])  # Now appending path instead of index
         
         # Find first duplicate pair
         result = {'type': output_type}
-        for text, indices in text_groups.items():
-            if len(indices) > expected:
+        for text, paths in text_groups.items():  # Changed variable name to paths for clarity
+            if len(paths) > expected:
                 # Take everything up to but not including the last occurrence
-                split_idx = indices[-1]
+                split_path = paths[-1]  # Now using path instead of index
+                
+                split_idx = split_path[0]  # Use first number in path for top-level split
                 
                 # Package everything before into introduction
                 before_content = data['content'][:split_idx]
@@ -173,7 +179,6 @@ class JSONTransformer:
                 data['content'].insert(0, result)
                 break  # Stop after first duplicate found
 
-        
         return data
 
     def _apply_consecutive_merge(self, data, transformation):
