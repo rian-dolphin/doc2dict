@@ -5,16 +5,15 @@ mapping update robustness
 for tmrw
 we need to fix trim
 {
-        "type": "trim",
-        "match": {
-            "type": "part",  # or 'item'
-            "expected": 1    # expected number of occurrences
-        },
-        "trim_before": 1,
-        "output": {
-            "type": "introduction"
-        }
+    "type": "trim",
+    "match": {
+        "type": "part",  # looking for part sections
+        "expected": 1    # we expect 1 occurrence
+    },
+    "output": {
+        "type": "introduction"  # wrap previous content as introduction
     }
+}
 
 how it should work is that we find first type = part, get text, and check for duplicates 
 if more than expected, we take up to tje trim before one (e.g. if 1 we take the first one)

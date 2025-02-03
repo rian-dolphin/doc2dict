@@ -3,7 +3,7 @@ from doc2dict.txt.mapping_dicts import dict_10k
 import json
 from time import time
 # Load and process 10-K
-with open('../samples/10-k_toc_item_cont.txt', 'r') as f:
+with open('../samples/10-k_toc.txt', 'r') as f:
     content = f.read()
     
 lines = content.split('\n')

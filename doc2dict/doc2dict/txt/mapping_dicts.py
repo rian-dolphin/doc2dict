@@ -76,15 +76,15 @@ dict_10k['transformations'] = [
         }
     },
     {
-        "type": "trim",
-        "match": {
-            "type": "part",  # or 'item'
-            "expected": 1    # expected number of occurrences
-        },
-        "trim_before": 1,
-        "output": {
-            "type": "introduction"
-        }
+    "type": "trim",
+    "match": {
+        "type": "part",  # or "item"
+        "expected": 1
+    },
+    "output": {
+        "type": "introduction",
+        "separator": "\n"
     }
+}
     
 ]

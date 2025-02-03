@@ -1,5 +1,33 @@
 import re
 
+def flatten_hierarchy(content,sep='\n'):
+    result = []
+    
+    def process_node(node):
+        if isinstance(node, str):
+            if node.strip():
+                result.append(node.strip())
+            return
+            
+        if isinstance(node, list):
+            for item in node:
+                process_node(item)
+            return
+            
+        if isinstance(node, dict):
+            if node.get('text') and not node.get('content'):
+                result.append(node['text'].strip())
+            
+            if node.get('content'):
+                process_node(node['content'])
+            
+            for key, value in node.items():
+                if key not in ('type', 'text', 'content'):
+                    process_node(value)
+    
+    process_node(content)
+    return sep.join(result)
+
 class JSONTransformer:
     def __init__(self, mapping_dict):
         """Initialize transformer with mapping dictionary."""
@@ -101,44 +129,50 @@ class JSONTransformer:
 
 
     def _apply_trim(self, data, transformation):
-        """Apply trim transformation to remove content before specified occurrences."""
+        """Apply trim transformation to wrap content before duplicate sections."""
         if not isinstance(data, dict) or 'content' not in data:
             return data
 
         match_type = transformation['match']['type']
         expected = transformation['match'].get('expected')
-        trim_before = transformation.get('trim_before', 0)
         output_type = transformation['output']['type']
         
-        # Find indices of all matching sections
+        # Find all sections with matching type and their text values
         matches = []
         for i, item in enumerate(data['content']):
-            if isinstance(item, dict) and item.get('type') == match_type:
-                matches.append(i)
+            if isinstance(item, dict) and item.get('type') == match_type and 'text' in item:
+                matches.append({
+                    'index': i,
+                    'text': item['text']
+                })
                 
         if not matches:
             return data
             
-        # If we have more than expected number of matches, trim
-        if expected and len(matches) > expected:
-            # Get index of last match in TOC
-            start_idx = matches[-trim_before] if trim_before and trim_before <= len(matches) else matches[-1]
-            
-            # Create new structure
-            result = {'content': []}
-            
-            # Handle content before trim point
-            before_content = data['content'][:start_idx + 1]
-            if before_content:
-                result['content'].append({
-                    'type': output_type,
-                    'content': before_content
-                })
-            
-            # Keep rest of content
-            result['content'].extend(data['content'][start_idx + 1:])
-            
-            data['content'] = result['content']
+        # Group matches by their text to find duplicates
+        text_groups = {}
+        for match in matches:
+            text = match['text']
+            if text not in text_groups:
+                text_groups[text] = []
+            text_groups[text].append(match['index'])
+        
+        # Find first duplicate pair
+        result = {'type': output_type}
+        for text, indices in text_groups.items():
+            if len(indices) > expected:
+                # Take everything up to but not including the last occurrence
+                split_idx = indices[-1]
+                
+                # Package everything before into introduction
+                before_content = data['content'][:split_idx]
+                result['content'] = [flatten_hierarchy(before_content)]
+
+                data['content'] = data['content'][split_idx:]
+                # insert before_content into first position
+                data['content'].insert(0, result)
+                break  # Stop after first duplicate found
+
         
         return data
 
