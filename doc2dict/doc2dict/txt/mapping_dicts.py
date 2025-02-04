@@ -34,13 +34,13 @@ dict_10k["rules"]["mappings"].extend([
     {
                 "type": "hierarchy",
                 "name": "part",
-                "pattern": r"^\s*(PART|Part)\s",
+                "pattern": r"^\n\s*(PART|Part)\s",
                 "hierarchy": 0
             },
             {
                 "type": "hierarchy",
                 "name": "item",
-                "pattern": r"^\s*(ITEM|Item)\s",
+                "pattern": r"^\n\s*(ITEM|Item)\s",
                 "hierarchy": 1
             },
             ])
