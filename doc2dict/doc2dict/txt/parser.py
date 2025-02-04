@@ -8,10 +8,12 @@ def txt2dict(content,mapping_dict):
     lines = []
     for paragraph in paragraphs:
         if paragraph.strip():  # Skip empty paragraphs
-            # Add double newlines if not already present
-            processed =  paragraph.strip()
-            processed = paragraph.split('\n')
-            processed[0] = '\n' + processed[0]
+            processed = paragraph.strip()
+            processed = processed.split('\n')
+            # Add double newlines at start of each paragraph
+            processed[0] = '\n\n' + processed[0]
+            # Add single newline to other lines
+            processed[1:] = ['\n' + line for line in processed[1:]]
             lines.extend(processed)
             
     processor = DocumentProcessor(mapping_dict)

@@ -163,21 +163,21 @@ class JSONTransformer:
         
         # Find first duplicate pair
         result = {'type': output_type}
-        for text, paths in text_groups.items():  # Changed variable name to paths for clarity
+        for text, paths in text_groups.items():
             if len(paths) > expected:
-                # Take everything up to but not including the last occurrence
-                split_path = paths[-1]  # Now using path instead of index
-                
-                split_idx = split_path[0]  # Use first number in path for top-level split
-                
-                # Package everything before into introduction
-                before_content = data['content'][:split_idx]
-                result['content'] = [flatten_hierarchy(before_content)]
-
-                data['content'] = data['content'][split_idx:]
-                # insert before_content into first position
-                data['content'].insert(0, result)
-                break  # Stop after first duplicate found
+                if expected == 0:
+                    # If expected is 0, everything goes into introduction
+                    result['content'] = [flatten_hierarchy(data['content'])]
+                    data['content'] = [result]
+                else:
+                    # Take everything before the (expected + 1)th occurrence
+                    split_path = paths[expected]  # This is the key change
+                    split_idx = split_path[0]
+                    before_content = data['content'][:split_idx]
+                    result['content'] = [flatten_hierarchy(before_content)]
+                    data['content'] = data['content'][split_idx:]
+                    data['content'].insert(0, result)
+                break
 
         return data
 
