@@ -1,4 +1,4 @@
-# doc2dict (NOT READY FOR USE YET)
+# doc2dict (NOT READY FOR PUBLIC USE YET)
 
 Convert HTML, XML, and PDFs into dictionaries using an algorithimic approach, e.g. [unstructured.io](https://unstructured.io/) but open-source and without LLMs.
 
