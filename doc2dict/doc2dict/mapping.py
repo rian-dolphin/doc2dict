@@ -1,6 +1,6 @@
 import re
 
-def flatten_hierarchy(content,sep='\n'):
+def flatten_hierarchy(content, sep='\n'):
     result = []
     
     def process_node(node):
@@ -50,12 +50,26 @@ class JSONTransformer:
                 
         return matches
 
+    def _extract_ref_ids(self, ref_data, search_id):
+        """Extract reference IDs from either dict or list data."""
+        if isinstance(ref_data, dict):
+            ref_id = ref_data.get(search_id)
+            return [ref_id] if ref_id is not None else []
+        elif isinstance(ref_data, list):
+            ids = []
+            for item in ref_data:
+                if isinstance(item, dict):
+                    ref_id = item.get(search_id)
+                    if ref_id is not None:
+                        ids.append(ref_id)
+            return ids
+        return []
+
     def _find_content(self, data, match_identifier, match_content):
         """Find all content entries in the data that match the identifier and content pattern."""
         matches = []
         
         if isinstance(data, dict):
-            # Check if this dict has both the identifier and content keys
             if match_identifier in data and match_content in data:
                 matches.append(data)
             for value in data.values():
@@ -85,18 +99,15 @@ class JSONTransformer:
         if isinstance(data, dict):
             id_key = match_rule['identifier']
             
-            # If this is a match we used (only need to check id), remove it
             if id_key in data and data.get(id_key) in self.used_matches:
                 return None
                 
-            # Process remaining dict entries
             result = {}
             for k, v in data.items():
                 processed = self._remove_used_content(v, match_rule)
                 if processed is not None:
                     result[k] = processed
             
-            # If dict is empty after processing, remove it
             return result if result else None
             
         elif isinstance(data, list):
@@ -105,7 +116,7 @@ class JSONTransformer:
             return result if result else None
             
         return data
-        
+
     def _apply_standardization(self, data, transformation):
         """Apply standardization rules to transform text based on regex pattern."""
         if isinstance(data, dict):
@@ -117,7 +128,6 @@ class JSONTransformer:
                     output_field = transformation['output'].get('field', 'text')
                     data[output_field] = transformation['output']['format'].format(value.lower())
                     
-            # Process all nested structures
             for value in data.values():
                 if isinstance(value, (dict, list)):
                     self._apply_standardization(value, transformation)
@@ -127,7 +137,6 @@ class JSONTransformer:
                 if isinstance(item, (dict, list)):
                     self._apply_standardization(item, transformation)
 
-
     def _apply_trim(self, data, transformation):
         if not isinstance(data, dict) or 'content' not in data:
             return data
@@ -136,7 +145,6 @@ class JSONTransformer:
         expected = transformation['match'].get('expected')
         output_type = transformation['output']['type']
         
-        # Find matches at any level
         matches = []
         def find_matches(content, current_path=[]):
             for i, item in enumerate(content):
@@ -153,25 +161,21 @@ class JSONTransformer:
         if not matches:
             return data
                 
-        # Group matches by their text to find duplicates
         text_groups = {}
         for match in matches:
             text = match['text']
             if text not in text_groups:
                 text_groups[text] = []
-            text_groups[text].append(match['path'])  # Now appending path instead of index
+            text_groups[text].append(match['path'])
         
-        # Find first duplicate pair
         result = {'type': output_type}
         for text, paths in text_groups.items():
             if len(paths) > expected:
                 if expected == 0:
-                    # If expected is 0, everything goes into introduction
                     result['content'] = [flatten_hierarchy(data['content'])]
                     data['content'] = [result]
                 else:
-                    # Take everything before the (expected + 1)th occurrence
-                    split_path = paths[expected]  # This is the key change
+                    split_path = paths[expected]
                     split_idx = split_path[0]
                     before_content = data['content'][:split_idx]
                     result['content'] = [flatten_hierarchy(before_content)]
@@ -192,11 +196,9 @@ class JSONTransformer:
                     if (isinstance(item, dict) and 
                         item.get('type') in transformation['match']['types'] and 
                         'text' in item):
-                        # If we have a matching previous section
                         if (current_section and 
                             current_section['type'] == item['type'] and 
                             current_section['text'] == item['text']):
-                            # Merge content
                             current_section['content'].extend(item['content'])
                         else:
                             if current_section:
@@ -213,7 +215,6 @@ class JSONTransformer:
                     
                 data['content'] = new_content
                 
-            # Process nested structures
             for value in data.values():
                 if isinstance(value, (dict, list)):
                     self._apply_consecutive_merge(value, transformation)
@@ -245,10 +246,17 @@ class JSONTransformer:
                 refs = self._find_refs(result, search_key)
                 
                 for ref in refs:
-                    ref_id = ref[search_key].get(search_id)
-                    if ref_id in self.id_to_text:
-                        ref[output_key] = self.id_to_text[ref_id]
-                        del ref[search_key]
+                    ref_ids = self._extract_ref_ids(ref[search_key], search_id)
+                    if ref_ids:
+                        # Create a list of referenced content
+                        referenced_content = [
+                            self.id_to_text[ref_id]
+                            for ref_id in ref_ids
+                            if ref_id in self.id_to_text
+                        ]
+                        if referenced_content:
+                            ref[output_key] = referenced_content
+                            del ref[search_key]
                 
                 if transformation['match'].get('remove_after_use', False):
                     result = self._remove_used_content(result, transformation['match'])
@@ -282,16 +290,13 @@ class RuleProcessor:
             if isinstance(item, str):
                 current_strings.append(item)
             else:
-                # If we have collected strings, join them and add to result
                 if current_strings:
                     result.append(self.rules.get('join_text').join(current_strings))
                     current_strings = []
-                # Process nested structure
                 if isinstance(item, dict) and 'content' in item:
                     item['content'] = self._join_consecutive_strings(item['content'])
                 result.append(item)
         
-        # Don't forget strings at the end
         if current_strings:
             result.append(self.rules.get('join_text').join(current_strings))
             
@@ -305,10 +310,8 @@ class RuleProcessor:
         for i in range(start_idx + 1, len(lines)):
             line = lines[i]
             
-            # Check for nested start patterns
             if pattern_name and re.match(pattern_name, line):
                 nesting_level += 1
-            # Check for end pattern
             elif re.match(end_pattern, line):
                 nesting_level -= 1
                 if nesting_level == 0:
@@ -325,7 +328,6 @@ class RuleProcessor:
         if rule.get('end'):
             end_idx = self._find_matching_end(lines, start_idx, rule['end'])
         else:
-            # If no end pattern, collect until next hierarchy match
             for i in range(start_idx + 1, len(lines)):
                 if any(re.match(r['pattern'], lines[i]) 
                       for r in mappings if r.get('hierarchy') is not None):
@@ -334,12 +336,10 @@ class RuleProcessor:
             if end_idx is None:
                 end_idx = len(lines) - 1
                 
-        # Process content between start and end
         while current_idx < end_idx:
             line = lines[current_idx]
             matched = False
             
-            # Check for nested patterns
             for nested_rule in mappings:
                 if re.match(nested_rule['pattern'], line):
                     nested_content, next_idx = self._process_block(
@@ -355,7 +355,6 @@ class RuleProcessor:
                 content.append(line)
                 current_idx += 1
                 
-        # Include end pattern line if keep_end is True
         if rule.get('keep_end', False) and end_idx < len(lines):
             content.append(lines[end_idx])
                 
@@ -371,7 +370,6 @@ class RuleProcessor:
         result = {'content': []}
         hierarchy_stack = [result]
         
-        # Sort mappings by hierarchy level
         mappings = sorted(
             self.rules['mappings'],
             key=lambda x: x.get('hierarchy', float('inf'))
@@ -385,28 +383,23 @@ class RuleProcessor:
             for rule in mappings:
                 if re.match(rule['pattern'], line):
                     if rule.get('hierarchy') is not None:
-                        # Create new section
                         new_section = {
                             'type': rule['name'],
                             'text': line,
                             'content': []
                         }
                         
-                        # Find correct parent based on hierarchy level
                         while len(hierarchy_stack) > rule['hierarchy'] + 1:
                             hierarchy_stack.pop()
                             
-                        # Add to parent's content
                         parent = hierarchy_stack[-1]
                         if isinstance(parent.get('content'), list):
                             parent['content'].append(new_section)
                         
-                        # Update hierarchy stack
                         hierarchy_stack.append(new_section)
                         i += 1
                         
                     else:
-                        # Handle block with potential nesting
                         block, end_idx = self._process_block(lines, i, rule, mappings)
                         parent = hierarchy_stack[-1]
                         if isinstance(parent.get('content'), list):
@@ -422,7 +415,6 @@ class RuleProcessor:
                     parent['content'].append(line)
                 i += 1
                 
-        # Join text content if specified
         if self.rules.get('join_text') is not None:
             result['content'] = self._join_consecutive_strings(result['content'])
                 
