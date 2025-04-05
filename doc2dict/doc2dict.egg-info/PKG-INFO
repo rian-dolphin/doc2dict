@@ -1,8 +1,0 @@
-Metadata-Version: 2.4
-Name: doc2dict
-Version: 0.2.3
-Requires-Python: >=3.8
-Requires-Dist: selectolax
-Requires-Dist: xmltodict
-Dynamic: requires-dist
-Dynamic: requires-python
