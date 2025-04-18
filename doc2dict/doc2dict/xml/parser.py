@@ -6,10 +6,15 @@ def remove_namespace_and_none(path, key, value):
     if value is None:
         return None  # Return None to exclude this key-value pair
     
+    # Remove xmlns attribute altogether
+    if key == '@xmlns':
+        return None
+    
     # Remove namespace from keys
     if ':' in key:
         # Keep only the part after the last colon
         return key.split(':')[-1], value
+    
     return key, value
 
 def xml2dict(content, mapping_dict=None):
