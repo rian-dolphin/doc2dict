@@ -1,0 +1,98 @@
+name: Deploy MkDocs Documentation
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for all branches and tags
+
+      - name: Debug directory structure
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Files and directories at root level:"
+          ls -la
+          echo "Check for doc2dict directory:"
+          test -d doc2dict && echo "doc2dict directory exists" || echo "doc2dict directory does NOT exist"
+          if [ -d doc2dict ]; then
+            echo "Contents of doc2dict directory:"
+            ls -la doc2dict/
+            echo "Check for docs in doc2dict:"
+            test -d doc2dict/docs && echo "doc2dict/docs exists" || echo "doc2dict/docs does NOT exist"
+          fi
+          echo "Check for docs at root:"
+          test -d docs && echo "docs exists at root" || echo "docs does NOT exist at root"
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs mkdocs-material pymdown-extensions
+
+      - name: Build Documentation
+        run: |
+          # Try doc2dict/docs first, fall back to docs if the first fails
+          if [ -d doc2dict/docs ]; then
+            echo "Building from doc2dict/docs"
+            cd doc2dict/docs
+            mkdocs build
+          elif [ -d docs ]; then
+            echo "Building from docs"
+            cd docs
+            mkdocs build
+          else
+            echo "ERROR: Could not find docs directory"
+            exit 1
+          fi
+          
+      - name: Check Build Directory
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Checking build output directories:"
+          
+          if [ -d doc2dict/docs/site ]; then
+            echo "Found build output in doc2dict/docs/site:"
+            ls -la doc2dict/docs/site
+            echo "Will use this as publish directory"
+            echo "publish_dir=./doc2dict/docs/site" >> $GITHUB_ENV
+          elif [ -d docs/site ]; then
+            echo "Found build output in docs/site:"
+            ls -la docs/site
+            echo "Will use this as publish directory"
+            echo "publish_dir=./docs/site" >> $GITHUB_ENV
+          else
+            echo "ERROR: Could not find build output directory"
+            exit 1
+          fi
+          
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ${{ env.publish_dir }}
+          force_orphan: true  # This ensures a fresh history
+          enable_jekyll: false
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'Deploy MkDocs documentation [skip ci]'
+          full_commit_message: |
+            Deploy MkDocs documentation
+            
+            Build from ${{ github.sha }}
+            Triggered by ${{ github.event_name }}

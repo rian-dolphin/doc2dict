@@ -1,0 +1,14 @@
+site_name: doc2dict
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - doc2dict: 
+    - Overview: overview.md
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - def_list
+  - admonition
+  - pymdownx.details
