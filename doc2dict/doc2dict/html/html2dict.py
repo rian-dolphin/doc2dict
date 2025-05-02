@@ -85,7 +85,8 @@ def html2dict(content):
             last_item['underline'] == first_item['underline'] and
             last_item['height'] == first_item['height'] and
             last_item['font_size'] == first_item['font_size'] and
-            last_item['in_table'] == first_item['in_table']):
+            last_item['in_table'] == first_item['in_table'] and
+            last_item.get('indent', 0) == first_item.get('indent', 0)):  # Added check for matching indent
             
             # Merge the text
             last_item['text'] += ' ' + first_item['text']
@@ -135,25 +136,59 @@ def html2dict(content):
                 # Regular item, move to the next one
                 i += 1
 
-    # NEW CODE: Convert to hierarchical dictionary
     # Helper function to determine priority of text attributes
     def get_priority(item):
-        if item['bold'] and item['italic'] and item['underline']:
-            return 7  # highest priority
+        # For text formatting attributes with all possible combinations
+        attr_priority = 0
+        all_caps = item.get('all_caps', False)
+        
+        # All combinations with bold, italic, underline, all_caps
+        if item['bold'] and item['italic'] and item['underline'] and all_caps:
+            attr_priority = 15  # highest priority
+        elif item['bold'] and item['italic'] and item['underline']:
+            attr_priority = 14
+        elif item['bold'] and item['italic'] and all_caps:
+            attr_priority = 13
         elif item['bold'] and item['italic']:
-            return 6
+            attr_priority = 12
+        elif item['bold'] and item['underline'] and all_caps:
+            attr_priority = 11
         elif item['bold'] and item['underline']:
-            return 5
+            attr_priority = 10
+        elif item['bold'] and all_caps:
+            attr_priority = 9
         elif item['bold']:
-            return 4
+            attr_priority = 8
+        elif item['italic'] and item['underline'] and all_caps:
+            attr_priority = 7
         elif item['italic'] and item['underline']:
-            return 3
+            attr_priority = 6
+        elif item['italic'] and all_caps:
+            attr_priority = 5
         elif item['italic']:
-            return 2
+            attr_priority = 4
+        elif item['underline'] and all_caps:
+            attr_priority = 3
         elif item['underline']:
-            return 1
+            attr_priority = 2
+        elif all_caps:
+            attr_priority = 1
         else:
-            return 0  # plain text, lowest priority
+            attr_priority = 0  # plain text, lowest priority
+        
+        # Create a single priority value
+        # Formula gives highest weight to font size,
+        # medium weight to indentation (inverted so less indent = higher priority)
+        # and lowest weight to text attributes
+        
+        indent_value = item.get('indent', 0) or 0
+        
+        # Scale factors to ensure proper hierarchy
+        # font_size * 1000 ensures it's the primary factor
+        # (100 - indent_value/10) ensures less indented items have higher priority
+        # attr_priority is now on a 0-15 scale
+        
+        return (item['font_size'] * 1000) + (100 - min(indent_value/10, 99)) + (attr_priority * 0.1)
     
     # Create result dictionary
     result = {'document': {}}

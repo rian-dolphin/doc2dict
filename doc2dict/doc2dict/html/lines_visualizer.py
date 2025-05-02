@@ -55,9 +55,16 @@ def visualize_lines(nested_list):
             return f"<span style='{'; '.join(style_properties)}'>{text}</span>"
         return text
     
+    def convert_indent(px_value):
+        """Convert pixel indent to appropriate em value"""
+        # Assuming base font size is 16px, convert to em
+        # Use a more moderate scaling to prevent excessive indentation
+        return px_value / 16 * 0.5  # Scale down by 50% for better visualization
+    
     for items in nested_list:
         if isinstance(items, list):
-            first_indent = items[0].get('indent', 0) if isinstance(items[0], dict) else 0
+            # Get indent from first item
+            first_indent = convert_indent(items[0].get('indent', 0)) if isinstance(items[0], dict) else 0
             html_content += f"<div class='row' style='padding-left: {first_indent}em'>\n"
             
             for i, item in enumerate(items):
@@ -67,14 +74,21 @@ def visualize_lines(nested_list):
                 # Multiple items: first -> green, rest -> red
                 else:
                     color = multi_first_color if i == 0 else multi_rest_color
-                    
+                
+                # Get individual item indent if different from first item
+                item_indent = 0
+                if i > 0 and isinstance(item, dict):
+                    item_indent = convert_indent(item.get('indent', 0)) - first_indent
+                    if item_indent < 0:
+                        item_indent = 0
+                
                 styled_text = get_styled_text(item)
-                html_content += f"    <span class='item' style='background-color: {color}'>{styled_text}</span>\n"
+                html_content += f"    <span class='item' style='background-color: {color}; margin-left: {item_indent}em'>{styled_text}</span>\n"
             
             html_content += "</div>\n"
         else:
             if isinstance(items, dict):
-                indent = items.get('indent', 0)
+                indent = convert_indent(items.get('indent', 0))
                 styled_text = get_styled_text(items)
                 height = items.get('height', '')
                 height_style = f'height: {height};' if height else ''
