@@ -159,10 +159,6 @@ def construct_dict(lines):
             if re.match(r'^F?-?\d+$',text):
                 lines.remove(line)
     
-    # Helper function to count the number of True values in a formatting tuple
-    def count_format_attributes(format_tuple):
-        return sum(1 for attr in format_tuple if attr)
-    
     # Helper function to check if an item is center-aligned
     def is_center_aligned(item):
         indent_value = item.get('indent', 0) or 0
@@ -173,7 +169,7 @@ def construct_dict(lines):
     
     # Initialize stack with root node
     # Format: (node, font_size, format_tuple, format_order, is_center_aligned, indent, level)
-    stack = [(result['document'], 0, (False, False, False, False), 0, False, 999, 0)]
+    stack = [(result['document'], 0, (False, False, False, False), -1, False, 999, 0)]
     
     # Add level and leveldesc to root document
     result['document']['level'] = 0
@@ -196,7 +192,6 @@ def construct_dict(lines):
                 item['underline'], 
                 item.get('all_caps', False)
             )
-            format_count = count_format_attributes(format_tuple)
             center_aligned = is_center_aligned(item)
             indent_value = item.get('indent', 0) or 0
             
@@ -213,9 +208,6 @@ def construct_dict(lines):
                 parent_is_center = parent[4]
                 parent_indent = parent[5]
                 
-                # Count parent's formatting attributes
-                parent_format_count = count_format_attributes(parent_format_tuple)
-                
                 # 1. FONT SIZE CHECK - Most important
                 if parent_font_size > font_size:
                     # Parent has larger font size - valid parent
@@ -227,33 +219,31 @@ def construct_dict(lines):
                     stack.pop()
                     continue
                 
-                # 2. FORMATTING COUNT CHECK - Compare number of formatting attributes
-                if parent_format_count > format_count:
-                    # Parent has more formatting attributes - valid parent
-                    level_reason.append(f"fewer format attributes than parent ({format_count} < {parent_format_count})")
+                # 2. FORMAT ORDER CHECK - Second most important
+                # Check for plain vs. formatted first (special case for plain text)
+                any_formatting = any(format_tuple)
+                parent_any_formatting = any(parent_format_tuple)
+                
+                if not any_formatting and parent_any_formatting:
+                    # Plain text under formatted text - valid parent
+                    level_reason.append(f"plain text under formatted text")
                     break
-                elif parent_format_count < format_count:
-                    # Parent has fewer formatting attributes - invalid parent
-                    level_reason.append(f"more format attributes than parent ({format_count} > {parent_format_count})")
+                elif any_formatting and not parent_any_formatting:
+                    # Formatted text can't go under plain text - invalid parent
+                    level_reason.append(f"formatted text can't go under plain text")
+                    stack.pop()
+                    continue
+                elif parent_format_order < format_order:
+                    # Parent format appeared earlier - valid parent
+                    level_reason.append(f"format combo appeared later than parent ({format_order} > {parent_format_order})")
+                    break
+                elif parent_format_order > format_order:
+                    # Parent format appeared later - invalid parent
+                    level_reason.append(f"format combo appeared earlier than parent ({format_order} < {parent_format_order})")
                     stack.pop()
                     continue
                 
-                # 3. FORMATTING TYPES CHECK - If same count, check if plain vs formatted
-                # Plain text (no formatting) should never parent formatted text
-                parent_has_formatting = parent_format_count > 0
-                current_has_formatting = format_count > 0
-                
-                if current_has_formatting and not parent_has_formatting:
-                    # Current has formatting but parent doesn't - invalid parent
-                    level_reason.append("has formatting while parent doesn't")
-                    stack.pop()
-                    continue
-                elif parent_has_formatting and not current_has_formatting:
-                    # Parent has formatting but current doesn't - valid parent
-                    level_reason.append("no formatting while parent has formatting")
-                    break
-                
-                # 4. CENTER ALIGNMENT CHECK
+                # 3. CENTER ALIGNMENT CHECK
                 if parent_is_center and not center_aligned:
                     # Parent is center-aligned but current isn't - valid parent
                     level_reason.append("not center-aligned while parent is")
@@ -264,9 +254,8 @@ def construct_dict(lines):
                     stack.pop()
                     continue
                 
-                # 5. INDENTATION CHECK - Only consider indentation if at least one has formatting
-                # If both have no formatting, ignore indentation differences
-                if parent_has_formatting or current_has_formatting:
+                # 4. INDENTATION CHECK - Only consider indentation if at least one has formatting
+                if parent_any_formatting or any_formatting:
                     if parent_indent < indent_value:
                         # Parent has less indentation - valid parent
                         level_reason.append(f"more indented than parent ({indent_value} > {parent_indent})")
@@ -276,12 +265,6 @@ def construct_dict(lines):
                         level_reason.append(f"less indented than parent ({indent_value} < {parent_indent})")
                         stack.pop()
                         continue
-                
-                # 6. FORMAT ORDER CHECK - Final tiebreaker
-                if parent_format_order < format_order:
-                    # Parent format appeared earlier - valid parent
-                    level_reason.append(f"format appeared later than parent ({format_order} > {parent_format_order})")
-                    break
                 
                 # If we get here, all checks have failed - pop the stack
                 level_reason.append("all hierarchy checks failed")
