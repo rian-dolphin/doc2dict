@@ -246,10 +246,12 @@ def html_reduction(tree):
     ctx = Ctx()
     blocks = {'p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'article', 'section', 'li'}
     skip = {'script', 'style', 'noscript'}
+    table_elements = {'table', 'thead', 'tbody', 'tfoot'}
     lines = []
     cur_line = []
     row_items = []
     in_row = False
+    in_table = False  # New flag to track if we're inside a table
     
     # Track parent font sizes for inheritance
     parent_font_sizes = {}
@@ -258,7 +260,7 @@ def html_reduction(tree):
     def flush():
         if cur_line:
             items = []
-            for text, style, node, parent_size in cur_line:
+            for text, style, node, parent_size, is_in_table in cur_line:
                 if text.strip():
                     metrics = process_height(node, get_node_styles(node), ctx, parent_size)
                     items.append({
@@ -267,7 +269,8 @@ def html_reduction(tree):
                         "italic": style.get('italic', False),
                         "underline": style.get('underline', False),
                         "height": metrics['total_height'],
-                        "font_size": metrics['font_size']
+                        "font_size": metrics['font_size'],
+                        "in_table": is_in_table  # Add in_table property
                     })
             if items: 
                 lines.append(items)
@@ -280,6 +283,14 @@ def html_reduction(tree):
             continue
         
         node_id = id(node)
+        
+        # Track table state
+        if node.tag in table_elements:
+            if event == "start":
+                in_table = True
+            elif event == "end":
+                if node.tag == 'table':  # Only reset when exiting the main table element
+                    in_table = False
         
         if event == "start":
             # Push parent tracking
@@ -301,7 +312,7 @@ def html_reduction(tree):
             elif event == "end":
                 if row_items:
                     row_metrics = []
-                    for t, s, n, p_size in row_items:
+                    for t, s, n, p_size, is_in_table in row_items:
                         metrics = process_height(n, get_node_styles(n), ctx, p_size)
                         row_metrics.append({
                             "text": t,
@@ -309,7 +320,8 @@ def html_reduction(tree):
                             "italic": s['italic'],
                             "underline": s['underline'],
                             "height": metrics['total_height'],
-                            "font_size": metrics['font_size']
+                            "font_size": metrics['font_size'],
+                            "in_table": is_in_table  # Add in_table property
                         })
                     if row_metrics:
                         lines.append(row_metrics)
@@ -320,7 +332,7 @@ def html_reduction(tree):
             t = text.strip()
             if t:
                 parent_size = parent_font_sizes.get(current_parent_stack[-1] if current_parent_stack else None, ctx.base)
-                row_items.append((t, style, node, parent_size))
+                row_items.append((t, style, node, parent_size, in_table))
             continue
             
         if (node.tag in blocks or styles.get('display', [''])[0] == 'flex') and not is_inline(node, styles):
@@ -337,7 +349,8 @@ def html_reduction(tree):
                             "italic": style['italic'],
                             "underline": style['underline'],
                             "height": metrics['total_height'],
-                            "font_size": metrics['font_size']
+                            "font_size": metrics['font_size'],
+                            "in_table": in_table  # Add in_table property
                         }])
             elif event == "end":
                 flush()
@@ -345,7 +358,7 @@ def html_reduction(tree):
             t = text.strip()
             if t:
                 parent_size = parent_font_sizes.get(current_parent_stack[-1] if current_parent_stack else None, ctx.base)
-                cur_line.append((t, style, node, parent_size))
+                cur_line.append((t, style, node, parent_size, in_table))
                 
         if event == "end":
             # Pop parent tracking

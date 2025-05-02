@@ -1,7 +1,7 @@
 import webbrowser
 import os
 
-def format_list_html(nested_list):
+def visualize_lines(nested_list):
     # Simplified color scheme
     single_line_color = '#E6F3FF'  # Blue hue
     multi_first_color = '#E6FFE6'  # Green hue
