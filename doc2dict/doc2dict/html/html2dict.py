@@ -138,20 +138,14 @@ def html2dict(content):
 
     # pruning - e.g. remove specific values like 'table of contents'
     for line in lines:
-        if len(line) == 1:
+        if len(line) == 1:  
             item = line[0]
-            # Check if the text is 'table of contents' or similar
-            if item['text'].strip().lower() in ['table of contents', 'contents']:
-                # Remove this item from the line
+            text = item['text'].strip().lower()
+
+            if text == 'table of contents':
                 lines.remove(line)
-                break
-            
-            # Check if the text is a page number using regex
-            # This will match patterns like "1", "42", "F1", "A-3", etc.
-            if not item['in_table']:
-                if re.match(r'^\s*[a-z]?[-]?\d+\s*$', item['text'].strip().lower()):
-                    lines.remove(line)
-                    break
+            elif re.match(r'^F?-?\d+$',text):
+                lines.remove(line)
 
 
 
