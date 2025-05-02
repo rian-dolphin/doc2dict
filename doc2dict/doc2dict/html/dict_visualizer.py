@@ -3,7 +3,7 @@ import os
 
 def visualize_dict(doc_dict):
     """
-    Visualize the document dictionary with simple indentation.
+    Visualize the document dictionary with simple indentation and level information.
     """
     html_content = """
     <html>
@@ -11,6 +11,9 @@ def visualize_dict(doc_dict):
         <style>
             body { font-family: Arial, sans-serif; margin: 20px; }
             div { margin: 5px 0; }
+            .level-info { color: #666; font-size: 0.8em; margin-left: 5px; }
+            .level-desc { color: #888; font-size: 0.8em; display: block; margin-top: 2px; margin-left: 20px; }
+            .heading { font-weight: bold; }
         </style>
     </head>
     <body>
@@ -24,9 +27,22 @@ def visualize_dict(doc_dict):
             if key == 'text':
                 # This is content text
                 result += f'<div style="margin-left:{indent}px">{value}</div>\n'
+            elif key == 'level' or key == 'leveldesc':
+                # Skip level and leveldesc as they'll be displayed with their parent
+                continue
             else:
                 # This is a heading
-                result += f'<div style="margin-left:{indent}px">{key}</div>\n'
+                # Check if there are level attributes
+                level_info = ""
+                level_desc = ""
+                
+                if isinstance(value, dict):
+                    if 'level' in value:
+                        level_info = f'<span class="level-info">(Level: {value["level"]})</span>'
+                    if 'leveldesc' in value:
+                        level_desc = f'<div class="level-desc">{value["leveldesc"]}</div>'
+                
+                result += f'<div style="margin-left:{indent}px"><span class="heading">{key}</span> {level_info}{level_desc}</div>\n'
                 
                 # Process the nested dictionary
                 if isinstance(value, dict):

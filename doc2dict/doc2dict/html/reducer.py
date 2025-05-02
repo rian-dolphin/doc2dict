@@ -110,8 +110,9 @@ def is_in_table(node):
         current = current.parent
     return False
 
-def html_reduction(tree):
+def html_reduction(content):
     """Extract text with formatting and indentation from HTML"""
+    tree = HTMLParser(content)
     lines = []
     current_line = []
     in_table = False
