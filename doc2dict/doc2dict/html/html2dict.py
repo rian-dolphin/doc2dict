@@ -1,9 +1,14 @@
 from .html_parser import html_reduction
 from selectolax.parser import HTMLParser
 import re
+
 def html2dict(content):
     html = HTMLParser(content)
     lines = html_reduction(html)
+    
+    # Track formatting styles in order of appearance
+    format_priority = {}
+    priority_counter = 0
     
     # apply rules
     
@@ -37,6 +42,17 @@ def html2dict(content):
             current_item = None
             
             for item in line:
+                # Track format combinations in order of appearance
+                format_combo = (
+                    item['bold'], 
+                    item['italic'], 
+                    item['underline'], 
+                    item.get('all_caps', False)
+                )
+                if format_combo not in format_priority:
+                    format_priority[format_combo] = priority_counter
+                    priority_counter += 1
+                    
                 if current_item is None:
                     current_item = item.copy()
                 elif (current_item['bold'] == item['bold'] and 
@@ -144,65 +160,40 @@ def html2dict(content):
 
             if text == 'table of contents':
                 lines.remove(line)
-            elif re.match(r'^F?-?\d+$',text):
+                
+            if re.match(r'^F?-?\d+$',text):
                 lines.remove(line)
-
-
 
     # Helper function to determine priority of text attributes
     def get_priority(item):
-        # For text formatting attributes with all possible combinations
-        attr_priority = 0
-        all_caps = item.get('all_caps', False)
-        
-        # All combinations with bold, italic, underline, all_caps
-        if item['bold'] and item['italic'] and item['underline'] and all_caps:
-            attr_priority = 15  # highest priority
-        elif item['bold'] and item['italic'] and item['underline']:
-            attr_priority = 14
-        elif item['bold'] and item['italic'] and all_caps:
-            attr_priority = 13
-        elif item['bold'] and item['italic']:
-            attr_priority = 12
-        elif item['bold'] and item['underline'] and all_caps:
-            attr_priority = 11
-        elif item['bold'] and item['underline']:
-            attr_priority = 10
-        elif item['bold'] and all_caps:
-            attr_priority = 9
-        elif item['bold']:
-            attr_priority = 8
-        elif item['italic'] and item['underline'] and all_caps:
-            attr_priority = 7
-        elif item['italic'] and item['underline']:
-            attr_priority = 6
-        elif item['italic'] and all_caps:
-            attr_priority = 5
-        elif item['italic']:
-            attr_priority = 4
-        elif item['underline'] and all_caps:
-            attr_priority = 3
-        elif item['underline']:
-            attr_priority = 2
-        elif all_caps:
-            attr_priority = 1
-        else:
-            attr_priority = 0  # plain text, lowest priority
+        # Font size is the primary factor
+        font_size_priority = item['font_size'] * 1000
         
         # Get the indent value
         indent_value = item.get('indent', 0) or 0
         
-        # Special case for centered text (indent ≈ 50)
+        # Indentation priority logic:
+        # 1. Centered text (indent ≈ 50) is most important
+        # 2. Less indentation is more important than more indentation (except for center)
         if 49.5 <= indent_value <= 50.5:  # Allow slight variance around 50
-            # Give centered text a higher indent priority than even 0 indent
-            indent_priority = 150  # Higher than the maximum 100 for regular indents
+            indent_priority = 500  # Centered text gets highest priority
         else:
-            # Original formula for other indents (less indent = higher priority)
-            indent_priority = 100 - min(indent_value/10, 99)
+            # Less indent = higher priority
+            indent_priority = 100 - min(indent_value, 100)
         
-        # Final priority calculation
-        # Font size is still primary factor, but centered text now gets a boost
-        return (item['font_size'] * 1000) + indent_priority + (attr_priority * 0.1)
+        # Get format priority based on order of appearance
+        format_combo = (
+            item['bold'], 
+            item['italic'], 
+            item['underline'], 
+            item.get('all_caps', False)
+        )
+        # Earlier appearance = higher priority (reverse the number)
+        format_order_priority = 100 - min(format_priority.get(format_combo, 0), 99)
+        
+        # Final priority calculation:
+        # Font size is primary, then indentation, then formatting order
+        return font_size_priority + indent_priority + format_order_priority * 0.1
     
     # Create result dictionary
     result = {'document': {}}

@@ -151,6 +151,7 @@ def html_reduction(tree):
                 # Determine formatting
                 bold = ('font-weight:bold' in child_style or 
                         'font-weight: bold' in child_style or
+                        'font-weight:700' in child_style or
                         child.tag == 'b' or 
                         child.tag == 'strong')
                 
