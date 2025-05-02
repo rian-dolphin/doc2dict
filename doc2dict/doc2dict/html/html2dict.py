@@ -1,6 +1,6 @@
 from .html_parser import html_reduction
 from selectolax.parser import HTMLParser
-
+import re
 def html2dict(content):
     html = HTMLParser(content)
     lines = html_reduction(html)
@@ -136,6 +136,25 @@ def html2dict(content):
                 # Regular item, move to the next one
                 i += 1
 
+    # pruning - e.g. remove specific values like 'table of contents'
+    for line in lines:
+        if len(line) == 1:
+            item = line[0]
+            # Check if the text is 'table of contents' or similar
+            if item['text'].strip().lower() in ['table of contents', 'contents']:
+                # Remove this item from the line
+                lines.remove(line)
+                break
+            
+            # Check if the text is a page number using regex
+            # This will match patterns like "1", "42", "F1", "A-3", etc.
+            if not item['in_table']:
+                if re.match(r'^\s*[a-z]?[-]?\d+\s*$', item['text'].strip().lower()):
+                    lines.remove(line)
+                    break
+
+
+
     # Helper function to determine priority of text attributes
     def get_priority(item):
         # For text formatting attributes with all possible combinations
@@ -176,19 +195,20 @@ def html2dict(content):
         else:
             attr_priority = 0  # plain text, lowest priority
         
-        # Create a single priority value
-        # Formula gives highest weight to font size,
-        # medium weight to indentation (inverted so less indent = higher priority)
-        # and lowest weight to text attributes
-        
+        # Get the indent value
         indent_value = item.get('indent', 0) or 0
         
-        # Scale factors to ensure proper hierarchy
-        # font_size * 1000 ensures it's the primary factor
-        # (100 - indent_value/10) ensures less indented items have higher priority
-        # attr_priority is now on a 0-15 scale
+        # Special case for centered text (indent ≈ 50)
+        if 49.5 <= indent_value <= 50.5:  # Allow slight variance around 50
+            # Give centered text a higher indent priority than even 0 indent
+            indent_priority = 150  # Higher than the maximum 100 for regular indents
+        else:
+            # Original formula for other indents (less indent = higher priority)
+            indent_priority = 100 - min(indent_value/10, 99)
         
-        return (item['font_size'] * 1000) + (100 - min(indent_value/10, 99)) + (attr_priority * 0.1)
+        # Final priority calculation
+        # Font size is still primary factor, but centered text now gets a boost
+        return (item['font_size'] * 1000) + indent_priority + (attr_priority * 0.1)
     
     # Create result dictionary
     result = {'document': {}}
