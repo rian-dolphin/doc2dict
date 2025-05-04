@@ -164,6 +164,13 @@ def construct_dict(lines):
         indent_value = item.get('indent', 0) or 0
         return 49.5 <= indent_value <= 50.5  # Allow slight variance around 50
     
+    # Helper function to check if an item has special formatting
+    def has_special_formatting(item):
+        return (item['bold'] or 
+                item['italic'] or 
+                item['underline'] or 
+                item.get('all_caps', False))
+    
     # Create result dictionary
     result = {'document': {}}
     
@@ -298,8 +305,15 @@ def construct_dict(lines):
             else:
                 leveldesc = f"Level {new_level} {format_str}"
             
+            # Determine if this is a section header
+            is_section_header = has_special_formatting(item)
+            
             # Add this key to the parent
-            parent_node[key_text] = {'level': new_level, 'leveldesc': leveldesc}
+            parent_node[key_text] = {
+                'level': new_level, 
+                'leveldesc': leveldesc,
+                'is_section_header': is_section_header
+            }
             
             # Push this node onto the stack
             stack.append((
