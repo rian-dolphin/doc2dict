@@ -14,6 +14,7 @@ def visualize_dict(doc_dict):
             .level-info { color: #666; font-size: 0.8em; margin-left: 5px; }
             .level-desc { color: #888; font-size: 0.8em; display: block; margin-top: 2px; margin-left: 20px; }
             .heading { font-weight: bold; }
+            .non-section-heading { font-weight: normal; }
         </style>
     </head>
     <body>
@@ -27,22 +28,25 @@ def visualize_dict(doc_dict):
             if key == 'text':
                 # This is content text
                 result += f'<div style="margin-left:{indent}px">{value}</div>\n'
-            elif key == 'level' or key == 'leveldesc':
-                # Skip level and leveldesc as they'll be displayed with their parent
+            elif key in ['level', 'leveldesc', 'is_section_header']:
+                # Skip level, leveldesc, and is_section_header as they'll be displayed with their parent or used for styling
                 continue
             else:
                 # This is a heading
                 # Check if there are level attributes
                 level_info = ""
                 level_desc = ""
+                heading_class = "non-section-heading"  # Default to non-bold
                 
                 if isinstance(value, dict):
                     if 'level' in value:
                         level_info = f'<span class="level-info">(Level: {value["level"]})</span>'
                     if 'leveldesc' in value:
                         level_desc = f'<div class="level-desc">{value["leveldesc"]}</div>'
+                    if 'is_section_header' in value and value['is_section_header']:
+                        heading_class = "heading"  # Use bold if is_section_header is true
                 
-                result += f'<div style="margin-left:{indent}px"><span class="heading">{key}</span> {level_info}{level_desc}</div>\n'
+                result += f'<div style="margin-left:{indent}px"><span class="{heading_class}">{key}</span> {level_info}{level_desc}</div>\n'
                 
                 # Process the nested dictionary
                 if isinstance(value, dict):
