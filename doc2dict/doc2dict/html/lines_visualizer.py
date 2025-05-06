@@ -58,14 +58,22 @@ def visualize_lines(nested_list):
     def convert_indent(px_value):
         """Convert pixel indent to appropriate em value"""
         # Assuming base font size is 16px, convert to em
-        # Use a more moderate scaling to prevent excessive indentation
-        return px_value / 16 * 0.5  # Scale down by 50% for better visualization
+        return px_value / 16 * 5
     
     for items in nested_list:
         if isinstance(items, list):
             # Get indent from first item
-            first_indent = convert_indent(items[0].get('indent', 0)) if isinstance(items[0], dict) else 0
-            html_content += f"<div class='row' style='padding-left: {first_indent}em'>\n"
+            first_item_indent = items[0].get('indent', 0) if isinstance(items[0], dict) else 0
+            
+            # Check if centered and set styles accordingly
+            center_align = first_item_indent == 50
+            if center_align:
+                # For centered items, don't apply padding-left
+                html_content += f"<div class='row' style='text-align: center; justify-content: center;'>\n"
+            else:
+                # For non-centered items, apply padding-left
+                first_indent = convert_indent(first_item_indent)
+                html_content += f"<div class='row' style='padding-left: {first_indent}em;'>\n"
             
             for i, item in enumerate(items):
                 # Single item -> blue
@@ -77,22 +85,45 @@ def visualize_lines(nested_list):
                 
                 # Get individual item indent if different from first item
                 item_indent = 0
-                if i > 0 and isinstance(item, dict):
-                    item_indent = convert_indent(item.get('indent', 0)) - first_indent
-                    if item_indent < 0:
-                        item_indent = 0
+                item_raw_indent = item.get('indent', 0) if isinstance(item, dict) else 0
+                
+                # Special handling for individual items with indent = 50
+                item_center_align = item_raw_indent == 50
+                item_text_align = 'text-align: center;' if item_center_align else ''
+                
+                # Only calculate margin-left for non-centered items after the first item
+                if i > 0 and isinstance(item, dict) and not item_center_align:
+                    if center_align:
+                        # If parent is centered but this item isn't, use its own indent
+                        item_indent = convert_indent(item_raw_indent)
+                    else:
+                        # Normal case: calculate relative indent
+                        first_indent = convert_indent(first_item_indent)
+                        item_indent = convert_indent(item_raw_indent) - first_indent
+                        if item_indent < 0:
+                            item_indent = 0
                 
                 styled_text = get_styled_text(item)
-                html_content += f"    <span class='item' style='background-color: {color}; margin-left: {item_indent}em'>{styled_text}</span>\n"
+                html_content += f"    <span class='item' style='background-color: {color}; margin-left: {item_indent}em; {item_text_align}'>{styled_text}</span>\n"
             
             html_content += "</div>\n"
         else:
             if isinstance(items, dict):
-                indent = convert_indent(items.get('indent', 0))
+                item_raw_indent = items.get('indent', 0)
                 styled_text = get_styled_text(items)
                 height = items.get('height', '')
                 height_style = f'height: {height};' if height else ''
-                html_content += f"<div class='row' style='padding-left: {indent}em'><span class='item' style='background-color: {single_line_color}; {height_style}'>{styled_text}</span></div>\n"
+                
+                # Special handling for indent = 50
+                center_align = item_raw_indent == 50
+                
+                if center_align:
+                    # For centered items, don't apply padding-left
+                    html_content += f"<div class='row' style='text-align: center;'><span class='item' style='background-color: {single_line_color}; {height_style}; text-align: center;'>{styled_text}</span></div>\n"
+                else:
+                    # For non-centered items, apply padding-left
+                    indent = convert_indent(item_raw_indent)
+                    html_content += f"<div class='row' style='padding-left: {indent}em;'><span class='item' style='background-color: {single_line_color}; {height_style};'>{styled_text}</span></div>\n"
             else:
                 styled_text = str(items)
                 indent = 0
