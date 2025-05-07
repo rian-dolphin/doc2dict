@@ -16,13 +16,9 @@ def format_dct_style(line):
         font_size = line['font-size']
         if font_size:
             style_properties.append(f'font-size: {font_size}')
-    
-    if ((len(style_properties) == 0) & ('all_caps' not in line)):
-        is_section_header = False
-    else:
-        is_section_header = True
 
-    return style_properties, text, is_section_header
+
+    return style_properties, text
 
 def visualize_discrete(lines):
     # Simplified color scheme
@@ -35,18 +31,24 @@ def visualize_discrete(lines):
         <html>
         <head>
         <style>
+        span {
+  display: inline-block;
+  }
         </style>
         </head>
         <body>"""
     
     for line in lines:
+        div_style = ''
         if any(['text:center' in item for item in line]):
-            html_content += "<div style='text-align: center;'>"
-        else:
-            html_content += "<div>"
+            div_style = 'text-align: center;'
+        
 
         for idx, dct in enumerate(line):
-            style_properties, text, is_section_header = format_dct_style(dct)
+            style_properties, text = format_dct_style(dct)
+            if idx  == 0:
+                html_content += f"<div style='{div_style}'>"
+
             if 'table' in dct:
                 color = table_color
             elif len(line) == 1:
@@ -56,8 +58,9 @@ def visualize_discrete(lines):
             else:
                 color = multi_rest_color
             
-            style_properties += [f'background-color: {color}']
+            style_properties += [f'background-color: {color}; margin-left:5px']
             style = '; '.join(style_properties)
+
             html_content += f"<span style='{style}'>{text}</span>"
             
         html_content += "</div>"

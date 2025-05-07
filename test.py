@@ -2,6 +2,7 @@ from selectolax.parser import HTMLParser
 from doc2dict.doc2dict.htmlrewrite.flow import convert_html_to_flow
 from doc2dict.doc2dict.htmlrewrite.discrete import convert_instructions_to_discrete
 from doc2dict.doc2dict.htmlrewrite.visualize_discrete import visualize_discrete
+from doc2dict.doc2dict.htmlrewrite.clean_discrete import clean_discrete
 from time import time
 
 # Benchmark bottom 150ms
@@ -29,5 +30,5 @@ with open('discrete.txt', 'w', encoding='utf-8') as f:
     for line in lines:
         f.write(str(line) + '\n')
 
-
+lines = clean_discrete(lines)
 visualize_discrete(lines)
