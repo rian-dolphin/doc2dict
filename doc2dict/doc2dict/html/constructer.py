@@ -1,13 +1,11 @@
 import re
 
-def construct_dict(lines):
-    # Track formatting styles in order of appearance
-    format_priority = {}
+def preprocess_lines(lines, format_priority):
+    """
+    Preprocess lines: handle isolated table rows and combine items within lines
+    """
     priority_counter = 0
     
-    # apply rules
-    
-    # Process only non-table lines or isolated table rows (no table rows before/after)
     for i, line in enumerate(lines):
         # Skip empty lines
         if not line:
@@ -72,8 +70,13 @@ def construct_dict(lines):
             
             # Replace original line with combined items
             line[:] = combined_items
+    
+    return priority_counter
 
-    # NEW CODE: Merge adjacent lines with same attributes
+def merge_adjacent_lines(lines):
+    """
+    Merge adjacent lines with the same attributes
+    """
     i = 0
     while i < len(lines) - 1:
         # Skip empty lines
@@ -97,7 +100,7 @@ def construct_dict(lines):
             last_item['height'] == first_item['height'] and
             last_item['font_size'] == first_item['font_size'] and
             last_item['in_table'] == first_item['in_table'] and
-            last_item.get('indent', 0) == first_item.get('indent', 0)):  # Added check for matching indent
+            last_item.get('indent', 0) == first_item.get('indent', 0)):
             
             # Merge the text
             last_item['text'] += ' ' + first_item['text']
@@ -118,7 +121,10 @@ def construct_dict(lines):
             # Items don't match, move to next line
             i += 1
 
-    # table handling - only process actual table lines (not the isolated ones we converted)
+def process_tables(lines):
+    """
+    Process table lines for special cases like dollar signs
+    """
     for line in lines:
         # Skip if line is empty or not in a table
         if not line or not line[0]['in_table']:
@@ -147,30 +153,50 @@ def construct_dict(lines):
                 # Regular item, move to the next one
                 i += 1
 
-    # pruning - e.g. remove specific values like 'table of contents'
+def prune_lines(lines):
+    """
+    Remove unwanted lines like 'table of contents' or page numbers
+    """
+    lines_to_remove = []
     for line in lines:
-        if len(line) == 1:  
-            item = line[0]
-            text = item['text'].strip().lower()
+        if not line or len(line) != 1:
+            continue
+            
+        item = line[0]
+        text = item['text'].strip().lower()
 
-            if text == 'table of contents':
-                lines.remove(line)
-                
-            if re.match(r'^F?-?\d+$',text):
-                lines.remove(line)
+        if text == 'table of contents':
+            lines_to_remove.append(line)
+            
+        if re.match(r'^F?-?\d+$', text):
+            lines_to_remove.append(line)
     
-    # Helper function to check if an item is center-aligned
-    def is_center_aligned(item):
-        indent_value = item.get('indent', 0) or 0
-        return 49.5 <= indent_value <= 50.5  # Allow slight variance around 50
-    
-    # Helper function to check if an item has special formatting
-    def has_special_formatting(item):
-        return (item['bold'] or 
-                item['italic'] or 
-                item['underline'] or 
-                item.get('all_caps', False))
-    
+    # Remove the identified lines
+    for line in lines_to_remove:
+        if line in lines:
+            lines.remove(line)
+
+def is_center_aligned(item):
+    """
+    Check if an item is center-aligned
+    """
+    indent_value = item.get('indent', 0) or 0
+    return 49.5 <= indent_value <= 50.5  # Allow slight variance around 50
+
+def has_special_formatting(item):
+    """
+    Check if an item has special formatting
+    """
+    return (item['bold'] or 
+            item['italic'] or 
+            item['underline'] or 
+            item.get('all_caps', False))
+
+def create_nested_dict(lines, format_priority):
+    """
+    Create a nested dictionary structure from the processed lines
+    while preserving the original document flow
+    """
     # Create result dictionary
     result = {'document': {}}
     
@@ -181,6 +207,10 @@ def construct_dict(lines):
     # Add level and leveldesc to root document
     result['document']['level'] = 0
     result['document']['leveldesc'] = "Root document"
+    
+    # Keep track of the last section header and its parent chain
+    last_header_node = None
+    current_section_stack = []
     
     for line in lines:
         if not line:
@@ -205,10 +235,16 @@ def construct_dict(lines):
             # Get format order (which format combo appeared first)
             format_order = format_priority.get(format_tuple, 999)  # Default high if not found
             
+            # Reset stack to appropriate level based on formatting
+            # Format attributes determine hierarchy level, document flow determines position
+            
+            # Make a copy of the stack before potentially modifying it
+            stack_copy = stack.copy()
+            
             # Find the appropriate parent node using logical flow
             level_reason = []  # Track reasons for level assignment
-            while len(stack) > 1:
-                parent = stack[-1]
+            while len(stack_copy) > 1:
+                parent = stack_copy[-1]
                 parent_font_size = parent[1]
                 parent_format_tuple = parent[2]
                 parent_format_order = parent[3]
@@ -223,7 +259,7 @@ def construct_dict(lines):
                 elif parent_font_size < font_size:
                     # Parent has smaller font size - invalid parent
                     level_reason.append(f"font size larger than parent ({font_size} > {parent_font_size})")
-                    stack.pop()
+                    stack_copy.pop()
                     continue
                 
                 # 2. FORMAT ORDER CHECK - Second most important
@@ -238,7 +274,7 @@ def construct_dict(lines):
                 elif any_formatting and not parent_any_formatting:
                     # Formatted text can't go under plain text - invalid parent
                     level_reason.append(f"formatted text can't go under plain text")
-                    stack.pop()
+                    stack_copy.pop()
                     continue
                 elif parent_format_order < format_order:
                     # Parent format appeared earlier - valid parent
@@ -247,7 +283,7 @@ def construct_dict(lines):
                 elif parent_format_order > format_order:
                     # Parent format appeared later - invalid parent
                     level_reason.append(f"format combo appeared earlier than parent ({format_order} < {parent_format_order})")
-                    stack.pop()
+                    stack_copy.pop()
                     continue
                 
                 # 3. CENTER ALIGNMENT CHECK
@@ -258,7 +294,7 @@ def construct_dict(lines):
                 elif not parent_is_center and center_aligned:
                     # Parent isn't center-aligned but current is - invalid parent
                     level_reason.append("center-aligned while parent isn't")
-                    stack.pop()
+                    stack_copy.pop()
                     continue
                 
                 # 4. INDENTATION CHECK - Only consider indentation if at least one has formatting
@@ -270,12 +306,16 @@ def construct_dict(lines):
                     elif parent_indent > indent_value:
                         # Parent has more indentation - invalid parent
                         level_reason.append(f"less indented than parent ({indent_value} < {parent_indent})")
-                        stack.pop()
+                        stack_copy.pop()
                         continue
                 
                 # If we get here, all checks have failed - pop the stack
                 level_reason.append("all hierarchy checks failed")
-                stack.pop()
+                stack_copy.pop()
+            
+            # Use the modified stack - this preserves document flow
+            # by only using appropriate hierarchy levels
+            stack = stack_copy
             
             # Get the parent node and its level
             parent_node = stack[-1][0]
@@ -316,7 +356,7 @@ def construct_dict(lines):
             }
             
             # Push this node onto the stack
-            stack.append((
+            new_node_entry = (
                 parent_node[key_text], 
                 font_size, 
                 format_tuple,
@@ -324,16 +364,57 @@ def construct_dict(lines):
                 center_aligned,
                 indent_value,
                 new_level
-            ))
+            )
+            stack.append(new_node_entry)
+            
+            # Remember this as the last header if it's a section header
+            if is_section_header:
+                last_header_node = parent_node[key_text]
+                # Update current section stack - this tracks the current context
+                current_section_stack = stack.copy()
         else:
             # This is content
             content_text = ' '.join([item['text'] for item in line])
             
-            # Add to the current node
+            # Handle the case where we've popped back to root - use the last header if possible
             current_node = stack[-1][0]
+            
+            # If we're at root level but have a previous section header, use it
+            # This ensures that content is placed in the proper section context
+            if len(stack) == 1 and last_header_node is not None:
+                # Use the last header, preserving document flow context
+                current_node = last_header_node
+            
+            # Add to the current node - this preserves document flow
             if 'text' in current_node:
                 current_node['text'] += ' ' + content_text
             else:
                 current_node['text'] = content_text
+    
+    return result
 
+def construct_dict(lines):
+    """
+    Main function to process lines and construct a nested dictionary
+    """
+    # Track formatting styles in order of appearance
+    format_priority = {}
+    
+    # Preprocess lines
+    preprocess_lines(lines, format_priority)
+
+    # Prune unwanted lines - we do this here, so merge adjacents can be done on the remaining lines
+    prune_lines(lines)
+    
+    # Merge adjacent lines
+    merge_adjacent_lines(lines)
+    
+    # Process tables
+    process_tables(lines)
+    
+
+    
+    # Create the nested dictionary
+    result = create_nested_dict(lines, format_priority)
+    
     return result
