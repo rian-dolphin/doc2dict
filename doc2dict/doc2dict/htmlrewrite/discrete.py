@@ -20,16 +20,26 @@ def convert_instructions_to_discrete(instructions):
             for bool_attribute in bool_attributes:
                 if attributes[bool_attribute] > 0:
                     current_dict_attributes[bool_attribute] = True
-            current_line.append(current_dict_attributes| {'text': instruction['text']})
+            
+            if len(attributes['font-size']) > 0:
+                font_size = attributes['font-size'][-1]
+            current_line.append(current_dict_attributes| {'text': instruction['text'], 'font-size': font_size})
 
         if 'start' in instruction:
             for bool_attribute in bool_attributes:
                 if bool_attribute in instruction['start']:
                     attributes[bool_attribute] += 1
+            
+            if 'font-size' in instruction['start']:
+                font_size = instruction['start'].split(':')[1]
+                attributes['font-size'].append(font_size)
 
         elif 'end' in instruction:
             for bool_attribute in bool_attributes:
                 if bool_attribute in instruction['end']:
                     attributes[bool_attribute] -= 1
+
+            if 'font-size' in instruction['end']:
+                attributes['font-size'].pop()
 
     return lines
