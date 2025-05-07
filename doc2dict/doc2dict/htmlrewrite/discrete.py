@@ -1,19 +1,19 @@
 
 
-
-
 def convert_instructions_to_discrete(instructions):
     current_line = []
     lines = []
 
-    attributes = {'bold':0, 'italic':0, 'underline':0, 'all_caps':0,'text:center':0,'font-size':[]}
+    attributes = {'bold':0, 'italic':0, 'underline':0, 'all_caps':0,'text:center':0,'table':0,'font-size':[]}
 
-    bool_attributes = ['bold', 'italic', 'underline', 'all_caps', 'text:center']
+    bool_attributes = ['bold', 'italic', 'underline', 'all_caps', 'text:center','table']
     
     for instruction in instructions:
         if not instruction:
-            lines.append(current_line)
+            if current_line:
+                lines.append(current_line)
             current_line = []
+            continue
         
         if 'text' in instruction:
             current_dict_attributes = {}
