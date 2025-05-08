@@ -4,11 +4,14 @@ from doc2dict.doc2dict.htmlrewrite.discrete import convert_instructions_to_discr
 from doc2dict.doc2dict.htmlrewrite.visualize_discrete import visualize_discrete
 from doc2dict.doc2dict.htmlrewrite.clean_discrete import clean_discrete
 from time import time
+import webbrowser
 
 # Benchmark bottom 150ms
 
-start = time()
 file_path=r'C:\Users\jgfri\OneDrive\Desktop\test\test\0000320193-24-000123\aapl-20240928.htm'
+webbrowser.open(file_path)
+
+start = time()
 with open(file_path, 'r', encoding='utf-8') as f:
     parser = HTMLParser(f.read())
 

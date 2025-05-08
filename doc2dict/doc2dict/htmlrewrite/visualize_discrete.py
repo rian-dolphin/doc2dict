@@ -16,6 +16,10 @@ def format_dct_style(line):
         font_size = line['font-size']
         if font_size:
             style_properties.append(f'font-size: {font_size}')
+    if 'left-indent' in line:
+        left_indent = line['left-indent']
+        if left_indent:
+            style_properties.append(f'padding-left: {left_indent}px')
 
 
     return style_properties, text
