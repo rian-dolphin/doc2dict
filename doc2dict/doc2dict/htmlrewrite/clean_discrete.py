@@ -5,7 +5,7 @@ def clean_table(line):
     modifiers = ['$',',']
     add_cell = True
     for idx,_ in enumerate(line):
-        if idx == len(line) - 2:
+        if idx == len(line) - 1:
             break
         text = line[idx]['text'].strip()
         if text == '':
@@ -89,14 +89,22 @@ def strip_fake_tables(lines):
     return lines
 
 def clean_discrete(lines):
-    lines = strip_fake_tables(lines)
+    #lines = strip_fake_tables(lines)
 
     in_table = False
     table = []
+    indices_to_remove = []
     for idx,line in enumerate(lines):
             cleaned_line, command = merge_line(line)
-            if command == "table":
+            # check if we at end of lines and in a table
+            if ((command == "table") & (idx == len(lines) - 1)):
                 table.append(cleaned_line)
+                lines[idx] = [{'cleaned_table': table}]
+                table = []
+                in_table = False
+            elif command == "table":
+                table.append(cleaned_line)
+                indices_to_remove.append(idx)
                 in_table = True
             else:
                 if in_table:
@@ -105,5 +113,5 @@ def clean_discrete(lines):
                     table = []
                 else:
                     lines[idx] = cleaned_line
-    
+    lines = [item for idx, item in enumerate(lines) if idx not in indices_to_remove]
     return lines

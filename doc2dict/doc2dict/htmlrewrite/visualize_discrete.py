@@ -65,7 +65,7 @@ def visualize_discrete(lines):
         if len(line) == 1:
             if 'cleaned_table' in line[0]:
                 table_html = format_table(line[0]['cleaned_table'])
-                html_content += f"<div style='text-align: center; background-color: {cleaned_table_color}'>{table_html}</div>"
+                html_content += f"<div style='background-color: {cleaned_table_color}'>{table_html}</div>"
                 continue
         div_style = ''
         if any(['text:center' in item for item in line]):
