@@ -112,6 +112,7 @@ def get_style(node):
 def convert_html_to_flow(root):
     attributes_list = []
     skip_invisible = False
+    in_table = False
     for signal,node in walk(root):
         if signal == "start":
             # skip invisible elements
@@ -135,6 +136,7 @@ def convert_html_to_flow(root):
             elif node.tag in ['u','ins']:
                 attributes_list.append({'start': 'underline'})
             elif node.tag in ['table']:
+                in_table = True
                 attributes_list.append({'start': 'table'})
             elif node.tag == '-text':
                 # check for all caps
@@ -157,8 +159,12 @@ def convert_html_to_flow(root):
                 if style_attributes[key]:
                     attributes_list.append({'end': key})
 
-            if node.tag in ['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'tr', 'td', 'th']:
-                attributes_list.append({})
+            if node.tag in ['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'tr']:
+                if not in_table:
+                    attributes_list.append({})
+                else:
+                    if node.tag == 'tr':
+                        attributes_list.append({})
 
             elif node.tag in ['b','strong']:
                 attributes_list.append({'end': 'bold'})
@@ -168,5 +174,6 @@ def convert_html_to_flow(root):
                 attributes_list.append({'end': 'underline'})
             elif node.tag in ['table']:
                 attributes_list.append({'end': 'table'})
+                in_table = False
     
     return attributes_list

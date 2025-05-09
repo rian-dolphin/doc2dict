@@ -2,14 +2,25 @@
 
 # change to not unique.
 def merge_line(line):
-    if len(line) == 1:
+    if len(line) <= 1:
         return line
-
-    if all(all(item.get(attr) == line[0].get(attr) for attr in ['bold', 'italic', 'underline']) for item in line if item['text'].strip() !=  ''):
+    
+    if 'table' in line[0]:
+        return line
+        
+    # Find the first non-empty item to use as reference
+    non_empty_items = [item for item in line if item['text'].strip() != '']
+    if not non_empty_items:
+        return line
+        
+    reference_item = non_empty_items[0]
+    
+    # Check if all non-empty items have the same formatting attributes
+    if all(all(item.get(attr) == reference_item.get(attr) for attr in ['bold', 'italic', 'underline']) 
+           for item in non_empty_items):
         combined_text = ''.join(d['text'] for d in line)
-        # create a new copy of the first dict in the line
-        # and set the text to the combined text
-        new_dict = line[0].copy()
+        # Create a new copy based on the reference item
+        new_dict = reference_item.copy()
         new_dict['text'] = combined_text
         return [new_dict]
     else:
@@ -23,3 +34,7 @@ def clean_discrete(lines):
             lines[idx] = merge_line(line)
     
     return lines
+
+
+line = [{'text': '\n  ', 'font-size': None, 'left-indent': 4.027040000000007}, {'bold': True, 'all_caps': True, 'text:center': True, 'text': 'ITEM 1B. UNRESOLVE', 'font-size': '12pt', 'left-indent': 4.027040000000007}, {'bold': True, 'all_caps': True, 'text:center': True, 'text': 'D STAFF COMMENTS', 'font-size': '12pt', 'left-indent': 4.027040000000007}, {'bold': True, 'text:center': True, 'text': ' ', 'font-size': '12pt', 'left-indent': 4.027040000000007}]
+print(merge_line(line))
