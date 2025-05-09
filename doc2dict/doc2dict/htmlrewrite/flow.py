@@ -182,5 +182,6 @@ def convert_html_to_flow(root):
             elif node.tag in ['table']:
                 in_table = False
                 attributes_list.append({'end': 'table'})
+                attributes_list.append({})
     
     return attributes_list

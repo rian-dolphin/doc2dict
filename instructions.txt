@@ -150,6 +150,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:2pt'}
@@ -303,6 +304,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'text:center'}
@@ -454,6 +456,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'text:center'}
@@ -1045,6 +1048,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:8pt'}
@@ -1228,6 +1232,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:8pt'}
@@ -4144,6 +4149,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:10pt'}
@@ -7449,6 +7455,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:10pt'}
@@ -10476,6 +10483,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -11844,6 +11852,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -12730,6 +12739,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -13452,6 +13462,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:10pt'}
@@ -13895,6 +13906,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -14189,6 +14201,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:10pt'}
@@ -15666,6 +15679,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -17757,6 +17771,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -18617,6 +18632,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -19216,6 +19232,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:10pt'}
@@ -19868,6 +19885,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -20868,6 +20886,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -24110,6 +24129,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:4.5pt'}
@@ -24810,6 +24830,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -26218,6 +26239,7 @@
 {}
 {'text': '\n  '}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:4.5pt'}
@@ -26951,6 +26973,7 @@
 {}
 {'text': '\n  '}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:10pt'}
@@ -28014,6 +28037,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:10pt'}
@@ -31652,6 +31676,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -33295,6 +33320,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -37273,6 +37299,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -42939,6 +42966,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -46199,6 +46227,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -47891,6 +47920,7 @@
 {'text': '\n        '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
 {'text': '\xa0'}
@@ -48886,6 +48916,7 @@
 {'text': '\n        '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -51638,6 +51669,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -52927,6 +52959,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -53887,6 +53920,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -54846,6 +54880,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'end': 'font-size:10pt'}
@@ -63471,6 +63506,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:10pt'}
 {'text': '\xa0'}
@@ -71695,6 +71731,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:4.5pt'}
 {'text': '\xa0'}
@@ -74241,6 +74278,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
 {'text': '\xa0'}
@@ -76911,6 +76949,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -77704,6 +77743,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'end': 'font-size:10pt'}
@@ -78973,6 +79013,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -83611,6 +83652,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -85203,6 +85245,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:10pt'}
 {'text': '\xa0'}
@@ -87053,6 +87096,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -87712,6 +87756,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'end': 'font-size:10pt'}
@@ -88398,6 +88443,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'end': 'font-size:10pt'}
@@ -89470,6 +89516,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -90274,6 +90321,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -90968,6 +91016,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -91303,6 +91352,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
 {'text': '\xa0'}
@@ -91914,6 +91964,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -92518,6 +92569,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:4.5pt'}
 {'text': '\xa0'}
@@ -93217,6 +93269,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {}
@@ -95638,6 +95691,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:4.5pt'}
 {'text': '\xa0'}
@@ -97702,6 +97756,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:4.5pt'}
 {'text': '\xa0'}
@@ -99085,6 +99140,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -99640,6 +99696,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'end': 'font-size:10pt'}
@@ -105224,6 +105281,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:4.5pt'}
 {'text': '\xa0'}
@@ -106025,6 +106083,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'end': 'font-size:10pt'}
@@ -108352,6 +108411,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -109268,6 +109328,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -111187,6 +111248,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -114237,6 +114299,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
 {'text': '\xa0'}
@@ -115855,6 +115918,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:4.5pt'}
 {'text': '\xa0'}
@@ -116619,6 +116683,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -117086,6 +117151,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -118557,6 +118623,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -119842,6 +119909,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -122706,6 +122774,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -124119,6 +124188,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -125300,6 +125370,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
 {'text': '\xa0'}
@@ -127184,6 +127255,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -129960,6 +130032,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -133963,6 +134036,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'end': 'font-size:10pt'}
@@ -134530,6 +134604,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -135293,6 +135368,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -136177,6 +136253,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:4.5pt'}
 {'text': '\xa0'}
@@ -136845,6 +136922,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {'start': 'font-size:10pt'}
@@ -139253,6 +139331,7 @@
 {'text': '\n        '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {}
@@ -140053,6 +140132,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:4.5pt'}
 {'text': '\xa0'}
@@ -141705,6 +141785,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
 {'text': '\xa0'}
@@ -142550,6 +142631,7 @@
 {'text': '\n      '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'end': 'font-size:10pt'}
 {}
 {}
@@ -144791,6 +144873,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -146261,6 +146344,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'text:center'}
@@ -147848,6 +147932,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'text:center'}
@@ -149227,6 +149312,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'text:center'}
@@ -151079,6 +151165,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'text:center'}
@@ -153967,6 +154054,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'text:center'}
@@ -158073,6 +158161,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'text:center'}
@@ -162724,6 +162813,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -162964,6 +163054,7 @@
 {}
 {'text': '\n  '}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:9pt'}
@@ -164048,6 +164139,7 @@
 {'text': '\n  '}
 {'end': 'margin-left:auto'}
 {'end': 'table'}
+{}
 {'text': '\n  '}
 {'start': 'font-size:10pt'}
 {'start': 'font-size:10pt'}

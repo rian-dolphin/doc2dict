@@ -2,22 +2,34 @@
 
 def clean_table(line):
     cells = []
-    modifiers = ['$',',']
-    add_cell = True
-    for idx,_ in enumerate(line):
-        if idx == len(line) - 1:
-            break
-        text = line[idx]['text'].strip()
-        if text == '':
+    remove_modifiers = ['$',',']
+    left_modifiers = ['(']
+    right_modifiers = [')']
+    text_list = [item['text'].strip() for item in line if 'text' in item]
+    # remove empty strings
+    text_list = [text for text in text_list if text != '']
+
+    indices_to_remove = []
+    for idx,_ in enumerate(text_list):
+        if text_list[idx] == '':
+            indices_to_remove.append(idx)
             continue
 
-        for modifier in modifiers:
-            if text == 'modifier':
-                line[idx+1]['text'] = modifier + line[idx+1]['text']
+        if text_list[idx] in remove_modifiers:
+            indices_to_remove.append(idx)
+            continue
 
-        if add_cell:
-            cells.append(line[idx]['text'])
+        if (text_list[idx] in left_modifiers and idx < len(text_list) - 1):
+            indices_to_remove.append(idx)
+            text_list[idx + 1] = text_list[idx] + text_list[idx + 1]
+            continue
 
+        if (text_list[idx] in right_modifiers and idx > 0):
+            indices_to_remove.append(idx)
+            text_list[idx - 1] = text_list[idx - 1] + text_list[idx]
+            continue
+
+    cells = [item for idx, item in enumerate(text_list) if idx not in indices_to_remove]
     return cells
 
 def merge_line(line):
