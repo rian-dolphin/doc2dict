@@ -5,8 +5,17 @@ def merge_line(line):
     if len(line) <= 1:
         return line
     
+
+        
+    
     if 'table' in line[0]:
-        return line
+        if any(['cell' in item for item in line]):
+            combined_text = ''.join(d['text'] for d in line)
+            new_dict = line[0].copy()
+            new_dict['text'] = combined_text
+            return [new_dict]
+        else:
+            return line
         
     # Find the first non-empty item to use as reference
     non_empty_items = [item for item in line if item['text'].strip() != '']
@@ -28,13 +37,6 @@ def merge_line(line):
 
 def clean_discrete(lines):
     for idx,line in enumerate(lines):
-        if len(line) > 1:
-            # merge if attributes are the same
-            
             lines[idx] = merge_line(line)
     
     return lines
-
-
-line = [{'text': '\n  ', 'font-size': None, 'left-indent': 4.027040000000007}, {'bold': True, 'all_caps': True, 'text:center': True, 'text': 'ITEM 1B. UNRESOLVE', 'font-size': '12pt', 'left-indent': 4.027040000000007}, {'bold': True, 'all_caps': True, 'text:center': True, 'text': 'D STAFF COMMENTS', 'font-size': '12pt', 'left-indent': 4.027040000000007}, {'bold': True, 'text:center': True, 'text': ' ', 'font-size': '12pt', 'left-indent': 4.027040000000007}]
-print(merge_line(line))

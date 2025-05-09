@@ -113,6 +113,7 @@ def convert_html_to_flow(root):
     attributes_list = []
     skip_invisible = False
     in_table = False
+    cell_id = 0
     for signal,node in walk(root):
         if signal == "start":
             # skip invisible elements
@@ -147,6 +148,8 @@ def convert_html_to_flow(root):
                     attributes_list.append({'end': 'all_caps'})
                 else:
                     attributes_list.append({'text': text})
+            elif node.tag in ['td', 'th']:
+                attributes_list.append({'start': f'cell:{cell_id}'})
 
 
         elif signal == "end":
@@ -165,6 +168,7 @@ def convert_html_to_flow(root):
                 else:
                     if node.tag == 'tr':
                         attributes_list.append({})
+                        
 
             elif node.tag in ['b','strong']:
                 attributes_list.append({'end': 'bold'})
@@ -172,8 +176,11 @@ def convert_html_to_flow(root):
                 attributes_list.append({'end': 'italic'})
             elif node.tag in ['u','ins']:
                 attributes_list.append({'end': 'underline'})
+            elif node.tag in ['td', 'th']:
+                attributes_list.append({'end': f'cell:{cell_id}'})
+                cell_id += 1
             elif node.tag in ['table']:
-                attributes_list.append({'end': 'table'})
                 in_table = False
+                attributes_list.append({'end': 'table'})
     
     return attributes_list

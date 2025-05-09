@@ -89,9 +89,11 @@ def convert_instructions_to_discrete(instructions):
     lines = []
 
     attributes = {'bold':0, 'italic':0, 'underline':0, 'all_caps':0,'text:center':0,'table':0,'font-size':[],
-                  'left-indent':0}
+                  'left-indent':0,}
 
     bool_attributes = ['bold', 'italic', 'underline', 'all_caps', 'text:center','table']
+
+    cell = None
     
     for instruction in instructions:
         if not instruction:
@@ -109,8 +111,15 @@ def convert_instructions_to_discrete(instructions):
             font_size = None
             if len(attributes['font-size']) > 0:
                 font_size = attributes['font-size'][-1]
-            current_line.append(current_dict_attributes| {'text': instruction['text'], 'font-size': font_size, 'left-indent': attributes['left-indent']})
+            
+            if cell is not None:
+                current_line.append(current_dict_attributes| {'text': instruction['text'], 'font-size': font_size, 'left-indent': attributes['left-indent'],
+                                    'cell': cell}) 
+            else:
+                current_line.append(current_dict_attributes| {'text': instruction['text'], 'font-size': font_size, 'left-indent': attributes['left-indent']})
 
+        #note that instruvtions only have one thing, so we should end after a match.
+        # todo later
         if 'start' in instruction:
             for bool_attribute in bool_attributes:
                 if bool_attribute in instruction['start']:
@@ -133,6 +142,13 @@ def convert_instructions_to_discrete(instructions):
                     attributes['left-indent'] += px_value
                     break  # Process only one property if multiple are specified
 
+            if 'cell' in instruction['start']:
+                if cell is None:
+                    cell = instruction['start']
+
+
+            
+
         elif 'end' in instruction:
             for bool_attribute in bool_attributes:
                 if bool_attribute in instruction['end']:
@@ -154,6 +170,10 @@ def convert_instructions_to_discrete(instructions):
                     px_value = normalize_to_px(indent_value, font_context)
                     attributes['left-indent'] -= px_value
                     break  # Process only one property if multiple are specified
+
+            if 'cell' in instruction['end']:
+                if cell == instruction['end']:
+                    cell = None
 
     # Add any remaining line
     if current_line:
