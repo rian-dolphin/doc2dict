@@ -98,12 +98,14 @@ def clean_discrete(lines):
             cleaned_line, command = merge_line(line)
             # check if we at end of lines and in a table
             if ((command == "table") & (idx == len(lines) - 1)):
-                table.append(cleaned_line)
+                if len(cleaned_line) > 0:
+                    table.append(cleaned_line)
                 lines[idx] = [{'cleaned_table': table}]
                 table = []
                 in_table = False
             elif command == "table":
-                table.append(cleaned_line)
+                if len(cleaned_line) > 0:
+                    table.append(cleaned_line)
                 indices_to_remove.append(idx)
                 in_table = True
             else:

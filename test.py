@@ -10,7 +10,7 @@ import webbrowser
 
 file_path=r'C:\Users\jgfri\OneDrive\Desktop\test\test\0000320193-24-000123\aapl-20240928.htm'
 file_path = r"C:\Users\jgfri\OneDrive\Desktop\test\test\0000950170-24-087843\msft-20240630.htm"
-#webbrowser.open(file_path)
+webbrowser.open(file_path)
 
 start = time()
 with open(file_path, 'r', encoding='utf-8') as f:
