@@ -9,13 +9,21 @@ def merge_line(line):
         
     
     if 'table' in line[0]:
-        if any(['cell' in item for item in line]):
-            combined_text = ''.join(d['text'] for d in line)
-            new_dict = line[0].copy()
-            new_dict['text'] = combined_text
-            return [new_dict]
-        else:
-            return line
+        indices_to_remove = []
+        for idx, _ in enumerate(line):
+            if idx == len(line) - 2:
+                break
+            if ('cell' in line[idx] and 'cell' in line[idx + 1]):
+                # check next item to see if cell is the same
+                if line[idx]['cell'] == line[idx + 1]['cell']:
+                    # merge the two items
+                    line[idx]['text'] += line[idx + 1]['text']
+                    indices_to_remove.append(idx + 1)
+
+        # remove indices
+        line = [item for idx, item in enumerate(line) if idx not in indices_to_remove]
+        return line
+                
         
     # Find the first non-empty item to use as reference
     non_empty_items = [item for item in line if item['text'].strip() != '']
