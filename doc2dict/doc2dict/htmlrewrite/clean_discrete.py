@@ -1,12 +1,12 @@
 # we will introduce rules here later
 
-# change to not unique.
+# not sure where this should go yet
+def clean_table(table_lines):
+    pass
+
 def merge_line(line):
     if len(line) <= 1:
-        return line
-    
-
-        
+        return line    
     
     if 'table' in line[0]:
         indices_to_remove = []
@@ -42,8 +42,37 @@ def merge_line(line):
         return [new_dict]
     else:
         return line
+    
+# rewrite in to discrete.py
+def strip_fake_tables(lines):
+    for idx in range(len(lines)):
+        if len(lines[idx]) <= 1:
+            continue
+            
+        current_has_table = any('table' in item and item['table'] for item in lines[idx])
+        if not current_has_table:
+            continue
+            
+        prev_has_table = False
+        if idx > 0:
+            prev_has_table = any('table' in item and item['table'] for item in lines[idx-1])
+            
+        next_has_table = False
+        if idx < len(lines) - 1:
+            next_has_table = any('table' in item and item['table'] for item in lines[idx+1])
+            
+        if current_has_table and not prev_has_table and not next_has_table:
+            # add is_table_header to every item with table key
+            lines[idx] = [{**item, 'is_table_header': True} if 'table' in item and item['table'] else item for item in lines[idx]]
+            # remove the table key from the current line
+            lines[idx] = [{k: v for k, v in item.items() if k != 'table'} for item in lines[idx]]
+            
+
+            
+    return lines
 
 def clean_discrete(lines):
+    lines = strip_fake_tables(lines)
     for idx,line in enumerate(lines):
             lines[idx] = merge_line(line)
     

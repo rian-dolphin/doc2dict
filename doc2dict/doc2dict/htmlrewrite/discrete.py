@@ -1,3 +1,7 @@
+
+# TODO WE MAY HAVE TO USE {} to FIGURE OUT HERE IF A TABLE IS FAKE
+# OH YEAH WE SHOULD DO THAT LOL
+
 def parse_css_value(value_str):
     """Extract numeric value and unit from CSS value string"""
     if not value_str or not isinstance(value_str, str):
