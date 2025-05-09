@@ -24,12 +24,30 @@ def format_dct_style(line):
 
     return style_properties, text
 
+def format_table(cleaned_table):
+    table_html = "<table>"
+    for idx,_ in enumerate(cleaned_table):
+        table_html += "<tr>"
+        if idx == 0:
+            for cell in cleaned_table[idx]:
+                table_html += f"<th>{cell}</th>"
+        else:
+            for cell in cleaned_table[idx]:
+                table_html += f"<td>{cell}</td>"
+        table_html += "</tr>"
+    
+    table_html += "</table>"
+    return table_html
+            
+
+
 def visualize_discrete(lines):
     # Simplified color scheme
     single_line_color = '#E6F3FF'  # Blue hue
     multi_first_color = '#E6FFE6'  # Green hue
     multi_rest_color = '#FFE6E6'   # Red hue
     table_color = '#FFE6FF'   # Purple hue
+    cleaned_table_color = '#FFFFE6'   # Yellow hue
     
     html_content ="""
         <html>
@@ -43,6 +61,12 @@ def visualize_discrete(lines):
         <body>"""
     
     for line in lines:
+        # clean table check
+        if len(line) == 1:
+            if 'cleaned_table' in line[0]:
+                table_html = format_table(line[0]['cleaned_table'])
+                html_content += f"<div style='text-align: center; background-color: {cleaned_table_color}'>{table_html}</div>"
+                continue
         div_style = ''
         if any(['text:center' in item for item in line]):
             div_style = 'text-align: center;'

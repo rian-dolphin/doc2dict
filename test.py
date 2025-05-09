@@ -36,5 +36,8 @@ with open('discrete.txt', 'w', encoding='utf-8') as f:
 
 start = time()
 lines = clean_discrete(lines)
+with open('clean_discrete.txt', 'w', encoding='utf-8') as f:
+    for line in lines:
+        f.write(str(line) + '\n')
 print("clean discrete time:", time()-start)
 visualize_discrete(lines)

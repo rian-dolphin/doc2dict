@@ -1,12 +1,28 @@
 # we will introduce rules here later
 
-# not sure where this should go yet
-def clean_table(table_lines):
-    pass
+def clean_table(line):
+    cells = []
+    modifiers = ['$',',']
+    add_cell = True
+    for idx,_ in enumerate(line):
+        if idx == len(line) - 2:
+            break
+        text = line[idx]['text'].strip()
+        if text == '':
+            continue
+
+        for modifier in modifiers:
+            if text == 'modifier':
+                line[idx+1]['text'] = modifier + line[idx+1]['text']
+
+        if add_cell:
+            cells.append(line[idx]['text'])
+
+    return cells
 
 def merge_line(line):
     if len(line) <= 1:
-        return line    
+        return line, ""
     
     if 'table' in line[0]:
         indices_to_remove = []
@@ -22,13 +38,14 @@ def merge_line(line):
 
         # remove indices
         line = [item for idx, item in enumerate(line) if idx not in indices_to_remove]
-        return line
+        line = clean_table(line)
+        return line, "table"
                 
         
     # Find the first non-empty item to use as reference
     non_empty_items = [item for item in line if item['text'].strip() != '']
     if not non_empty_items:
-        return line
+        return line, ""
         
     reference_item = non_empty_items[0]
     
@@ -39,9 +56,9 @@ def merge_line(line):
         # Create a new copy based on the reference item
         new_dict = reference_item.copy()
         new_dict['text'] = combined_text
-        return [new_dict]
+        return [new_dict], ""
     else:
-        return line
+        return line, ""
     
 # rewrite in to discrete.py
 def strip_fake_tables(lines):
@@ -73,7 +90,20 @@ def strip_fake_tables(lines):
 
 def clean_discrete(lines):
     lines = strip_fake_tables(lines)
+
+    in_table = False
+    table = []
     for idx,line in enumerate(lines):
-            lines[idx] = merge_line(line)
+            cleaned_line, command = merge_line(line)
+            if command == "table":
+                table.append(cleaned_line)
+                in_table = True
+            else:
+                if in_table:
+                    in_table = False
+                    lines[idx] = [{'cleaned_table': table}]
+                    table = []
+                else:
+                    lines[idx] = cleaned_line
     
     return lines
