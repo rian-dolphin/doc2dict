@@ -139,7 +139,9 @@ def convert_html_to_flow(root):
             elif node.tag in ['u','ins']:
                 attributes_list.append({'start': 'underline'})
             elif node.tag in ['table']:
+                attributes_list.append({})
                 attributes_list.append({'start': f'table:{table_id}'})
+                in_table = True
             elif node.tag == '-text':
                 # check for all caps
                 text = node.text_content
@@ -151,6 +153,9 @@ def convert_html_to_flow(root):
                     attributes_list.append({'text': text})
             elif node.tag in ['td', 'th']:
                 attributes_list.append({'start': f'cell:{cell_id}'})
+                if node.attributes.get('colspan'):
+                    colspan = node.attributes['colspan']
+                    attributes_list.append({'start': f"colspan:{colspan}"})
             elif node.tag in ['tr']:
                 attributes_list.append({'start': f'row:{row_id}'})
                 row_id += 1
@@ -168,13 +173,13 @@ def convert_html_to_flow(root):
                     attributes_list.append({'end': key})
 
             if node.tag in ['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li','br']:
-                attributes_list.append({})
+                if not in_table:
+                    attributes_list.append({})
             elif node.tag == 'tr':
                 attributes_list.append({'end': f'row:{row_id-1}'})
                 # reset cell id
                 cell_id = 0
-                        
-
+                    
             elif node.tag in ['b','strong']:
                 attributes_list.append({'end': 'bold'})
             elif node.tag in ['i','em']:
@@ -184,11 +189,15 @@ def convert_html_to_flow(root):
             elif node.tag in ['td', 'th']:
                 attributes_list.append({'end': f'cell:{cell_id}'})
                 cell_id += 1
+                if node.attributes.get('colspan'):
+                    colspan = node.attributes['colspan']
+                    attributes_list.append({'end': f"colspan:{colspan}"})
             elif node.tag in ['table']:
                 attributes_list.append({'end': f'table:{table_id}'})
                 # reset row id
                 row_id = 0
                 table_id += 1
                 attributes_list.append({})
+                in_table = False
     
     return attributes_list
