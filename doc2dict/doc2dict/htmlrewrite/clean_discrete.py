@@ -7,15 +7,19 @@ def clean_table(data):
     
     for item in data:
         if 'row' in item and 'cell' in item:
-            # Get text from either 'text' or 'text:center' key
             text = item.get('text', '')
-            cells[item['row']][item['cell']] += text
+            colspan = int(item.get('colspan', '1'))  # Convert directly to int
+            cell_idx = int(item['cell'])
+            
+            # Duplicate the text across multiple cells based on colspan
+            for i in range(colspan):
+                cells[item['row']][str(cell_idx + i)] += text
     
     # Build table as nested lists with proper sorting
     table = []
-    for row_id in sorted(cells.keys(), key=lambda x: int(x) if x.isdigit() else x):
+    for row_id in sorted(cells.keys(), key=lambda x: int(x)):
         row = []
-        for cell_id in sorted(cells[row_id].keys(), key=lambda x: int(x) if x.isdigit() else x):
+        for cell_id in sorted(cells[row_id].keys(), key=lambda x: int(x)):
             row.append(cells[row_id][cell_id].strip())
         table.append(row)
     

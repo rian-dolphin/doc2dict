@@ -97,6 +97,7 @@ def convert_instructions_to_discrete(instructions):
     cell = None
     table = None
     row = None
+    colspan = None
     
     for instruction in instructions:
         if not instruction:
@@ -122,6 +123,8 @@ def convert_instructions_to_discrete(instructions):
                 dct['row'] = row.split(':')[1]
             if table is not None:
                 dct['table'] = table.split(':')[1]
+            if colspan is not None:
+                dct['colspan'] = colspan.split(':')[1]
 
             current_line.append(dct | current_dict_attributes| {'text': instruction['text'], 'font-size': font_size, 'left-indent': attributes['left-indent']})
 
@@ -148,6 +151,9 @@ def convert_instructions_to_discrete(instructions):
                     px_value = normalize_to_px(indent_value, font_context)
                     attributes['left-indent'] += px_value
                     break  # Process only one property if multiple are specified
+
+            if 'colspan' in instruction['start']:
+                colspan = instruction['start']
 
             if 'cell' in instruction['start']:
                 if cell is None:
@@ -183,6 +189,9 @@ def convert_instructions_to_discrete(instructions):
                     px_value = normalize_to_px(indent_value, font_context)
                     attributes['left-indent'] -= px_value
                     break  # Process only one property if multiple are specified
+
+            if 'colspan' in instruction['end']:
+                colspan = None
 
             if 'cell' in instruction['end']:
                 if cell == instruction['end']:

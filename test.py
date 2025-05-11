@@ -40,5 +40,5 @@ with open('clean_discrete.txt', 'w', encoding='utf-8') as f:
     for line in lines:
         f.write(str(line) + '\n')
 print("clean discrete time:", time()-start)
-#webbrowser.open(file_path)
+webbrowser.open(file_path)
 visualize_discrete(lines)
