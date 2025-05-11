@@ -1,7 +1,4 @@
 
-# TODO WE MAY HAVE TO USE {} to FIGURE OUT HERE IF A TABLE IS FAKE
-# OH YEAH WE SHOULD DO THAT LOL
-
 def parse_css_value(value_str):
     """Extract numeric value and unit from CSS value string"""
     if not value_str or not isinstance(value_str, str):
@@ -92,19 +89,32 @@ def convert_instructions_to_discrete(instructions):
     current_line = []
     lines = []
 
-    attributes = {'bold':0, 'italic':0, 'underline':0, 'all_caps':0,'text:center':0,'table':0,'font-size':[],
-                  'left-indent':0,}
+    attributes = {'bold':0, 'italic':0, 'underline':0, 'all_caps':0,'text:center':0,'font-size':[],
+                  'left-indent':0}
 
-    bool_attributes = ['bold', 'italic', 'underline', 'all_caps', 'text:center','table']
+    bool_attributes = ['bold', 'italic', 'underline', 'all_caps', 'text:center']
 
     cell = None
+    table = None
     
     for instruction in instructions:
         if not instruction:
-            if current_line:
-                lines.append(current_line)
-            current_line = []
-            continue
+            if table:
+                if cell is not None:
+                    if current_line:
+                        last_cell = current_line[-1].copy()
+                        last_cell['text'] = '\n'
+                        current_line.append(last_cell)
+                else:
+                    if current_line:
+                        lines.append(current_line)
+                    current_line = []
+                    continue
+            else:
+                if current_line:
+                    lines.append(current_line)
+                current_line = []
+                continue
         
         if 'text' in instruction:
             current_dict_attributes = {}
@@ -115,12 +125,14 @@ def convert_instructions_to_discrete(instructions):
             font_size = None
             if len(attributes['font-size']) > 0:
                 font_size = attributes['font-size'][-1]
-            
+
+            dct = {}
             if cell is not None:
-                current_line.append(current_dict_attributes| {'text': instruction['text'], 'font-size': font_size, 'left-indent': attributes['left-indent'],
-                                    'cell': cell}) 
-            else:
-                current_line.append(current_dict_attributes| {'text': instruction['text'], 'font-size': font_size, 'left-indent': attributes['left-indent']})
+                dct['cell'] = cell.split(':')[1]
+            if table is not None:
+                dct['table'] = table.split(':')[1]
+
+            current_line.append(dct | current_dict_attributes| {'text': instruction['text'], 'font-size': font_size, 'left-indent': attributes['left-indent']})
 
         #note that instruvtions only have one thing, so we should end after a match.
         # todo later
@@ -149,6 +161,9 @@ def convert_instructions_to_discrete(instructions):
             if 'cell' in instruction['start']:
                 if cell is None:
                     cell = instruction['start']
+            elif 'table' in instruction['start']:
+                if table is None:
+                    table = instruction['start']
 
 
             
@@ -178,6 +193,9 @@ def convert_instructions_to_discrete(instructions):
             if 'cell' in instruction['end']:
                 if cell == instruction['end']:
                     cell = None
+            elif 'table' in instruction['end']:
+                if table == instruction['end']:
+                    table = None
 
     # Add any remaining line
     if current_line:

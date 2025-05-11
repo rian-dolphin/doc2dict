@@ -1,55 +1,56 @@
 # we will introduce rules here later
 
 def clean_table(line):
-    cells = []
+
     remove_modifiers = ['$',',']
     left_modifiers = ['(']
     right_modifiers = [')']
-    text_list = [item['text'].strip() for item in line if 'text' in item]
+    
+    # merge cells
+    cells = []
+    current_cell = None
+    for item in line:
+        if 'cell' in item:
+            item_cell = item['cell']
+            if current_cell is None:
+                current_cell = item_cell
+                cells.append(item)
+            elif current_cell == item_cell:
+                # merge the two items
+                cells[-1]['text'] += item['text']
+            else:
+                current_cell = item_cell
+                cells.append(item)
+
     # remove empty strings
-    text_list = [text for text in text_list if text != '']
+    cells = [cell for cell in cells if cell['text'].strip() != '']
 
+    # modifiers
     indices_to_remove = []
-    for idx,_ in enumerate(text_list):
-        if text_list[idx] == '':
+    for idx in range(len(cells)):
+        if cells[idx]['text'].strip() in remove_modifiers:
             indices_to_remove.append(idx)
             continue
-
-        if text_list[idx] in remove_modifiers:
+        if (cells[idx]['text'].strip() in left_modifiers and idx < len(cells) - 1):
             indices_to_remove.append(idx)
+            cells[idx + 1]['text'] = cells[idx]['text'] + cells[idx + 1]['text']
+            continue
+        if (cells[idx]['text'].strip() in right_modifiers and idx > 0):
+            indices_to_remove.append(idx)
+            cells[idx - 1]['text'] = cells[idx - 1]['text'] + cells[idx]['text']
             continue
 
-        if (text_list[idx] in left_modifiers and idx < len(text_list) - 1):
-            indices_to_remove.append(idx)
-            text_list[idx + 1] = text_list[idx] + text_list[idx + 1]
-            continue
 
-        if (text_list[idx] in right_modifiers and idx > 0):
-            indices_to_remove.append(idx)
-            text_list[idx - 1] = text_list[idx - 1] + text_list[idx]
-            continue
+    cells = [cells[idx] for idx in range(len(cells)) if idx not in indices_to_remove]
+    text_list = [cell['text'] for cell in cells]
 
-    cells = [item for idx, item in enumerate(text_list) if idx not in indices_to_remove]
-    return cells
+    return text_list
 
 def merge_line(line):
     if len(line) <= 1:
         return line, ""
     
     if 'table' in line[0]:
-        indices_to_remove = []
-        for idx, _ in enumerate(line):
-            if idx == len(line) - 2:
-                break
-            if ('cell' in line[idx] and 'cell' in line[idx + 1]):
-                # check next item to see if cell is the same
-                if line[idx]['cell'] == line[idx + 1]['cell']:
-                    # merge the two items
-                    line[idx]['text'] += line[idx + 1]['text']
-                    indices_to_remove.append(idx + 1)
-
-        # remove indices
-        line = [item for idx, item in enumerate(line) if idx not in indices_to_remove]
         line = clean_table(line)
         return line, "table"
                 
@@ -72,36 +73,13 @@ def merge_line(line):
     else:
         return line, ""
     
-# rewrite in to discrete.py
-def strip_fake_tables(lines):
-    for idx in range(len(lines)):
-        if len(lines[idx]) <= 1:
-            continue
-            
-        current_has_table = any('table' in item and item['table'] for item in lines[idx])
-        if not current_has_table:
-            continue
-            
-        prev_has_table = False
-        if idx > 0:
-            prev_has_table = any('table' in item and item['table'] for item in lines[idx-1])
-            
-        next_has_table = False
-        if idx < len(lines) - 1:
-            next_has_table = any('table' in item and item['table'] for item in lines[idx+1])
-            
-        if current_has_table and not prev_has_table and not next_has_table:
-            # add is_table_header to every item with table key
-            lines[idx] = [{**item, 'is_table_header': True} if 'table' in item and item['table'] else item for item in lines[idx]]
-            # remove the table key from the current line
-            lines[idx] = [{k: v for k, v in item.items() if k != 'table'} for item in lines[idx]]
-            
 
+def clean_fake_tables(lines):
             
     return lines
 
 def clean_discrete(lines):
-    #lines = strip_fake_tables(lines)
+    #lines = clean_fake_tables(lines)
 
     in_table = False
     table = []
