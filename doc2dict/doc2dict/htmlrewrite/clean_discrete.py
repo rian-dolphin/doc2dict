@@ -1,5 +1,6 @@
-# we will introduce rules here later
 
+# we can dramatically improve output here using same location of cells.
+#hmm. we should make cell count go to zero every new table.
 def clean_table(line):
 
     remove_modifiers = ['$',',']

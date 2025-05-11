@@ -114,6 +114,7 @@ def convert_html_to_flow(root):
     skip_invisible = False
     in_table = False
     cell_id = 0
+    row_id = 0
     table_id = 0
     for signal,node in walk(root):
         if signal == "start":
@@ -150,6 +151,10 @@ def convert_html_to_flow(root):
                     attributes_list.append({'text': text})
             elif node.tag in ['td', 'th']:
                 attributes_list.append({'start': f'cell:{cell_id}'})
+            elif node.tag in ['tr']:
+                attributes_list.append({'start': f'row:{row_id}'})
+                row_id += 1
+            
 
 
         elif signal == "end":
@@ -165,7 +170,9 @@ def convert_html_to_flow(root):
             if node.tag in ['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li','br']:
                 attributes_list.append({})
             elif node.tag == 'tr':
-                attributes_list.append({})
+                attributes_list.append({'end': f'row:{row_id-1}'})
+                # reset cell id
+                cell_id = 0
                         
 
             elif node.tag in ['b','strong']:
@@ -179,6 +186,8 @@ def convert_html_to_flow(root):
                 cell_id += 1
             elif node.tag in ['table']:
                 attributes_list.append({'end': f'table:{table_id}'})
+                # reset row id
+                row_id = 0
                 table_id += 1
                 attributes_list.append({})
     

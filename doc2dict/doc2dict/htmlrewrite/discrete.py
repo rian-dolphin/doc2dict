@@ -96,25 +96,14 @@ def convert_instructions_to_discrete(instructions):
 
     cell = None
     table = None
+    row = None
     
     for instruction in instructions:
         if not instruction:
-            if table:
-                if cell is not None:
-                    if current_line:
-                        last_cell = current_line[-1].copy()
-                        last_cell['text'] = '\n'
-                        current_line.append(last_cell)
-                else:
-                    if current_line:
-                        lines.append(current_line)
-                    current_line = []
-                    continue
-            else:
-                if current_line:
-                    lines.append(current_line)
-                current_line = []
-                continue
+            if current_line:
+                lines.append(current_line)
+            current_line = []
+            continue
         
         if 'text' in instruction:
             current_dict_attributes = {}
@@ -129,6 +118,8 @@ def convert_instructions_to_discrete(instructions):
             dct = {}
             if cell is not None:
                 dct['cell'] = cell.split(':')[1]
+            if row is not None:
+                dct['row'] = row.split(':')[1]
             if table is not None:
                 dct['table'] = table.split(':')[1]
 
@@ -161,6 +152,9 @@ def convert_instructions_to_discrete(instructions):
             if 'cell' in instruction['start']:
                 if cell is None:
                     cell = instruction['start']
+            elif 'row' in instruction['start']:
+                if row is None:
+                    row = instruction['start']
             elif 'table' in instruction['start']:
                 if table is None:
                     table = instruction['start']
@@ -193,6 +187,9 @@ def convert_instructions_to_discrete(instructions):
             if 'cell' in instruction['end']:
                 if cell == instruction['end']:
                     cell = None
+            elif 'row' in instruction['end']:
+                if row == instruction['end']:
+                    row = None
             elif 'table' in instruction['end']:
                 if table == instruction['end']:
                     table = None
