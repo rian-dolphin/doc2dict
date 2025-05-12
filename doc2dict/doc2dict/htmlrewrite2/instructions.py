@@ -298,6 +298,105 @@ def parse_end_tag(current_attributes,node):
         if node.tag in tag_groups[tag]:
             safe_decrement(current_attributes,tag)
             return ''
+        
+
+# AI GENERATED CODE - USED IN A PINCH #
+def remove_subset_columns(table):
+    if not table or not table[0]:
+        return []
+    
+    # Extract text values from each cell and transpose the table to work with columns
+    text_table = [[cell['text'] for cell in row] for row in table]
+    columns = list(zip(*text_table))
+    num_columns = len(columns)
+    
+    # Track which columns to keep
+    columns_to_keep = [True] * num_columns
+    
+    # For each pair of columns, check if one is a subset of the other
+    for i in range(num_columns):
+        if not columns_to_keep[i]:
+            continue  # Skip already removed columns
+            
+        col_i = columns[i]
+        
+        for j in range(num_columns):
+            if i == j or not columns_to_keep[j]:
+                continue  # Skip self-comparison and already removed columns
+                
+            col_j = columns[j]
+            
+            # Check if col_i is a subset of col_j
+            if is_subset(col_i, col_j):
+                columns_to_keep[i] = False
+                break  # No need to check further if col_i is already identified as a subset
+                
+            # Check if col_j is a subset of col_i
+            elif is_subset(col_j, col_i):
+                columns_to_keep[j] = False
+    
+    # Create a new table with only the kept columns
+    result = []
+    for row in table:
+        new_row = [row[idx] for idx in range(len(row)) if columns_to_keep[idx]]
+        result.append(new_row)
+    
+    # If all columns were removed, return an empty list
+    if not result or not result[0]:
+        return []
+    
+    return result
+
+
+def is_subset(col1, col2):
+    # A column is a subset if all its non-empty values match the other column
+    # at the same positions, and the other column has at least one more non-empty value
+    
+    if col1 == col2:
+        return False  # Equal columns are not subsets of each other
+    
+    col1_non_empty_count = sum(1 for val in col1 if val != '')
+    col2_non_empty_count = sum(1 for val in col2 if val != '')
+    
+    if col1_non_empty_count >= col2_non_empty_count:
+        return False  # col1 has more or equal non-empty values, so it can't be a subset
+    
+    # Check if all non-empty values in col1 match col2 at the same positions
+    for val1, val2 in zip(col1, col2):
+        if val1 != '' and val1 != val2:
+            return False  # Found a non-empty value in col1 that doesn't match col2
+    
+    return True  # All checks passed, col1 is a subset of col2
+# AI GENERATED CODE - USED IN A PINCH #
+        
+
+def clean_table(table):
+    # first check if table has same number of columns
+    same_length = all([len(row) == len(table[0]) for row in table])
+    if not same_length:
+        return table
+
+    
+
+    # do '('
+
+    # removals
+    num_cols = len(table[0])
+    keep_columns = [True] * num_cols
+
+    # remove empty columns
+    for col in range(num_cols):
+        if all(table[row][col]['text'] == '' for row in range(len(table))):
+            keep_columns[col] = False
+
+    new_table = []
+    for row in table:
+        new_row = [row[col] for col in range(len(row)) if keep_columns[col]]
+        new_table.append(new_row)
+
+    # remove subset columns
+    new_table = remove_subset_columns(new_table)
+    return new_table
 
 def convert_html_to_instructions(root):
     skip_node = False
@@ -375,6 +474,8 @@ def convert_html_to_instructions(root):
 
             tag_command = parse_end_tag(current_attributes,node)
             if tag_command == 'table':
+                # clean table here:
+                table = clean_table(table)
                 instructions_list.append([{'table': table}])
                 table = []
                 current_row = []
