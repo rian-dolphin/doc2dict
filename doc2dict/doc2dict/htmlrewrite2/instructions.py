@@ -1,3 +1,9 @@
+# TO ADD
+# merge same line
+# merge across lines
+# look at old before deletion
+# left indent
+
 # params 
 tag_groups = {
 "bold": ["b", "strong"],
@@ -308,8 +314,6 @@ def convert_html_to_instructions(root):
     table = []
     current_row = []
     current_cell = {}
-    current_colspan = 1
-
     for signal,node in walk(root):
         if signal == "start":
             # skip invisible elements
@@ -317,14 +321,8 @@ def convert_html_to_instructions(root):
                 continue
             elif in_table:
                 if node.tag == 'tr':
-                    if current_row:
-                        table.append(current_row)
                     current_row = []
                 elif node.tag in ['td', 'th']:
-
-                    if current_cell:
-                        current_cell['text'] = current_cell.get('text', '').strip()
-                        current_row.append([current_cell]*current_colspan)
                     current_cell = {}
                     current_colspan = int(node.attributes.get('colspan', 1))
                 elif node.tag == '-text':
@@ -377,9 +375,6 @@ def convert_html_to_instructions(root):
                 skip_node = False
                 continue
 
-            if (in_table and node.tag != 'table'):
-                if node.tag in ['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'br']:
-                    current_cell['text'] = current_cell.get('text', '') + '\n'
 
             tag_command = parse_end_tag(current_attributes,node)
             if tag_command == 'table':
@@ -389,6 +384,17 @@ def convert_html_to_instructions(root):
                 current_cell = {}
                 in_table = False
                 continue
+            elif in_table:
+                if node.tag in ['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'br']:
+                    current_cell['text'] = current_cell.get('text', '') + '\n'
+                elif node.tag == 'tr':
+                    if current_row:
+                        table.append(current_row)
+                elif node.tag in ['td', 'th']:
+                    if current_cell:
+                        for i in range(current_colspan):
+                            current_row.append(current_cell)
+
             elif tag_command == 'newline':
                 if len(instructions) > 0:
                     instructions_list.append(instructions)

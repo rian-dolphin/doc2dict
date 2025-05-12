@@ -24,16 +24,15 @@ def format_dct_style(line):
 
     return style_properties, text
 
-def format_table(cleaned_table):
+def format_table(table):
     table_html = "<table>"
-    for idx,_ in enumerate(cleaned_table):
-        table_html += "<tr>"
-        if idx == 0:
-            for cell in cleaned_table[idx]:
-                table_html += f"<th>{cell}</th>"
-        else:
-            for cell in cleaned_table[idx]:
-                table_html += f"<td>{cell}</td>"
+    for idx,row in enumerate(table):
+        table_html += "<tr>"   
+        for cell in row:
+            if idx == 0:
+                table_html += f"<th>{cell['text']}</th>"
+            else:
+                table_html += f"<td>{cell['text']}</td>"
         table_html += "</tr>"
     
     table_html += "</table>"
@@ -41,7 +40,7 @@ def format_table(cleaned_table):
             
 
 
-def visualize_instructions(lines):
+def visualize_instructions(instructions_list):
     # Simplified color scheme
     single_line_color = '#E6F3FF'  # Blue hue
     multi_first_color = '#E6FFE6'  # Green hue
@@ -79,39 +78,40 @@ th {
         </head>
         <body>"""
     
-    for line in lines:
-        if len(lines) == 0:
-            html_content += "<div></div>"
-        elif len(line) == 1:
-            if 'table' in line[0]:
-                table_html = format_table(line[0]['table'])
+    for instructions in instructions_list:
+        if len(instructions) == 1:
+            if 'table' in instructions[0]:
+                table_html = format_table(instructions[0]['table'])
                 html_content += f"<div style='background-color: {table_color}'>{table_html}</div>"
                 continue 
-        div_style = ''
-        if any(['text:center' in item for item in line]):
-            div_style = 'text-align: center;'
+        else:
+            first_instruction = instructions[0]
+            is_centered = first_instruction.get('text-center', False)
+            div_style = ''
+
+            if is_centered:
+                div_style = 'text-align: center;'
+
+            html_content += f"<div style='{div_style}'>"
+            for idx, instruction in enumerate(instructions):
+                style_properties, text = format_dct_style(instruction)
+
+
+                if 'table' in instruction:
+                    color = table_color
+                elif len(instructions) == 1:
+                    color = single_line_color
+                elif idx == 0:
+                    color = multi_first_color
+                else:
+                    color = multi_rest_color
+
+                style_properties.append(f'background-color: {color}; margin-left:5px')
+                style = '; '.join(style_properties)
+                html_content += f"<span style='{style}'>{text}</span>"
+
+            html_content += "</div>"
         
-
-        for idx, dct in enumerate(line):
-            style_properties, text = format_dct_style(dct)
-            if idx  == 0:
-                html_content += f"<div style='{div_style}'>"
-
-            if 'table' in dct:
-                color = table_color
-            elif len(line) == 1:
-                color = single_line_color
-            elif idx == 0:
-                color = multi_first_color
-            else:
-                color = multi_rest_color
-            
-            style_properties += [f'background-color: {color}; margin-left:5px']
-            style = '; '.join(style_properties)
-
-            html_content += f"<span style='{style}'>{text}</span>"
-            
-        html_content += "</div>"
     
     html_content += """
         </body>
