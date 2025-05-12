@@ -371,6 +371,56 @@ def is_subset(col1, col2):
             return False  # Found a non-empty value in col1 that doesn't match col2
     
     return True  # All checks passed, col1 is a subset of col2
+
+def merge_parentheses_columns(table):
+    num_rows = len(table)
+    num_cols = len(table[0])
+    
+    # Track columns to be removed after merging
+    columns_to_remove = []
+    
+    # First pass: handle ')' by merging with left column
+    for col_idx in range(1, num_cols):  # Start from 1 since we need a left column
+        # Extract the current column
+        column = [table[row][col_idx]['text'] for row in range(num_rows)]
+        
+        # Check if all items in column are ')' or ''
+        if all(item in [')', ''] for item in column):
+            # Found a closing parenthesis column, merge with the left column
+            for row in range(num_rows):
+                # Only concatenate if the current cell has a ')'
+                if table[row][col_idx]['text'] == ')':
+                    # Add the ')' to the left column's text
+                    table[row][col_idx-1]['text'] += ')'
+                
+            # Mark this column for removal
+            columns_to_remove.append(col_idx)
+    
+    # Second pass: handle '(' by merging with right column
+    for col_idx in range(num_cols - 2, -1, -1):  # Start from second-to-last column, going backwards
+        # Extract the current column
+        column = [table[row][col_idx]['text'] for row in range(num_rows)]
+        
+        # Check if all items in column are '(' or ''
+        if all(item in ['(', ''] for item in column):
+            # Found an opening parenthesis column, merge with the right column
+            for row in range(num_rows):
+                # Only concatenate if the current cell has a '('
+                if table[row][col_idx]['text'] == '(':
+                    # Add the '(' to the start of the right column's text
+                    table[row][col_idx+1]['text'] = '(' + table[row][col_idx+1]['text']
+                
+            # Mark this column for removal
+            columns_to_remove.append(col_idx)
+    
+    # Remove the marked columns (in reverse order to avoid index shifting)
+    for col_idx in sorted(columns_to_remove, reverse=True):
+        for row in range(num_rows):
+            del table[row][col_idx]
+    
+    return table
+
+
 # AI GENERATED CODE - USED IN A PINCH #
         
 
@@ -379,11 +429,6 @@ def clean_table(table):
     same_length = all([len(row) == len(table[0]) for row in table])
     if not same_length:
         return table
-
-    
-
-    # do '('
-
     # removals
     num_cols = len(table[0])
     keep_columns = [True] * num_cols
@@ -392,9 +437,6 @@ def clean_table(table):
     for col in range(num_cols):
         if all(table[row][col]['text'] == '' for row in range(len(table))):
             keep_columns[col] = False
-    
-
-
     new_table = []
     for row in table:
         new_row = [row[col] for col in range(len(row)) if keep_columns[col]]
@@ -402,6 +444,9 @@ def clean_table(table):
 
     # remove subset columns
     new_table = remove_subset_columns(new_table)
+
+    # merge parentheses columns
+    new_table = merge_parentheses_columns(new_table)
     return new_table
 
 def convert_html_to_instructions(root):
