@@ -299,9 +299,6 @@ def parse_end_tag(current_attributes,node):
             safe_decrement(current_attributes,tag)
             return ''
 
-def parse_table(node):
-    # handle all logic here
-    pass
 def convert_html_to_instructions(root):
     skip_node = False
     in_table = False
@@ -389,11 +386,17 @@ def convert_html_to_instructions(root):
                     current_cell['text'] = current_cell.get('text', '') + '\n'
                 elif node.tag == 'tr':
                     if current_row:
-                        table.append(current_row)
+                        # check if the row is empty
+                        if all(cell.get('text', '') == '' for cell in current_row):
+                            pass
+                        else:
+                            table.append(current_row)
                 elif node.tag in ['td', 'th']:
                     if current_cell:
+                        current_cell['text'] = current_cell['text'].strip()
                         for i in range(current_colspan):
-                            current_row.append(current_cell)
+                            current_row.append(current_cell.copy())
+                        
 
             elif tag_command == 'newline':
                 if len(instructions) > 0:
