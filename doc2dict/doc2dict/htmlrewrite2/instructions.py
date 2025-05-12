@@ -348,22 +348,26 @@ def remove_subset_columns(table):
     return result
 
 
+
 def is_subset(col1, col2):
     # A column is a subset if all its non-empty values match the other column
     # at the same positions, and the other column has at least one more non-empty value
+    # Dollar signs ($) are also considered empty
     
     if col1 == col2:
         return False  # Equal columns are not subsets of each other
     
-    col1_non_empty_count = sum(1 for val in col1 if val != '')
-    col2_non_empty_count = sum(1 for val in col2 if val != '')
+    # Count non-empty values, but treat "$" as empty
+    col1_non_empty_count = sum(1 for val in col1 if val != '' and val != '$')
+    col2_non_empty_count = sum(1 for val in col2 if val != '' and val != '$')
     
     if col1_non_empty_count >= col2_non_empty_count:
         return False  # col1 has more or equal non-empty values, so it can't be a subset
     
     # Check if all non-empty values in col1 match col2 at the same positions
+    # (ignoring $ as we treat it as empty)
     for val1, val2 in zip(col1, col2):
-        if val1 != '' and val1 != val2:
+        if val1 != '' and val1 != '$' and val1 != val2:
             return False  # Found a non-empty value in col1 that doesn't match col2
     
     return True  # All checks passed, col1 is a subset of col2
@@ -388,6 +392,8 @@ def clean_table(table):
     for col in range(num_cols):
         if all(table[row][col]['text'] == '' for row in range(len(table))):
             keep_columns[col] = False
+    
+
 
     new_table = []
     for row in table:
