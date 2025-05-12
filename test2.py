@@ -1,6 +1,6 @@
 def modify_dct(dct):
-    dct['red'] = 1
+    dct.append('REED')
 
-dct = {}
+dct = []
 modify_dct(dct)
 print(dct)

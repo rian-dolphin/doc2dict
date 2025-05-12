@@ -1,6 +1,6 @@
 from selectolax.parser import HTMLParser
 from doc2dict.doc2dict.htmlrewrite2.instructions import convert_html_to_instructions
-
+from doc2dict.doc2dict.htmlrewrite2.visualize_instructions import visualize_instructions
 from time import time
 import webbrowser
 
@@ -8,7 +8,7 @@ import webbrowser
 
 #file_path=r'C:\Users\jgfri\OneDrive\Desktop\test\test\0000320193-24-000123\aapl-20240928.htm'
 file_path = r"C:\Users\jgfri\OneDrive\Desktop\test\test\0000950170-24-087843\msft-20240630.htm"
-
+ 
 
 start = time()
 with open(file_path, 'r', encoding='utf-8') as f:
@@ -24,3 +24,6 @@ print("convert to instructions time:", time()-start)
 with open('instructions2.txt', 'w', encoding='utf-8') as f:
     for instruction in instructions:
         f.write(str(instruction) + '\n')
+
+# webbrowser.open(file_path)
+# visualize_instructions(instructions)

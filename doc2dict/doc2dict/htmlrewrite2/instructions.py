@@ -272,10 +272,6 @@ def parse_start_tag(current_attributes,node):
 
     if tag == 'table':
         return 'table'
-    elif tag == 'tr':
-        return ''
-    elif tag in ['td', 'th']:
-        return ''
     elif tag == '-text':
         return 'text'
 
@@ -289,10 +285,6 @@ def parse_end_tag(current_attributes,node):
 
     if tag == 'table':
         return 'table'
-    elif tag == 'tr':
-        return ''
-    elif tag in ['td', 'th']:
-        return ''
     elif tag in ['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li','br']:
         return 'newline'
 
@@ -301,6 +293,9 @@ def parse_end_tag(current_attributes,node):
             safe_decrement(current_attributes,tag)
             return ''
 
+def parse_table(node):
+    # handle all logic here
+    pass
 def convert_html_to_instructions(root):
     skip_node = False
     in_table = False
@@ -309,6 +304,11 @@ def convert_html_to_instructions(root):
     instructions = []
     current_attributes = {}
 
+    # table
+    table = []
+    current_row = []
+    current_cell = {}
+    current_colspan = 1
 
     for signal,node in walk(root):
         if signal == "start":
@@ -316,6 +316,19 @@ def convert_html_to_instructions(root):
             if skip_node:
                 continue
             elif in_table:
+                if node.tag == 'tr':
+                    if current_row:
+                        table.append(current_row)
+                    current_row = []
+                elif node.tag in ['td', 'th']:
+
+                    if current_cell:
+                        current_cell['text'] = current_cell.get('text', '').strip()
+                        current_row.append([current_cell]*current_colspan)
+                    current_cell = {}
+                    current_colspan = int(node.attributes.get('colspan', 1))
+                elif node.tag == '-text':
+                    current_cell['text'] = current_cell.get('text', '') + node.text_content
                 continue
             
             style_command = parse_start_style(current_attributes,node)
@@ -326,9 +339,20 @@ def convert_html_to_instructions(root):
             tag_command = parse_start_tag(current_attributes,node)
             if tag_command == 'table':
                 in_table = True
+                if len(instructions) > 0:
+                    instructions_list.append(instructions)
+                    instructions = []
                 continue
             elif tag_command == 'text':
                 text = node.text_content
+
+                # check not leading whitespace
+                if len(instructions) == 0:
+                    text = text.lstrip()
+                    if len(text) == 0:
+                        continue
+
+            
                 instruction = {'text': text}
 
                 if check_text_style(text):
@@ -353,15 +377,28 @@ def convert_html_to_instructions(root):
                 skip_node = False
                 continue
 
+            if (in_table and node.tag != 'table'):
+                if node.tag in ['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'br']:
+                    current_cell['text'] = current_cell.get('text', '') + '\n'
+
             tag_command = parse_end_tag(current_attributes,node)
             if tag_command == 'table':
+                instructions_list.append([{'table': table}])
+                table = []
+                current_row = []
+                current_cell = {}
                 in_table = False
                 continue
             elif tag_command == 'newline':
-                instructions_list.append(instructions)
-                instructions = []
+                if len(instructions) > 0:
+                    instructions_list.append(instructions)
+                    instructions = []
+                continue
+
+
 
     # add any remaining instructions
     if instructions:
-        instructions_list.append(instructions)
+        if len(instructions) > 0:
+            instructions_list.append(instructions)
     return instructions_list
