@@ -302,9 +302,10 @@ def parse_end_tag(current_attributes,node):
             return ''
         
 
-def is_subset(row1,row2):
+def is_subset(row1,row2,empty_chars):
     """returns true if row1 is a subset of row2"""
-    return all(cell1['text'] in [''] or cell1['text'] == cell2['text'] for cell1, cell2 in zip(row1, row2))
+    # we will add parenthesis and $ handling later - for now remove
+    return all(cell1['text'] in ['',')','(','$'] or cell1['text'] == cell2['text'] for cell1, cell2 in zip(row1, row2))
 
 
 def clean_table(table):
@@ -315,31 +316,37 @@ def clean_table(table):
     if not same_length:
         return table, False
     
+    empty_chars = ['',')','(','$','–','-']
     # remove empty rows
-    table = [row for row in table if any(cell['text'] for cell in row)]
+    table = [row for row in table if any(cell['text'] not in empty_chars for cell in row)]
+
     # remove empty columns
-    table = [[row[j] for j in range(len(row)) if any(table[i][j]['text'].strip() for i in range(len(table)))] for row in table]
-    
+    if table and table[0]:  # Check if table has at least one row with cells
+        # Get indices of columns to keep (where any cell has content not in empty_chars)
+        keep_cols = [j for j in range(len(table[0])) if any(table[i][j]['text'] not in empty_chars for i in range(len(table)))]
+        
+        # Filter table to keep only those columns
+        table = [[row[j] for j in keep_cols] for row in table]
     # remove subset rows
     # we go from bottom to top
 
     keep_rows = [True] * len(table)
     for i in range(len(table)-1, 0, -1):
-        if is_subset(table[i], table[i-1]):
+        if is_subset(table[i], table[i-1],empty_chars):
             keep_rows[i] = False
     
     table = [table[i] for i in range(len(table)) if keep_rows[i]]
         
     # remove subset columns
-    # we go from right to left
+    # we go from left to right
     if table:  # Check if table is not empty
         num_cols = len(table[0])
         keep_cols = [True] * num_cols
         
-        for j in range(num_cols-1, 0, -1):
+        for j in range(num_cols-1):
             col1 = [row[j] for row in table]
-            col2 = [row[j-1] for row in table]
-            if is_subset(col1, col2):
+            col2 = [row[j+1] for row in table]
+            if is_subset(col1, col2,empty_chars):
                 keep_cols[j] = False
         
         table = [[row[j] for j in range(num_cols) if keep_cols[j]] for row in table]
