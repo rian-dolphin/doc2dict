@@ -8,7 +8,7 @@ import webbrowser
 
 file_path=r'C:\Users\jgfri\OneDrive\Desktop\test\test\0000320193-24-000123\aapl-20240928.htm'
 file_path = r"C:\Users\jgfri\OneDrive\Desktop\test\test\0000950170-24-087843\msft-20240630.htm"
-#file_path = r"C:\Users\jgfri\OneDrive\Desktop\test.html"
+file_path = r"C:\Users\jgfri\OneDrive\Desktop\test.html"
  
 
 start = time()

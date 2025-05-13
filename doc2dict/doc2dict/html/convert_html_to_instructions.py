@@ -302,25 +302,9 @@ def parse_end_tag(current_attributes,node):
             return ''
         
 
-# AI GENERATED CODE - USED IN A PINCH #
-
-def is_subset(col1, col2, empty_chars):
-    if col1 == col2:
-        return True 
-    
-    # Count non-empty values
-    col1_non_empty_count = sum(1 for val in col1 if val not in empty_chars)
-    col2_non_empty_count = sum(1 for val in col2 if val not in empty_chars)
-    
-    if col1_non_empty_count >= col2_non_empty_count:
-        return False  # col1 has more or equal non-empty values, so it can't be a subset
-    
-    # Check if all non-empty values in col1 match col2 at the same positions
-    for val1, val2 in zip(col1, col2):
-        if val1 not in empty_chars and val1 != val2:
-            return False  # Found a non-empty value in col1 that doesn't match col2
-    
-    return True  # All checks passed, col1 is a subset of col2
+def is_subset(row1,row2):
+    """returns true if row1 is a subset of row2"""
+    return all(cell1['text'] in [''] or cell1['text'] == cell2['text'] for cell1, cell2 in zip(row1, row2))
 
 
 def clean_table(table):
@@ -336,6 +320,30 @@ def clean_table(table):
     # remove empty columns
     table = [[row[j] for j in range(len(row)) if any(table[i][j]['text'].strip() for i in range(len(table)))] for row in table]
     
+    # remove subset rows
+    # we go from bottom to top
+
+    keep_rows = [True] * len(table)
+    for i in range(len(table)-1, 0, -1):
+        if is_subset(table[i], table[i-1]):
+            keep_rows[i] = False
+    
+    table = [table[i] for i in range(len(table)) if keep_rows[i]]
+        
+    # remove subset columns
+    # we go from right to left
+    if table:  # Check if table is not empty
+        num_cols = len(table[0])
+        keep_cols = [True] * num_cols
+        
+        for j in range(num_cols-1, 0, -1):
+            col1 = [row[j] for row in table]
+            col2 = [row[j-1] for row in table]
+            if is_subset(col1, col2):
+                keep_cols[j] = False
+        
+        table = [[row[j] for j in range(num_cols) if keep_cols[j]] for row in table]
+
     return table, True
     
 
