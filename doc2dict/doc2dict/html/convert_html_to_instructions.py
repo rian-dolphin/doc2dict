@@ -412,7 +412,6 @@ def clean_table(table):
     new_table = clean_table_columns(new_table)
 
     return new_table, True
-
 def convert_html_to_instructions(root):
     skip_node = False
     in_table = False
@@ -421,8 +420,11 @@ def convert_html_to_instructions(root):
     instructions = []
     current_attributes = {}
 
-    # first lets pretend we know the matrix
-    matrix = [[{'text':''}] * 25 for _ in range(18)]
+    # Dictionary-based approach for table cells
+    table_cells = {}
+    max_row = -1
+    max_col = -1
+    occupied_positions = set()
     current_cell = {'text': ''}
 
     # table
@@ -431,7 +433,7 @@ def convert_html_to_instructions(root):
     rowspan = 1
     colspan = 1
 
-    for signal,node in walk(root):
+    for signal, node in walk(root):
         if signal == "start":
             # skip invisible elements
             if skip_node:
@@ -446,14 +448,21 @@ def convert_html_to_instructions(root):
                     current_cell['text'] += node.text_content
                 continue
             
-            style_command = parse_start_style(current_attributes,node)
+            style_command = parse_start_style(current_attributes, node)
             if style_command == 'skip':
                 skip_node = True
                 continue
 
-            tag_command = parse_start_tag(current_attributes,node)
+            tag_command = parse_start_tag(current_attributes, node)
             if tag_command == 'table':
                 in_table = True
+                # Reset table variables
+                table_cells = {}
+                max_row = -1
+                max_col = -1
+                occupied_positions = set()
+                row_id = 0
+                col_id = 0
                 if len(instructions) > 0:
                     instructions_list.append(instructions)
                     instructions = []
@@ -466,7 +475,6 @@ def convert_html_to_instructions(root):
                     text = text.lstrip()
                     if len(text) == 0:
                         continue
-
             
                 instruction = {'text': text}
 
@@ -482,34 +490,40 @@ def convert_html_to_instructions(root):
                         if val > 0:
                             instruction[key] = True
 
-                # TODO, merge previous instruction if attributes match
                 if len(instructions) > 0:
                     # check if attributes match
                     prev_instruction = instructions[-1]
                     if text.strip() == '':
                         prev_instruction['text'] += text
-                    elif all(instruction.get(attr) == prev_instruction.get(attr) for attr in ['bold', 'text-center', 'italic', 'underline','font-size']):
+                    elif all(instruction.get(attr) == prev_instruction.get(attr) for attr in ['bold', 'text-center', 'italic', 'underline', 'font-size']):
                         prev_instruction['text'] += text
                     else:
                         instructions.append(instruction)
                 else:
                     instructions.append(instruction)
 
-
         elif signal == "end":
-            
-            style_command = parse_end_style(current_attributes,node)
+            style_command = parse_end_style(current_attributes, node)
             if style_command == 'skip':
                 skip_node = False
                 continue
 
-
-            tag_command = parse_end_tag(current_attributes,node)
+            tag_command = parse_end_tag(current_attributes, node)
             if tag_command == 'table':
-                # clean table here:
-                #table,is_cleaned = clean_table(table)
-                instructions_list.append([{'table': matrix}])#,'cleaned': is_cleaned}])
-                matrix = []
+                # Create a properly sized matrix from the collected data
+                if max_row >= 0 and max_col >= 0:  # Only if we have cells
+                    matrix = [[{'text': ''} for _ in range(max_col + 1)] for _ in range(max_row + 1)]
+                    
+                    # Fill in the cells
+                    for (r, c), cell_data in table_cells.items():
+                        matrix[r][c] = cell_data
+                    
+                    # Add to instructions list
+                    instructions_list.append([{'table': matrix}])
+                
+                # Reset table state
+                table_cells = {}
+                occupied_positions = set()
                 current_cell = {'text': ''}
                 in_table = False
                 continue
@@ -521,22 +535,33 @@ def convert_html_to_instructions(root):
                     col_id = 0
                 elif node.tag in ['td', 'th']:
                     text = current_cell['text'].strip()
+                    
+                    # Find next available position if current is occupied
+                    while (row_id, col_id) in occupied_positions:
+                        col_id += 1
+                    
+                    # Store cell and mark occupied positions
+                    cell_data = {'text': text}
+                    table_cells[(row_id, col_id)] = cell_data
+                    
+                    # Mark all positions this cell occupies
                     for y in range(rowspan):
                         for x in range(colspan):
-                            matrix[row_id+y][col_id+x] = {'text': text}
-
+                            occupied_positions.add((row_id + y, col_id + x))
                     
+                    # Update maximum dimensions
+                    max_row = max(max_row, row_id + rowspan - 1)
+                    max_col = max(max_col, col_id + colspan - 1)
+                    
+                    # Move to next position
                     col_id += colspan
                     current_cell = {'text': ''}
-                        
 
             elif tag_command == 'newline':
                 if len(instructions) > 0:
                     instructions_list.append(instructions)
                     instructions = []
                 continue
-
-
 
     # add any remaining instructions
     if instructions:
