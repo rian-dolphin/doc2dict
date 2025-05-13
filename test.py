@@ -1,6 +1,6 @@
 from selectolax.parser import HTMLParser
-from doc2dict.doc2dict.htmlrewrite2.instructions import convert_html_to_instructions
-from doc2dict.doc2dict.htmlrewrite2.visualize_instructions import visualize_instructions
+from doc2dict.doc2dict.html.instructions import convert_html_to_instructions
+from doc2dict.doc2dict.html.visualize_instructions import visualize_instructions
 from time import time
 import webbrowser
 
