@@ -422,7 +422,7 @@ def convert_html_to_instructions(root):
     current_attributes = {}
 
     # first lets pretend we know the matrix
-    matrix = [['']*25]*25
+    matrix = [[{'text':''}] * 25 for _ in range(18)]
     current_cell = {'text': ''}
 
     # table
@@ -508,7 +508,6 @@ def convert_html_to_instructions(root):
             if tag_command == 'table':
                 # clean table here:
                 #table,is_cleaned = clean_table(table)
-                print([cell['text'] for row in matrix for cell in row])
                 instructions_list.append([{'table': matrix}])#,'cleaned': is_cleaned}])
                 matrix = []
                 current_cell = {'text': ''}
@@ -522,12 +521,11 @@ def convert_html_to_instructions(root):
                     col_id = 0
                 elif node.tag in ['td', 'th']:
                     text = current_cell['text'].strip()
-                    print(f"new cell: {text}")
                     for y in range(rowspan):
                         for x in range(colspan):
-                            print(f"row_id: {row_id+y}, col_id: {col_id+x}")
                             matrix[row_id+y][col_id+x] = {'text': text}
 
+                    
                     col_id += colspan
                     current_cell = {'text': ''}
                         

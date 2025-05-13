@@ -26,5 +26,5 @@ with open('instructions2.txt', 'w', encoding='utf-8') as f:
     for instruction in instructions:
         f.write(str(instruction) + '\n')
 
-# webbrowser.open(file_path)
-#visualize_instructions(instructions)
+#webbrowser.open(file_path)
+visualize_instructions(instructions)
