@@ -1,13 +1,13 @@
 from selectolax.parser import HTMLParser
-from doc2dict.doc2dict.html.instructions import convert_html_to_instructions
+from doc2dict.doc2dict.html.convert_html_to_instructions import convert_html_to_instructions
 from doc2dict.doc2dict.html.visualize_instructions import visualize_instructions
 from time import time
 import webbrowser
 
 # Benchmark bottom 150ms
 
-#file_path=r'C:\Users\jgfri\OneDrive\Desktop\test\test\0000320193-24-000123\aapl-20240928.htm'
-file_path = r"C:\Users\jgfri\OneDrive\Desktop\test\test\0000950170-24-087843\msft-20240630.htm"
+file_path=r'C:\Users\jgfri\OneDrive\Desktop\test\test\0000320193-24-000123\aapl-20240928.htm'
+#file_path = r"C:\Users\jgfri\OneDrive\Desktop\test\test\0000950170-24-087843\msft-20240630.htm"
 #file_path = r"C:\Users\jgfri\OneDrive\Desktop\test.html"
  
 

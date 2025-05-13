@@ -304,7 +304,7 @@ def parse_end_tag(current_attributes,node):
 
 def is_subset(col1, col2, empty_chars):
     if col1 == col2:
-        return False  # Equal columns are not subsets of each other
+        return True 
     
     # Count non-empty values
     col1_non_empty_count = sum(1 for val in col1 if val not in empty_chars)
@@ -322,7 +322,7 @@ def is_subset(col1, col2, empty_chars):
 
 # TODO: handle parentheses merging. we skipped because my head is foggy from sickness and I want to get doc2dict out this week
 def remove_empty_columns(table):
-    empty_chars = ['', '$',')','(']
+    empty_chars = ['', '$',')','(','–']
     # Extract text values from each cell and transpose the table to work with columns
     text_table = [[cell['text'] for cell in row] for row in table]
     columns = list(zip(*text_table))
@@ -387,27 +387,40 @@ def clean_table_columns(table):
         
 
 def clean_table(table):
+    if len(table) == 0:
+        return table
     # first check if table has same number of columns
     same_length = all([len(row) == len(table[0]) for row in table])
     if not same_length:
         return table
-    # removals
-    num_cols = len(table[0])
-    keep_columns = [True] * num_cols
+        # if header is less than length of the next row, return
+        if len(table[0]) < len(table[1]):
+            return table
+        
+        else:
+            # pad the rows to the same length
+            max_length = max(len(row) for row in table)
+            for row in table:
+                while len(row) < max_length:
+                    row.append({'text': ''})
+        return table
+    # # removals
+    # num_cols = len(table[0])
+    # keep_columns = [True] * num_cols
 
-    # remove empty columns
-    for col in range(num_cols):
-        if all(table[row][col]['text'] == '' for row in range(len(table))):
-            keep_columns[col] = False
-    new_table = []
-    for row in table:
-        new_row = [row[col] for col in range(len(row)) if keep_columns[col]]
-        new_table.append(new_row)
+    # # remove empty columns
+    # for col in range(num_cols):
+    #     if all(table[row][col]['text'] == '' for row in range(len(table))):
+    #         keep_columns[col] = False
+    # new_table = []
+    # for row in table:
+    #     new_row = [row[col] for col in range(len(row)) if keep_columns[col]]
+    #     new_table.append(new_row)
 
     # remove subset columns
-    new_table = clean_table_columns(new_table)
+    #new_table = clean_table_columns(new_table)
 
-    return new_table
+    return table
 
 def convert_html_to_instructions(root):
     skip_node = False
