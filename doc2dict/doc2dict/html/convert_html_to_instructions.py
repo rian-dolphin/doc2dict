@@ -4,6 +4,8 @@
 # look at old before deletion
 # left indent
 
+from copy import deepcopy
+
 # params 
 tag_groups = {
 "bold": ["b", "strong"],
@@ -419,10 +421,16 @@ def convert_html_to_instructions(root):
     instructions = []
     current_attributes = {}
 
+    # first lets pretend we know the matrix
+    matrix = [['']*25]*25
+    current_cell = {'text': ''}
+
     # table
-    table = []
-    current_row = []
-    current_cell = {}
+    row_id = 0
+    col_id = 0
+    rowspan = 1
+    colspan = 1
+
     for signal,node in walk(root):
         if signal == "start":
             # skip invisible elements
@@ -430,12 +438,12 @@ def convert_html_to_instructions(root):
                 continue
             elif in_table:
                 if node.tag == 'tr':
-                    current_row = []
+                    pass
                 elif node.tag in ['td', 'th']:
-                    current_cell = {'text': ''}
-                    current_colspan = int(node.attributes.get('colspan', 1))
+                    colspan = int(node.attributes.get('colspan', 1))
+                    rowspan = int(node.attributes.get('rowspan', 1))
                 elif node.tag == '-text':
-                    current_cell['text'] = current_cell.get('text', '') + node.text_content
+                    current_cell['text'] += node.text_content
                 continue
             
             style_command = parse_start_style(current_attributes,node)
@@ -499,32 +507,29 @@ def convert_html_to_instructions(root):
             tag_command = parse_end_tag(current_attributes,node)
             if tag_command == 'table':
                 # clean table here:
-                table,is_cleaned = clean_table(table)
-                instructions_list.append([{'table': table,'cleaned': is_cleaned}])
-                table = []
-                current_row = []
-                current_cell = {}
+                #table,is_cleaned = clean_table(table)
+                print([cell['text'] for row in matrix for cell in row])
+                instructions_list.append([{'table': matrix}])#,'cleaned': is_cleaned}])
+                matrix = []
+                current_cell = {'text': ''}
                 in_table = False
                 continue
             elif in_table:
                 if node.tag in ['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'br']:
-                    current_cell['text'] = current_cell.get('text', '') + '\n'
+                    current_cell['text'] += '\n'
                 elif node.tag == 'tr':
-                    if current_row:
-                        # check if the row is empty
-                        if all(cell.get('text', '') == '' for cell in current_row):
-                            pass
-                        else:
-                            table.append(current_row)
-                        
-                            print(f"row length: {len(current_row)}")
+                    row_id += 1
+                    col_id = 0
                 elif node.tag in ['td', 'th']:
-                    if current_cell:
-                        current_cell['text'] = current_cell['text'].strip()
-                        for _ in range(current_colspan):
-                            print(current_cell)
-                            current_row.append(current_cell.copy())
-                    current_cell = {}
+                    text = current_cell['text'].strip()
+                    print(f"new cell: {text}")
+                    for y in range(rowspan):
+                        for x in range(colspan):
+                            print(f"row_id: {row_id+y}, col_id: {col_id+x}")
+                            matrix[row_id+y][col_id+x] = {'text': text}
+
+                    col_id += colspan
+                    current_cell = {'text': ''}
                         
 
             elif tag_command == 'newline':
