@@ -381,46 +381,35 @@ def clean_table_columns(table):
     return table
     
 
-    
 
 # AI GENERATED CODE - USED IN A PINCH #
         
 
 def clean_table(table):
     if len(table) == 0:
-        return table
+        return table, False
     # first check if table has same number of columns
     same_length = all([len(row) == len(table[0]) for row in table])
     if not same_length:
-        return table
-        # if header is less than length of the next row, return
-        if len(table[0]) < len(table[1]):
-            return table
-        
-        else:
-            # pad the rows to the same length
-            max_length = max(len(row) for row in table)
-            for row in table:
-                while len(row) < max_length:
-                    row.append({'text': ''})
-        return table
-    # # removals
-    # num_cols = len(table[0])
-    # keep_columns = [True] * num_cols
+        return table, False
+    
+    # removals
+    num_cols = len(table[0])
+    keep_columns = [True] * num_cols
 
-    # # remove empty columns
-    # for col in range(num_cols):
-    #     if all(table[row][col]['text'] == '' for row in range(len(table))):
-    #         keep_columns[col] = False
-    # new_table = []
-    # for row in table:
-    #     new_row = [row[col] for col in range(len(row)) if keep_columns[col]]
-    #     new_table.append(new_row)
+    # remove empty columns
+    for col in range(num_cols):
+        if all(table[row][col]['text'] == '' for row in range(len(table))):
+            keep_columns[col] = False
+    new_table = []
+    for row in table:
+        new_row = [row[col] for col in range(len(row)) if keep_columns[col]]
+        new_table.append(new_row)
 
-    # remove subset columns
-    #new_table = clean_table_columns(new_table)
+    #remove subset columns
+    new_table = clean_table_columns(new_table)
 
-    return table
+    return new_table, True
 
 def convert_html_to_instructions(root):
     skip_node = False
@@ -443,7 +432,7 @@ def convert_html_to_instructions(root):
                 if node.tag == 'tr':
                     current_row = []
                 elif node.tag in ['td', 'th']:
-                    current_cell = {}
+                    current_cell = {'text': ''}
                     current_colspan = int(node.attributes.get('colspan', 1))
                 elif node.tag == '-text':
                     current_cell['text'] = current_cell.get('text', '') + node.text_content
@@ -510,8 +499,8 @@ def convert_html_to_instructions(root):
             tag_command = parse_end_tag(current_attributes,node)
             if tag_command == 'table':
                 # clean table here:
-                table = clean_table(table)
-                instructions_list.append([{'table': table}])
+                table,is_cleaned = clean_table(table)
+                instructions_list.append([{'table': table,'cleaned': is_cleaned}])
                 table = []
                 current_row = []
                 current_cell = {}
@@ -527,11 +516,15 @@ def convert_html_to_instructions(root):
                             pass
                         else:
                             table.append(current_row)
+                        
+                            print(f"row length: {len(current_row)}")
                 elif node.tag in ['td', 'th']:
                     if current_cell:
                         current_cell['text'] = current_cell['text'].strip()
-                        for i in range(current_colspan):
+                        for _ in range(current_colspan):
+                            print(current_cell)
                             current_row.append(current_cell.copy())
+                    current_cell = {}
                         
 
             elif tag_command == 'newline':

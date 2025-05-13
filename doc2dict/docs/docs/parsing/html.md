@@ -11,7 +11,21 @@ Target Benchmark:
 
 
 ## Table
-* handling w.r.t different number of cells.
-* yeah we need to fix tables cleanings - oh its some dumb mistake i must have introduced with spaces. check instructions.txt and fix.
+* ah so whats going on is rowspan
+hmm so new approach
+figure out the matrix
+ - then apply smart cleaning, like subsets, header detect
+ - but first just get full matrix.
+
+ isssue is one matrix size - we dont know it before iteration
+ two is assignment
+
+actually no - we know number of columns at start. (so we assume this is standard, in a fail soft way)
+
+yeah so what we do is populate as we go
+if rowspan, create that many lines
+
+
+* better:
 * Fake Table detection
 * '(' and ')'

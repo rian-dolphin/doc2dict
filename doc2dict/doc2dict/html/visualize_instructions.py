@@ -42,12 +42,14 @@ def format_table(table):
 
 def visualize_instructions(instructions_list):
     # Simplified color scheme
-    single_line_color = '#E6F3FF'  # Blue hue
-    multi_first_color = '#E6FFE6'  # Green hue
-    multi_rest_color = '#FFFFE6'   # Red hue
-    table_color = '#FFE6FF'   # Purple hue
+    single_line_color = '#E8EAF6'    # Light indigo - clean, professional
+    multi_first_color = '#DCEDC8'    # Light sage green - clear starting point
+    multi_rest_color = '#F9FBE7'     # Very pale yellow-green - subtle continuation
 
-    
+    table_uncleaned_color = '#FFECB3' # Warm amber - intuitive "needs attention"
+    table_cleaned_color = '#B2DFDB'   # Teal - fresh and clean feeling
+
+        
     html_content ="""
         <html>
         <head>
@@ -82,7 +84,10 @@ th {
         if len(instructions) == 1:
             if 'table' in instructions[0]:
                 table_html = format_table(instructions[0]['table'])
-                html_content += f"<div style='background-color: {table_color}'>{table_html}</div>"
+                if instructions[0].get('cleaned', False):
+                    html_content += f"<div style='background-color: {table_cleaned_color}'>{table_html}</div>"
+                else:
+                    html_content += f"<div style='background-color: {table_uncleaned_color}'>{table_html}</div>"
                 continue 
         
         first_instruction = instructions[0]
@@ -97,9 +102,7 @@ th {
             style_properties, text = format_dct_style(instruction)
 
 
-            if 'table' in instruction:
-                color = table_color
-            elif len(instructions) == 1:
+            if len(instructions) == 1:
                 color = single_line_color
             elif idx == 0:
                 color = multi_first_color
