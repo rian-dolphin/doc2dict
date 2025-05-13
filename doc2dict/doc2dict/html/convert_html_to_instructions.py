@@ -302,57 +302,89 @@ def parse_end_tag(current_attributes,node):
             return ''
         
 
-def is_subset(row1,row2,empty_chars):
-    """returns true if row1 is a subset of row2"""
-    # we will add parenthesis and $ handling later - for now remove
-    return all(cell1['text'] in ['',')','(','$'] or cell1['text'] == cell2['text'] for cell1, cell2 in zip(row1, row2))
+def is_subset(items1, items2, empty_chars):
+    """returns true if items1 is a subset of items2"""
+    return all(item1['text'] in empty_chars or item1['text'] == item2['text'] for item1, item2 in zip(items1, items2))
 
+def remove_subset_rows(table, empty_chars, direction="bottom_to_top"):
+    """
+    Remove subset rows from the table.
+    direction: "bottom_to_top" or "top_to_bottom"
+    """
+    if not table:
+        return table
+    
+    keep_rows = [True] * len(table)
+    
+    if direction == "bottom_to_top":
+        # Compare each row with the row above it
+        for i in range(len(table)-1, 0, -1):
+            if is_subset(table[i], table[i-1], empty_chars):
+                keep_rows[i] = False
+    else:  # top_to_bottom
+        # Compare each row with the row below it
+        for i in range(len(table)-1):
+            if is_subset(table[i], table[i+1], empty_chars):
+                keep_rows[i] = False
+    
+    return [table[i] for i in range(len(table)) if keep_rows[i]]
+
+def remove_subset_columns(table, empty_chars, direction="left_to_right"):
+    """
+    Remove subset columns from the table.
+    direction: "left_to_right" or "right_to_left"
+    """
+    if not table or not table[0]:
+        return table
+    
+    num_cols = len(table[0])
+    keep_cols = [True] * num_cols
+    
+    if direction == "left_to_right":
+        # Compare each column with the column to its right
+        for j in range(num_cols-1):
+            col1 = [row[j] for row in table]
+            col2 = [row[j+1] for row in table]
+            if is_subset(col1, col2, empty_chars):
+                keep_cols[j] = False
+    else:  # right_to_left
+        # Compare each column with the column to its left
+        for j in range(num_cols-1, 0, -1):
+            col1 = [row[j] for row in table]
+            col2 = [row[j-1] for row in table]
+            if is_subset(col1, col2, empty_chars):
+                keep_cols[j] = False
+    
+    return [[row[j] for j in range(num_cols) if keep_cols[j]] for row in table]
 
 def clean_table(table):
     if len(table) == 0:
         return table, False
-    # first check if table has same number of columns
+    
+    # First check if table has same number of columns
     same_length = all([len(row) == len(table[0]) for row in table])
     if not same_length:
         return table, False
     
-    empty_chars = ['',')','(','$','–','-']
-    # remove empty rows
+    empty_chars = ['', ')', '(', '$', '–', '-','%']
+    
+    # Remove empty rows
     table = [row for row in table if any(cell['text'] not in empty_chars for cell in row)]
-
-    # remove empty columns
-    if table and table[0]:  # Check if table has at least one row with cells
-        # Get indices of columns to keep (where any cell has content not in empty_chars)
+    
+    # Remove empty columns
+    if table and table[0]:
         keep_cols = [j for j in range(len(table[0])) if any(table[i][j]['text'] not in empty_chars for i in range(len(table)))]
-        
-        # Filter table to keep only those columns
         table = [[row[j] for j in keep_cols] for row in table]
-    # remove subset rows
-    # we go from bottom to top
-
-    keep_rows = [True] * len(table)
-    for i in range(len(table)-1, 0, -1):
-        if is_subset(table[i], table[i-1],empty_chars):
-            keep_rows[i] = False
     
-    table = [table[i] for i in range(len(table)) if keep_rows[i]]
-        
-    # remove subset columns
-    # we go from left to right
-    if table:  # Check if table is not empty
-        num_cols = len(table[0])
-        keep_cols = [True] * num_cols
-        
-        for j in range(num_cols-1):
-            col1 = [row[j] for row in table]
-            col2 = [row[j+1] for row in table]
-            if is_subset(col1, col2,empty_chars):
-                keep_cols[j] = False
-        
-        table = [[row[j] for j in range(num_cols) if keep_cols[j]] for row in table]
-
+    # Remove subset rows in both directions
+    table = remove_subset_rows(table, empty_chars, "bottom_to_top")
+    table = remove_subset_rows(table, empty_chars, "top_to_bottom")
+    
+    # Remove subset columns in both directions
+    table = remove_subset_columns(table, empty_chars, "left_to_right")
+    table = remove_subset_columns(table, empty_chars, "right_to_left")
+    
     return table, True
-    
 
 # TODO, not sure how it handles ragged tables... e.g. td are not same length in rows
 def convert_html_to_instructions(root):
