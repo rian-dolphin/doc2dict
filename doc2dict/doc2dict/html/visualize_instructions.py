@@ -29,7 +29,6 @@ def format_table(table):
     for idx,row in enumerate(table):
         table_html += "<tr>"   
         for cell in row:
-            print(cell)
             if idx == 0:
                 table_html += f"<th>{cell['text']}</th>"
             else:

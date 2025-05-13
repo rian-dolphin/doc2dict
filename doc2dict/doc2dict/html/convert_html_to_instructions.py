@@ -322,70 +322,6 @@ def is_subset(col1, col2, empty_chars):
     
     return True  # All checks passed, col1 is a subset of col2
 
-# TODO: handle parentheses merging. we skipped because my head is foggy from sickness and I want to get doc2dict out this week
-def remove_empty_columns(table):
-    empty_chars = ['', '$',')','(','–']
-    # Extract text values from each cell and transpose the table to work with columns
-    text_table = [[cell['text'] for cell in row] for row in table]
-    columns = list(zip(*text_table))
-    num_columns = len(columns)
-
-    # Track which columns to keep
-    columns_to_keep = [True] * num_columns
-    
-    # For each pair of columns, check if one is a subset of the other
-    for i in range(num_columns):
-        if not columns_to_keep[i]:
-            continue  # Skip already removed columns
-            
-        col_i = columns[i]
-        
-        for j in range(num_columns):
-            if i == j or not columns_to_keep[j]:
-                continue  # Skip self-comparison and already removed columns
-                
-            col_j = columns[j]
-            
-            # Check if col_i is a subset of col_j
-            if is_subset(col_i, col_j, empty_chars):
-                columns_to_keep[i] = False
-                break  # No need to check further if col_i is already identified as a subset
-                
-            # Check if col_j is a subset of col_i
-            elif is_subset(col_j, col_i, empty_chars):
-                columns_to_keep[j] = False
-    
-    # Create a new table with only the kept columns
-    result = []
-    for row in table:
-        new_row = [row[idx] for idx in range(len(row)) if columns_to_keep[idx]]
-        result.append(new_row)
-    
-    # If all columns were removed, return an empty list
-    if not result or not result[0]:
-        return []
-    
-    return result
-
-
-# AI GENERATED CODE - USED IN A PINCH #
-    
-
-def clean_table_columns(table):
-
-    if not table or not table[0]:
-        return []
-    
-    # Remove empty columns
-    table = remove_empty_columns(table)
-    # fix parentheses
-
-    return table
-    
-
-
-# AI GENERATED CODE - USED IN A PINCH #
-        
 
 def clean_table(table):
     if len(table) == 0:
@@ -395,23 +331,15 @@ def clean_table(table):
     if not same_length:
         return table, False
     
-    # removals
-    num_cols = len(table[0])
-    keep_columns = [True] * num_cols
-
+    # remove empty rows
+    table = [row for row in table if any(cell['text'] for cell in row)]
     # remove empty columns
-    for col in range(num_cols):
-        if all(table[row][col]['text'] == '' for row in range(len(table))):
-            keep_columns[col] = False
-    new_table = []
-    for row in table:
-        new_row = [row[col] for col in range(len(row)) if keep_columns[col]]
-        new_table.append(new_row)
+    table = [[row[j] for j in range(len(row)) if any(table[i][j]['text'].strip() for i in range(len(table)))] for row in table]
+    
+    return table, True
+    
 
-    #remove subset columns
-    new_table = clean_table_columns(new_table)
-
-    return new_table, True
+# TODO, not sure how it handles ragged tables... e.g. td are not same length in rows
 def convert_html_to_instructions(root):
     skip_node = False
     in_table = False
@@ -518,8 +446,10 @@ def convert_html_to_instructions(root):
                     for (r, c), cell_data in table_cells.items():
                         matrix[r][c] = cell_data
                     
+                    # clean the matrix
+                    matrix,is_cleaned = clean_table(matrix)
                     # Add to instructions list
-                    instructions_list.append([{'table': matrix}])
+                    instructions_list.append([{'table': matrix,'cleaned': is_cleaned}])
                 
                 # Reset table state
                 table_cells = {}
@@ -540,13 +470,15 @@ def convert_html_to_instructions(root):
                     while (row_id, col_id) in occupied_positions:
                         col_id += 1
                     
-                    # Store cell and mark occupied positions
+                    # Create cell data with the text content
                     cell_data = {'text': text}
-                    table_cells[(row_id, col_id)] = cell_data
                     
-                    # Mark all positions this cell occupies
+                    # Store the cell_data at EVERY position this cell occupies
                     for y in range(rowspan):
                         for x in range(colspan):
+                            # Store cell data at this position
+                            table_cells[(row_id + y, col_id + x)] = cell_data
+                            # Mark position as occupied
                             occupied_positions.add((row_id + y, col_id + x))
                     
                     # Update maximum dimensions
