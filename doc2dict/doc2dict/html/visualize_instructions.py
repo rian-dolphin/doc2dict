@@ -19,7 +19,7 @@ def format_dct_style(line):
     if 'left-indent' in line:
         left_indent = line['left-indent']
         if left_indent:
-            style_properties.append(f'padding-left: {left_indent}px')
+            style_properties.append(f'margin-left: {left_indent}px')
 
     return style_properties, text
 

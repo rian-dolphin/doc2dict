@@ -60,6 +60,9 @@ def get_style(node):
         if style_dict['text-align'] == 'center':
             increments.append('text-center')
 
+        
+    left_indent = 0
+
     if 'font-size' in style_dict:
         font_size = style_dict['font-size']
         font_size = normalize_to_px(font_size)
@@ -68,7 +71,7 @@ def get_style(node):
     if 'text-indent' in style_dict:
         indent = style_dict['text-indent']
         indent = normalize_to_px(indent)
-        stacks.append({'left-indent': indent})
+        left_indent += indent
 
     if 'padding' in style_dict:
         padding_value = style_dict['padding']
@@ -76,27 +79,27 @@ def get_style(node):
         if padding_value.count(' ') == 3:
             _, _, _, left = padding_value.split(' ')
             left = normalize_to_px(left)
-            stacks.append({'padding-left': left})
+            left_indent += left
         # Handle three-value format: top right/left bottom
         elif padding_value.count(' ') == 2:
             _, right_left, _ = padding_value.split(' ')
             right_left = normalize_to_px(right_left)
-            stacks.append({'padding-left': right_left})
+            left_indent += right_left
         # Handle two-value format: top/bottom right/left
         elif padding_value.count(' ') == 1:
             _, right_left = padding_value.split(' ')
             right_left = normalize_to_px(right_left)
-            stacks.append({'padding-left': right_left})
+            left_indent += right_left
         # Handle single-value format: all sides
         else:
             padding_value = normalize_to_px(padding_value)
-            stacks.append({'padding-left': padding_value})
+            left_indent += padding_value
 
     # Also handle direct padding-left if specified
     if 'padding-left' in style_dict:
         padding_left = style_dict['padding-left']
         padding_left = normalize_to_px(padding_left)
-        stacks.append({'padding-left': padding_left})
+        left_indent += padding_left
 
     # Handle margin with the same logic as padding
     if 'margin' in style_dict:
@@ -105,33 +108,34 @@ def get_style(node):
         if margin_value.count(' ') == 3:
             _, _, _, left = margin_value.split(' ')
             left = normalize_to_px(left)
-            stacks.append({'margin-left': left})
+            left_indent += left
         # Handle three-value format: top right/left bottom
         elif margin_value.count(' ') == 2:
             _, right_left, _ = margin_value.split(' ')
             right_left = normalize_to_px(right_left)
-            stacks.append({'margin-left': right_left})
+            left_indent += right_left
         # Handle two-value format: top/bottom right/left
         elif margin_value.count(' ') == 1:
             _, right_left = margin_value.split(' ')
             right_left = normalize_to_px(right_left)
-            stacks.append({'margin-left': right_left})
+            left_indent += right_left
         # Handle single-value format: all sides
         else:
             margin_value = normalize_to_px(margin_value)
-            stacks.append({'margin-left': margin_value})
+            left_indent += margin_value
 
     # Handle direct margin-left if specified
     if 'margin-left' in style_dict:
         margin_left = style_dict['margin-left']
         margin_left = normalize_to_px(margin_left)
-        stacks.append({'margin-left': margin_left})
+        left_indent += margin_left
 
     if 'display' in style_dict:
         if style_dict['display'] == 'none':
             increments.append('display-none')
 
-        
+    if left_indent != 0:
+        stacks.append({'left-indent': left_indent})    
     return increments, stacks
 
 def parse_css_value(value_str):
