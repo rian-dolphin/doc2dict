@@ -21,12 +21,11 @@ def format_dct_style(line):
         if left_indent:
             style_properties.append(f'padding-left: {left_indent}px')
 
-
     return style_properties, text
 
 def format_table(table):
     table_html = "<table>"
-    for idx,row in enumerate(table):
+    for idx, row in enumerate(table):
         table_html += "<tr>"   
         for cell in row:
             if idx == 0:
@@ -38,8 +37,6 @@ def format_table(table):
     table_html += "</table>"
     return table_html
             
-
-
 def visualize_instructions(instructions_list):
     # Simplified color scheme
     single_line_color = '#E8EAF6'    # Light indigo - clean, professional
@@ -49,33 +46,54 @@ def visualize_instructions(instructions_list):
     table_uncleaned_color = '#FFECB3' # Warm amber - intuitive "needs attention"
     table_cleaned_color = '#B2DFDB'   # Teal - fresh and clean feeling
 
-        
-    html_content ="""
+    html_content = """
         <html>
         <head>
         <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
         span {
-  display: inline-block;
-  }
-  
-  table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 20px;
-}
+            display: inline-block;
+            padding: 5px 8px;
+            margin: 3px 0;
+            border-radius: 4px;
+        }
+        
+        .table-wrapper {
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .table-container {
+            display: inline-block;
+            border-radius: 8px;
+            padding: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
 
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
+        table {
+            border-collapse: collapse;
+            margin: 0 auto;
+            background-color: white;
+        }
 
-th {
-  background-color: #f2f2f2;
-  font-weight: bold;
-}
+        th, td {
+            border: 2px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
 
-
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        
         </style>
         </head>
         <body>"""
@@ -84,10 +102,12 @@ th {
         if len(instructions) == 1:
             if 'table' in instructions[0]:
                 table_html = format_table(instructions[0]['table'])
+                html_content += "<div class='table-wrapper'>"
                 if instructions[0].get('cleaned', False):
-                    html_content += f"<div style='background-color: {table_cleaned_color}'>{table_html}</div>"
+                    html_content += f"<div class='table-container' style='background-color: {table_cleaned_color}'>{table_html}</div>"
                 else:
-                    html_content += f"<div style='background-color: {table_uncleaned_color}'>{table_html}</div>"
+                    html_content += f"<div class='table-container' style='background-color: {table_uncleaned_color}'>{table_html}</div>"
+                html_content += "</div>"
                 continue 
         
         first_instruction = instructions[0]
@@ -101,7 +121,6 @@ th {
         for idx, instruction in enumerate(instructions):
             style_properties, text = format_dct_style(instruction)
 
-
             if len(instructions) == 1:
                 color = single_line_color
             elif idx == 0:
@@ -109,13 +128,12 @@ th {
             else:
                 color = multi_rest_color
 
-            style_properties.append(f'background-color: {color}; margin-left:5px')
+            style_properties.append(f'background-color: {color}')
             style = '; '.join(style_properties)
             html_content += f"<span style='{style}'>{text}</span>"
 
         html_content += "</div>"
         
-    
     html_content += """
         </body>
         </html>"""
@@ -129,4 +147,3 @@ th {
     
     # Open the HTML file in the default web browser
     webbrowser.open('file://' + file_path)
-        
