@@ -16,11 +16,14 @@ tenk_mapping_dict = {
         {'class':'item','regex': r'item\s*([0-9]+)'},
     ],
 }
+# for here, regex should grab like most attributes or something
 def determine_hierarchy(instructions_list,mapping_dict):
     pass
     #     hierarchy_dict = {1: [('bold','regex:part')]}
     # should return the hierarchy of the instructions based on attributes
 
+# huh so lets just do a two hierarchy test first with text.
+# 
 def instructions_to_dict(instructions_list):
     # so this will just iterate through the hierarchy dict, it does like hierarchy_dict[(bold,regex,italic )] = 1
     # and then determine whether to append up or down
