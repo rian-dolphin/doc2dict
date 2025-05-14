@@ -304,7 +304,54 @@ def parse_end_tag(current_attributes,node):
         if node.tag in tag_groups[tag]:
             safe_decrement(current_attributes,tag)
             return ''
+
+# USED AI BC LAZY #
+def merge_instructions(instructions):
+    if not instructions or len(instructions) <= 1:
+        return instructions
+    
+    result = [instructions[0]]
+    
+    for i in range(1, len(instructions)):
+        current = instructions[i]
+        prev = result[-1]
         
+        # Case 1: Empty string after strip
+        if current.get('text', '').strip() == '':
+            prev['text'] += current.get('text', '')
+            continue
+        
+        # Case 2: Attributes match with previous
+        attrs_to_check = ['bold', 'text-center', 'italic', 'underline', 'font-size']
+        attrs_match = all(current.get(attr) == prev.get(attr) for attr in attrs_to_check)
+        
+        if attrs_match:
+            prev['text'] += current.get('text', '')
+            continue
+        
+        # Case 3: Check if attributes match with any earlier instruction
+        # This handles the case where instructions a and c match but b doesn't
+        merged = False
+        for j in range(len(result) - 1, -1, -1):  # Check all previous instructions
+            earlier = result[j]
+            if all(current.get(attr) == earlier.get(attr) for attr in attrs_to_check):
+                # Combine all instructions from j to the current one
+                combined_text = earlier['text']
+                for k in range(j + 1, len(result)):
+                    combined_text += result[k].get('text', '')
+                combined_text += current.get('text', '')
+                
+                earlier['text'] = combined_text
+                # Remove the instructions that were merged
+                result = result[:j+1]
+                merged = True
+                break
+        
+        if not merged:
+            result.append(current)
+    
+    return result
+# USED AI BC LAZY #
 
 def is_subset(items1, items2, empty_chars):
     """returns true if items1 is a subset of items2"""
@@ -469,17 +516,7 @@ def convert_html_to_instructions(root):
                         if val > 0:
                             instruction[key] = True
 
-                if len(instructions) > 0:
-                    # check if attributes match
-                    prev_instruction = instructions[-1]
-                    if text.strip() == '':
-                        prev_instruction['text'] += text
-                    elif all(instruction.get(attr) == prev_instruction.get(attr) for attr in ['bold', 'text-center', 'italic', 'underline', 'font-size']):
-                        prev_instruction['text'] += text
-                    else:
-                        instructions.append(instruction)
-                else:
-                    instructions.append(instruction)
+                instructions.append(instruction)
 
         elif signal == "end":
             style_command = parse_end_style(current_attributes, node)
@@ -542,6 +579,7 @@ def convert_html_to_instructions(root):
 
             elif tag_command == 'newline':
                 if len(instructions) > 0:
+                    instructions = merge_instructions(instructions)
                     instructions_list.append(instructions)
                     instructions = []
                 continue

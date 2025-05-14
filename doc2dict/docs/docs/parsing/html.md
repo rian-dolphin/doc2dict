@@ -6,9 +6,12 @@ Target Benchmark:
 
 # To work on:
 * mapping dicitonary - should set hierarchy -> pull all headers -> algorithm to guess hierarchy
-
-* Merge lines - should accept italic if within line.
+* remember to pull out header if on first line. - we should probably do this in instruction_list
+* prob add is section header. - nope. we need to do this in mapping part.
 * Merge across lines
+
+## 
+* indents - indents seem off.
 
 
 
