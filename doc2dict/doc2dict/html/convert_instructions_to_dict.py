@@ -14,14 +14,22 @@ def determine_hierarchy(instructions_list, mapping_dict):
 
 def convert_instructions_to_dict(instructions_list, mapping_dict):
     # Initialize with just base
-    base = {'contents': []}
+    document = {'contents': {}}
     
     hierarchy_dict = determine_hierarchy(instructions_list, mapping_dict)
     
+    # Create an introduction section
+    introduction = {'title': 'introduction', 'class': 'introduction', 'contents': {}}
+    
+    # Add the introduction to the document with a specific index
+    # Using 'intro' as the key to ensure it appears first
+    document['contents'][-1] = introduction
+    
     # Keep track of current position in hierarchy
-    current_section = base
-    current_path = [base]  # Path of section objects from root to current
-    current_levels = [-1]  # Corresponding hierarchy levels
+    current_section = introduction  # Start with introduction as current section
+    current_path = [document, introduction]  # Path now includes introduction
+    current_levels = [-1, 0]  # Introduction is at level 0 like other top sections
+
     
     # Process each instruction
     for idx, instructions in enumerate(instructions_list):
@@ -32,7 +40,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
             text = instruction['text'].lower()
             
             # Try to match against regex patterns
-            regex_tuples = [(item[0][1], item[0][0], item[1]) for item in mapping_dict.items()]
+            regex_tuples = [(item[0][1], item[0][0], item[1]) for item in hierarchy_dict.items()]
             for regex, header, hierarchy_level in regex_tuples:
                 if re.match(regex, text):
                     # Found a section header
@@ -43,11 +51,11 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
                         current_levels.pop()
                     
                     # Create new section
-                    new_section = {'title': text, 'class': header, 'contents': []}
+                    new_section = {'title': text, 'class': header, 'contents': {}}
                     
                     # Add section to parent's contents
                     parent = current_path[-1]
-                    parent['contents'].append(new_section)
+                    parent['contents'][idx] = new_section
                     
                     # Update current path
                     current_path.append(new_section)
@@ -57,10 +65,10 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
                     break
             else:
                 # Not a section header, add content to current section
-                current_section['contents'].append(instruction)
+                current_section['contents'][idx] = instruction
         else:
             # No text, add content to current section
-            current_section['contents'].append(instruction)
+            current_section['contents'][idx] = instruction
     
     # Add metadata
     result = {
@@ -69,7 +77,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
             'github': 'https://github.com/john-friedman/doc2dict',
             'version': version
         },
-        'document': {'base': base}
+        'document': document
     }
     
     return result
