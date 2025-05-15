@@ -2,50 +2,74 @@ import re
 import pkg_resources
 
 version = pkg_resources.get_distribution("doc2dict").version
-# identify  font-sizes
-# strip normal + subscript
-# so now we have poss headers
-# we can consider first item of every instruction 
 
-# for here, regex should grab like most attributes or something
-# def determine_hierarchy(instructions_list,mapping_dict):
-#     return
-#     return {("regex:r'part\s*([0-9]+)'") : 1}
-#     pass
-    #     hierarchy_dict = {1: [('bold','regex:part')]}
-    # should return the hierarchy of the instructions based on attributes
+tenk_mapping_dict = {
+    ('part',r'^part\s*([ivx]+)$') : 0,
+    ('signatures',r'^signatures?\.*$') : 0,
+    ('item',r'^item\s*(\d+)$') : 1,
+}
 
-def convert_instructions_to_dict(instructions_list):
-    dct = {'base':{'contents':[]}}
-    hierarchy_dict = {('bold','class:part'):0,
-                      ('bold','class:signatures'):0,
-                      ('bold','class:item'):1}
-    current_idx = 'base'
-    current_hierarchy = 0
-    # might have issue here due to some lines having multiple stuff
-    for idx,instructions in enumerate(instructions_list):
+def determine_hierarchy(instructions_list, mapping_dict):
+    return mapping_dict
+
+def convert_instructions_to_dict(instructions_list, mapping_dict):
+    # Initialize with just base
+    base = {'contents': []}
+    
+    hierarchy_dict = determine_hierarchy(instructions_list, mapping_dict)
+    
+    # Keep track of current position in hierarchy
+    current_section = base
+    current_path = [base]  # Path of section objects from root to current
+    current_levels = [-1]  # Corresponding hierarchy levels
+    
+    # Process each instruction
+    for idx, instructions in enumerate(instructions_list):
         instruction = instructions[0]
+        
+        # Check if this is a potential section header
         if 'text' in instruction:
             text = instruction['text'].lower()
-            text = instruction['text'].lower()
-
-            regex_tuples = [(r'^part\s*([ivx]+)$','part'),(r'^signatures?\.*$','signatures'),(r'^item\s*(\d+)','item')]
-            for regex, header in regex_tuples:
-                if re.match(regex,text):
-                    attribute = 'bold'
-                    hierachy = hierarchy_dict.get((attribute,f"class:{header}"),None)
-                    if hierachy is not None:
-                        print(header)
-                    current_idx = idx
-                    dct[current_idx] = {'title':text,'class':header,'contents':[]}
-                    continue
             
-        for instruction in instructions:
-            if current_idx == idx:
-                # skip section header
-                continue
-            dct[current_idx]['contents'].append(instruction)
-
-    dct = {'metadata':{'parser':'doc2dict','github':'https://github.com/john-friedman/doc2dict','version':version}, 'document':dct}
-    return dct
-   
+            # Try to match against regex patterns
+            regex_tuples = [(item[0][1], item[0][0], item[1]) for item in mapping_dict.items()]
+            for regex, header, hierarchy_level in regex_tuples:
+                if re.match(regex, text):
+                    # Found a section header
+                    
+                    # Pop path until we find appropriate parent level
+                    while len(current_levels) > 1 and current_levels[-1] >= hierarchy_level:
+                        current_path.pop()
+                        current_levels.pop()
+                    
+                    # Create new section
+                    new_section = {'title': text, 'class': header, 'contents': []}
+                    
+                    # Add section to parent's contents
+                    parent = current_path[-1]
+                    parent['contents'].append(new_section)
+                    
+                    # Update current path
+                    current_path.append(new_section)
+                    current_levels.append(hierarchy_level)
+                    current_section = new_section
+                    
+                    break
+            else:
+                # Not a section header, add content to current section
+                current_section['contents'].append(instruction)
+        else:
+            # No text, add content to current section
+            current_section['contents'].append(instruction)
+    
+    # Add metadata
+    result = {
+        'metadata': {
+            'parser': 'doc2dict',
+            'github': 'https://github.com/john-friedman/doc2dict',
+            'version': version
+        },
+        'document': {'base': base}
+    }
+    
+    return result
