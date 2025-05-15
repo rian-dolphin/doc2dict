@@ -1,9 +1,4 @@
 {
-    "metadata": {
-        "parser": "doc2dict",
-        "github": "https://github.com/john-friedman/doc2dict",
-        "version": "0.2.4"
-    },
     "document": {
         "-1": {
             "title": "introduction",
@@ -8789,5 +8784,10 @@
                 "1401": "111"
             }
         }
+    },
+    "metadata": {
+        "github": "https://github.com/john-friedman/doc2dict",
+        "parser": "doc2dict",
+        "version": "0.2.4"
     }
 }
