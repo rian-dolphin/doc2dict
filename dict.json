@@ -751,11 +751,11 @@
         },
         "37": {
             "title": "PART I",
-            "class": "PLACEHOLDER",
+            "class": "part",
             "contents": {
                 "38": {
                     "title": "ITEM 1. BUSINESS",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "39": {
                             "text": "GENERAL",
@@ -2403,7 +2403,7 @@
                 },
                 "317": {
                     "title": "ITEM 1A. RISK FACTORS",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "318": {
                             "text": "Our operations and financial results are subject to various risks and uncertainties, including those described below, that could adversely affect our business, operations, financial condition, results of operations, liquidity, and the trading price of our common stock.",
@@ -3124,7 +3124,7 @@
                 },
                 "459": {
                     "title": "ITEM 1B. UNRESOLVED STAFF COMMENTS",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "460": {
                             "text": "We have received no written comments regarding our periodic or current reports from the staff of the Securities and Exchange Commission that were issued 180 days or more preceding the end of our fiscal year 2024 that remain unresolved.",
@@ -3134,7 +3134,7 @@
                 },
                 "461": {
                     "title": "ITEM 1C. CYBERSECURITY",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "462": {
                             "text": "RISK MANAGEMENT AND STRATEGY",
@@ -3243,7 +3243,7 @@
                 },
                 "483": {
                     "title": "ITEM 2. PROPERTIES",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "484": {
                             "text": "Our corporate headquarters are located in Redmond, Washington. We have approximately 15 million square feet of space located in King County, Washington that is used for engineering, sales, marketing, and operations, among other general and administrative purposes. These facilities include approximately 12 million square feet of owned space situated on approximately 530 acres of land we own at our corporate headquarters, and approximately 3 million square feet of space we lease.",
@@ -3336,7 +3336,7 @@
                 },
                 "488": {
                     "title": "ITEM 3. LEGAL PROCEEDINGS",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "489": {
                             "text": "Refer to Note 15 – Contingencies of the Notes to Financial Statements (Part II, Item 8 of this Form 10-K) for information regarding legal proceedings in which we are involved.",
@@ -3346,7 +3346,7 @@
                 },
                 "490": {
                     "title": "ITEM 4. MINE SAFETY DISCLOSURES",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "491": {
                             "text": "Not applicable.",
@@ -3375,11 +3375,11 @@
         },
         "495": {
             "title": "PART II",
-            "class": "PLACEHOLDER",
+            "class": "part",
             "contents": {
                 "496": {
                     "title": "ITEM 5. MARKET FOR REGISTRANT’S COMMON EQUITY, RELATED STOCKHOLDER MATTERS, AND ISSUER PURCHASES OF EQUITY SECURITIES",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "497": {
                             "text": "MARKET AND STOCKHOLDERS",
@@ -3599,7 +3599,7 @@
                 },
                 "509": {
                     "title": "ITEM 6. [RESERVED]",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "510": {
                             "text": "38",
@@ -3622,7 +3622,7 @@
                 },
                 "513": {
                     "title": "ITEM 7. MANAGEMENT’S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "514": {
                             "text": "The following Management’s Discussion and Analysis of Financial Condition and Results of Operations (“MD&A”) is intended to help the reader understand the results of operations and financial condition of Microsoft Corporation. MD&A is provided as a supplement to, and should be read in conjunction with, our consolidated financial statements and the accompanying Notes to Financial Statements (Part II, Item 8 of this Form 10-K). This section generally discusses the results of our operations for the year ended June 30, 2024 compared to the year ended June 30, 2023. For a discussion of the year ended June 30, 2023 compared to the year ended June 30, 2022, please refer to Part II, Item 7, “Management’s Discussion and Analysis of Financial Condition and Results of Operations” in our Annual Report on Form 10-K for the year ended June 30, 2023.",
@@ -5789,7 +5789,7 @@
                 },
                 "745": {
                     "title": "ITEM 7A. QUANTITATIVE AND QUALITATIVE DISCLOSURES ABOUT MARKET RISK",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "746": {
                             "text": "RISKS",
@@ -5973,7 +5973,7 @@
                 },
                 "762": {
                     "title": "ITEM 8. FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "763": {
                             "text": "INCOME STATEMENTS",
@@ -18364,7 +18364,7 @@
                 },
                 "1299": {
                     "title": "ITEM 9. CHANGES IN AND DISAGREEMENTS WITH ACCOUNTANTS ON ACCOUNTING AND FINANCIAL DISCLOSURE",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "1300": {
                             "text": "Not applicable.",
@@ -18374,7 +18374,7 @@
                 },
                 "1301": {
                     "title": "ITEM 9A. CONTROLS AND PROCEDURES",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "1302": {
                             "text": "Under the supervision and with the participation of our management, including the Chief Executive Officer and Chief Financial Officer, we have evaluated the effectiveness of our disclosure controls and procedures as required by Exchange Act Rule 13a-15(b) as of the end of the period covered by this report. Based on that evaluation, the Chief Executive Officer and Chief Financial Officer have concluded that these disclosure controls and procedures are effective.",
@@ -18529,7 +18529,7 @@
                 },
                 "1330": {
                     "title": "ITEM 9B. OTHER INFORMATION",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "1331": {
                             "text": "Insider Trading Arrangements",
@@ -18544,7 +18544,7 @@
                 },
                 "1333": {
                     "title": "ITEM 9C. DISCLOSURE REGARDING FOREIGN JURISDICTIONS THAT PREVENT INSPECTIONS",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "1334": {
                             "text": "Not applicable.",
@@ -18556,11 +18556,11 @@
         },
         "1335": {
             "title": "PART III",
-            "class": "PLACEHOLDER",
+            "class": "part",
             "contents": {
                 "1336": {
                     "title": "ITEM 10. DIRECTORS, EXECUTIVE OFFICERS, AND CORPORATE GOVERNANCE",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "1337": {
                             "text": "A list of our executive officers and biographical information appears in Part I, Item 1 of this Form 10-K. Information about our directors may be found under the caption “Our Director Nominees” in our Proxy Statement for the Annual Meeting of Shareholders to be held December 10, 2024 (the “Proxy Statement”). Information about our Audit Committee may be found under the caption “Board Committees” in the Proxy Statement. That information is incorporated herein by reference.",
@@ -18607,7 +18607,7 @@
                 },
                 "1346": {
                     "title": "ITEM 11. EXECUTIVE COMPENSATION",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "1347": {
                             "text": "The information in the Proxy Statement set forth under the captions “Director Compensation,” “Named Executive Officer Compensation,” “Compensation Committee Report,” and, if required, “Compensation Committee Interlocks and Insider Participation,” is incorporated herein by reference.",
@@ -18617,7 +18617,7 @@
                 },
                 "1348": {
                     "title": "ITEM 12. SECURITY OWNERSHIP OF CERTAIN BENEFICIAL OWNERS AND MANAGEMENT AND RELATED STOCKHOLDER MATTERS",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "1349": {
                             "text": "The information in the Proxy Statement set forth under the captions “Stock Ownership Information,” “Principal Shareholders,” and “Equity Compensation Plan Information” is incorporated herein by reference.",
@@ -18627,7 +18627,7 @@
                 },
                 "1350": {
                     "title": "ITEM 13. CERTAIN RELATIONSHIPS AND RELATED TRANSACTIONS, AND DIRECTOR INDEPENDENCE",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "1351": {
                             "text": "The information set forth in the Proxy Statement under the captions “Director Independence Guidelines” and “Certain Relationships and Related Transactions” is incorporated herein by reference.",
@@ -18637,7 +18637,7 @@
                 },
                 "1352": {
                     "title": "ITEM 14. PRINCIPAL ACCOUNTANT FEES AND SERVICES",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "1353": {
                             "text": "Information concerning fees and services provided by our principal accountant, Deloitte & Touche LLP (PCAOB ID No. 34), appears in the Proxy Statement under the headings “Fees Billed by Deloitte & Touche” and “Policy on Audit Committee Pre-Approval of Audit and Permissible Non-Audit Services of Independent Auditor” and is incorporated herein by reference.",
@@ -18666,11 +18666,11 @@
         },
         "1357": {
             "title": "PART IV",
-            "class": "PLACEHOLDER",
+            "class": "part",
             "contents": {
                 "1358": {
                     "title": "ITEM 15. EXHIBIT AND FINANCIAL STATEMENT SCHEDULES",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "1359": {
                             "text": "(a)Financial Statements and Schedules",
@@ -20577,7 +20577,7 @@
                 },
                 "1393": {
                     "title": "ITEM 16. FORM 10-K SUMMARY",
-                    "class": "PLACEHOLDER",
+                    "class": "item",
                     "contents": {
                         "1394": {
                             "text": "None.",
@@ -20594,7 +20594,7 @@
         },
         "1396": {
             "title": "SIGNATURES",
-            "class": "PLACEHOLDER",
+            "class": "signatures",
             "contents": {
                 "1397": {
                     "text": "Pursuant to the requirements of Section 13 or 15(d) of the Securities Exchange Act of 1934, the Registrant has duly caused this report to be signed on its behalf by the undersigned; thereunto duly authorized, in the City of Redmond, State of Washington, on July 30, 2024.",

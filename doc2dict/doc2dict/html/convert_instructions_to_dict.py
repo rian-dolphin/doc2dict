@@ -4,9 +4,9 @@ import pkg_resources
 version = pkg_resources.get_distribution("doc2dict").version
 
 tenk_mapping_dict = {
-    ('part',r'^part\s*([ivx]+)$') : 0,
-    ('signatures',r'^signatures?\.*$') : 0,
-    ('item',r'^item\s*(\d+)') : 1,
+    ('part',r'^part\s*([ivx]+)$','part') : 0,
+    ('signatures',r'^signatures?\.*$','signatures') : 0,
+    ('item',r'^item\s*(\d+)','item') : 1,
 }
 
 
@@ -31,14 +31,14 @@ def determine_levels(instructions_list, mapping_dict):
         level = None
         if 'text' in header:
             text = header['text'].lower()
-            regex_tuples = [(item[0][1], item[0][0], item[1]) for item in mapping_dict.items()]
-            for regex, header, hierarchy_level in regex_tuples:
+            regex_tuples = [(item[0][1], item[0][0], item[1],item[0][2]) for item in mapping_dict.items()]
+            for regex, header, hierarchy_level, header_class in regex_tuples:
                 if re.match(regex, text):
                     # Found a section header
-                    level = hierarchy_level
+                    level = (hierarchy_level,header_class)
                     break
         if level is None:
-            levels.append(-1)
+            levels.append((-1,'textclass'))
         else:
             levels.append(level)
     return levels
@@ -66,7 +66,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
     # Process each instruction using pre-calculated levels
     for idx, instructions in enumerate(instructions_list):
         instruction = instructions[0]
-        level = levels[idx]
+        level,header_class = levels[idx]
         
         if level >= 0:
             # This is a section header
@@ -80,7 +80,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
             title = instruction['text']
             
             # Create new section
-            new_section = {'title': title, 'class': 'PLACEHOLDER', 'contents': {}}
+            new_section = {'title': title, 'class': header_class, 'contents': {}}
             
             # Add section to parent's contents with index as key
             parent = current_path[-1]
