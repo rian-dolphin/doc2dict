@@ -4,14 +4,13 @@ import pkg_resources
 version = pkg_resources.get_distribution("doc2dict").version
 
 tenk_mapping_dict = {
-    ('part',r'^part\s*([ivx]+)$','part') : 0,
-    ('signatures',r'^signatures?\.*$','signatures') : 0,
-    ('item',r'^item\s*(\d+)','item') : 1,
+    ('part',r'^part\s*([ivx]+)$') : 0,
+    ('signatures',r'^signatures?\.*$') : 0,
+    ('item',r'^item\s*(\d+)') : 1,
 }
 
 
 def determine_levels(instructions_list, mapping_dict):
-    # first we want to identify out the text
 
     # filter out tables
     headers = [instructions[0] if 'text' in instructions[0] else {} for instructions in instructions_list]
@@ -31,12 +30,18 @@ def determine_levels(instructions_list, mapping_dict):
         level = None
         if 'text' in header:
             text = header['text'].lower()
-            regex_tuples = [(item[0][1], item[0][0], item[1],item[0][2]) for item in mapping_dict.items()]
-            for regex, header, hierarchy_level, header_class in regex_tuples:
+            regex_tuples = [(item[0][1], item[0][0], item[1]) for item in mapping_dict.items()]
+            for regex, header_class, hierarchy_level in regex_tuples:
                 if re.match(regex, text):
                     # Found a section header
                     level = (hierarchy_level,header_class)
                     break
+            
+            if level is None:
+                if any([header.get(attr,False) for attr in likely_header_attributes]):
+                    level = (2,'companydesignated')
+
+
         if level is None:
             levels.append((-1,'textclass'))
         else:
