@@ -6,6 +6,7 @@ from time import time
 import webbrowser
 import json
 
+
 # Benchmark bottom 150ms
 
 file_path=r'C:\Users\jgfri\OneDrive\Desktop\test\test\0000320193-24-000123\aapl-20240928.htm'
@@ -30,8 +31,9 @@ with open('instructions2.txt', 'w', encoding='utf-8') as f:
 
 #webbrowser.open(file_path)
 #visualize_instructions(instructions)
+start = time()
 dct = convert_instructions_to_dict(instructions)
-
+print("convert to dict time:", time()-start)
 # save the dictionary to a JSON file
 with open('dict.json', 'w', encoding='utf-8') as f:
     json.dump(dct, f, ensure_ascii=False, indent=4)
