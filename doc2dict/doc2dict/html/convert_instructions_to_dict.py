@@ -6,7 +6,7 @@ version = pkg_resources.get_distribution("doc2dict").version
 tenk_mapping_dict = {
     ('part',r'^part\s*([ivx]+)$') : 0,
     ('signatures',r'^signatures?\.*$') : 0,
-    ('item',r'^item\s*(\d+)$') : 1,
+    ('item',r'^item\s*(\d+)') : 1,
 }
 
 
@@ -18,13 +18,19 @@ def determine_levels(instructions_list, mapping_dict):
     likely_header_attributes = ['bold','italic','underline','text-center']
     # identify likely text nodes, return {} if not
     headers = [item if any([item.get(attr, False) for attr in likely_header_attributes]) else {} for item in headers]
+    # count font-size
+    font_size_counts = {size: sum(1 for item in [instr[0] for instr in instructions_list if 'text' in instr[0]] if item.get('font-size') == size) for size in set(item.get('font-size') for item in [instr[0] for instr in instructions_list if 'text' in instr[0]] if item.get('font-size') is not None)}
+    most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
+    if font_count > (.5 * len(instructions_list)):
+        # assume anything with less than this font size is subscript
+        headers = [item if item.get('font-size') is None or item.get('font-size') >= most_common_font_size else {} for item in headers]
+
 
     levels = []
     for header in headers:
         level = None
         if 'text' in header:
-            # we shouldn't need to strip here, but band aid fix for now TODO
-            text = header['text'].lower().strip()
+            text = header['text'].lower()
             regex_tuples = [(item[0][1], item[0][0], item[1]) for item in mapping_dict.items()]
             for regex, header, hierarchy_level in regex_tuples:
                 if re.match(regex, text):
@@ -71,7 +77,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
                 current_levels.pop()
             
             # Extract title and determine class from the instruction
-            title = instruction.get('text', '').lower()
+            title = instruction['text']
             
             # Create new section
             new_section = {'title': title, 'class': 'PLACEHOLDER', 'contents': {}}
