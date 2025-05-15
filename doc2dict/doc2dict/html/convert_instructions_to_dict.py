@@ -1,33 +1,37 @@
-
+import re
 # identify  font-sizes
 # strip normal + subscript
 # so now we have poss headers
 # we can consider first item of every instruction 
 
-# hmm, we probably want to just do mapping dict first
-
-# for tenk mapping
-# part, item
-tenk_mapping_dict = {
-    1 : [
-        {'class':'part','regex': r'part\s*([0-9]+)'},
-    ],
-    2 : [
-        {'class':'item','regex': r'item\s*([0-9]+)'},
-    ],
-}
 # for here, regex should grab like most attributes or something
-def determine_hierarchy(instructions_list,mapping_dict):
-    pass
+# def determine_hierarchy(instructions_list,mapping_dict):
+#     return
+#     return {("regex:r'part\s*([0-9]+)'") : 1}
+#     pass
     #     hierarchy_dict = {1: [('bold','regex:part')]}
     # should return the hierarchy of the instructions based on attributes
 
-# huh so lets just do a two hierarchy test first with text.
-# 
-def instructions_to_dict(instructions_list):
-    # so this will just iterate through the hierarchy dict, it does like hierarchy_dict[(bold,regex,italic )] = 1
-    # and then determine whether to append up or down
+def convert_instructions_to_dict(instructions_list):
+    dct = {'base':{'contents':[]}}
+    hierarchy_dict = {('bold','class:part'):1}
+    current_idx = 'base'
+    # might have issue here due to some lines having multiple stuff
+    for idx,instructions in enumerate(instructions_list):
+        instruction = instructions[0]
+        if 'text' in instruction:
+            text = instruction['text'].lower()
+            text = instruction['text'].lower()
 
-    # output will be like (numbers are line of instructions)
-    # dct = {'1':{title='part 1,content : ['2': {'title':'item 1','content':[the red rabbit ate a cat.]}}}]}}
-    pass
+            if re.search(r'^part\s*([ivx]+)$', text):
+                header_tuple = ('bold','class:part')
+                current_idx = idx
+                dct[current_idx] = {'title':text,'contents':[]}
+
+                #print(hierarchy_dict.get(header_tuple,None))
+            
+        for instruction in instructions:
+            dct[current_idx]['contents'].append(instruction)
+
+    return dct
+   

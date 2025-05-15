@@ -1,8 +1,10 @@
 from selectolax.parser import HTMLParser
 from doc2dict.doc2dict.html.convert_html_to_instructions import convert_html_to_instructions
 from doc2dict.doc2dict.html.visualize_instructions import visualize_instructions
+from doc2dict.doc2dict.html.convert_instructions_to_dict import convert_instructions_to_dict
 from time import time
 import webbrowser
+import json
 
 # Benchmark bottom 150ms
 
@@ -26,5 +28,10 @@ with open('instructions2.txt', 'w', encoding='utf-8') as f:
     for instruction in instructions:
         f.write(str(instruction) + '\n')
 
-webbrowser.open(file_path)
-visualize_instructions(instructions)
+#webbrowser.open(file_path)
+#visualize_instructions(instructions)
+dct = convert_instructions_to_dict(instructions)
+
+# save the dictionary to a JSON file
+with open('dict.json', 'w', encoding='utf-8') as f:
+    json.dump(dct, f, ensure_ascii=False, indent=4)
