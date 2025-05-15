@@ -1,7 +1,7 @@
 from selectolax.parser import HTMLParser
 from doc2dict.doc2dict.html.convert_html_to_instructions import convert_html_to_instructions
 from doc2dict.doc2dict.html.visualize_instructions import visualize_instructions
-from doc2dict.doc2dict.html.convert_instructions_to_dict import convert_instructions_to_dict, tenk_mapping_dict
+from doc2dict.doc2dict.html.convert_instructions_to_dict import convert_instructions_to_dict, tenk_mapping_dict, determine_levels
 from time import time
 import webbrowser
 import json
@@ -31,6 +31,10 @@ with open('instructions2.txt', 'w', encoding='utf-8') as f:
 
 #webbrowser.open(file_path)
 #visualize_instructions(instructions)
+levels = determine_levels(instructions, tenk_mapping_dict)
+with open('levels.txt', 'w', encoding='utf-8') as f:
+    for level in levels:
+        f.write(str(level) + '\n')
 start = time()
 dct = convert_instructions_to_dict(instructions,tenk_mapping_dict)
 print("convert to dict time:", time()-start)

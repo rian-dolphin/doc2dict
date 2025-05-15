@@ -580,6 +580,9 @@ def convert_html_to_instructions(root):
             elif tag_command == 'newline':
                 if len(instructions) > 0:
                     instructions = merge_instructions(instructions)
+                    if len(instructions) == 1:
+                        # strip text
+                        instructions[0]['text'] = instructions[0]['text'].strip()
                     instructions_list.append(instructions)
                     instructions = []
                 continue
@@ -587,5 +590,8 @@ def convert_html_to_instructions(root):
     # add any remaining instructions
     if instructions:
         if len(instructions) > 0:
+            if len(instructions) == 1:
+                # strip text
+                instructions[0]['text'] = instructions[0]['text'].strip()
             instructions_list.append(instructions)
     return instructions_list
