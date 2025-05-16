@@ -9,8 +9,7 @@ tenk_mapping_dict = {
     ('item',r'^item\s*(\d+)') : 1,
 }
 
-# TODO - change -1 to small text
-# SET NONE for normal text
+# TODO set -2 to small text
 
 # need to record subscript
 def determine_levels(instructions_list, mapping_dict):
@@ -25,13 +24,15 @@ def determine_levels(instructions_list, mapping_dict):
     most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
     if font_count > (.5 * len(instructions_list)):
         # assume anything with less than this font size is small script
-        headers = [item if item.get('font-size') is None or item.get('font-size') >= most_common_font_size else {} for item in headers]
+        small_script = [True if item.get('font-size') is not None and item.get('font-size') < most_common_font_size else False for item in headers]
 
 
     levels = []
-    for header in headers:
+    for idx,header in enumerate(headers):
         level = None
-        if 'text' in header:
+        if small_script[idx]:
+            level = (-2,'textsmall')
+        elif 'text' in header:
             text = header['text'].lower()
             regex_tuples = [(item[0][1], item[0][0], item[1]) for item in mapping_dict.items()]
             for regex, header_class, hierarchy_level in regex_tuples:
@@ -46,7 +47,7 @@ def determine_levels(instructions_list, mapping_dict):
 
 
         if level is None:
-            levels.append((-1,'textclass'))
+            levels.append((-1,'text'))
         else:
             levels.append(level)
     return levels
@@ -74,7 +75,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
     # Process each instruction using pre-calculated levels
     for idx, instructions in enumerate(instructions_list):
         instruction = instructions[0]
-        level,header_class = levels[idx]
+        level,level_class = levels[idx]
         
         if level >= 0:
             # This is a section header
@@ -88,7 +89,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
             title = instruction['text']
             
             # Create new section
-            new_section = {'title': title, 'class': header_class, 'contents': {}}
+            new_section = {'title': title, 'class': level_class, 'contents': {}}
             
             # Add section to parent's contents with index as key
             parent = current_path[-1]
@@ -104,20 +105,21 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
             for instruction in instructions[1:]:
                 if 'text' in instruction:
                     if not current_section['contents'].get(idx):
-                        current_section['contents'][idx] = {'text':''}
-                    current_section['contents'][idx]['text'] += instruction['text']
+                        current_section['contents'][idx] = {level_class:''}
+                    current_section['contents'][idx][level_class] += instruction['text']
                 elif 'table' in instruction:
                     # note: tables should only appear in length one instructions, so should be safe
                     current_section['contents'][idx] = {'table':[[cell["text"] for cell in row] for row in instruction['table']]}
 
-        if level == -1:
+        if level in [-1, -2]:
             for instruction in instructions:
                 if 'text' in instruction:
                     if not current_section['contents'].get(idx):
-                        current_section['contents'][idx] = {'text':''}
-                    current_section['contents'][idx]['text'] += instruction['text']
+                        current_section['contents'][idx] = {level_class:''}
+                    current_section['contents'][idx][level_class] += instruction['text']
                 elif 'table' in instruction:
                     current_section['contents'][idx] = {'table':[[cell["text"] for cell in row] for row in instruction['table']]}
+
     
     # Create final result with metadata
     result = {
