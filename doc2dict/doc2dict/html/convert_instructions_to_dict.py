@@ -9,6 +9,9 @@ tenk_mapping_dict = {
     ('item',r'^item\s*(\d+)') : 1,
 }
 
+# TODO - change -1 to small text
+# SET NONE for normal text
+
 # need to record subscript
 def determine_levels(instructions_list, mapping_dict):
 
@@ -21,7 +24,7 @@ def determine_levels(instructions_list, mapping_dict):
     font_size_counts = {size: sum(1 for item in [instr[0] for instr in instructions_list if 'text' in instr[0]] if item.get('font-size') == size) for size in set(item.get('font-size') for item in [instr[0] for instr in instructions_list if 'text' in instr[0]] if item.get('font-size') is not None)}
     most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
     if font_count > (.5 * len(instructions_list)):
-        # assume anything with less than this font size is subscript
+        # assume anything with less than this font size is small script
         headers = [item if item.get('font-size') is None or item.get('font-size') >= most_common_font_size else {} for item in headers]
 
 
@@ -100,14 +103,18 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
         if level >= 0 and len(instructions) > 1:
             for instruction in instructions[1:]:
                 if 'text' in instruction:
-                    current_section['contents'][idx] = instruction['text']
+                    if not current_section['contents'].get(idx):
+                        current_section['contents'][idx] = {'text':''}
+                    current_section['contents'][idx]['text'] += instruction['text']
                 elif 'table' in instruction:
                     current_section['contents'][idx] = [[cell["text"] for cell in row] for row in instruction['table']]
 
         if level == -1:
             for instruction in instructions:
                 if 'text' in instruction:
-                    current_section['contents'][idx] = instruction['text']
+                    if not current_section['contents'].get(idx):
+                        current_section['contents'][idx] = {'text':''}
+                    current_section['contents'][idx]['text'] += instruction['text']
                 elif 'table' in instruction:
                     current_section['contents'][idx] = [[cell["text"] for cell in row] for row in instruction['table']]
     
