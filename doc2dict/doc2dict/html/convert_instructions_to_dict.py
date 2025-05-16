@@ -107,7 +107,8 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
                         current_section['contents'][idx] = {'text':''}
                     current_section['contents'][idx]['text'] += instruction['text']
                 elif 'table' in instruction:
-                    current_section['contents'][idx] = [[cell["text"] for cell in row] for row in instruction['table']]
+                    # note: tables should only appear in length one instructions, so should be safe
+                    current_section['contents'][idx] = {'table':[[cell["text"] for cell in row] for row in instruction['table']]}
 
         if level == -1:
             for instruction in instructions:
@@ -116,7 +117,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
                         current_section['contents'][idx] = {'text':''}
                     current_section['contents'][idx]['text'] += instruction['text']
                 elif 'table' in instruction:
-                    current_section['contents'][idx] = [[cell["text"] for cell in row] for row in instruction['table']]
+                    current_section['contents'][idx] = {'table':[[cell["text"] for cell in row] for row in instruction['table']]}
     
     # Create final result with metadata
     result = {
@@ -127,60 +128,5 @@ def convert_instructions_to_dict(instructions_list, mapping_dict):
         },
         'document': document['contents']
     }
-    
-    return result
-
-# collapse for space
-def collapse_dict(dct):
-    if not isinstance(dct, dict):
-        return dct
-    
-    # Process contents recursively if present
-    if "contents" in dct:
-        dct["contents"] = collapse_dict(dct["contents"])
-        return dct
-    
-    # Collect all keys and sort them
-    keys = list(dct.keys())
-    try:
-        # Try to sort numerically if keys are numeric strings
-        keys.sort(key=lambda x: int(x) if str(x).isdigit() else x)
-    except (ValueError, TypeError):
-        # Fall back to regular sorting if keys aren't all numeric
-        keys.sort()
-    
-    result = {}
-    i = 0
-    while i < len(keys):
-        key = keys[i]
-        value = dct[key]
-        
-        # Recursively process dictionaries
-        if isinstance(value, dict):
-            value = collapse_dict(value)
-        
-        # If this is a text entry, check for sequential text entries
-        if isinstance(value, dict) and "text" in value:
-            combined_text = value["text"]
-            combined_value = value.copy()
-            j = i + 1
-            
-            # Look ahead for sequential text entries
-            while j < len(keys) and isinstance(dct[keys[j]], dict) and "text" in dct[keys[j]] and "table" not in dct[keys[j]]:
-                next_value = dct[keys[j]]
-                combined_text += "\n" + next_value["text"]
-                j += 1
-            
-            # If we found sequential text entries, combine them
-            if j > i + 1:
-                combined_value["text"] = combined_text
-                result[keys[j-1]] = combined_value  # Use the last key
-                i = j
-            else:
-                result[key] = value
-                i += 1
-        else:
-            result[key] = value
-            i += 1
     
     return result
