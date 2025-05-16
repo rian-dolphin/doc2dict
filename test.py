@@ -1,6 +1,7 @@
 from selectolax.parser import HTMLParser
 from doc2dict.doc2dict.html.convert_html_to_instructions import convert_html_to_instructions
 from doc2dict.doc2dict.html.visualize_instructions import visualize_instructions
+from doc2dict.doc2dict.html.visualize_dict import visualize_dict
 from doc2dict.doc2dict.html.convert_instructions_to_dict import convert_instructions_to_dict, tenk_mapping_dict, determine_levels
 from time import time
 import webbrowser
@@ -41,3 +42,5 @@ print("convert to dict time:", time()-start)
 # save the dictionary to a JSON file
 with open('dict.json', 'w', encoding='utf-8') as f:
     json.dump(dct, f, ensure_ascii=False, indent=4)
+
+visualize_dict(dct)
