@@ -9,8 +9,6 @@ tenk_mapping_dict = {
     ('item',r'^item\s*(\d+)') : 1,
 }
 
-# TODO set -2 to small text
-
 # need to record subscript
 def determine_levels(instructions_list, mapping_dict):
 
@@ -44,7 +42,6 @@ def determine_levels(instructions_list, mapping_dict):
             if level is None:
                 if any([header.get(attr,False) for attr in likely_header_attributes]):
                     level = (2,'companydesignated')
-
 
         if level is None:
             levels.append((-1,'text'))
