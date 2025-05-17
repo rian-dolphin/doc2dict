@@ -9,12 +9,78 @@ tenk_mapping_dict = {
     ('item',r'^item\s*(\d+)') : 1,
 }
 
-# need to record subscript
+# AI GENERATED CODE BC I WANT TO PUSH TO PROD #
+def determine_predicted_header_levels(levels):
+    """
+    Assigns hierarchy levels to predicted headers based on their attributes,
+    maintaining consistency within each section defined by known headers.
+    
+    Args:
+        levels: List of dictionaries containing level, class, and attributes
+        
+    Returns:
+        List of tuples in the format (level, class)
+    """
+    # Find the base level for predicted headers
+    predicted_headers = [l for l in levels if l['class'] == 'predicted header']
+    if not predicted_headers:
+        return [(level['level'], level['class']) for level in levels]
+    
+    base_level = min(h['level'] for h in predicted_headers)
+    
+    # Create a copy of levels that we'll modify
+    updated_levels = levels.copy()
+    
+    # Track the last known header level
+    current_section_level = -1
+    
+    # Dictionary to map attribute combinations to levels within the current section
+    # Format: {attribute_key: assigned_level}
+    attr_level_map = {}
+    
+    # Helper function to create a key from attributes dictionary
+    def attr_to_key(attrs):
+        if not attrs:
+            return "no_attributes"
+        # Sort keys to ensure consistent mapping regardless of order
+        return "_".join(sorted([k for k, v in attrs.items() if v]))
+    
+    # Process each item
+    for i, item in enumerate(updated_levels):
+        # When we hit a known header, reset our attribute mapping
+        if item['class'] != 'predicted header' and item['class'] not in ['text', 'textsmall']:
+            if item['level'] <= current_section_level:
+                # We've entered a new section at same or higher level, reset mappings
+                attr_level_map = {}
+            current_section_level = item['level']
+            continue
+        
+        # Skip non-header items
+        if item['class'] != 'predicted header':
+            continue
+        
+        # Create a key for this item's attributes
+        attr_key = attr_to_key(item.get('attributes', {}))
+        
+        # If we haven't seen this attribute combination in this section,
+        # assign it the next available level
+        if attr_key not in attr_level_map:
+            attr_level_map[attr_key] = base_level + len(attr_level_map)
+        
+        # Assign the level based on the mapping
+        item['level'] = attr_level_map[attr_key]
+    
+    # Return in the required format
+    return [(level['level'], level['class']) for level in updated_levels]
+# AI GENERATED CODE BC I WANT TO PUSH TO PROD #
+
 def determine_levels(instructions_list, mapping_dict):
+
+    predicted_header_level = max(mapping_dict.values()) + 1
 
     # filter out tables
     headers = [instructions[0] if 'text' in instructions[0] else {} for instructions in instructions_list]
-    likely_header_attributes = ['bold','italic','underline','text-center']
+    likely_header_attributes = ['bold','italic','underline','text-center','all_caps']
     # identify likely text nodes, return {} if not
     headers = [item if any([item.get(attr, False) for attr in likely_header_attributes]) else {} for item in headers]
     # count font-size
@@ -29,24 +95,30 @@ def determine_levels(instructions_list, mapping_dict):
     for idx,header in enumerate(headers):
         level = None
         if small_script[idx]:
-            level = (-2,'textsmall')
+            level = {'level': -2, 'class': 'textsmall'}
         elif 'text' in header:
             text = header['text'].lower()
             regex_tuples = [(item[0][1], item[0][0], item[1]) for item in mapping_dict.items()]
+            attributes = {attr: header.get(attr, False) for attr in likely_header_attributes if attr in header}
             for regex, header_class, hierarchy_level in regex_tuples:
                 if re.match(regex, text):
-                    # Found a section header
-                    level = (hierarchy_level,header_class)
+                    # create a dictionary of attributes from likely_header_attributes
+                    level = {'level': hierarchy_level, 'class': header_class, ' ': attributes}
                     break
             
             if level is None:
+                # probably modify this to use attributes
                 if any([header.get(attr,False) for attr in likely_header_attributes]):
-                    level = (2,'companydesignated')
+                    level = {'level': predicted_header_level, 'class': 'predicted header', 'attributes': attributes}
 
         if level is None:
-            levels.append((-1,'text'))
+            level = {'level': -1, 'class': 'text'}
+            levels.append(level)
         else:
             levels.append(level)
+
+    # NOW USE SEQUENCE AND ATTRIBUTES IN THE LEVELS TO DETERMINE HIERARCHY FOR PREDICTED HEADERS
+    levels = determine_predicted_header_levels(levels)
     return levels
 
 # prob here we want to find the attributes first (fast)

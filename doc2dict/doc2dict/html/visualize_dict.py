@@ -90,7 +90,7 @@ def visualize_dict(data_dict, filename='document_visualization.html', open_brows
     # Add metadata box
     if "metadata" in data_dict:
         html.append('<div class="metadata-box">')
-        html.append('<div class="metadata-title">Document Metadata</div>')
+        html.append('<div class="metadata-title">Parser Metadata</div>')
         metadata = data_dict["metadata"]
         for key, value in metadata.items():
             html.append(f'<div><strong>{key}:</strong> {value}</div>')

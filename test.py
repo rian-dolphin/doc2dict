@@ -31,7 +31,7 @@ with open('instructions2.txt', 'w', encoding='utf-8') as f:
         f.write(str(instruction) + '\n')
 
 # webbrowser.open(file_path)
-# visualize_instructions(instructions)
+visualize_instructions(instructions)
 levels = determine_levels(instructions, tenk_mapping_dict)
 with open('levels.txt', 'w', encoding='utf-8') as f:
     for level in levels:
@@ -42,5 +42,6 @@ print("convert to dict time:", time()-start)
 # save the dictionary to a JSON file
 with open('dict.json', 'w', encoding='utf-8') as f:
     json.dump(dct, f, ensure_ascii=False, indent=4)
+
 
 visualize_dict(dct)
