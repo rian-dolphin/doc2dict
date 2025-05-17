@@ -83,12 +83,14 @@ def determine_levels(instructions_list, mapping_dict=None):
     # identify likely text nodes, return {} if not
     headers = [item if any([item.get(attr, False) for attr in likely_header_attributes]) else {} for item in headers]
     # count font-size
+    small_script = [False] * len(headers)
     font_size_counts = {size: sum(1 for item in [instr[0] for instr in instructions_list if 'text' in instr[0]] if item.get('font-size') == size) for size in set(item.get('font-size') for item in [instr[0] for instr in instructions_list if 'text' in instr[0]] if item.get('font-size') is not None)}
-    most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
-    if font_count > (.5 * len(instructions_list)):
-        # assume anything with less than this font size is small script
-        small_script = [True if item.get('font-size') is not None and item.get('font-size') < most_common_font_size else False for item in headers]
-
+    if font_size_counts != {}:
+        most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
+        if font_count > (.5 * len(instructions_list)):
+            # assume anything with less than this font size is small script
+            small_script = [True if item.get('font-size') is not None and item.get('font-size') < most_common_font_size else False for item in headers]
+            
 
     levels = []
     for idx,header in enumerate(headers):
