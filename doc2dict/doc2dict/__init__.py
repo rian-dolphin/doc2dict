@@ -7,3 +7,5 @@ from .html.convert_instructions_to_dict import convert_instructions_to_dict
 from .html.visualize_instructions import visualize_instructions
 from .html.visualize_dict import visualize_dict
 from .html.html2dict import html2dict
+
+from .utils import unnest_dict
