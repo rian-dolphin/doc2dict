@@ -1,28 +1,25 @@
-def get_title(dct, title, title_class):
-    result = (None, None)
-    
+def get_title(dct, title, title_class=None):
+    results = []
     title = title.lower()
-    title_class = title_class.lower()
-
+    title_class = title_class.lower() if title_class else None
+    
     def search(node, parent_id=None):
-        nonlocal result
         if isinstance(node, dict):
-            if node.get('title').lower() == title and node.get('class').lower() == title_class:
-                result = (parent_id, node)
-                return True
+            node_title = node.get('title', '').lower()
+            node_class = node.get('class', '').lower()
+            
+            if node_title == title and (title_class is None or node_class == title_class):
+                results.append((parent_id, node))
                 
             contents = node.get('contents', {})
             for key, value in contents.items():
-                if search(value, key):
-                    return True
-        return False
+                search(value, key)
     
     if 'document' in dct:
         for doc_id, doc_node in dct['document'].items():
-            if search(doc_node, doc_id):
-                break
+            search(doc_node, doc_id)
                 
-    return result
+    return results
 
 def unnest_dict(dct):
     result = []

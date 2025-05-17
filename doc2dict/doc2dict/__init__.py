@@ -8,4 +8,4 @@ from .html.visualize_instructions import visualize_instructions
 from .html.visualize_dict import visualize_dict
 from .html.html2dict import html2dict
 
-from .utils import unnest_dict
+from .utils import unnest_dict, get_title
