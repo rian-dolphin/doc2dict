@@ -7,9 +7,6 @@ doc2dict.egg-info/SOURCES.txt
 doc2dict.egg-info/dependency_links.txt
 doc2dict.egg-info/requires.txt
 doc2dict.egg-info/top_level.txt
-doc2dict/html/__init__.py
-doc2dict/html/html_parser.py
-doc2dict/html/visualizer.py
 doc2dict/txt/__init__.py
 doc2dict/txt/parser.py
 doc2dict/xml/__init__.py

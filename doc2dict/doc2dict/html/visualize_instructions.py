@@ -139,11 +139,11 @@ def visualize_instructions(instructions_list):
         </html>"""
     
     # Write HTML content to a temporary file
-    with open('discrete.html', 'w', encoding='utf-8') as f:
+    with open('instructions_visualization.html', 'w', encoding='utf-8') as f:
         f.write(html_content)
     
     # Get the absolute path of the file
-    file_path = os.path.abspath('discrete.html')
+    file_path = os.path.abspath('instructions_visualization.html')
     
     # Open the HTML file in the default web browser
     webbrowser.open('file://' + file_path)

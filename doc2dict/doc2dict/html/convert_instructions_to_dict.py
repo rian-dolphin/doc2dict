@@ -3,11 +3,7 @@ import pkg_resources
 
 version = pkg_resources.get_distribution("doc2dict").version
 
-tenk_mapping_dict = {
-    ('part',r'^part\s*([ivx]+)$') : 0,
-    ('signatures',r'^signatures?\.*$') : 0,
-    ('item',r'^item\s*(\d+)') : 1,
-}
+
 
 # AI GENERATED CODE BC I WANT TO PUSH TO PROD #
 def determine_predicted_header_levels(levels):
@@ -74,9 +70,12 @@ def determine_predicted_header_levels(levels):
     return [(level['level'], level['class']) for level in updated_levels]
 # AI GENERATED CODE BC I WANT TO PUSH TO PROD #
 
-def determine_levels(instructions_list, mapping_dict):
+def determine_levels(instructions_list, mapping_dict=None):
 
-    predicted_header_level = max(mapping_dict.values()) + 1
+    if mapping_dict is None:
+        predicted_header_level = 0
+    else:
+        predicted_header_level = max(mapping_dict.values()) + 1
 
     # filter out tables
     headers = [instructions[0] if 'text' in instructions[0] else {} for instructions in instructions_list]
@@ -94,17 +93,20 @@ def determine_levels(instructions_list, mapping_dict):
     levels = []
     for idx,header in enumerate(headers):
         level = None
+        attributes = {attr: header.get(attr, False) for attr in likely_header_attributes if attr in header}
+        
         if small_script[idx]:
             level = {'level': -2, 'class': 'textsmall'}
         elif 'text' in header:
-            text = header['text'].lower()
-            regex_tuples = [(item[0][1], item[0][0], item[1]) for item in mapping_dict.items()]
-            attributes = {attr: header.get(attr, False) for attr in likely_header_attributes if attr in header}
-            for regex, header_class, hierarchy_level in regex_tuples:
-                if re.match(regex, text):
-                    # create a dictionary of attributes from likely_header_attributes
-                    level = {'level': hierarchy_level, 'class': header_class, ' ': attributes}
-                    break
+            if mapping_dict is not None:
+                text = header['text'].lower()
+                regex_tuples = [(item[0][1], item[0][0], item[1]) for item in mapping_dict.items()]
+                
+                for regex, header_class, hierarchy_level in regex_tuples:
+                    if re.match(regex, text):
+                        # create a dictionary of attributes from likely_header_attributes
+                        level = {'level': hierarchy_level, 'class': header_class, ' ': attributes}
+                        break
             
             if level is None:
                 # probably modify this to use attributes
@@ -123,7 +125,7 @@ def determine_levels(instructions_list, mapping_dict):
 
 # prob here we want to find the attributes first (fast)
 # then try for the regex.
-def convert_instructions_to_dict(instructions_list, mapping_dict):
+def convert_instructions_to_dict(instructions_list, mapping_dict=None):
     # Get pre-calculated levels for each instruction
     levels = determine_levels(instructions_list, mapping_dict)
     
