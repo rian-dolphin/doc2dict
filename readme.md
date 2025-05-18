@@ -41,11 +41,6 @@ dct = html2dict(content,mapping_dict=None)
 visualize_dict(dct)
 ```
 
-from .html.convert_html_to_instructions import convert_html_to_instructions
-from .html.convert_instructions_to_dict import convert_instructions_to_dict
-from .html.visualize_instructions import visualize_instructions
-from .html.html2dict import html2dict
-
 ### Mapping Dicts
 Mapping dictionaries are rules that you pass into the parser to tweak its functionality. 
 
