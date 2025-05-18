@@ -1,8 +1,0 @@
-from doc2dict.doc2dict.htmlrewrite2.instructions import clean_table
-
-table = [{'table': [[{'text': '(In millions)'}, {'text': '(In millions)'}, {'text': '(In millions)'}, {'text': '(In millions)'}, {'text': '(In millions)'}, {'text': '(In millions)'}], [{'text': 'June 30,'}, {'text': '2024'}, {'text': '2024'}, {'text': ''}, {'text': '2023'}, {'text': '2023'}], [{'text': 'Land'}, {'text': '$'}, {'text': '8,163'}, {'text': ''}, {'text': '$'}, {'text': '5,683'}], [{'text': 'Buildings and improvements'}, {'text': ''}, {'text': '93,943'}, {'text': ''}, {'text': ''}, {'text': '68,465'}], [{'text': 'Leasehold improvements'}, {'text': ''}, {'text': '9,594'}, {'text': ''}, {'text': ''}, {'text': '8,537'}], [{'text': 'Computer equipment and software'}, {'text': ''}, {'text': '93,780'}, {'text': ''}, {'text': ''}, {'text': '74,961'}], [{'text': 'Furniture and equipment'}, {'text': ''}, {'text': '6,532'}, {'text': ''}, {'text': ''}, {'text': '6,246'}], [{'text': 'Total, at cost'}, {'text': ''}, {'text': '212,012'}, {'text': ''}, {'text': ''}, {'text': '163,892'}], [{'text': 'Accumulated depreciation'}, {'text': ''}, {'text': '(76,421'}, {'text': ')'}, {'text': ''}, {'text': '(68,251'}], [{'text': 'Total, net'}, {'text': '$'}, {'text': '135,591'}, {'text': ''}, {'text': '$'}, {'text': '95,641'}]]}]
-
-cleaned_table = clean_table(table[0]['table'])
-
-for row in cleaned_table:
-    print([row['text'] for row in row])

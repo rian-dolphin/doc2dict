@@ -1,9 +1,13 @@
-# doc2dict (NOT READY FOR PUBLIC USE YET)
+# doc2dict
 
-Convert HTML, XML, and PDFs into dictionaries using an algorithmic approach.
+Convert HTML, XML, and PDFs into dictionaries.
 
-Parsers
-1. HTML Parser (WIP)
+Note that `doc2dict` is in an early stage. The goal is to create a fast, generalized, algorithmic parser that can be easily tweaked depending on the document.
+
+`doc2dict` supports the [datamule](https://github.com/john-friedman/datamule-python) project.
+
+## Parsers
+1. HTML Parser
 2. XML Parser - please use Martin Blech's excellent xmltodict. doc2dict's xml2dict is currently a mess.
 3. PDF/IMAGE Parser (Planned)
 
@@ -12,11 +16,72 @@ Parsers
 pip install doc2dict
 ```
 
-## Quickstart
-```
-from doc2dict import html2dict
+## HTML
 
-with open('tesla10k.txt','r') as f:
-    content = f.read()
-html_dict = html2dict(content,mapping_dict=None)
+### Examples:
+
+Parsed HTML in Dictionary Form:
+[example](example_output/html/dict.json)
+
+Dictionary Form converted to HTML for easy visualiztion:
+[example](example_output/html/document_visualization.html)
+
+### Quickstart
 ```
+from doc2dict import html2dict, visualize_dict
+
+# Load your html file
+with open('apple_10k_2024.html','r') as f:
+    content = f.read()
+
+# Parse 
+dct = html2dict(content,mapping_dict=None)
+
+# Visualize Parsing
+visualize_dict(dct)
+```
+
+from .html.convert_html_to_instructions import convert_html_to_instructions
+from .html.convert_instructions_to_dict import convert_instructions_to_dict
+from .html.visualize_instructions import visualize_instructions
+from .html.html2dict import html2dict
+
+### Mapping Dicts
+Mapping dictionaries are rules that you pass into the parser to tweak its functionality. 
+
+The below mapping dict tells the parser that "item" header should appear in the nesting of "part" headers.
+```
+tenk_mapping_dict = {
+    ('part',r'^part\s*([ivx]+)$') : 0,
+    ('signatures',r'^signatures?\.*$') : 0,
+    ('item',r'^item\s*(\d+)') : 1,
+}
+```
+
+
+### Debugging
+```
+from doc2dict import convert_html_to_instructions, convert_instructions_to_dict, visualize_instructions, visualize_dict
+
+# load your html file
+with open('tesla10k.htm','r') as f:
+    content = f.read()
+
+# convert html to a series of instructions
+instructions = convert_html_to_instructions(content)
+
+# visualize the conversion
+visualize_instructions(instructions)
+
+# convert instructions to dictionary
+dct = html2dict(content,mapping_dict=None)
+
+# visualize dictionary
+visualize_dict(dct)
+```
+
+### Benchmarks 
+
+Based on my personal (potato) laptop:
+* About 400 pages / per second single threaded.
+* Parses the 57 page Apple 10-K in 160 milliseconds.

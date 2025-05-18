@@ -11,25 +11,21 @@
             "contents": {
                 "0": {
                     "title": "UNITED STATES",
-                    "standardized_title": "",
                     "class": "predicted header",
                     "contents": {}
                 },
                 "1": {
                     "title": "SECURITIES AND EXCHANGE COMMISSION",
-                    "standardized_title": "",
                     "class": "predicted header",
                     "contents": {}
                 },
                 "2": {
                     "title": "Washington, D.C. 20549",
-                    "standardized_title": "",
                     "class": "predicted header",
                     "contents": {}
                 },
                 "3": {
                     "title": "FORM 10-K",
-                    "standardized_title": "",
                     "class": "predicted header",
                     "contents": {
                         "4": {
@@ -67,7 +63,6 @@
                 },
                 "7": {
                     "title": "MICROSOFT CORPORATION",
-                    "standardized_title": "",
                     "class": "predicted header",
                     "contents": {
                         "8": {
@@ -189,25 +184,21 @@
                 },
                 "27": {
                     "title": "MICROSOFT CORPORATION",
-                    "standardized_title": "",
                     "class": "predicted header",
                     "contents": {}
                 },
                 "28": {
                     "title": "FORM 10-K",
-                    "standardized_title": "",
                     "class": "predicted header",
                     "contents": {}
                 },
                 "29": {
                     "title": "For the Fiscal Year Ended June 30, 2024",
-                    "standardized_title": "",
                     "class": "predicted header",
                     "contents": {}
                 },
                 "30": {
                     "title": "INDEX",
-                    "standardized_title": "",
                     "class": "predicted header",
                     "contents": {
                         "31": {
@@ -387,7 +378,6 @@
                 },
                 "35": {
                     "title": "Note About Forward-Looking Statements",
-                    "standardized_title": "",
                     "class": "predicted header",
                     "contents": {
                         "36": {
@@ -399,22 +389,18 @@
         },
         "37": {
             "title": "PART I",
-            "standardized_title": "parti",
             "class": "part",
             "contents": {
                 "38": {
                     "title": "ITEM 1. BUSINESS",
-                    "standardized_title": "item1",
                     "class": "item",
                     "contents": {
                         "39": {
                             "title": "GENERAL",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "40": {
                                     "title": "Embracing Our Future",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "41": {
@@ -430,7 +416,6 @@
                                 },
                                 "44": {
                                     "title": "What We Offer",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "45": {
@@ -455,7 +440,6 @@
                                 },
                                 "51": {
                                     "title": "The Ambitions That Drive Us",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "52": {
@@ -472,7 +456,6 @@
                                         },
                                         "56": {
                                             "title": "Reinvent Productivity and Business Processes",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "57": {
@@ -488,7 +471,6 @@
                                         },
                                         "60": {
                                             "title": "Build the Intelligent Cloud and Intelligent Edge Platform",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "61": {
@@ -540,7 +522,6 @@
                                         },
                                         "76": {
                                             "title": "Create More Personal Computing",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "77": {
@@ -568,7 +549,6 @@
                                         },
                                         "84": {
                                             "title": "Our Future Opportunity",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "85": {
@@ -601,12 +581,10 @@
                                 },
                                 "93": {
                                     "title": "Corporate Social Responsibility",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "94": {
                                             "title": "Commitment to Sustainability",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "95": {
@@ -655,7 +633,6 @@
                                         },
                                         "109": {
                                             "title": "Addressing Racial Injustice and Inequity",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "110": {
@@ -674,7 +651,6 @@
                                         },
                                         "114": {
                                             "title": "Investing in Digital Skills",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "115": {
@@ -691,7 +667,6 @@
                         },
                         "117": {
                             "title": "HUMAN CAPITAL RESOURCES",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "118": {
@@ -728,7 +703,6 @@
                         },
                         "128": {
                             "title": "OPERATING SEGMENTS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "129": {
@@ -742,7 +716,6 @@
                                 },
                                 "132": {
                                     "title": "Productivity and Business Processes",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "133": {
@@ -771,7 +744,6 @@
                                         },
                                         "141": {
                                             "title": "Office Commercial",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "142": {
@@ -781,7 +753,6 @@
                                         },
                                         "143": {
                                             "title": "Office Consumer",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "144": {
@@ -791,7 +762,6 @@
                                         },
                                         "145": {
                                             "title": "LinkedIn",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "146": {
@@ -801,7 +771,6 @@
                                         },
                                         "147": {
                                             "title": "Dynamics",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "148": {
@@ -818,7 +787,6 @@
                                                 },
                                                 "152": {
                                                     "title": "Competition",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "153": {
@@ -838,7 +806,6 @@
                                 },
                                 "156": {
                                     "title": "Intelligent Cloud",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "157": {
@@ -852,7 +819,6 @@
                                         },
                                         "160": {
                                             "title": "Server Products and Cloud Services",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "161": {
@@ -880,7 +846,6 @@
                                         },
                                         "168": {
                                             "title": "Enterprise and Partner Services",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "169": {
@@ -888,7 +853,6 @@
                                                 },
                                                 "170": {
                                                     "title": "Competition",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "171": {
@@ -926,7 +890,6 @@
                                 },
                                 "180": {
                                     "title": "More Personal Computing",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "181": {
@@ -946,7 +909,6 @@
                                         },
                                         "186": {
                                             "title": "Windows",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "187": {
@@ -992,7 +954,6 @@
                                         },
                                         "200": {
                                             "title": "Devices",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "201": {
@@ -1011,7 +972,6 @@
                                         },
                                         "205": {
                                             "title": "Gaming",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "206": {
@@ -1027,7 +987,6 @@
                                         },
                                         "209": {
                                             "title": "Search and News Advertising",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "210": {
@@ -1035,7 +994,6 @@
                                                 },
                                                 "211": {
                                                     "title": "Competition",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "212": {
@@ -1069,7 +1027,6 @@
                         },
                         "219": {
                             "title": "OPERATIONS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "220": {
@@ -1085,12 +1042,10 @@
                         },
                         "223": {
                             "title": "RESEARCH AND DEVELOPMENT",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "224": {
                                     "title": "Product and Service Development, and Intellectual Property",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "225": {
@@ -1142,7 +1097,6 @@
                                 },
                                 "240": {
                                     "title": "Investing in the Future",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "241": {
@@ -1160,7 +1114,6 @@
                         },
                         "244": {
                             "title": "DISTRIBUTION, SALES, AND MARKETING",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "245": {
@@ -1168,7 +1121,6 @@
                                 },
                                 "246": {
                                     "title": "OEMs",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "247": {
@@ -1190,7 +1142,6 @@
                                 },
                                 "252": {
                                     "title": "Direct",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "253": {
@@ -1203,7 +1154,6 @@
                                 },
                                 "255": {
                                     "title": "Distributors and Resellers",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "256": {
@@ -1221,7 +1171,6 @@
                         },
                         "259": {
                             "title": "LICENSING OPTIONS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "260": {
@@ -1241,12 +1190,10 @@
                                 },
                                 "265": {
                                     "title": "Volume Licensing Programs",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "266": {
                                             "title": "Enterprise Agreement",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "267": {
@@ -1256,7 +1203,6 @@
                                         },
                                         "268": {
                                             "title": "Microsoft Customer Agreement",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "269": {
@@ -1266,7 +1212,6 @@
                                         },
                                         "270": {
                                             "title": "Microsoft Online Subscription Agreement",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "271": {
@@ -1276,7 +1221,6 @@
                                         },
                                         "272": {
                                             "title": "Microsoft Products and Services Agreement",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "273": {
@@ -1286,7 +1230,6 @@
                                         },
                                         "274": {
                                             "title": "Open Value",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "275": {
@@ -1296,7 +1239,6 @@
                                         },
                                         "276": {
                                             "title": "Select Plus",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "277": {
@@ -1308,7 +1250,6 @@
                                 },
                                 "278": {
                                     "title": "Partner Programs",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "279": {
@@ -1335,7 +1276,6 @@
                         },
                         "285": {
                             "title": "CUSTOMERS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "286": {
@@ -1345,7 +1285,6 @@
                         },
                         "287": {
                             "title": "GOVERNMENT REGULATION",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "288": {
@@ -1358,7 +1297,6 @@
                         },
                         "290": {
                             "title": "INFORMATION ABOUT OUR EXECUTIVE OFFICERS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "291": {
@@ -1442,7 +1380,6 @@
                         },
                         "303": {
                             "title": "AVAILABLE INFORMATION",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "304": {
@@ -1490,7 +1427,6 @@
                 },
                 "317": {
                     "title": "ITEM 1A. RISK FACTORS",
-                    "standardized_title": "item1a",
                     "class": "item",
                     "contents": {
                         "318": {
@@ -1498,17 +1434,14 @@
                         },
                         "319": {
                             "title": "STRATEGIC AND COMPETITIVE RISKS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "320": {
                                     "title": "We face intense competition across all markets for our products and services, which may adversely affect our results of operations.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "321": {
                                             "title": "Competition in the technology sector",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "322": {
@@ -1518,7 +1451,6 @@
                                         },
                                         "323": {
                                             "title": "Competition among platform-based ecosystems",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "324": {
@@ -1549,7 +1481,6 @@
                                         },
                                         "332": {
                                             "title": "Business model competition",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "333": {
@@ -1579,7 +1510,6 @@
                                 },
                                 "340": {
                                     "title": "Our focus on cloud-based and AI services presents execution and competitive risks.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "340": {
@@ -1621,12 +1551,10 @@
                         },
                         "351": {
                             "title": "RISKS RELATING TO THE EVOLUTION OF OUR BUSINESS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "352": {
                                     "title": "We make significant investments in products and services that may not achieve expected returns.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "352": {
@@ -1636,7 +1564,6 @@
                                 },
                                 "353": {
                                     "title": "Acquisitions, joint ventures, and strategic alliances may have an adverse effect on our business.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "353": {
@@ -1646,7 +1573,6 @@
                                 },
                                 "354": {
                                     "title": "If our goodwill or amortizable intangible assets become impaired, we may be required to record a significant charge to earnings.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "354": {
@@ -1667,17 +1593,14 @@
                         },
                         "358": {
                             "title": "CYBERSECURITY, DATA PRIVACY, AND PLATFORM ABUSE RISKS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "359": {
                                     "title": "Cyberattacks and security vulnerabilities could lead to reduced revenue, increased costs, liability claims, or harm to our reputation or competitive position.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "360": {
                                             "title": "Security of our information technology",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "361": {
@@ -1705,7 +1628,6 @@
                                         },
                                         "368": {
                                             "title": "Security of our products, services, devices, and customers’ data",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "369": {
@@ -1733,7 +1655,6 @@
                                         },
                                         "376": {
                                             "title": "Development and deployment of defensive measures",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "377": {
@@ -1751,7 +1672,6 @@
                                 },
                                 "380": {
                                     "title": "Disclosure and misuse of personal data could result in liability and harm our reputation.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "380": {
@@ -1761,7 +1681,6 @@
                                 },
                                 "381": {
                                     "title": "We may not be able to protect information in our products and services from use by others",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "381": {
@@ -1780,12 +1699,10 @@
                                 },
                                 "385": {
                                     "title": "Abuse of our platforms may harm our reputation or user engagement.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "386": {
                                             "title": "Advertising, professional, marketplace, and gaming platform abuses",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "387": {
@@ -1795,7 +1712,6 @@
                                         },
                                         "388": {
                                             "title": "Other digital safety abuses",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "389": {
@@ -1807,7 +1723,6 @@
                                 },
                                 "390": {
                                     "title": "Our products and services, how they are used by customers, and how third-party products and services interact with them, may present security, privacy, and execution risks. ",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "390": {
@@ -1817,7 +1732,6 @@
                                 },
                                 "391": {
                                     "title": "Issues in the development and use of AI may result in reputational or competitive harm or liability",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "391": {
@@ -1838,12 +1752,10 @@
                         },
                         "395": {
                             "title": "OPERATIONAL RISKS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "396": {
                                     "title": "We may have excessive outages, data losses, and disruptions of our online services if we fail to maintain an adequate operations infrastructure.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "396": {
@@ -1853,7 +1765,6 @@
                                 },
                                 "397": {
                                     "title": "We may experience quality or supply problems. ",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "397": {
@@ -1880,12 +1791,10 @@
                         },
                         "403": {
                             "title": "LEGAL, REGULATORY, AND LITIGATION RISKS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "404": {
                                     "title": "Government enforcement under competition laws and new market regulation may limit how we design and market our products.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "404": {
@@ -1904,7 +1813,6 @@
                                 },
                                 "408": {
                                     "title": "Laws and regulations relating to anti-corruption and trade could result in increased costs, fines, criminal penalties, or reputational damage.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "408": {
@@ -1926,7 +1834,6 @@
                                 },
                                 "413": {
                                     "title": "Laws and regulations relating to the handling of personal data may impede the adoption of our services or result in increased costs, legal claims, fines against us, or reputational damage. ",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "413": {
@@ -1948,7 +1855,6 @@
                                 },
                                 "418": {
                                     "title": "Existing and increasing legal and regulatory requirements could adversely affect our results of operations. ",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "418": {
@@ -1961,7 +1867,6 @@
                                 },
                                 "420": {
                                     "title": "We have claims and lawsuits against us that may result in adverse outcomes.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "420": {
@@ -1971,7 +1876,6 @@
                                 },
                                 "421": {
                                     "title": "Our business with government customers may present additional uncertainties. ",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "421": {
@@ -1981,7 +1885,6 @@
                                 },
                                 "422": {
                                     "title": "We may have additional tax liabilities.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "422": {
@@ -2006,7 +1909,6 @@
                                 },
                                 "428": {
                                     "title": "We are subject to evolving sustainability regulatory requirements and expectations, which exposes us to increased costs and legal and reputational risks.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "428": {
@@ -2018,12 +1920,10 @@
                         },
                         "429": {
                             "title": "INTELLECTUAL PROPERTY RISKS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "430": {
                                     "title": "We face risks related to the protection and utilization of our intellectual property that may result in our business and operating results being harmed. ",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "430": {
@@ -2039,7 +1939,6 @@
                                 },
                                 "433": {
                                     "title": "Third parties may claim that we infringe their intellectual property.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "433": {
@@ -2060,12 +1959,10 @@
                         },
                         "437": {
                             "title": "GENERAL RISKS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "438": {
                                     "title": "If our reputation or our brands are damaged, our business and results of operations may be harmed",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "438": {
@@ -2087,7 +1984,6 @@
                                 },
                                 "443": {
                                     "title": "Adverse economic or market conditions may harm our business.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "443": {
@@ -2106,7 +2002,6 @@
                                 },
                                 "447": {
                                     "title": "Catastrophic events or geopolitical conditions may disrupt our business.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "447": {
@@ -2134,7 +2029,6 @@
                                 },
                                 "454": {
                                     "title": "Our global business exposes us to operational and economic risks.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "454": {
@@ -2144,7 +2038,6 @@
                                 },
                                 "455": {
                                     "title": "Our business depends on our ability to attract and retain talented employees.",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "455": {
@@ -2167,7 +2060,6 @@
                 },
                 "459": {
                     "title": "ITEM 1B. UNRESOLVED STAFF COMMENTS",
-                    "standardized_title": "item1b",
                     "class": "item",
                     "contents": {
                         "460": {
@@ -2177,12 +2069,10 @@
                 },
                 "461": {
                     "title": "ITEM 1C. CYBERSECURITY",
-                    "standardized_title": "item1c",
                     "class": "item",
                     "contents": {
                         "462": {
                             "title": "RISK MANAGEMENT AND STRATEGY",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "463": {
@@ -2231,7 +2121,6 @@
                         },
                         "477": {
                             "title": "GOVERNANCE",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "478": {
@@ -2255,7 +2144,6 @@
                 },
                 "483": {
                     "title": "ITEM 2. PROPERTIES",
-                    "standardized_title": "item2",
                     "class": "item",
                     "contents": {
                         "484": {
@@ -2305,7 +2193,6 @@
                 },
                 "488": {
                     "title": "ITEM 3. LEGAL PROCEEDINGS",
-                    "standardized_title": "item3",
                     "class": "item",
                     "contents": {
                         "489": {
@@ -2315,7 +2202,6 @@
                 },
                 "490": {
                     "title": "ITEM 4. MINE SAFETY DISCLOSURES",
-                    "standardized_title": "item4",
                     "class": "item",
                     "contents": {
                         "491": {
@@ -2336,17 +2222,14 @@
         },
         "495": {
             "title": "PART II",
-            "standardized_title": "partii",
             "class": "part",
             "contents": {
                 "496": {
                     "title": "ITEM 5. MARKET FOR REGISTRANT’S COMMON EQUITY, RELATED STOCKHOLDER MATTERS, AND ISSUER PURCHASES OF EQUITY SECURITIES",
-                    "standardized_title": "item5",
                     "class": "item",
                     "contents": {
                         "497": {
                             "title": "MARKET AND STOCKHOLDERS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "498": {
@@ -2356,7 +2239,6 @@
                         },
                         "499": {
                             "title": "SHARE REPURCHASES AND DIVIDENDS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "500": {
@@ -2457,7 +2339,6 @@
                 },
                 "509": {
                     "title": "ITEM 6. [RESERVED]",
-                    "standardized_title": "item6",
                     "class": "item",
                     "contents": {
                         "510": {
@@ -2473,7 +2354,6 @@
                 },
                 "513": {
                     "title": "ITEM 7. MANAGEMENT’S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERATIONS",
-                    "standardized_title": "item7",
                     "class": "item",
                     "contents": {
                         "514": {
@@ -2481,7 +2361,6 @@
                         },
                         "515": {
                             "title": "OVERVIEW",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "516": {
@@ -2537,7 +2416,6 @@
                                 },
                                 "533": {
                                     "title": "Industry Trends",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "534": {
@@ -2547,7 +2425,6 @@
                                 },
                                 "535": {
                                     "title": "Economic Conditions, Challenges, and Risks",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "536": {
@@ -2569,7 +2446,6 @@
                                 },
                                 "541": {
                                     "title": "Seasonality",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "542": {
@@ -2579,7 +2455,6 @@
                                 },
                                 "543": {
                                     "title": "Change in Accounting Estimate",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "544": {
@@ -2598,7 +2473,6 @@
                                 },
                                 "548": {
                                     "title": "Reportable Segments",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "549": {
@@ -2611,7 +2485,6 @@
                                 },
                                 "551": {
                                     "title": "Metrics",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "552": {
@@ -2622,7 +2495,6 @@
                                         },
                                         "554": {
                                             "title": "Commercial",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "555": {
@@ -2657,7 +2529,6 @@
                                         },
                                         "560": {
                                             "title": "Productivity and Business Processes and Intelligent Cloud",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "561": {
@@ -2699,7 +2570,6 @@
                                         },
                                         "563": {
                                             "title": "More Personal Computing",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "564": {
@@ -2746,7 +2616,6 @@
                         },
                         "569": {
                             "title": "SUMMARY RESULTS OF OPERATIONS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "570": {
@@ -2818,7 +2687,6 @@
                                 },
                                 "572": {
                                     "title": "Fiscal Year 2024 Compared with Fiscal Year 2023",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "573": {
@@ -2860,7 +2728,6 @@
                         },
                         "584": {
                             "title": "SEGMENT RESULTS OF OPERATIONS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "585": {
@@ -2935,17 +2802,14 @@
                                 },
                                 "586": {
                                     "title": "Reportable Segments",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "587": {
                                             "title": "Fiscal Year 2024 Compared with Fiscal Year 2023",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "588": {
                                                     "title": "Productivity and Business Processes",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "589": {
@@ -2976,7 +2840,6 @@
                                                 },
                                                 "597": {
                                                     "title": "Intelligent Cloud",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "598": {
@@ -3010,7 +2873,6 @@
                                                 },
                                                 "607": {
                                                     "title": "More Personal Computing",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "608": {
@@ -3047,12 +2909,10 @@
                         },
                         "616": {
                             "title": "OPERATING EXPENSES",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "617": {
                                     "title": "Research and Development",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "618": {
@@ -3082,7 +2942,6 @@
                                         },
                                         "620": {
                                             "title": "Fiscal Year 2024 Compared with Fiscal Year 2023",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "621": {
@@ -3094,7 +2953,6 @@
                                 },
                                 "622": {
                                     "title": "Sales and Marketing",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "623": {
@@ -3133,7 +2991,6 @@
                                         },
                                         "628": {
                                             "title": "Fiscal Year 2024 Compared with Fiscal Year 2023",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "629": {
@@ -3145,7 +3002,6 @@
                                 },
                                 "630": {
                                     "title": "General and Administrative",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "631": {
@@ -3175,7 +3031,6 @@
                                         },
                                         "633": {
                                             "title": "Fiscal Year 2024 Compared with Fiscal Year 2023",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "634": {
@@ -3189,7 +3044,6 @@
                         },
                         "635": {
                             "title": "OTHER INCOME (EXPENSE), NET",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "636": {
@@ -3249,7 +3103,6 @@
                                 },
                                 "639": {
                                     "title": "Fiscal Year 2024 Compared with Fiscal Year 2023",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "640": {
@@ -3270,12 +3123,10 @@
                         },
                         "644": {
                             "title": "INCOME TAXES",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "645": {
                                     "title": "Effective Tax Rate",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "646": {
@@ -3294,7 +3145,6 @@
                                 },
                                 "650": {
                                     "title": "Uncertain Tax Positions",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "651": {
@@ -3309,7 +3159,6 @@
                         },
                         "653": {
                             "title": "NON-GAAP FINANCIAL MEASURES",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "654": {
@@ -3416,7 +3265,6 @@
                         },
                         "661": {
                             "title": "LIQUIDITY AND CAPITAL RESOURCES",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "662": {
@@ -3424,7 +3272,6 @@
                                 },
                                 "663": {
                                     "title": "Cash, Cash Equivalents, and Investments",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "664": {
@@ -3434,7 +3281,6 @@
                                 },
                                 "665": {
                                     "title": "Valuation",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "666": {
@@ -3456,7 +3302,6 @@
                                 },
                                 "671": {
                                     "title": "Cash Flows",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "672": {
@@ -3466,7 +3311,6 @@
                                 },
                                 "673": {
                                     "title": "Debt Proceeds",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "674": {
@@ -3476,7 +3320,6 @@
                                 },
                                 "675": {
                                     "title": "Unearned Revenue",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "676": {
@@ -3537,12 +3380,10 @@
                                 },
                                 "683": {
                                     "title": "Material Cash Requirements and Other Obligations",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "684": {
                                             "title": "Contractual Obligations",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "685": {
@@ -3616,7 +3457,6 @@
                                         },
                                         "691": {
                                             "title": "Income Taxes",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "692": {
@@ -3626,7 +3466,6 @@
                                         },
                                         "693": {
                                             "title": "Share Repurchases",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "694": {
@@ -3636,7 +3475,6 @@
                                         },
                                         "695": {
                                             "title": "Dividends",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "696": {
@@ -3646,7 +3484,6 @@
                                         },
                                         "697": {
                                             "title": "Other Planned Uses of Capital",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "698": {
@@ -3669,7 +3506,6 @@
                         },
                         "702": {
                             "title": "RECENT ACCOUNTING GUIDANCE",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "703": {
@@ -3679,7 +3515,6 @@
                         },
                         "704": {
                             "title": "CRITICAL ACCOUNTING ESTIMATES",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "705": {
@@ -3687,7 +3522,6 @@
                                 },
                                 "706": {
                                     "title": "Revenue Recognition",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "707": {
@@ -3709,7 +3543,6 @@
                                 },
                                 "712": {
                                     "title": "Impairment of Investment Securities",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "713": {
@@ -3731,7 +3564,6 @@
                                 },
                                 "718": {
                                     "title": "Goodwill",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "719": {
@@ -3747,7 +3579,6 @@
                                 },
                                 "722": {
                                     "title": "Research and Development Costs",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "723": {
@@ -3757,7 +3588,6 @@
                                 },
                                 "724": {
                                     "title": "Legal and Other Contingencies",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "725": {
@@ -3776,7 +3606,6 @@
                                 },
                                 "729": {
                                     "title": "Income Taxes",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "730": {
@@ -3786,7 +3615,6 @@
                                 },
                                 "731": {
                                     "title": "Business Combinations – Valuation of Intangible Assets",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "732": {
@@ -3805,7 +3633,6 @@
                                 },
                                 "736": {
                                     "title": "STATEMENT OF MANAGEMENT’S RESPONSIBILITY FOR FINANCIAL STATEMENTS",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "737": {
@@ -3859,12 +3686,10 @@
                 },
                 "745": {
                     "title": "ITEM 7A. QUANTITATIVE AND QUALITATIVE DISCLOSURES ABOUT MARKET RISK",
-                    "standardized_title": "item7a",
                     "class": "item",
                     "contents": {
                         "746": {
                             "title": "RISKS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "747": {
@@ -3872,7 +3697,6 @@
                                 },
                                 "748": {
                                     "title": "Foreign Currencies",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "749": {
@@ -3882,7 +3706,6 @@
                                 },
                                 "750": {
                                     "title": "Interest Rate",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "751": {
@@ -3892,7 +3715,6 @@
                                 },
                                 "752": {
                                     "title": "Credit",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "753": {
@@ -3902,7 +3724,6 @@
                                 },
                                 "754": {
                                     "title": "Equity",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "755": {
@@ -3914,7 +3735,6 @@
                         },
                         "756": {
                             "title": "SENSITIVITY ANALYSIS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "757": {
@@ -3981,12 +3801,10 @@
                 },
                 "762": {
                     "title": "ITEM 8. FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA",
-                    "standardized_title": "item8",
                     "class": "item",
                     "contents": {
                         "763": {
                             "title": "INCOME STATEMENTS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "764": {
@@ -4159,7 +3977,6 @@
                         },
                         "769": {
                             "title": "COMPREHENSIVE INCOME STATEMENTS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "770": {
@@ -4236,7 +4053,6 @@
                         },
                         "775": {
                             "title": "BALANCE SHEETS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "776": {
@@ -4469,7 +4285,6 @@
                         },
                         "781": {
                             "title": "CASH FLOWS STATEMENTS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "782": {
@@ -4738,7 +4553,6 @@
                         },
                         "787": {
                             "title": "STOCKHOLDERS’ EQUITY STATEMENTS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "788": {
@@ -4887,17 +4701,14 @@
                         },
                         "793": {
                             "title": "NOTES TO FINANCIAL STATEMENTS",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "794": {
                                     "title": "NOTE 1 — ACCOUNTING POLICIES",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "795": {
                                             "title": "Accounting Principles",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "796": {
@@ -4910,7 +4721,6 @@
                                         },
                                         "798": {
                                             "title": "Principles of Consolidation",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "799": {
@@ -4920,7 +4730,6 @@
                                         },
                                         "800": {
                                             "title": "Estimates and Assumptions",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "801": {
@@ -4933,7 +4742,6 @@
                                         },
                                         "803": {
                                             "title": "Foreign Currencies",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "804": {
@@ -4943,12 +4751,10 @@
                                         },
                                         "805": {
                                             "title": "Revenue",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "806": {
                                                     "title": "Product Revenue and Service and Other Revenue",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "807": {
@@ -4970,7 +4776,6 @@
                                                 },
                                                 "812": {
                                                     "title": "Revenue Recognition",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "813": {
@@ -4978,7 +4783,6 @@
                                                         },
                                                         "814": {
                                                             "title": "Nature of Products and Services",
-                                                            "standardized_title": "",
                                                             "class": "predicted header",
                                                             "contents": {
                                                                 "815": {
@@ -5003,7 +4807,6 @@
                                                         },
                                                         "821": {
                                                             "title": "Significant Judgments",
-                                                            "standardized_title": "",
                                                             "class": "predicted header",
                                                             "contents": {
                                                                 "822": {
@@ -5036,7 +4839,6 @@
                                                 },
                                                 "830": {
                                                     "title": "Contract Balances and Other Receivables",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "831": {
@@ -5156,7 +4958,6 @@
                                                 },
                                                 "846": {
                                                     "title": "Assets Recognized from Costs to Obtain a Contract with a Customer",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "847": {
@@ -5171,7 +4972,6 @@
                                         },
                                         "849": {
                                             "title": "Cost of Revenue",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "850": {
@@ -5190,7 +4990,6 @@
                                         },
                                         "854": {
                                             "title": "Product Warranty",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "855": {
@@ -5200,7 +4999,6 @@
                                         },
                                         "856": {
                                             "title": "Research and Development",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "857": {
@@ -5210,7 +5008,6 @@
                                         },
                                         "858": {
                                             "title": "Sales and Marketing",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "859": {
@@ -5220,7 +5017,6 @@
                                         },
                                         "860": {
                                             "title": "Stock-Based Compensation",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "861": {
@@ -5233,7 +5029,6 @@
                                         },
                                         "863": {
                                             "title": "Income Taxes",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "864": {
@@ -5243,12 +5038,10 @@
                                         },
                                         "865": {
                                             "title": "Financial Instruments",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "866": {
                                                     "title": "Investments",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "867": {
@@ -5276,7 +5069,6 @@
                                                 },
                                                 "874": {
                                                     "title": "Derivatives",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "875": {
@@ -5297,7 +5089,6 @@
                                         },
                                         "879": {
                                             "title": "Fair Value Measurements",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "880": {
@@ -5331,7 +5122,6 @@
                                         },
                                         "889": {
                                             "title": "Inventories",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "890": {
@@ -5341,7 +5131,6 @@
                                         },
                                         "891": {
                                             "title": "Property and Equipment",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "892": {
@@ -5351,7 +5140,6 @@
                                         },
                                         "893": {
                                             "title": "Leases",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "894": {
@@ -5376,7 +5164,6 @@
                                         },
                                         "900": {
                                             "title": "Goodwill",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "901": {
@@ -5386,7 +5173,6 @@
                                         },
                                         "902": {
                                             "title": "Intangible Assets",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "903": {
@@ -5396,7 +5182,6 @@
                                         },
                                         "904": {
                                             "title": "Related Party Transactions",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "905": {
@@ -5406,12 +5191,10 @@
                                         },
                                         "906": {
                                             "title": "Recent Accounting Guidance",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "907": {
                                                     "title": "Segment Reporting – Improvements to Reportable Segment Disclosures",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "908": {
@@ -5421,7 +5204,6 @@
                                                 },
                                                 "909": {
                                                     "title": "Income Taxes – Improvements to Income Tax Disclosures",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "910": {
@@ -5435,7 +5217,6 @@
                                 },
                                 "911": {
                                     "title": "NOTE 2 — EARNINGS PER SHARE",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "912": {
@@ -5518,7 +5299,6 @@
                                 },
                                 "919": {
                                     "title": "NOTE 3 — OTHER INCOME (EXPENSE), NET",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "920": {
@@ -5587,7 +5367,6 @@
                                         },
                                         "923": {
                                             "title": "Net Recognized Gains (Losses) on Investments",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "924": {
@@ -5691,12 +5470,10 @@
                                 },
                                 "931": {
                                     "title": "NOTE 4 — INVESTMENTS",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "932": {
                                             "title": "Investment Components",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "933": {
@@ -6200,7 +5977,6 @@
                                         },
                                         "944": {
                                             "title": "Unrealized Losses on Debt Investments",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "945": {
@@ -6383,7 +6159,6 @@
                                         },
                                         "949": {
                                             "title": "Debt Investment Maturities",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "950": {
@@ -6443,7 +6218,6 @@
                                 },
                                 "955": {
                                     "title": "NOTE 5 — DERIVATIVES",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "956": {
@@ -6451,7 +6225,6 @@
                                         },
                                         "957": {
                                             "title": "Foreign Currencies",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "958": {
@@ -6467,7 +6240,6 @@
                                         },
                                         "961": {
                                             "title": "Interest Rate",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "962": {
@@ -6480,7 +6252,6 @@
                                         },
                                         "964": {
                                             "title": "Equity",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "965": {
@@ -6490,7 +6261,6 @@
                                         },
                                         "966": {
                                             "title": "Credit",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "967": {
@@ -6500,7 +6270,6 @@
                                         },
                                         "968": {
                                             "title": "Credit-Risk-Related Contingent Features",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "969": {
@@ -6581,7 +6350,6 @@
                                         },
                                         "975": {
                                             "title": "Fair Values of Derivative Instruments",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "976": {
@@ -6958,7 +6726,6 @@
                                 },
                                 "988": {
                                     "title": "NOTE 6 — INVENTORIES",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "989": {
@@ -7011,7 +6778,6 @@
                                 },
                                 "994": {
                                     "title": "NOTE 7 — PROPERTY AND EQUIPMENT",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "995": {
@@ -7081,12 +6847,10 @@
                                 },
                                 "999": {
                                     "title": "NOTE 8 — BUSINESS COMBINATIONS",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "1000": {
                                             "title": "Activision Blizzard, Inc.",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1001": {
@@ -7251,7 +7015,6 @@
                                         },
                                         "1017": {
                                             "title": "Nuance Communications, Inc.",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1018": {
@@ -7341,7 +7104,6 @@
                                 },
                                 "1028": {
                                     "title": "NOTE 9 — GOODWILL",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "1029": {
@@ -7422,7 +7184,6 @@
                                         },
                                         "1034": {
                                             "title": "Goodwill Impairment",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1035": {
@@ -7446,7 +7207,6 @@
                                 },
                                 "1040": {
                                     "title": "NOTE 10 — INTANGIBLE ASSETS",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "1041": {
@@ -7647,12 +7407,10 @@
                                 },
                                 "1053": {
                                     "title": "NOTE 11 — DEBT",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "1054": {
                                             "title": "Short-term Debt",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1055": {
@@ -7662,7 +7420,6 @@
                                         },
                                         "1056": {
                                             "title": "Long-term Debt",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1057": {
@@ -7973,12 +7730,10 @@
                                 },
                                 "1068": {
                                     "title": "NOTE 12 — INCOME TAXES",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "1069": {
                                             "title": "Provision for Income Taxes",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1070": {
@@ -8116,7 +7871,6 @@
                                         },
                                         "1077": {
                                             "title": "Effective Tax Rate",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1078": {
@@ -8369,7 +8123,6 @@
                                         },
                                         "1092": {
                                             "title": "Uncertain Tax Positions",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1093": {
@@ -8463,7 +8216,6 @@
                                 },
                                 "1103": {
                                     "title": "NOTE 13 — UNEARNED REVENUE",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "1104": {
@@ -8550,7 +8302,6 @@
                                 },
                                 "1112": {
                                     "title": "NOTE 14 — LEASES",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "1113": {
@@ -8851,12 +8602,10 @@
                                 },
                                 "1126": {
                                     "title": "NOTE 15 — CONTINGENCIES",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "1127": {
                                             "title": "U.S. Cell Phone Litigation",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1128": {
@@ -8878,7 +8627,6 @@
                                         },
                                         "1133": {
                                             "title": "Irish Data Protection Commission Matter",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1134": {
@@ -8888,7 +8636,6 @@
                                         },
                                         "1135": {
                                             "title": "Other Contingencies",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1136": {
@@ -8903,12 +8650,10 @@
                                 },
                                 "1138": {
                                     "title": "NOTE 16 — STOCKHOLDERS’ EQUITY",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "1139": {
                                             "title": "Shares Outstanding",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1140": {
@@ -8958,7 +8703,6 @@
                                         },
                                         "1142": {
                                             "title": "Share Repurchases",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1143": {
@@ -9053,7 +8797,6 @@
                                         },
                                         "1151": {
                                             "title": "Dividends",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1152": {
@@ -9172,7 +8915,6 @@
                                 },
                                 "1158": {
                                     "title": "NOTE 17 — ACCUMULATED OTHER COMPREHENSIVE INCOME (LOSS)",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "1159": {
@@ -9324,7 +9066,6 @@
                                 },
                                 "1161": {
                                     "title": "NOTE 18 — EMPLOYEE STOCK AND SAVINGS PLANS",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "1162": {
@@ -9363,7 +9104,6 @@
                                         },
                                         "1165": {
                                             "title": "Stock Plans",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1166": {
@@ -9380,7 +9120,6 @@
                                                 },
                                                 "1170": {
                                                     "title": "Executive Incentive Plan",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "1171": {
@@ -9390,7 +9129,6 @@
                                                 },
                                                 "1172": {
                                                     "title": "Activity for All Stock Plans",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "1173": {
@@ -9477,7 +9215,6 @@
                                         },
                                         "1179": {
                                             "title": "Employee Stock Purchase Plan",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1180": {
@@ -9530,7 +9267,6 @@
                                         },
                                         "1187": {
                                             "title": "Savings Plans",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1188": {
@@ -9542,7 +9278,6 @@
                                 },
                                 "1189": {
                                     "title": "NOTE 19 — SEGMENT INFORMATION AND GEOGRAPHIC DATA",
-                                    "standardized_title": "",
                                     "class": "predicted header",
                                     "contents": {
                                         "1190": {
@@ -9553,7 +9288,6 @@
                                         },
                                         "1192": {
                                             "title": "Productivity and Business Processes",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1193": {
@@ -9575,7 +9309,6 @@
                                         },
                                         "1198": {
                                             "title": "Intelligent Cloud",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1199": {
@@ -9591,7 +9324,6 @@
                                         },
                                         "1202": {
                                             "title": "More Personal Computing",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1203": {
@@ -9896,7 +9628,6 @@
                                         },
                                         "1231": {
                                             "title": "REPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING FIRM",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1232": {
@@ -9906,7 +9637,6 @@
                                         },
                                         "1233": {
                                             "title": "Opinion on the Financial Statements",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1234": {
@@ -9919,7 +9649,6 @@
                                         },
                                         "1236": {
                                             "title": "Basis for Opinion",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1237": {
@@ -9932,7 +9661,6 @@
                                         },
                                         "1239": {
                                             "title": "Critical Audit Matters",
-                                            "standardized_title": "",
                                             "class": "predicted header",
                                             "contents": {
                                                 "1240": {
@@ -9940,12 +9668,10 @@
                                                 },
                                                 "1241": {
                                                     "title": "Revenue Recognition – Refer to Note 1 to the financial statements",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "1242": {
                                                             "title": "Critical Audit Matter Description",
-                                                            "standardized_title": "",
                                                             "class": "predicted header",
                                                             "contents": {
                                                                 "1243": {
@@ -9982,7 +9708,6 @@
                                                         },
                                                         "1253": {
                                                             "title": "How the Critical Audit Matter Was Addressed in the Audit",
-                                                            "standardized_title": "",
                                                             "class": "predicted header",
                                                             "contents": {
                                                                 "1254": {
@@ -10018,12 +9743,10 @@
                                                 },
                                                 "1263": {
                                                     "title": "Income Taxes – Uncertain Tax Positions – Refer to Note 12 to the financial statements",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "1264": {
                                                             "title": "Critical Audit Matter Description",
-                                                            "standardized_title": "",
                                                             "class": "predicted header",
                                                             "contents": {
                                                                 "1265": {
@@ -10045,7 +9768,6 @@
                                                         },
                                                         "1270": {
                                                             "title": "How the Critical Audit Matter Was Addressed in the Audit",
-                                                            "standardized_title": "",
                                                             "class": "predicted header",
                                                             "contents": {
                                                                 "1271": {
@@ -10072,12 +9794,10 @@
                                                 },
                                                 "1277": {
                                                     "title": "Business Combinations – Estimate for Valuation of Acquired Intangible Assets – Refer to Note 8 to the financial statements",
-                                                    "standardized_title": "",
                                                     "class": "predicted header",
                                                     "contents": {
                                                         "1278": {
                                                             "title": "Critical Audit Matter Description",
-                                                            "standardized_title": "",
                                                             "class": "predicted header",
                                                             "contents": {
                                                                 "1279": {
@@ -10090,7 +9810,6 @@
                                                         },
                                                         "1281": {
                                                             "title": "How the Critical Audit Matter Was Addressed in the Audit",
-                                                            "standardized_title": "",
                                                             "class": "predicted header",
                                                             "contents": {
                                                                 "1282": {
@@ -10158,7 +9877,6 @@
                 },
                 "1299": {
                     "title": "ITEM 9. CHANGES IN AND DISAGREEMENTS WITH ACCOUNTANTS ON ACCOUNTING AND FINANCIAL DISCLOSURE",
-                    "standardized_title": "item9",
                     "class": "item",
                     "contents": {
                         "1300": {
@@ -10168,7 +9886,6 @@
                 },
                 "1301": {
                     "title": "ITEM 9A. CONTROLS AND PROCEDURES",
-                    "standardized_title": "item9a",
                     "class": "item",
                     "contents": {
                         "1302": {
@@ -10176,7 +9893,6 @@
                         },
                         "1303": {
                             "title": "REPORT OF MANAGEMENT ON INTERNAL CONTROL OVER FINANCIAL REPORTING",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "1304": {
@@ -10198,7 +9914,6 @@
                         },
                         "1309": {
                             "title": "REPORT OF INDEPENDENT REGISTERED PUBLIC ACCOUNTING FIRM",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "1310": {
@@ -10208,7 +9923,6 @@
                         },
                         "1311": {
                             "title": "Opinion on Internal Control over Financial Reporting",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "1312": {
@@ -10224,7 +9938,6 @@
                         },
                         "1315": {
                             "title": "Basis for Opinion",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "1316": {
@@ -10237,7 +9950,6 @@
                         },
                         "1318": {
                             "title": "Definition and Limitations of Internal Control over Financial Reporting",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "1319": {
@@ -10279,12 +9991,10 @@
                 },
                 "1330": {
                     "title": "ITEM 9B. OTHER INFORMATION",
-                    "standardized_title": "item9b",
                     "class": "item",
                     "contents": {
                         "1331": {
                             "title": "Insider Trading Arrangements",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "1332": {
@@ -10296,7 +10006,6 @@
                 },
                 "1333": {
                     "title": "ITEM 9C. DISCLOSURE REGARDING FOREIGN JURISDICTIONS THAT PREVENT INSPECTIONS",
-                    "standardized_title": "item9c",
                     "class": "item",
                     "contents": {
                         "1334": {
@@ -10308,12 +10017,10 @@
         },
         "1335": {
             "title": "PART III",
-            "standardized_title": "partiii",
             "class": "part",
             "contents": {
                 "1336": {
                     "title": "ITEM 10. DIRECTORS, EXECUTIVE OFFICERS, AND CORPORATE GOVERNANCE",
-                    "standardized_title": "item10",
                     "class": "item",
                     "contents": {
                         "1337": {
@@ -10347,7 +10054,6 @@
                 },
                 "1346": {
                     "title": "ITEM 11. EXECUTIVE COMPENSATION",
-                    "standardized_title": "item11",
                     "class": "item",
                     "contents": {
                         "1347": {
@@ -10357,7 +10063,6 @@
                 },
                 "1348": {
                     "title": "ITEM 12. SECURITY OWNERSHIP OF CERTAIN BENEFICIAL OWNERS AND MANAGEMENT AND RELATED STOCKHOLDER MATTERS",
-                    "standardized_title": "item12",
                     "class": "item",
                     "contents": {
                         "1349": {
@@ -10367,7 +10072,6 @@
                 },
                 "1350": {
                     "title": "ITEM 13. CERTAIN RELATIONSHIPS AND RELATED TRANSACTIONS, AND DIRECTOR INDEPENDENCE",
-                    "standardized_title": "item13",
                     "class": "item",
                     "contents": {
                         "1351": {
@@ -10377,7 +10081,6 @@
                 },
                 "1352": {
                     "title": "ITEM 14. PRINCIPAL ACCOUNTANT FEES AND SERVICES",
-                    "standardized_title": "item14",
                     "class": "item",
                     "contents": {
                         "1353": {
@@ -10398,17 +10101,14 @@
         },
         "1357": {
             "title": "PART IV",
-            "standardized_title": "partiv",
             "class": "part",
             "contents": {
                 "1358": {
                     "title": "ITEM 15. EXHIBIT AND FINANCIAL STATEMENT SCHEDULES",
-                    "standardized_title": "item15",
                     "class": "item",
                     "contents": {
                         "1359": {
                             "title": "(a)Financial Statements and Schedules",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "1360": {
@@ -10454,7 +10154,6 @@
                         },
                         "1362": {
                             "title": "(b)Exhibit Listing",
-                            "standardized_title": "",
                             "class": "predicted header",
                             "contents": {
                                 "1363": {
@@ -11208,7 +10907,6 @@
                 },
                 "1393": {
                     "title": "ITEM 16. FORM 10-K SUMMARY",
-                    "standardized_title": "item16",
                     "class": "item",
                     "contents": {
                         "1394": {
@@ -11223,7 +10921,6 @@
         },
         "1396": {
             "title": "SIGNATURES",
-            "standardized_title": "signatures",
             "class": "signatures",
             "contents": {
                 "1397": {

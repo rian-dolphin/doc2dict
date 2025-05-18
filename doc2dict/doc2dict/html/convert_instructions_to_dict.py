@@ -67,7 +67,7 @@ def determine_predicted_header_levels(levels):
         item['level'] = attr_level_map[attr_key]
     
     # Return in the required format
-    return [(level['level'], level['class']) for level in updated_levels]
+    return [(level['level'], level['class'], level.get('standardized_title','')) for level in updated_levels]
 # AI GENERATED CODE BC I WANT TO PUSH TO PROD #
 
 def determine_levels(instructions_list, mapping_dict=None):
@@ -105,9 +105,16 @@ def determine_levels(instructions_list, mapping_dict=None):
                 regex_tuples = [(item[0][1], item[0][0], item[1]) for item in mapping_dict.items()]
                 
                 for regex, header_class, hierarchy_level in regex_tuples:
-                    if re.match(regex, text):
+                    match = re.match(regex, text)
+                    if match:
                         # create a dictionary of attributes from likely_header_attributes
-                        level = {'level': hierarchy_level, 'class': header_class, ' ': attributes}
+                        match_groups = match.groups()
+                        if len(match_groups) > 0:
+                            string = ''.join([str(x) for x in match_groups if x is not None])
+                            standardized_title = f'{header_class}{string}'
+                        else:
+                            standardized_title = f'{header_class}'
+                        level = {'level': hierarchy_level, 'class': header_class, ' ': attributes,'standardized_title': standardized_title}
                         break
             
             if level is None:
@@ -148,7 +155,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
     # Process each instruction using pre-calculated levels
     for idx, instructions in enumerate(instructions_list):
         instruction = instructions[0]
-        level,level_class = levels[idx]
+        level,level_class,standardized_title = levels[idx]
         
         if level >= 0:
             # This is a section header
@@ -162,7 +169,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
             title = instruction['text']
             
             # Create new section
-            new_section = {'title': title, 'class': level_class, 'contents': {}}
+            new_section = {'title': title, 'standardized_title':standardized_title, 'class': level_class, 'contents': {}}
             
             # Add section to parent's contents with index as key
             parent = current_path[-1]
