@@ -170,8 +170,7 @@ def process_content(content_type, content, html):
     elif content_type == "table":
         process_table(content, html)
     else:
-        # For other types or direct values
-        html.append(f'<div>{content}</div>')
+        pass
 
 def process_table(table_data, html):
     """Convert table data to HTML table"""
