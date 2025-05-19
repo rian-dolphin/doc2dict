@@ -2,6 +2,8 @@
 
 Convert HTML, XML, and PDFs into dictionaries.
 
+* [Documentation](https://john-friedman.github.io/doc2dict/)
+
 Note that `doc2dict` is in an early stage. The goal is to create a fast, generalized, algorithmic parser that can be easily tweaked depending on the document.
 
 `doc2dict` supports the [datamule](https://github.com/john-friedman/datamule-python) project.
@@ -78,5 +80,5 @@ visualize_dict(dct)
 ### Benchmarks 
 
 Based on my personal (potato) laptop:
-* About 400 pages / per second single threaded.
+* About 500 pages / per second single threaded.
 * Parses the 57 page Apple 10-K in 160 milliseconds.

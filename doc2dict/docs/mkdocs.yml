@@ -14,7 +14,8 @@ theme:
 nav:
   - Home: index.md
   - doc2dict:
-    - Overview: overview.md
+    - html: parsing/html.md
+  - White Paper: whitepaper.md
 
 markdown_extensions:
   - pymdownx.superfences
