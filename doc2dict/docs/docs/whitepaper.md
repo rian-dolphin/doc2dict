@@ -20,7 +20,13 @@ Parsing documents that are human readable into machine readable form is difficul
 1. Convert messy document into a simple list of instructions.
 2. Convert the list of instructions into dictionary using a set of rules that can be easily tailored for the document.
 
-The idea here is to turn a complex problem that is hard to solve, into an simple problem, that is easy to solve.
+The idea here is to turn a complex problem that is hard to solve, into a simple problem, that is easy to solve.
+* Nested html is hard to understand -> the same html in list form is easy
+* Raw pdfs are hard to understand -> the same pdf in list form is easy
+
+We can then convert from the (flat) list form into a nested dictionary by using simple rules like "bigger headers have higher nesting" as well as specify where certain headers go - "item 1a risk factors should be nested under part i".
+
+This also makes the parsing easier to modify for less technical users. A grad student in economics is unlikely to be able to modify the walk through a html document to properly account for style inheritance, but likely can modify rules such as "ignore italics for header selection".
 
 #### Examples
 Instructions List:
@@ -92,3 +98,6 @@ TODO
 ???+ note "Goal"
     The goal here is not to perfectly parse tables. We can get close, but often the information for html tables is above the table in a seperate block. 
 
+### Visualization
+
+Visualization is important for both the instructions_list stage and the final dict stage. Visualization lets users quickly debug whether the parser is working as expected, and what to tweak.
