@@ -1,4 +1,4 @@
-# High Speed Algorithmic Parsing
+# High Speed Document Algorithmic Parsing
 
 ## Abstract
 Parsing documents that are human readable into machine readable form is difficult due to under the hood variation. Here is my attempt at providing a fast, robust generalized approach, that can be easily modified to account for variation in documents.
