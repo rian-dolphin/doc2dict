@@ -65,6 +65,4 @@ def get_font_name(font):
     font_name = name_buffer.value.decode('utf-8', errors='ignore')
     
     
-    return {
-        'font_name': font_name,
-    }
+    return font_name

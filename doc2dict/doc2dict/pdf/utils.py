@@ -1,9 +1,11 @@
-def get_font_attributes(dct):
-    if 'font_name' in dct:
-        attribute = dct['font_name'].split('-')
-        if len(attribute) > 1:
-            key = attribute[-1].lower()
-            dct[key] = True
+
+# TODO, modify for e.g. BOLD AND ITALIC or IT etc name variations
+def get_font_attributes(font_name):
+    dct = {}
+    attribute = font_name.split('-')
+    if len(attribute) > 1:
+        key = attribute[-1].lower()
+        dct[key] = True
     return dct
 
 def get_font_size(coords_tuple):
@@ -108,7 +110,18 @@ def assign_line(instructions_stream):
         
         # Check if next item is on the same line
         if abs(current_y - next_y) <= tolerance:
-            instructions.append(next_item)
+            # if font-name and font-size are the same, then we can merge them. We can do this, because font name contains bold/italic
+            if current['font-name'] == next_item['font-name'] and current['font-size'] == next_item['font-size']:
+                # Merge the two items
+                current['text'] += next_item['text']
+                current['coords'] = (
+                    min(current['coords'][0], next_item['coords'][0]),  # left
+                    min(current['coords'][1], next_item['coords'][1]),  # bottom
+                    max(current['coords'][2], next_item['coords'][2]),  # right
+                    max(current['coords'][3], next_item['coords'][3])   # top
+                )
+            else:
+                instructions.append(next_item)
         else:
             instructions_list.append(instructions)
             instructions = [next_item]

@@ -20,8 +20,8 @@ def convert_pdf_to_instructions(content):
         for obj in page.get_objects():
             text = get_text(text_page, obj)
             font = get_font(obj)
-            font_raw_data = get_font_name(font)
-            font_attributes = get_font_attributes(font_raw_data)
+            font_name = get_font_name(font)
+            font_attributes = get_font_attributes(font_name) # mild duplication
             
             font_size = get_font_size(obj)
 
@@ -34,7 +34,7 @@ def convert_pdf_to_instructions(content):
             if font_size is None:
                 continue
             else:
-                instruction = {'text': text} | font_attributes | {'coords': coords_tuple, 'font-size': font_size}
+                instruction = {'text': text}  | {'coords': coords_tuple, 'font-size': font_size, 'font-name': font_name} | font_attributes
                 instructions_stream.append(instruction)
 
     

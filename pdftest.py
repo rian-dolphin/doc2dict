@@ -12,10 +12,11 @@ with open(pdf_path, 'rb') as f:
 
 #wb.open(pdf_path)
 instructions_list = convert_pdf_to_instructions(content)
+print('Time taken:', time() - start)
 visualize_instructions(instructions_list)
 with open('instructions_list.txt', 'w',encoding='utf-8') as f:
     for item in instructions_list:
         f.write(str(item) + '\n')
 dct = convert_instructions_to_dict(instructions_list)
-print('Time taken:', time() - start)
+
 #visualize_dict(dct)
