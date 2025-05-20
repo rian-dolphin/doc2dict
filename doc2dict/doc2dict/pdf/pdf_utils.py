@@ -1,8 +1,7 @@
 import pypdfium2 as pdfium
 import pypdfium2.raw as pdfium_c
 from ctypes import c_ushort, c_ulong, POINTER, c_float, c_void_p, c_size_t, c_uint8, c_int
-from time import time
-import chardet
+
 
 def get_text(text_page,obj):
     text_len = pdfium_c.FPDFTextObj_GetText(
@@ -32,11 +31,33 @@ def get_text(text_page,obj):
     text = text.strip('\x00')
     return text
 
+
+def get_font_size(obj):
+    # Create a c_float to receive the font size value
+    font_size = c_float(0.0)
+    
+    # Call the PDFium function to get the font size
+    result = pdfium_c.FPDFTextObj_GetFontSize(
+        obj.raw,                 # FPDF_PAGEOBJECT
+        pdfium_c.byref(font_size)  # POINTER(c_float)
+    )
+    
+    # Check if the function call was successful
+    if result: 
+        matrix = obj.get_matrix().get()
+        # Apply the transformation matrix to the font size
+        mean_scale = (matrix[0] + matrix[3]) / 2
+
+        return font_size.value * mean_scale
+    else:
+        return None
+
+
 def get_font(obj):
     font = pdfium_c.FPDFTextObj_GetFont(obj.raw)
     return font
 
-def get_font_data(font):
+def get_font_name(font):
     # Get font name
     name_len = pdfium_c.FPDFFont_GetBaseFontName(font, None, 0)
     name_buffer = pdfium_c.create_string_buffer(name_len)

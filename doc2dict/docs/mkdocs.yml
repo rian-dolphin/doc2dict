@@ -15,6 +15,7 @@ nav:
   - Home: index.md
   - doc2dict:
     - html: parsing/html.md
+    - pdf: parsing/pdf.md
   - White Paper: whitepaper.md
 
 markdown_extensions:

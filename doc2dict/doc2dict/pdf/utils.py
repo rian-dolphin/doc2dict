@@ -15,6 +15,70 @@ def get_font_size(coords_tuple):
     font_size = height / 2
     return font_size * 4 # Multiplying just because why not?
 
+# TODO REMOVE. we do need to find how to get actual font size
+def standardize_font_size(instructions_stream):
+    """
+    Standardize font sizes in the instructions stream by merging font sizes that are close to each other.
+    
+    Args:
+        instructions_stream (list): List of dictionaries containing text elements with font-size information
+        
+    Returns:
+        list: The instructions stream with standardized font sizes
+    """
+    if not instructions_stream:
+        return []
+    
+    # First, extract all unique font sizes
+    font_sizes = []
+    for item in instructions_stream:
+        if 'font-size' in item:
+            font_sizes.append(item['font-size'])
+    
+    # If no font sizes found, return original stream
+    if not font_sizes:
+        return instructions_stream
+    
+    # Sort font sizes
+    font_sizes = sorted(set(font_sizes))
+    
+    # Group similar font sizes
+    standardized_sizes = []
+    current_group = [font_sizes[0]]
+    
+    for i in range(1, len(font_sizes)):
+        # Calculate relative difference between consecutive font sizes
+        current_size = font_sizes[i]
+        prev_size = font_sizes[i-1]
+        relative_diff = abs(current_size - prev_size) / max(current_size, prev_size)
+        
+        # If the difference is less than a threshold (e.g., 5%), group them
+        if relative_diff < 0.05:
+            current_group.append(current_size)
+        else:
+            # Calculate average for the current group
+            avg_size = sum(current_group) / len(current_group)
+            standardized_sizes.append((current_group, avg_size))
+            current_group = [current_size]
+    
+    # Add the last group
+    if current_group:
+        avg_size = sum(current_group) / len(current_group)
+        standardized_sizes.append((current_group, avg_size))
+    
+    # Create a mapping from original sizes to standardized sizes
+    size_mapping = {}
+    for group, avg_size in standardized_sizes:
+        for size in group:
+            size_mapping[size] = avg_size
+    
+    # Apply the mapping to the instructions stream
+    for item in instructions_stream:
+        if 'font-size' in item and item['font-size'] in size_mapping:
+            item['font-size'] = size_mapping[item['font-size']]
+    
+    return instructions_stream
+
 def assign_line(instructions_stream):
     """
     Assign line numbers to text elements that are positioned on the same line.

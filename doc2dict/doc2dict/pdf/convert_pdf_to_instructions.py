@@ -1,8 +1,6 @@
 import pypdfium2 as pdfium
-import pypdfium2.raw as pdfium_c
-from ctypes import c_ushort, c_ulong, POINTER, c_float, c_void_p, c_size_t, c_uint8
-from .pdf_utils import get_text, get_font_data, get_font
-from .utils import get_font_attributes, get_left_indent, get_is_centered, get_font_size, assign_line
+from .pdf_utils import get_text, get_font_name, get_font, get_font_size
+from .utils import get_font_attributes, assign_line, standardize_font_size
 
 
 def convert_pdf_to_instructions(content):
@@ -22,23 +20,29 @@ def convert_pdf_to_instructions(content):
         for obj in page.get_objects():
             text = get_text(text_page, obj)
             font = get_font(obj)
-            font_raw_data = get_font_data(font)
+            font_raw_data = get_font_name(font)
             font_attributes = get_font_attributes(font_raw_data)
             
+            font_size = get_font_size(obj)
+
             
 
             # left bottom righ top
             coords_tuple = obj.get_pos()
-            font_size = get_font_size(coords_tuple)
-
-            instruction = {'text': text} | font_attributes | {'coords': coords_tuple,'font-size': font_size}
-            instructions_stream.append(instruction)
+            
+            # lets not add items if font size is 0
+            if font_size is None:
+                continue
+            else:
+                instruction = {'text': text} | font_attributes | {'coords': coords_tuple, 'font-size': font_size}
+                instructions_stream.append(instruction)
 
     
     # Clean up resources
     pdf.close()
 
+    #instructions_stream = standardize_font_size(instructions_stream)
     instructions_list = assign_line(instructions_stream)
 
-    # now we 
+
     return instructions_list
