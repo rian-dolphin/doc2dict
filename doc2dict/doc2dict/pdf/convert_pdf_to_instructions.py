@@ -12,7 +12,7 @@ def convert_pdf_to_instructions(content):
 
     instructions_stream = []
     # Extract text and font info from each page
-    for page_index in range(39,40):
+    for page_index in range(len(pdf)):
         page = pdf[page_index]
         text_page = page.get_textpage()
         page_width = page.get_width()
