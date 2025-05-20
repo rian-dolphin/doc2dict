@@ -4,7 +4,7 @@ setup(
     name="doc2dict",
     version="0.2.8",
     packages=find_packages(),
-    install_requires=['selectolax','xmltodict'
+    install_requires=['selectolax','xmltodict','pypdfium2'
     ],
     python_requires=">=3.8"
 )

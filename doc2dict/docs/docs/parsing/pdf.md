@@ -1,6 +1,21 @@
 # PDF
 
 ## Goal
-Ideally match HTML parser benchmark of 100 pages in 200 milliseconds.
+Ideally match HTML parser benchmark of 500 pages per second
+
 ## Benchmarks
-PDFPlumber took 5.4s to iterate through a 96 page PDF. 
+pypdfium2 ~ 200 pages per second. That's fine.
+
+## TODO
+figure out new line
+look at bindings for possibly useful stuff
+think about tables
+get center
+get other old attributes like indent
+test with adobe 10k pdf
+
+## Issues
+* Adobe PDF encodings return weird characters.
+
+## Misc
+* Estimating crude measure of font-size from bounding box.
