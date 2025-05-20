@@ -31,7 +31,7 @@ def convert_pdf_to_instructions(content):
             coords_tuple = obj.get_pos()
             font_size = get_font_size(coords_tuple)
 
-            instruction = {'text': text} | font_attributes | {'coords': coords_tuple,'font_size': font_size}
+            instruction = {'text': text} | font_attributes | {'coords': coords_tuple,'font-size': font_size}
             instructions_stream.append(instruction)
 
     

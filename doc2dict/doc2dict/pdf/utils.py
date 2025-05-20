@@ -13,7 +13,7 @@ def get_font_size(coords_tuple):
     top = coords_tuple[3]
     height = top - bottom
     font_size = height / 2
-    return font_size
+    return font_size * 4 # Multiplying just because why not?
 
 def assign_line(instructions_stream):
     """
@@ -36,8 +36,8 @@ def assign_line(instructions_stream):
         next_y = next_item['coords'][1]   # bottom y of next
         
         # Get font sizes for tolerance calculation
-        current_font_size = current['font_size']
-        next_font_size = next_item['font_size']
+        current_font_size = current['font-size']
+        next_font_size = next_item['font-size']
         
         # Calculate tolerance based on larger font size
         tolerance = max(current_font_size, next_font_size) * 0.5
