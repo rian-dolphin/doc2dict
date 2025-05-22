@@ -71,8 +71,10 @@ def determine_predicted_header_levels(levels):
 # AI GENERATED CODE BC I WANT TO PUSH TO PROD #
 
 def determine_levels(instructions_list, mapping_dict=None):
-
     if mapping_dict is None:
+        predicted_header_level = 0
+    #TODO bandaid fix
+    elif 'rules' in mapping_dict:
         predicted_header_level = 0
     else:
         predicted_header_level = max(mapping_dict.values()) + 1
@@ -85,12 +87,46 @@ def determine_levels(instructions_list, mapping_dict=None):
     # count font-size
     small_script = [False] * len(headers)
     font_size_counts = {size: sum(1 for item in [instr[0] for instr in instructions_list if 'text' in instr[0]] if item.get('font-size') == size) for size in set(item.get('font-size') for item in [instr[0] for instr in instructions_list if 'text' in instr[0]] if item.get('font-size') is not None)}
+    
+    # use only font size goes here
+    if 'rules' in mapping_dict:
+        if 'use_font_size_only_for_level' in mapping_dict['rules']:
+            most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
+            
+            # Get all unique font sizes and sort them in descending order (largest first)
+            unique_font_sizes = sorted(font_size_counts.keys(), reverse=True)
+            
+            # Create a mapping from font size to level (largest font = level 0, next = level 1, etc.)
+            font_size_to_level = {size: idx for idx, size in enumerate(unique_font_sizes)}
+            
+            levels = []
+            for idx, header in enumerate(headers):
+                if 'text' in header and header.get('font-size') is not None:
+                    font_size = header.get('font-size')
+                    
+                    if font_size < most_common_font_size:
+                        # Assign small script for fonts smaller than most common
+                        level = (-2,'textsmall','')
+                    else:
+                        # Assign level based on font size hierarchy
+                        hierarchy_level = font_size_to_level[font_size]
+                        level = (hierarchy_level, 'predicted header','')
+                else:
+                    # No font size information, treat as regular text
+                    level = (-1, 'text','')
+                
+                levels.append(level)
+            
+            return levels
+    
     if font_size_counts != {}:
         most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
         if font_count > (.5 * len(instructions_list)):
             # assume anything with less than this font size is small script
             small_script = [True if item.get('font-size') is not None and item.get('font-size') < most_common_font_size else False for item in headers]
             
+
+
 
     levels = []
     for idx,header in enumerate(headers):
@@ -156,7 +192,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
     for idx, instructions in enumerate(instructions_list):
         instruction = instructions[0]
         level,level_class,standardized_title = levels[idx]
-        
+
         if level >= 0:
             # This is a section header
             

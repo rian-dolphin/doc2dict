@@ -48,7 +48,7 @@ def get_font_size(obj):
         # Apply the transformation matrix to the font size
         mean_scale = (matrix[0] + matrix[3]) / 2
 
-        return font_size.value * mean_scale
+        return round(font_size.value * mean_scale,2)
     else:
         return None
 

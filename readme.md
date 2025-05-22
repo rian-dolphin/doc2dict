@@ -10,8 +10,8 @@ Note that `doc2dict` is in an early stage. The goal is to create a fast, general
 
 ## Parsers
 1. HTML Parser
-2. XML Parser - please use Martin Blech's excellent xmltodict. doc2dict's xml2dict is currently a mess.
-3. PDF/IMAGE Parser (Planned)
+2. PDF Parser - very early stage, currently only supports some pdf types.
+3. XML Parser - please use Martin Blech's excellent xmltodict. doc2dict's xml2dict is currently a mess.
 
 ## Installation
 ```
@@ -80,5 +80,28 @@ visualize_dict(dct)
 ### Benchmarks 
 
 Based on my personal (potato) laptop:
-* About 500 pages / per second single threaded.
+* About 500 pages per second single threaded.
 * Parses the 57 page Apple 10-K in 160 milliseconds.
+
+## PDF
+
+The pdf parser is in a very early stage. It does not always handle encoding issues and the resulting hierarchies can be quite odd.
+
+I've released this because it may be useful to you, and as a proof of concept that fast pdf to dictionary parsing is possible. I plan to develop this further when presented with an interesting use case.
+### Quickstart
+```
+from doc2dict import pdf2dict, visualize_dict
+
+# Load your html file
+with open('apple_10k_2024.pdf','rb') as f:
+    content = f.read()
+
+# Parse 
+dct = pdf2dict(content,mapping_dict=None)
+
+# Visualize Parsing
+visualize_dict(dct)
+```
+
+### Benchmarks
+* About 200 pages per second single threaded.
