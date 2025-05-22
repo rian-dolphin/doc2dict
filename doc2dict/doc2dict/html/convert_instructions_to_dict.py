@@ -89,35 +89,36 @@ def determine_levels(instructions_list, mapping_dict=None):
     font_size_counts = {size: sum(1 for item in [instr[0] for instr in instructions_list if 'text' in instr[0]] if item.get('font-size') == size) for size in set(item.get('font-size') for item in [instr[0] for instr in instructions_list if 'text' in instr[0]] if item.get('font-size') is not None)}
     
     # use only font size goes here
-    if 'rules' in mapping_dict:
-        if 'use_font_size_only_for_level' in mapping_dict['rules']:
-            most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
-            
-            # Get all unique font sizes and sort them in descending order (largest first)
-            unique_font_sizes = sorted(font_size_counts.keys(), reverse=True)
-            
-            # Create a mapping from font size to level (largest font = level 0, next = level 1, etc.)
-            font_size_to_level = {size: idx for idx, size in enumerate(unique_font_sizes)}
-            
-            levels = []
-            for idx, header in enumerate(headers):
-                if 'text' in header and header.get('font-size') is not None:
-                    font_size = header.get('font-size')
-                    
-                    if font_size < most_common_font_size:
-                        # Assign small script for fonts smaller than most common
-                        level = (-2,'textsmall','')
-                    else:
-                        # Assign level based on font size hierarchy
-                        hierarchy_level = font_size_to_level[font_size]
-                        level = (hierarchy_level, 'predicted header','')
-                else:
-                    # No font size information, treat as regular text
-                    level = (-1, 'text','')
+    if mapping_dict is not None:
+        if 'rules' in mapping_dict:
+            if 'use_font_size_only_for_level' in mapping_dict['rules']:
+                most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
                 
-                levels.append(level)
-            
-            return levels
+                # Get all unique font sizes and sort them in descending order (largest first)
+                unique_font_sizes = sorted(font_size_counts.keys(), reverse=True)
+                
+                # Create a mapping from font size to level (largest font = level 0, next = level 1, etc.)
+                font_size_to_level = {size: idx for idx, size in enumerate(unique_font_sizes)}
+                
+                levels = []
+                for idx, header in enumerate(headers):
+                    if 'text' in header and header.get('font-size') is not None:
+                        font_size = header.get('font-size')
+                        
+                        if font_size < most_common_font_size:
+                            # Assign small script for fonts smaller than most common
+                            level = (-2,'textsmall','')
+                        else:
+                            # Assign level based on font size hierarchy
+                            hierarchy_level = font_size_to_level[font_size]
+                            level = (hierarchy_level, 'predicted header','')
+                    else:
+                        # No font size information, treat as regular text
+                        level = (-1, 'text','')
+                    
+                    levels.append(level)
+                
+                return levels
     
     if font_size_counts != {}:
         most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
