@@ -536,8 +536,12 @@ def convert_html_to_instructions(root):
                     
                     # clean the matrix
                     matrix,is_cleaned = clean_table(matrix)
-                    # Add to instructions list
-                    instructions_list.append([{'table': matrix,'cleaned': is_cleaned}])
+                    if len(matrix) == 1:
+                        matrix_text = ' '.join([cell['text'] for cell in matrix[0]])
+                        instructions_list.append([{'text': matrix_text, 'fake_table': True}])
+                    else:
+                        instructions_list.append([{'table': matrix,'cleaned': is_cleaned}])
+
                 
                 # Reset table state
                 table_cells = {}

@@ -1,6 +1,7 @@
 
 from doc2dict.doc2dict.html.convert_instructions_to_dict import convert_instructions_to_dict
 pdf_path = r'msft_proxy.pdf'
+pdf_path = r"C:\Users\jgfri\Downloads\d353100ddef14a1.pdf"
 from doc2dict.doc2dict.pdf.convert_pdf_to_instructions import convert_pdf_to_instructions
 from doc2dict.doc2dict.html.visualize_dict import visualize_dict
 from doc2dict.doc2dict.html.visualize_instructions import visualize_instructions

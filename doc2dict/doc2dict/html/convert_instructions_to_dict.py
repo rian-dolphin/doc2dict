@@ -79,7 +79,7 @@ def determine_levels(instructions_list, mapping_dict=None):
 
     # filter out tables
     headers = [instructions[0] if 'text' in instructions[0] else {} for instructions in instructions_list]
-    likely_header_attributes = ['bold','italic','underline','text-center','all_caps']
+    likely_header_attributes = ['bold','italic','underline','text-center','all_caps','fake_table']
     # identify likely text nodes, return {} if not
     headers = [item if any([item.get(attr, False) for attr in likely_header_attributes]) else {} for item in headers]
     # count font-size
