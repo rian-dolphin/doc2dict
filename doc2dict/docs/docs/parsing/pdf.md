@@ -1,10 +1,24 @@
 # PDF
 
-## Goal
-Ideally match HTML parser benchmark of 500 pages per second
+???+ warning "Very Early Stage"
+    This code is in a very early stage.
+
+## Quickstart
+```
+# Load your pdf file
+with open('apple_10k_2024.pdf','rb') as f:
+    content = f.read()
+
+# Convert to dictionary
+dct = pdf2dict(content,mapping_dict=None)
+```
+
 
 ## Benchmarks
-pypdfium2 ~ 200 pages per second. That's fine.
+* About 200 pages per second single threaded.
+
+???+ warning "multithreading"
+    pdf2dict can't be run multithreaded due to the limitations of pypdfium2
 
 ## TODO
 figure out new line
