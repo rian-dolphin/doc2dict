@@ -29,8 +29,11 @@ def check_text_style(text):
 
 
 def style_to_dict(style_string):
-    style_list = [attr.strip() for attr in style_string.split(';') if attr.strip()]
     result = {}
+    if not style_string:
+        return result
+    style_list = [attr.strip() for attr in style_string.split(';') if attr.strip()]
+
     for item in style_list:
         if ':' in item:
             key, value = item.split(':', 1)
