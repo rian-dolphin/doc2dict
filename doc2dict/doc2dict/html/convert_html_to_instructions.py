@@ -32,6 +32,8 @@ def style_to_dict(style_string):
     result = {}
     if not style_string:
         return result
+    # send to lower case
+    style_string = style_string.lower()
     style_list = [attr.strip() for attr in style_string.split(';') if attr.strip()]
 
     for item in style_list:
