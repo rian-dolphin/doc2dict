@@ -58,14 +58,18 @@ tenk_mapping_dict = {
 
 ### Debugging
 ```
-from doc2dict import convert_html_to_instructions, convert_instructions_to_dict, visualize_instructions, visualize_dict
+from doc2dict import *
+from selectolax.parser import HTMLParser
 
-# load your html file
-with open('tesla10k.htm','r') as f:
+# Load your html file
+with open('apple_10k_2024.htm','r') as f:
     content = f.read()
 
+
+body = HTMLParser(content).body
+
 # convert html to a series of instructions
-instructions = convert_html_to_instructions(content)
+instructions = convert_html_to_instructions(body)
 
 # visualize the conversion
 visualize_instructions(instructions)
