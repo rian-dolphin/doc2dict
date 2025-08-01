@@ -295,6 +295,8 @@ def parse_start_tag(current_attributes,node):
         href = node.attributes.get('href', '')
         safe_stack(current_attributes, 'href', href)
         return ''
+    elif tag == 'img':
+        return 'image'
 
     for tag in tag_groups:
         if node.tag in tag_groups[tag]:
@@ -328,6 +330,11 @@ def merge_instructions(instructions):
         current = instructions[i]
         prev = result[-1]
         
+        # Skip merging if either instruction is an image
+        if 'image' in current or 'image' in prev:
+            result.append(current)
+            continue
+        
         # Case 1: Empty string after strip
         if current.get('text', '').strip() == '':
             prev['text'] += current.get('text', '')
@@ -346,11 +353,12 @@ def merge_instructions(instructions):
         merged = False
         for j in range(len(result) - 1, -1, -1):  # Check all previous instructions
             earlier = result[j]
-            if all(current.get(attr) == earlier.get(attr) for attr in attrs_to_check):
+            if 'image' not in earlier and all(current.get(attr) == earlier.get(attr) for attr in attrs_to_check):
                 # Combine all instructions from j to the current one
                 combined_text = earlier['text']
                 for k in range(j + 1, len(result)):
-                    combined_text += result[k].get('text', '')
+                    if 'text' in result[k]:
+                        combined_text += result[k].get('text', '')
                 combined_text += current.get('text', '')
                 
                 earlier['text'] = combined_text
@@ -367,7 +375,7 @@ def merge_instructions(instructions):
 
 def is_subset(items1, items2, empty_chars):
     """returns true if items1 is a subset of items2"""
-    return all(item1['text'] in empty_chars or item1['text'] == item2['text'] for item1, item2 in zip(items1, items2))
+    return all(item1.get('text', '') in empty_chars or item1.get('text', '') == item2.get('text', '') for item1, item2 in zip(items1, items2))
 
 def remove_subset_rows(table, empty_chars, direction="bottom_to_top"):
     """
@@ -431,12 +439,18 @@ def clean_table(table):
     
     empty_chars = ['', ')', '(', '$', '–', '-','%']
     
-    # Remove empty rows
-    table = [row for row in table if any(cell['text'] not in empty_chars for cell in row)]
+    # Remove empty rows - check if all cells in row are empty (handle both text and image cells)
+    table = [row for row in table if any(
+        (cell.get('text', '') not in empty_chars) or ('image' in cell) 
+        for cell in row
+    )]
     
-    # Remove empty columns
+    # Remove empty columns - check if all cells in column are empty
     if table and table[0]:
-        keep_cols = [j for j in range(len(table[0])) if any(table[i][j]['text'] not in empty_chars for i in range(len(table)))]
+        keep_cols = [j for j in range(len(table[0])) if any(
+            (table[i][j].get('text', '') not in empty_chars) or ('image' in table[i][j])
+            for i in range(len(table))
+        )]
         table = [[row[j] for j in keep_cols] for row in table]
     
     # Remove subset rows in both directions
@@ -532,6 +546,26 @@ def convert_html_to_instructions(root):
                     current_cell_instructions.append(instruction)
                 else:
                     instructions.append(instruction)
+            elif tag_command == 'image':
+                src = node.attributes.get('src', '')
+                alt = node.attributes.get('alt', '')
+                
+                instruction = {'image': {'src': src, 'alt': alt}}
+                
+                for key in current_attributes:
+                    val = current_attributes[key]
+                    if isinstance(val, list):
+                        if len(val) > 0:
+                            instruction[key] = val[-1]
+                    elif isinstance(val, int):
+                        if val > 0:
+                            instruction[key] = True
+
+                # Redirect instruction output based on context
+                if in_cell:
+                    current_cell_instructions.append(instruction)
+                else:
+                    instructions.append(instruction)
 
         elif signal == "end":
             style_command = parse_end_style(current_attributes, node)
@@ -552,7 +586,14 @@ def convert_html_to_instructions(root):
                     # clean the matrix
                     matrix,is_cleaned = clean_table(matrix)
                     if len(matrix) == 1:
-                        matrix_text = ' '.join([cell['text'] for cell in matrix[0]])
+                        # Handle mixed content in single row tables
+                        cell_texts = []
+                        for cell in matrix[0]:
+                            if 'image' in cell:
+                                cell_texts.append(f"[Image: {cell['image'].get('alt', 'No alt text')}]")
+                            else:
+                                cell_texts.append(cell.get('text', ''))
+                        matrix_text = ' '.join(cell_texts)
                         instructions_list.append([{'text': matrix_text, 'fake_table': True}])
                     else:
                         instructions_list.append([{'table': matrix,'cleaned': is_cleaned}])
@@ -569,7 +610,9 @@ def convert_html_to_instructions(root):
                     # Add newline to current cell if we're in a cell
                     if in_cell:
                         if current_cell_instructions:
-                            current_cell_instructions[-1]['text'] += '\n'
+                            last_instruction = current_cell_instructions[-1]
+                            if 'text' in last_instruction:
+                                last_instruction['text'] += '\n'
                 elif node.tag == 'tr':
                     row_id += 1
                     col_id = 0
@@ -580,13 +623,10 @@ def convert_html_to_instructions(root):
                         if len(merged_cell) == 1:
                             cell_data = merged_cell[0]
                         else:
-                            # For multiple instructions, concatenate text and merge attributes
-                            combined_text = ''.join([instr.get('text', '') for instr in merged_cell])
-                            cell_data = {'text': combined_text}
-                            # Add any common attributes from first instruction
-                            for key, val in merged_cell[0].items():
-                                if key != 'text':
-                                    cell_data[key] = val
+                            # For multiple instructions, create a cell with mixed content
+                            # For now, just use the first instruction as the cell data
+                            # You might want to handle this differently based on your needs
+                            cell_data = merged_cell[0]
                     else:
                         cell_data = {'text': ''}
                     
@@ -615,8 +655,9 @@ def convert_html_to_instructions(root):
                 if len(instructions) > 0:
                     instructions = merge_instructions(instructions)
                     if len(instructions) == 1:
-                        # strip text
-                        instructions[0]['text'] = instructions[0]['text'].strip()
+                        # strip text if it's a text instruction
+                        if 'text' in instructions[0]:
+                            instructions[0]['text'] = instructions[0]['text'].strip()
                     instructions_list.append(instructions)
                     instructions = []
                 continue
@@ -625,7 +666,8 @@ def convert_html_to_instructions(root):
     if instructions:
         if len(instructions) > 0:
             if len(instructions) == 1:
-                # strip text
-                instructions[0]['text'] = instructions[0]['text'].strip()
+                # strip text if it's a text instruction
+                if 'text' in instructions[0]:
+                    instructions[0]['text'] = instructions[0]['text'].strip()
             instructions_list.append(instructions)
     return instructions_list

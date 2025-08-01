@@ -2,7 +2,7 @@ import webbrowser
 import os
 
 def format_dct_style(line):
-    text = line['text']
+    text = line.get('text', '')
     href = line.get('href', '')
     
     style_properties = []
@@ -29,13 +29,19 @@ def format_table(table):
     for idx, row in enumerate(table):
         table_html += "<tr>"   
         for cell in row:
-            cell_text = cell['text']
-            cell_href = cell.get('href', '')
-            
-            if cell_href:
-                cell_content = f"<a href='{cell_href}'>{cell_text}</a>"
+            if 'image' in cell:
+                image_data = cell['image']
+                src = image_data.get('src', '')
+                alt = image_data.get('alt', '')
+                cell_content = f"<img src='{src}' alt='{alt}' style='max-width: 200px; height: auto;'>"
             else:
-                cell_content = cell_text
+                cell_text = cell.get('text', '')
+                cell_href = cell.get('href', '')
+                
+                if cell_href:
+                    cell_content = f"<a href='{cell_href}'>{cell_text}</a>"
+                else:
+                    cell_content = cell_text
                 
             if idx == 0:
                 table_html += f"<th>{cell_content}</th>"
@@ -103,6 +109,19 @@ def visualize_instructions(instructions_list):
             font-weight: bold;
         }
         
+        .image-wrapper {
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .document-image {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
         </style>
         </head>
         <body>"""
@@ -117,7 +136,16 @@ def visualize_instructions(instructions_list):
                 else:
                     html_content += f"<div class='table-container' style='background-color: {table_uncleaned_color}'>{table_html}</div>"
                 html_content += "</div>"
-                continue 
+                continue
+            elif 'image' in instructions[0]:
+                image_data = instructions[0]['image']
+                src = image_data.get('src', '')
+                alt = image_data.get('alt', '')
+                
+                html_content += "<div class='image-wrapper'>"
+                html_content += f"<img src='{src}' alt='{alt}' class='document-image'>"
+                html_content += "</div>"
+                continue
         
         first_instruction = instructions[0]
         is_centered = first_instruction.get('text-center', False)
@@ -128,24 +156,42 @@ def visualize_instructions(instructions_list):
 
         html_content += f"<div style='{div_style}'>"
         for idx, instruction in enumerate(instructions):
-            style_properties, text, href = format_dct_style(instruction)
-
-            if len(instructions) == 1:
-                color = single_line_color
-            elif idx == 0:
-                color = multi_first_color
-            else:
-                color = multi_rest_color
-
-            style_properties.append(f'background-color: {color}')
-            style = '; '.join(style_properties)
-            
-            if href:
-                span_content = f"<a href='{href}'>{text}</a>"
-            else:
-                span_content = text
+            if 'image' in instruction:
+                # Handle image instructions
+                image_data = instruction['image']
+                src = image_data.get('src', '')
+                alt = image_data.get('alt', '')
                 
-            html_content += f"<span style='{style}'>{span_content}</span>"
+                if len(instructions) == 1:
+                    color = single_line_color
+                elif idx == 0:
+                    color = multi_first_color
+                else:
+                    color = multi_rest_color
+                
+                html_content += f"<span style='background-color: {color}; padding: 5px; margin: 3px 0; border-radius: 4px; display: inline-block;'>"
+                html_content += f"<img src='{src}' alt='{alt}' style='max-width: 300px; height: auto; vertical-align: middle;'>"
+                html_content += "</span>"
+            else:
+                # Handle text instructions
+                style_properties, text, href = format_dct_style(instruction)
+
+                if len(instructions) == 1:
+                    color = single_line_color
+                elif idx == 0:
+                    color = multi_first_color
+                else:
+                    color = multi_rest_color
+
+                style_properties.append(f'background-color: {color}')
+                style = '; '.join(style_properties)
+                
+                if href:
+                    span_content = f"<a href='{href}'>{text}</a>"
+                else:
+                    span_content = text
+                    
+                html_content += f"<span style='{style}'>{span_content}</span>"
 
         html_content += "</div>"
         
