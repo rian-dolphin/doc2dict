@@ -3,6 +3,7 @@ import os
 
 def format_dct_style(line):
     text = line['text']
+    href = line.get('href', '')
     
     style_properties = []
     # might have issues here in the future
@@ -21,17 +22,25 @@ def format_dct_style(line):
         if left_indent:
             style_properties.append(f'margin-left: {left_indent}px')
 
-    return style_properties, text
+    return style_properties, text, href
 
 def format_table(table):
     table_html = "<table>"
     for idx, row in enumerate(table):
         table_html += "<tr>"   
         for cell in row:
-            if idx == 0:
-                table_html += f"<th>{cell['text']}</th>"
+            cell_text = cell['text']
+            cell_href = cell.get('href', '')
+            
+            if cell_href:
+                cell_content = f"<a href='{cell_href}'>{cell_text}</a>"
             else:
-                table_html += f"<td>{cell['text']}</td>"
+                cell_content = cell_text
+                
+            if idx == 0:
+                table_html += f"<th>{cell_content}</th>"
+            else:
+                table_html += f"<td>{cell_content}</td>"
         table_html += "</tr>"
     
     table_html += "</table>"
@@ -119,7 +128,7 @@ def visualize_instructions(instructions_list):
 
         html_content += f"<div style='{div_style}'>"
         for idx, instruction in enumerate(instructions):
-            style_properties, text = format_dct_style(instruction)
+            style_properties, text, href = format_dct_style(instruction)
 
             if len(instructions) == 1:
                 color = single_line_color
@@ -130,7 +139,13 @@ def visualize_instructions(instructions_list):
 
             style_properties.append(f'background-color: {color}')
             style = '; '.join(style_properties)
-            html_content += f"<span style='{style}'>{text}</span>"
+            
+            if href:
+                span_content = f"<a href='{href}'>{text}</a>"
+            else:
+                span_content = text
+                
+            html_content += f"<span style='{style}'>{span_content}</span>"
 
         html_content += "</div>"
         

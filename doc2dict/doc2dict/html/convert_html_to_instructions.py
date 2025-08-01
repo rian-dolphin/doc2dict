@@ -291,6 +291,10 @@ def parse_start_tag(current_attributes,node):
         return 'table'
     elif tag == '-text':
         return 'text'
+    elif tag == 'a':
+        href = node.attributes.get('href', '')
+        safe_stack(current_attributes, 'href', href)
+        return ''
 
     for tag in tag_groups:
         if node.tag in tag_groups[tag]:
@@ -304,6 +308,9 @@ def parse_end_tag(current_attributes,node):
         return 'table'
     elif tag in ['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li','br']:
         return 'newline'
+    elif tag == 'a':
+        safe_unstack(current_attributes, 'href')
+        return ''
 
     for tag in tag_groups:
         if node.tag in tag_groups[tag]:
@@ -327,7 +334,7 @@ def merge_instructions(instructions):
             continue
         
         # Case 2: Attributes match with previous
-        attrs_to_check = ['bold', 'text-center', 'italic', 'underline', 'font-size']
+        attrs_to_check = ['bold', 'text-center', 'italic', 'underline', 'font-size', 'href']
         attrs_match = all(current.get(attr) == prev.get(attr) for attr in attrs_to_check)
         
         if attrs_match:
@@ -446,6 +453,7 @@ def clean_table(table):
 def convert_html_to_instructions(root):
     skip_node = False
     in_table = False
+    in_cell = False
 
     instructions_list = []
     instructions = []
@@ -456,7 +464,7 @@ def convert_html_to_instructions(root):
     max_row = -1
     max_col = -1
     occupied_positions = set()
-    current_cell = {'text': ''}
+    current_cell_instructions = []
 
     # table
     row_id = 0
@@ -469,15 +477,13 @@ def convert_html_to_instructions(root):
             # skip invisible elements
             if skip_node:
                 continue
-            elif in_table:
-                if node.tag == 'tr':
-                    pass
-                elif node.tag in ['td', 'th']:
-                    colspan = int(node.attributes.get('colspan', 1))
-                    rowspan = int(node.attributes.get('rowspan', 1))
-                elif node.tag == '-text':
-                    current_cell['text'] += node.text_content
-                continue
+            elif in_table and node.tag in ['td', 'th']:
+                in_cell = True
+                colspan = int(node.attributes.get('colspan', 1))
+                rowspan = int(node.attributes.get('rowspan', 1))
+                current_cell_instructions = []
+            elif in_table and node.tag == 'tr':
+                pass
             
             style_command = parse_start_style(current_attributes, node)
             if style_command == 'skip':
@@ -501,7 +507,7 @@ def convert_html_to_instructions(root):
             elif tag_command == 'text':
                 text = node.text_content
 
-                # check not leading whitespace
+                # check not leading whitespace 
                 if len(instructions) == 0:
                     text = text.lstrip()
                     if len(text) == 0:
@@ -521,7 +527,11 @@ def convert_html_to_instructions(root):
                         if val > 0:
                             instruction[key] = True
 
-                instructions.append(instruction)
+                # Redirect instruction output based on context
+                if in_cell:
+                    current_cell_instructions.append(instruction)
+                else:
+                    instructions.append(instruction)
 
         elif signal == "end":
             style_command = parse_end_style(current_attributes, node)
@@ -551,24 +561,38 @@ def convert_html_to_instructions(root):
                 # Reset table state
                 table_cells = {}
                 occupied_positions = set()
-                current_cell = {'text': ''}
+                current_cell_instructions = []
                 in_table = False
                 continue
             elif in_table:
                 if node.tag in ['p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'br']:
-                    current_cell['text'] += '\n'
+                    # Add newline to current cell if we're in a cell
+                    if in_cell:
+                        if current_cell_instructions:
+                            current_cell_instructions[-1]['text'] += '\n'
                 elif node.tag == 'tr':
                     row_id += 1
                     col_id = 0
                 elif node.tag in ['td', 'th']:
-                    text = current_cell['text'].strip()
+                    # Process accumulated cell instructions
+                    if current_cell_instructions:
+                        merged_cell = merge_instructions(current_cell_instructions)
+                        if len(merged_cell) == 1:
+                            cell_data = merged_cell[0]
+                        else:
+                            # For multiple instructions, concatenate text and merge attributes
+                            combined_text = ''.join([instr.get('text', '') for instr in merged_cell])
+                            cell_data = {'text': combined_text}
+                            # Add any common attributes from first instruction
+                            for key, val in merged_cell[0].items():
+                                if key != 'text':
+                                    cell_data[key] = val
+                    else:
+                        cell_data = {'text': ''}
                     
                     # Find next available position if current is occupied
                     while (row_id, col_id) in occupied_positions:
                         col_id += 1
-                    
-                    # Create cell data with the text content
-                    cell_data = {'text': text}
                     
                     # Store the cell_data at EVERY position this cell occupies
                     for y in range(rowspan):
@@ -584,7 +608,8 @@ def convert_html_to_instructions(root):
                     
                     # Move to next position
                     col_id += colspan
-                    current_cell = {'text': ''}
+                    current_cell_instructions = []
+                    in_cell = False
 
             elif tag_command == 'newline':
                 if len(instructions) > 0:
