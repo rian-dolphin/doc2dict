@@ -580,12 +580,16 @@ def merge_table_formatting(table):
 
 def clean_table(table):
     if len(table) == 0:
-        return table, False
+        return table, "dirty"
     
     # First check if table has same number of columns
     same_length = all([len(row) == len(table[0]) for row in table])
     if not same_length:
-        return table, False
+        return table, "dirty"
+    
+    # NEW: Table detection - single row tables are likely formatting, not data
+    if len(table) == 1:
+        return table, "not_table"
     
     # Merge formatting characters with adjacent content
     table = merge_table_formatting(table)
@@ -622,7 +626,8 @@ def clean_table(table):
     table = remove_subset_columns(table, empty_chars, "left_to_right")
     table = remove_subset_columns(table, empty_chars, "right_to_left")
     
-    return table, True
+    return table, "cleaned"
+
 # TODO, not sure how it handles ragged tables... e.g. td are not same length in rows
 def convert_html_to_instructions(root):
     skip_node = False
