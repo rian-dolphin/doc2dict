@@ -14,7 +14,9 @@ tag_groups = {
 }
 
 EMPTY_CHARS = ' \t\n\r\xa0'
-EMPTY_TABLE_CHARS = list(set(EMPTY_CHARS.split()) | set(['', ')', '(', '$', '–', '-','%']))
+EMPTY_TABLE_CHARS = ['', '–', '-']
+LEFT_TABLE_CHARS = ['$','(']
+RIGHT_TABLE_CHARS = [')','%']
 
 def remove_leading_empty_instructions(instructions):
    """Remove leading empty/whitespace-only instructions from the list"""
@@ -478,6 +480,104 @@ def remove_subset_columns(table, empty_chars, direction="left_to_right"):
 
 
 
+def is_left_char_cell(cell):
+    """Check if cell contains only LEFT_TABLE_CHARS + EMPTY_CHARS"""
+    if 'image' in cell:
+        return False
+    text = cell.get('text', '')
+    if not text:
+        return False
+    # Check if all characters in text are either left chars or empty chars
+    return all(char in LEFT_TABLE_CHARS + EMPTY_TABLE_CHARS for char in text)
+
+def is_right_char_cell(cell):
+    """Check if cell contains only RIGHT_TABLE_CHARS + EMPTY_CHARS"""
+    if 'image' in cell:
+        return False
+    text = cell.get('text', '')
+    if not text:
+        return False
+    # Check if all characters in text are either right chars or empty chars
+    return all(char in RIGHT_TABLE_CHARS + EMPTY_TABLE_CHARS for char in text)
+
+def is_content_cell(cell):
+    """Check if cell has meaningful content (not just formatting chars)"""
+    if 'image' in cell:
+        return True
+    text = cell.get('text', '')
+    if not text:
+        return False
+    # Content cell if it has chars that aren't formatting or empty
+    all_formatting_chars = LEFT_TABLE_CHARS + RIGHT_TABLE_CHARS + EMPTY_TABLE_CHARS
+    return any(char not in all_formatting_chars for char in text)
+
+def find_next_content_cell(row, start_col):
+    """Find next cell with content to the right"""
+    for col in range(start_col + 1, len(row)):
+        if is_content_cell(row[col]):
+            return col
+    return None
+
+def find_prev_content_cell(row, start_col):
+    """Find previous cell with content to the left"""
+    for col in range(start_col - 1, -1, -1):
+        if is_content_cell(row[col]):
+            return col
+    return None
+
+def merge_cell_content(source_cell, target_cell, direction):
+    """Merge source cell text into target cell"""
+    source_text = source_cell.get('text', '')
+    target_text = target_cell.get('text', '')
+    
+    # Create a copy of target cell to preserve its attributes
+    merged_cell = target_cell.copy()
+    
+    if direction == 'left':
+        # Source goes to the left of target
+        merged_cell['text'] = source_text + target_text
+    else:  # direction == 'right'
+        # Source goes to the right of target
+        merged_cell['text'] = target_text + source_text
+    
+    return merged_cell
+
+def merge_table_formatting(table):
+    """Merge formatting characters with adjacent content"""
+    if not table or not table[0]:
+        return table
+    
+    # Create a working copy
+    result_table = [row[:] for row in table]
+    
+    # Left merging pass - merge LEFT_TABLE_CHARS with content to their right
+    for row_idx, row in enumerate(result_table):
+        for col_idx, cell in enumerate(row):
+            if is_left_char_cell(cell):
+                # Find next content cell to the right
+                target_col = find_next_content_cell(row, col_idx)
+                if target_col is not None:
+                    # Merge this cell's content with the target cell
+                    merged_cell = merge_cell_content(cell, row[target_col], 'left')
+                    result_table[row_idx][target_col] = merged_cell
+                    # Mark source cell as empty
+                    result_table[row_idx][col_idx] = {'text': ''}
+    
+    # Right merging pass - merge RIGHT_TABLE_CHARS with content to their left
+    for row_idx, row in enumerate(result_table):
+        for col_idx, cell in enumerate(row):
+            if is_right_char_cell(cell):
+                # Find previous content cell to the left
+                target_col = find_prev_content_cell(row, col_idx)
+                if target_col is not None:
+                    # Merge this cell's content with the target cell
+                    merged_cell = merge_cell_content(cell, row[target_col], 'right')
+                    result_table[row_idx][target_col] = merged_cell
+                    # Mark source cell as empty
+                    result_table[row_idx][col_idx] = {'text': ''}
+    
+    return result_table
+
 def clean_table(table):
     if len(table) == 0:
         return table, False
@@ -487,32 +587,42 @@ def clean_table(table):
     if not same_length:
         return table, False
     
+    # Merge formatting characters with adjacent content
+    table = merge_table_formatting(table)
+    
+    # Convert image cells to text cells with [IMAGE: {src}] format
+    for row_idx, row in enumerate(table):
+        for col_idx, cell in enumerate(row):
+            if 'image' in cell:
+                src = cell['image'].get('src', '')
+                # Create new text cell preserving other attributes
+                new_cell = {k: v for k, v in cell.items() if k != 'image'}
+                new_cell['text'] = f'[IMAGE: {src}]'
+                table[row_idx][col_idx] = new_cell
+    
     empty_chars = EMPTY_TABLE_CHARS
     
-    # Remove empty rows - check if all cells in row are empty (handle both text and image cells)
+    # Remove empty rows - now only need to check text since all images are converted
     table = [row for row in table if any(
-        (cell.get('text', '') not in empty_chars) or ('image' in cell) 
+        (cell.get('text', '') not in empty_chars)
         for cell in row
     )]
     
-    # Remove empty columns - check if all cells in column are empty
+    # Remove empty columns - now only need to check text since all images are converted
     if table and table[0]:
         keep_cols = [j for j in range(len(table[0])) if any(
-            (table[i][j].get('text', '') not in empty_chars) or ('image' in table[i][j])
+            (table[i][j].get('text', '') not in empty_chars)
             for i in range(len(table))
         )]
         table = [[row[j] for j in keep_cols] for row in table]
-    
-    # Remove subset rows in both directions
+
+    # Remove subset rows and columns
     table = remove_subset_rows(table, empty_chars, "bottom_to_top")
     table = remove_subset_rows(table, empty_chars, "top_to_bottom")
-    
-    # Remove subset columns in both directions
     table = remove_subset_columns(table, empty_chars, "left_to_right")
     table = remove_subset_columns(table, empty_chars, "right_to_left")
     
     return table, True
-
 # TODO, not sure how it handles ragged tables... e.g. td are not same length in rows
 def convert_html_to_instructions(root):
     skip_node = False
