@@ -13,6 +13,54 @@ tag_groups = {
 "underline": ["u", "ins"],
 }
 
+EMPTY_CHARS = ' \t\n\r\xa0'
+EMPTY_TABLE_CHARS = list(set(EMPTY_CHARS.split()) | set(['', ')', '(', '$', '–', '-','%']))
+
+def remove_leading_empty_instructions(instructions):
+   """Remove leading empty/whitespace-only instructions from the list"""
+   if not instructions:
+       return instructions
+   
+   # Find the first non-empty instruction
+   first_meaningful_index = 0
+   for i, instruction in enumerate(instructions):
+       # Skip non-text instructions (tables, images are meaningful content)
+       if 'image' in instruction or 'table' in instruction:
+           first_meaningful_index = i
+           break
+       
+       # Check if text instruction has meaningful content
+       if 'text' in instruction:
+           text = instruction['text'].strip(EMPTY_CHARS)
+           if text:  # Non-empty after stripping
+               first_meaningful_index = i
+               break
+   else:
+       # If we get here, all instructions were empty text or whitespace-only
+       return []
+   
+   # Return sliced list starting from first meaningful instruction
+   return instructions[first_meaningful_index:]
+
+def is_empty_instructions(instructions):
+    """Check if an instruction block contains only whitespace/empty content"""
+    if not instructions:
+        return True
+    
+    for instruction in instructions:
+        # Skip non-text instructions (tables, images are meaningful content)
+        if 'image' in instruction or 'table' in instruction:
+            return False
+        
+        # Check if text instruction has meaningful content
+        if 'text' in instruction:
+            text = instruction['text'].strip(EMPTY_CHARS)
+            if text:  # Non-empty after stripping
+                return False
+    
+    # All instructions were either empty text or whitespace-only
+    return True
+
 # utils
 def walk(node):
     yield ("start",node)
@@ -34,12 +82,12 @@ def style_to_dict(style_string):
         return result
     # send to lower case
     style_string = style_string.lower()
-    style_list = [attr.strip() for attr in style_string.split(';') if attr.strip()]
+    style_list = [attr.strip(EMPTY_CHARS) for attr in style_string.split(';') if attr.strip(EMPTY_CHARS)]
 
     for item in style_list:
         if ':' in item:
             key, value = item.split(':', 1)
-            result[key.strip()] = value.strip()
+            result[key.strip(EMPTY_CHARS)] = value.strip(EMPTY_CHARS)
     return result
 
 def get_style(node):
@@ -148,7 +196,7 @@ def parse_css_value(value_str):
     if not value_str or not isinstance(value_str, str):
         return 0, 'px'
     
-    value_str = value_str.strip()
+    value_str = value_str.strip(EMPTY_CHARS)
     
     # Handle non-numeric values
     if value_str in ['auto', 'inherit', 'initial']:
@@ -162,7 +210,7 @@ def parse_css_value(value_str):
         elif char == '-' and i == 0:  # Handle negative values
             numeric_part += char
         else:
-            unit = value_str[i:].strip()
+            unit = value_str[i:].strip(EMPTY_CHARS)
             break
     else:
         unit = 'px'  # Default if no unit specified
@@ -336,7 +384,7 @@ def merge_instructions(instructions):
             continue
         
         # Case 1: Empty string after strip
-        if current.get('text', '').strip() == '':
+        if current.get('text', '').strip(EMPTY_CHARS) == '':
             prev['text'] += current.get('text', '')
             continue
         
@@ -428,6 +476,8 @@ def remove_subset_columns(table, empty_chars, direction="left_to_right"):
     
     return [[row[j] for j in range(num_cols) if keep_cols[j]] for row in table]
 
+
+
 def clean_table(table):
     if len(table) == 0:
         return table, False
@@ -437,7 +487,7 @@ def clean_table(table):
     if not same_length:
         return table, False
     
-    empty_chars = ['', ')', '(', '$', '–', '-','%']
+    empty_chars = EMPTY_TABLE_CHARS
     
     # Remove empty rows - check if all cells in row are empty (handle both text and image cells)
     table = [row for row in table if any(
@@ -515,7 +565,8 @@ def convert_html_to_instructions(root):
                 row_id = 0
                 col_id = 0
                 if len(instructions) > 0:
-                    instructions_list.append(instructions)
+                    if not is_empty_instructions(instructions):  
+                        instructions_list.append(instructions)
                     instructions = []
                 continue
             elif tag_command == 'text':
@@ -523,7 +574,7 @@ def convert_html_to_instructions(root):
 
                 # check not leading whitespace 
                 if len(instructions) == 0:
-                    text = text.lstrip()
+                    text = text
                     if len(text) == 0:
                         continue
             
@@ -581,7 +632,13 @@ def convert_html_to_instructions(root):
                     
                     # Fill in the cells
                     for (r, c), cell_data in table_cells.items():
-                        matrix[r][c] = cell_data
+                            if 'text' in cell_data:
+                                # Create a copy and strip the text
+                                cleaned_cell = cell_data.copy()
+                                cleaned_cell['text'] = cell_data['text'].strip(EMPTY_CHARS)
+                                matrix[r][c] = cleaned_cell
+                            else:
+                                matrix[r][c] = cell_data
                     
                     # clean the matrix
                     matrix,is_cleaned = clean_table(matrix)
@@ -653,21 +710,25 @@ def convert_html_to_instructions(root):
 
             elif tag_command == 'newline':
                 if len(instructions) > 0:
+                    instructions = remove_leading_empty_instructions(instructions)
                     instructions = merge_instructions(instructions)
                     if len(instructions) == 1:
                         # strip text if it's a text instruction
                         if 'text' in instructions[0]:
-                            instructions[0]['text'] = instructions[0]['text'].strip()
-                    instructions_list.append(instructions)
+                            instructions[0]['text'] = instructions[0]['text'].strip(EMPTY_CHARS)
+                    if not is_empty_instructions(instructions): 
+                        instructions_list.append(instructions)
                     instructions = []
                 continue
 
     # add any remaining instructions
     if instructions:
         if len(instructions) > 0:
+            instructions = remove_leading_empty_instructions(instructions)
             if len(instructions) == 1:
                 # strip text if it's a text instruction
                 if 'text' in instructions[0]:
-                    instructions[0]['text'] = instructions[0]['text'].strip()
-            instructions_list.append(instructions)
+                    instructions[0]['text'] = instructions[0]['text'].strip(EMPTY_CHARS)
+            if not is_empty_instructions(instructions): 
+                instructions_list.append(instructions)
     return instructions_list
