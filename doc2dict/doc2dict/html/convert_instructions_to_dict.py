@@ -70,6 +70,13 @@ def determine_predicted_header_levels(levels):
     return [(level['level'], level['class'], level.get('standardized_title','')) for level in updated_levels]
 # AI GENERATED CODE BC I WANT TO PUSH TO PROD #
 
+def extract_cell_content(cell):
+    """Helper function to extract content from table cells that may contain text or images"""
+    if 'image' in cell:
+        return cell  # Return the full cell structure for images
+    else:
+        return cell.get("text", "")  # Return text content or empty string
+
 def determine_levels(instructions_list, mapping_dict=None):
     if mapping_dict is None:
         predicted_header_level = 0
@@ -79,14 +86,23 @@ def determine_levels(instructions_list, mapping_dict=None):
     else:
         predicted_header_level = max(mapping_dict.values()) + 1
 
-    # filter out tables
-    headers = [instructions[0] if 'text' in instructions[0] else {} for instructions in instructions_list]
+    # filter out tables, include both text and image instructions
+    headers = []
+    for instructions in instructions_list:
+        first_instruction = instructions[0]
+        if 'text' in first_instruction or 'image' in first_instruction:
+            headers.append(first_instruction)
+        else:
+            headers.append({})
+    
     likely_header_attributes = ['bold','italic','underline','text-center','all_caps','fake_table']
-    # identify likely text nodes, return {} if not
-    headers = [item if any([item.get(attr, False) for attr in likely_header_attributes]) else {} for item in headers]
-    # count font-size
+    # identify likely text nodes, return {} if not (images are treated as content, not headers)
+    headers = [item if 'text' in item and any([item.get(attr, False) for attr in likely_header_attributes]) else {} for item in headers]
+    
+    # count font-size (only for text instructions)
     small_script = [False] * len(headers)
-    font_size_counts = {size: sum(1 for item in [instr[0] for instr in instructions_list if 'text' in instr[0]] if item.get('font-size') == size) for size in set(item.get('font-size') for item in [instr[0] for instr in instructions_list if 'text' in instr[0]] if item.get('font-size') is not None)}
+    text_instructions = [instr[0] for instr in instructions_list if 'text' in instr[0]]
+    font_size_counts = {size: sum(1 for item in text_instructions if item.get('font-size') == size) for size in set(item.get('font-size') for item in text_instructions if item.get('font-size') is not None)}
     
     # use only font size goes here
     if mapping_dict is not None:
@@ -113,7 +129,7 @@ def determine_levels(instructions_list, mapping_dict=None):
                             hierarchy_level = font_size_to_level[font_size]
                             level = (hierarchy_level, 'predicted header','')
                     else:
-                        # No font size information, treat as regular text
+                        # No font size information or not text, treat as regular text
                         level = (-1, 'text','')
                     
                     levels.append(level)
@@ -124,7 +140,7 @@ def determine_levels(instructions_list, mapping_dict=None):
         most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
         if font_count > (.5 * len(instructions_list)):
             # assume anything with less than this font size is small script
-            small_script = [True if item.get('font-size') is not None and item.get('font-size') < most_common_font_size else False for item in headers]
+            small_script = [True if 'text' in item and item.get('font-size') is not None and item.get('font-size') < most_common_font_size else False for item in headers]
             
 
 
@@ -202,8 +218,11 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
                 current_path.pop()
                 current_levels.pop()
             
-            # Extract title and determine class from the instruction
-            title = instruction['text']
+            # Extract title from the instruction (only text instructions can be headers)
+            if 'text' in instruction:
+                title = instruction['text']
+            else:
+                title = '[Non-text header]'  # Fallback, though this shouldn't happen
             
             # Create new section
             new_section = {'title': title, 'standardized_title':standardized_title, 'class': level_class, 'contents': {}}
@@ -223,19 +242,31 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
                 if 'text' in instruction:
                     if not current_section['contents'].get(idx):
                         current_section['contents'][idx] = {level_class:''}
-                    current_section['contents'][idx][level_class] += instruction['text']
+                    if level_class in current_section['contents'][idx]:
+                        current_section['contents'][idx][level_class] += instruction['text']
+                    else:
+                        current_section['contents'][idx][level_class] = instruction['text']
+                elif 'image' in instruction:
+                    if not current_section['contents'].get(idx):
+                        current_section['contents'][idx] = {}
+                    current_section['contents'][idx]['image'] = instruction['image']
                 elif 'table' in instruction:
                     # note: tables should only appear in length one instructions, so should be safe
-                    current_section['contents'][idx] = {'table':[[cell["text"] for cell in row] for row in instruction['table']]}
+                    current_section['contents'][idx] = {'table':[[extract_cell_content(cell) for cell in row] for row in instruction['table']]}
 
         if level in [-1, -2]:
             for instruction in instructions:
                 if 'text' in instruction:
                     if not current_section['contents'].get(idx):
                         current_section['contents'][idx] = {level_class:''}
-                    current_section['contents'][idx][level_class] += instruction['text']
+                    if level_class in current_section['contents'][idx]:
+                        current_section['contents'][idx][level_class] += instruction['text']
+                    else:
+                        current_section['contents'][idx][level_class] = instruction['text']
+                elif 'image' in instruction:
+                    current_section['contents'][idx] = {'image': instruction['image']}
                 elif 'table' in instruction:
-                    current_section['contents'][idx] = {'table':[[cell["text"] for cell in row] for row in instruction['table']]}
+                    current_section['contents'][idx] = {'table':[[extract_cell_content(cell) for cell in row] for row in instruction['table']]}
 
     
     # Create final result with metadata

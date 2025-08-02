@@ -82,6 +82,24 @@ def visualize_dict(data_dict, filename='document_visualization.html', open_brows
             p {
                 margin: 0.5em 0;
             }
+            .document-image {
+                max-width: 100%;
+                height: auto;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                margin: 10px 0;
+            }
+            .table-image {
+                max-width: 200px;
+                height: auto;
+                border: 1px solid #ddd;
+                border-radius: 3px;
+            }
+            .image-wrapper {
+                text-align: center;
+                margin: 15px 0;
+            }
         </style>
     </head>
     <body>
@@ -148,7 +166,7 @@ def process_document(doc_dict, html, level):
             
             # Handle direct content fields
             for attr_key, attr_value in value.items():
-                if attr_key not in ["title", "class", "contents"]:
+                if attr_key not in ["title", "class", "contents", "standardized_title"]:
                     process_content(attr_key, attr_value, html)
             
             # Process contents dictionary if it exists
@@ -167,10 +185,40 @@ def process_content(content_type, content, html):
         html.append(f'<p>{content}</p>')
     elif content_type == "textsmall":
         html.append(f'<p class="textsmall">{content}</p>')
+    elif content_type == "image":
+        process_image(content, html)
     elif content_type == "table":
         process_table(content, html)
     else:
         pass
+
+def process_image(image_data, html):
+    """Convert image data to HTML img tag"""
+    src = image_data.get('src', '')
+    alt = image_data.get('alt', 'Image')
+    
+    html.append('<div class="image-wrapper">')
+    html.append(f'<img src="{src}" alt="{alt}" class="document-image">')
+    html.append('</div>')
+
+def process_table_cell(cell):
+    """Process a single table cell that may contain text or image data"""
+    if isinstance(cell, dict):
+        if 'image' in cell:
+            # Cell contains an image
+            image_data = cell['image']
+            src = image_data.get('src', '')
+            alt = image_data.get('alt', 'Image')
+            return f'<img src="{src}" alt="{alt}" class="table-image">'
+        elif 'text' in cell:
+            # Cell contains structured text data
+            return cell['text']
+        else:
+            # Cell is a dict but doesn't match expected structure
+            return str(cell)
+    else:
+        # Cell is a string or other simple type
+        return str(cell)
 
 def process_table(table_data, html):
     """Convert table data to HTML table"""
@@ -179,9 +227,16 @@ def process_table(table_data, html):
     # Check if first row should be treated as header
     has_header = False
     if len(table_data) > 1:
-        # Heuristic: if first row is all strings and not empty, treat as header
+        # Heuristic: if first row contains mostly text content, treat as header
         first_row = table_data[0]
-        if all(isinstance(cell, str) for cell in first_row) and any(cell.strip() for cell in first_row):
+        text_cells = 0
+        for cell in first_row:
+            if isinstance(cell, str) and cell.strip():
+                text_cells += 1
+            elif isinstance(cell, dict) and cell.get('text', '').strip():
+                text_cells += 1
+        
+        if text_cells >= len(first_row) / 2:  # At least half the cells have text
             has_header = True
     
     for i, row in enumerate(table_data):
@@ -189,7 +244,8 @@ def process_table(table_data, html):
         for cell in row:
             # Use th for header cells, otherwise td
             tag = 'th' if has_header and i == 0 else 'td'
-            html.append(f'<{tag}>{cell}</{tag}>')
+            cell_content = process_table_cell(cell)
+            html.append(f'<{tag}>{cell_content}</{tag}>')
         html.append('</tr>')
     
     html.append('</table>')
