@@ -542,6 +542,38 @@ def merge_cell_content(source_cell, target_cell, direction):
     
     return merged_cell
 
+
+def merge_cell_instructions(instructions):
+    """
+    Merge all text from cell instructions into a single instruction.
+    Discard images, concatenate all text, inherit attributes from first text instruction.
+    """
+    if not instructions:
+        return {'text': ''}
+    
+    # Collect all text and find first text instruction with attributes
+    combined_text = ''
+    base_attributes = {}
+    
+    for instruction in instructions:
+        # Skip images completely
+        if 'image' in instruction:
+            continue
+            
+        # Add any text content
+        if 'text' in instruction:
+            combined_text += instruction['text']
+            
+            # Use attributes from first text instruction that has them
+            if not base_attributes:
+                base_attributes = {k: v for k, v in instruction.items() if k != 'text'}
+    
+    # Create final cell instruction
+    result = {'text': combined_text}
+    result.update(base_attributes)
+    
+    return result
+
 def merge_table_formatting(table):
     """Merge formatting characters with adjacent content"""
     if not table or not table[0]:
@@ -741,9 +773,11 @@ def convert_html_to_instructions(root):
 
             tag_command = parse_end_tag(current_attributes, node)
             if tag_command == 'table':
+
                 # Create a properly sized matrix from the collected data
                 if max_row >= 0 and max_col >= 0:  # Only if we have cells
                     matrix = [[{'text': ''} for _ in range(max_col + 1)] for _ in range(max_row + 1)]
+
                     
                     # Fill in the cells
                     for (r, c), cell_data in table_cells.items():
@@ -754,11 +788,17 @@ def convert_html_to_instructions(root):
                                 matrix[r][c] = cleaned_cell
                             else:
                                 matrix[r][c] = cell_data
-                    
+
+
                     # clean the matrix
-                    matrix,is_cleaned = clean_table(matrix)
-                    if len(matrix) == 1:
-                        # Handle mixed content in single row tables
+                    matrix,cleaning_status = clean_table(matrix)
+                    if cleaning_status == "not_table":
+                        # Single-row table - treat each cell as separate instruction
+                        for cell in matrix[0]:
+                            if 'text' in cell and cell['text'].strip(EMPTY_CHARS):
+                                instructions_list.append([cell])
+                    elif len(matrix) == 1:
+                        # Fallback for other single-row cases that somehow didn't get caught
                         cell_texts = []
                         for cell in matrix[0]:
                             if 'image' in cell:
@@ -768,7 +808,8 @@ def convert_html_to_instructions(root):
                         matrix_text = ' '.join(cell_texts)
                         instructions_list.append([{'text': matrix_text, 'fake_table': True}])
                     else:
-                        instructions_list.append([{'table': matrix,'cleaned': is_cleaned}])
+                        # Multi-row table (cleaned or dirty)
+                        instructions_list.append([{'table': matrix, 'cleaned': cleaning_status == "cleaned"}])
 
                 
                 # Reset table state
@@ -791,14 +832,8 @@ def convert_html_to_instructions(root):
                 elif node.tag in ['td', 'th']:
                     # Process accumulated cell instructions
                     if current_cell_instructions:
-                        merged_cell = merge_instructions(current_cell_instructions)
-                        if len(merged_cell) == 1:
-                            cell_data = merged_cell[0]
-                        else:
-                            # For multiple instructions, create a cell with mixed content
-                            # For now, just use the first instruction as the cell data
-                            # You might want to handle this differently based on your needs
-                            cell_data = merged_cell[0]
+                        cell_data = merge_cell_instructions(current_cell_instructions)
+
                     else:
                         cell_data = {'text': ''}
                     
