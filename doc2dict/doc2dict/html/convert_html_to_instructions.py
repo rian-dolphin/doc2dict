@@ -92,11 +92,90 @@ def style_to_dict(style_string):
             result[key.strip(EMPTY_CHARS)] = value.strip(EMPTY_CHARS)
     return result
 
+
+def parse_font_shorthand(font_value):
+    """
+    Parse CSS font shorthand property into individual components.
+    
+    Font shorthand syntax: [font-style] [font-variant] [font-weight] font-size [/line-height] font-family
+    Required: font-size and font-family
+    Optional (in order): font-style, font-variant, font-weight, line-height
+    
+    Examples:
+    - "bold 10pt Times New Roman" -> {'font-weight': 'bold', 'font-size': '10pt', 'font-family': 'Times New Roman'}
+    - "italic bold 12px Arial" -> {'font-style': 'italic', 'font-weight': 'bold', 'font-size': '12px', 'font-family': 'Arial'}
+    """
+    if not font_value:
+        return {}
+    
+    # Clean and split the font value
+    parts = font_value.strip().split()
+    if len(parts) < 2:  # Must have at least font-size and font-family
+        return {}
+    
+    result = {}
+    i = 0
+    
+    # Parse optional properties in order: font-style, font-variant, font-weight
+    
+    # Check for font-style (italic, oblique, normal)
+    if i < len(parts) and parts[i].lower() in ['italic', 'oblique', 'normal']:
+        if parts[i].lower() == 'italic':
+            result['font-style'] = 'italic'
+        i += 1
+    
+    # Check for font-variant (small-caps, normal) - we'll skip this for now
+    if i < len(parts) and parts[i].lower() in ['small-caps', 'normal']:
+        # Skip font-variant for now since we don't handle it
+        i += 1
+    
+    # Check for font-weight (bold, normal, 100-900, lighter, bolder)
+    if i < len(parts):
+        weight = parts[i].lower()
+        if weight in ['bold', '700']:
+            result['font-weight'] = 'bold'
+            i += 1
+        elif weight in ['normal', '400']:
+            result['font-weight'] = 'normal'
+            i += 1
+        elif weight in ['100', '200', '300', '500', '600', '800', '900', 'lighter', 'bolder']:
+            result['font-weight'] = weight
+            i += 1
+    
+    # Next must be font-size (required)
+    if i < len(parts):
+        size_part = parts[i]
+        # Handle font-size/line-height format (e.g., "12px/1.5")
+        if '/' in size_part:
+            size, line_height = size_part.split('/', 1)
+            result['font-size'] = size
+            result['line-height'] = line_height
+        else:
+            result['font-size'] = size_part
+        i += 1
+    
+    # Remaining parts are font-family (required)
+    if i < len(parts):
+        # Join remaining parts for font family (handles "Times New Roman" etc.)
+        font_family = ' '.join(parts[i:])
+        # Remove quotes if present
+        font_family = font_family.strip('\'"')
+        result['font-family'] = font_family
+    
+    return result
+
 def get_style(node):
     increments = []
     stacks = []
     style = node.attributes.get('style', '')
     style_dict = style_to_dict(style)
+
+    # Parse font shorthand if present
+    if 'font' in style_dict:
+        font_properties = parse_font_shorthand(style_dict['font'])
+        # Merge parsed properties into style_dict
+        style_dict.update(font_properties)
+
     if 'font-weight' in style_dict:
         if style_dict['font-weight'] == 'bold':
             increments.append('bold')
