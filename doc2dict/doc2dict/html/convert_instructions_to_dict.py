@@ -4,6 +4,15 @@ import pkg_resources
 version = pkg_resources.get_distribution("doc2dict").version
 
 
+def create_level(level_num=-1, class_name='text', title='', attributes=None):
+    """Factory function to create level dictionaries with all required fields"""
+    return {
+        'level': level_num, 
+        'class': class_name, 
+        'standardized_title': title, 
+        'attributes': attributes or {}
+    }
+
 
 # AI GENERATED CODE BC I WANT TO PUSH TO PROD #
 def determine_predicted_header_levels(levels):
@@ -20,7 +29,7 @@ def determine_predicted_header_levels(levels):
     # Find the base level for predicted headers
     predicted_headers = [l for l in levels if l['class'] == 'predicted header']
     if not predicted_headers:
-        return [(level['level'], level['class']) for level in levels]
+        return [(level['level'], level['class'], level.get('standardized_title','')) for level in levels]
     
     base_level = min(h['level'] for h in predicted_headers)
     
@@ -143,15 +152,13 @@ def determine_levels(instructions_list, mapping_dict=None):
             small_script = [True if 'text' in item and item.get('font-size') is not None and item.get('font-size') < most_common_font_size else False for item in headers]
             
 
-
-
     levels = []
     for idx,header in enumerate(headers):
         level = None
         attributes = {attr: header.get(attr, False) for attr in likely_header_attributes if attr in header}
         
         if small_script[idx]:
-            level = {'level': -2, 'class': 'textsmall'}
+            level = create_level(-2, 'textsmall')
         elif 'text' in header:
             if mapping_dict is not None:
                 text = header['text'].lower()
@@ -167,19 +174,18 @@ def determine_levels(instructions_list, mapping_dict=None):
                             standardized_title = f'{header_class}{string}'
                         else:
                             standardized_title = f'{header_class}'
-                        level = {'level': hierarchy_level, 'class': header_class, ' ': attributes,'standardized_title': standardized_title}
+                        level = create_level(hierarchy_level, header_class, standardized_title, attributes)
                         break
             
             if level is None:
                 # probably modify this to use attributes
                 if any([header.get(attr,False) for attr in likely_header_attributes]):
-                    level = {'level': predicted_header_level, 'class': 'predicted header', 'attributes': attributes}
+                    level = create_level(predicted_header_level, 'predicted header', '', attributes)
 
         if level is None:
-            level = {'level': -1, 'class': 'text'}
-            levels.append(level)
-        else:
-            levels.append(level)
+            level = create_level(-1, 'text')
+        
+        levels.append(level)
 
     # NOW USE SEQUENCE AND ATTRIBUTES IN THE LEVELS TO DETERMINE HIERARCHY FOR PREDICTED HEADERS
     levels = determine_predicted_header_levels(levels)
