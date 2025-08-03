@@ -470,7 +470,7 @@ def merge_instructions(instructions):
             continue
         
         # Case 2: Attributes match with previous
-        attrs_to_check = ['bold', 'text-center', 'italic', 'underline', 'font-size', 'href']
+        attrs_to_check = ['bold', 'text-center', 'italic', 'underline', 'font-size']
         attrs_match = all(current.get(attr) == prev.get(attr) for attr in attrs_to_check)
         
         if attrs_match:
@@ -625,14 +625,16 @@ def merge_cell_content(source_cell, target_cell, direction):
 def merge_cell_instructions(instructions):
     """
     Merge all text from cell instructions into a single instruction.
-    Discard images, concatenate all text, inherit attributes from first text instruction.
+    Discard images, concatenate all text, collect ALL attributes from ALL instructions.
+    For boolean attributes (bold, italic, etc.), if ANY instruction has it, the result has it.
+    For list attributes (font-size, href, etc.), use the last non-empty value.
     """
     if not instructions:
         return {'text': ''}
     
-    # Collect all text and find first text instruction with attributes
+    # Collect all text and all attributes
     combined_text = ''
-    base_attributes = {}
+    all_attributes = {}
     
     for instruction in instructions:
         # Skip images completely
@@ -642,14 +644,38 @@ def merge_cell_instructions(instructions):
         # Add any text content
         if 'text' in instruction:
             combined_text += instruction['text']
-            
-            # Use attributes from first text instruction that has them
-            if not base_attributes:
-                base_attributes = {k: v for k, v in instruction.items() if k != 'text'}
+        
+        # Collect all attributes except 'text'
+        for key, value in instruction.items():
+            if key == 'text':
+                continue
+                
+            if key not in all_attributes:
+                all_attributes[key] = []
+            all_attributes[key].append(value)
     
     # Create final cell instruction
     result = {'text': combined_text}
-    result.update(base_attributes)
+    
+    # Process collected attributes
+    for key, values in all_attributes.items():
+        # Remove None/empty values
+        non_empty_values = [v for v in values if v is not None and v != '']
+        
+        if not non_empty_values:
+            continue
+            
+        # For boolean attributes (True/False), if ANY instruction has True, result is True
+        if all(isinstance(v, bool) for v in non_empty_values):
+            result[key] = any(non_empty_values)
+        
+        # For numeric attributes, use the last value
+        elif all(isinstance(v, (int, float)) for v in non_empty_values):
+            result[key] = non_empty_values[-1]
+        
+        # For string attributes, use the last non-empty value
+        else:
+            result[key] = non_empty_values[-1]
     
     return result
 
@@ -872,10 +898,13 @@ def convert_html_to_instructions(root):
                     # clean the matrix
                     matrix,cleaning_status = clean_table(matrix)
                     if cleaning_status == "not_table":
-                        # Single-row table - treat each cell as separate instruction
+                        # Combine all cells into one instruction block (same line)
+                        all_cells = []
                         for cell in matrix[0]:
                             if 'text' in cell and cell['text'].strip(EMPTY_CHARS):
-                                instructions_list.append([cell])
+                                all_cells.append(cell)
+                        if all_cells:
+                            instructions_list.append(all_cells)  # One block = One line
                     elif len(matrix) == 1:
                         # Fallback for other single-row cases that somehow didn't get caught
                         cell_texts = []

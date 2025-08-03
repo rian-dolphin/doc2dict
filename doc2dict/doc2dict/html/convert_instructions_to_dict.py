@@ -226,7 +226,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
             
             # Extract title from the instruction (only text instructions can be headers)
             if 'text' in instruction:
-                title = instruction['text']
+                title = ''.join([instr['text'] for instr in instructions if 'text' in instr])
             else:
                 title = '[Non-text header]'  # Fallback, though this shouldn't happen
             
