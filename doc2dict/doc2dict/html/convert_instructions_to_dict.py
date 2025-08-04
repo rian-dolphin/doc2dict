@@ -105,11 +105,10 @@ def determine_levels(instructions_list, mapping_dict=None):
             headers.append({})
     
     likely_header_attributes = ['bold','italic','underline','text-center','all_caps','fake_table']
-    # identify likely text nodes, return {} if not (images are treated as content, not headers)
-    headers = [item if 'text' in item and any([item.get(attr, False) for attr in likely_header_attributes]) else {} for item in headers]
     
     # count font-size (only for text instructions)
     small_script = [False] * len(headers)
+    big_script = [False] * len(headers)
     text_instructions = [instr[0] for instr in instructions_list if 'text' in instr[0]]
     font_size_counts = {size: sum(1 for item in text_instructions if item.get('font-size') == size) for size in set(item.get('font-size') for item in text_instructions if item.get('font-size') is not None)}
     
@@ -117,9 +116,12 @@ def determine_levels(instructions_list, mapping_dict=None):
     if mapping_dict is not None:
         if 'rules' in mapping_dict:
             if 'use_font_size_only_for_level' in mapping_dict['rules']:
+                # Filter headers first for this special case
+                headers = [item if 'text' in item and any([item.get(attr, False) for attr in likely_header_attributes]) else {} for item in headers]
+                
                 most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
                 
-                # Get all unique font sizes and sort them in descending order (largest first)
+                # Get all unique font sizes and sort them in descending order (largest font = level 0, next = level 1, etc.)
                 unique_font_sizes = sorted(font_size_counts.keys(), reverse=True)
                 
                 # Create a mapping from font size to level (largest font = level 0, next = level 1, etc.)
@@ -145,13 +147,19 @@ def determine_levels(instructions_list, mapping_dict=None):
                 
                 return levels
     
+    # Detect font sizes first (before filtering headers)
     if font_size_counts != {}:
         most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
         if font_count > (.5 * len(instructions_list)):
             # assume anything with less than this font size is small script
             small_script = [True if 'text' in item and item.get('font-size') is not None and item.get('font-size') < most_common_font_size else False for item in headers]
             
+            # assume anything with more than 20% of the most common font size is big script
+            big_script = [True if 'text' in item and item.get('font-size') is not None and item.get('font-size') > (1.2 * most_common_font_size) else False for item in headers]
 
+    # NOW filter headers after font size detection (includes big_script in the filtering)
+    headers = [item if 'text' in item and (any([item.get(attr, False) for attr in likely_header_attributes]) or big_script[idx]) else {} for idx, item in enumerate(headers)]
+    
     levels = []
     for idx,header in enumerate(headers):
         level = None
@@ -178,8 +186,8 @@ def determine_levels(instructions_list, mapping_dict=None):
                         break
             
             if level is None:
-                # probably modify this to use attributes
-                if any([header.get(attr,False) for attr in likely_header_attributes]):
+                # Check for header attributes OR big_script
+                if any([header.get(attr,False) for attr in likely_header_attributes]) or big_script[idx]:
                     level = create_level(predicted_header_level, 'predicted header', '', attributes)
 
         if level is None:
@@ -190,7 +198,6 @@ def determine_levels(instructions_list, mapping_dict=None):
     # NOW USE SEQUENCE AND ATTRIBUTES IN THE LEVELS TO DETERMINE HIERARCHY FOR PREDICTED HEADERS
     levels = determine_predicted_header_levels(levels)
     return levels
-
 # prob here we want to find the attributes first (fast)
 # then try for the regex.
 def convert_instructions_to_dict(instructions_list, mapping_dict=None):

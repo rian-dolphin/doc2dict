@@ -833,7 +833,7 @@ def convert_html_to_instructions(root):
                 instruction = {'text': text}
 
                 if check_text_style(text):
-                    instruction['text-style'] = 'all_caps'
+                    instruction['all_caps'] = True
 
                 for key in current_attributes:
                     val = current_attributes[key]
