@@ -3,6 +3,7 @@ import pkg_resources
 
 version = pkg_resources.get_distribution("doc2dict").version
 
+LIKELY_HEADER_ATTRIBUTES = ['bold', 'italic', 'underline', 'text-center', 'all_caps', 'fake_table','proper_case']
 
 def create_level(level_num=-1, class_name='text', title='', attributes=None):
     """Factory function to create level dictionaries with all required fields"""
@@ -12,6 +13,65 @@ def create_level(level_num=-1, class_name='text', title='', attributes=None):
         'standardized_title': title, 
         'attributes': attributes or {}
     }
+
+
+def split_header_instructions(instructions_list):
+    """
+    Splits instruction groups where the first instruction would be classified as a header.
+    
+    Args:
+        instructions_list: List of instruction groups (each group is a list of instructions)
+        
+    Returns:
+        New list of instruction groups with headers separated from their content
+    """
+
+    
+    # First, detect big_script like in determine_levels
+    text_instructions = [instr[0] for instr in instructions_list if 'text' in instr[0]]
+    font_size_counts = {size: sum(1 for item in text_instructions if item.get('font-size') == size) 
+                       for size in set(item.get('font-size') for item in text_instructions if item.get('font-size') is not None)}
+    
+    big_script = [False] * len(instructions_list)
+    if font_size_counts:
+        most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
+        if font_count > (0.5 * len(instructions_list)):
+            # Check for big script (>20% larger than most common)
+            for idx, instructions in enumerate(instructions_list):
+                first = instructions[0]
+                if 'text' in first and first.get('font-size') is not None:
+                    if first.get('font-size') > (1.2 * most_common_font_size):
+                        big_script[idx] = True
+    
+    # Now split instruction groups
+    new_instructions_list = []
+    
+    for idx, instructions in enumerate(instructions_list):
+        # Skip if only one instruction - nothing to split
+        if len(instructions) <= 1:
+            new_instructions_list.append(instructions)
+            continue
+        
+        first_instruction = instructions[0]
+        
+        # Check if first instruction would be classified as a header
+        is_header = False
+        if 'text' in first_instruction:
+            # Check for header attributes or big_script
+            has_header_attrs = any(first_instruction.get(attr, False) for attr in LIKELY_HEADER_ATTRIBUTES)
+            if has_header_attrs or big_script[idx]:
+                is_header = True
+        
+        if is_header:
+            # Split: first instruction becomes its own group, rest become another group
+            new_instructions_list.append([first_instruction])
+            if len(instructions) > 1:  # Add remaining instructions as separate group
+                new_instructions_list.append(instructions[1:])
+        else:
+            # Keep as is - no splitting needed
+            new_instructions_list.append(instructions)
+    
+    return new_instructions_list
 
 
 # AI GENERATED CODE BC I WANT TO PUSH TO PROD #
@@ -103,8 +163,7 @@ def determine_levels(instructions_list, mapping_dict=None):
             headers.append(first_instruction)
         else:
             headers.append({})
-    
-    likely_header_attributes = ['bold','italic','underline','text-center','all_caps','fake_table']
+
     
     # count font-size (only for text instructions)
     small_script = [False] * len(headers)
@@ -117,7 +176,7 @@ def determine_levels(instructions_list, mapping_dict=None):
         if 'rules' in mapping_dict:
             if 'use_font_size_only_for_level' in mapping_dict['rules']:
                 # Filter headers first for this special case
-                headers = [item if 'text' in item and any([item.get(attr, False) for attr in likely_header_attributes]) else {} for item in headers]
+                headers = [item if 'text' in item and any([item.get(attr, False) for attr in LIKELY_HEADER_ATTRIBUTES]) else {} for item in headers]
                 
                 most_common_font_size, font_count = max(font_size_counts.items(), key=lambda x: x[1])
                 
@@ -158,12 +217,12 @@ def determine_levels(instructions_list, mapping_dict=None):
             big_script = [True if 'text' in item and item.get('font-size') is not None and item.get('font-size') > (1.2 * most_common_font_size) else False for item in headers]
 
     # NOW filter headers after font size detection (includes big_script in the filtering)
-    headers = [item if 'text' in item and (any([item.get(attr, False) for attr in likely_header_attributes]) or big_script[idx]) else {} for idx, item in enumerate(headers)]
+    headers = [item if 'text' in item and (any([item.get(attr, False) for attr in LIKELY_HEADER_ATTRIBUTES]) or big_script[idx]) else {} for idx, item in enumerate(headers)]
     
     levels = []
     for idx,header in enumerate(headers):
         level = None
-        attributes = {attr: header.get(attr, False) for attr in likely_header_attributes if attr in header}
+        attributes = {attr: header.get(attr, False) for attr in LIKELY_HEADER_ATTRIBUTES if attr in header}
         
         if small_script[idx]:
             level = create_level(-2, 'textsmall')
@@ -175,7 +234,7 @@ def determine_levels(instructions_list, mapping_dict=None):
                 for regex, header_class, hierarchy_level in regex_tuples:
                     match = re.match(regex, text)
                     if match:
-                        # create a dictionary of attributes from likely_header_attributes
+                        # create a dictionary of attributes from LIKELY_HEADER_ATTRIBUTES
                         match_groups = match.groups()
                         if len(match_groups) > 0:
                             string = ''.join([str(x) for x in match_groups if x is not None])
@@ -187,7 +246,7 @@ def determine_levels(instructions_list, mapping_dict=None):
             
             if level is None:
                 # Check for header attributes OR big_script
-                if any([header.get(attr,False) for attr in likely_header_attributes]) or big_script[idx]:
+                if any([header.get(attr,False) for attr in LIKELY_HEADER_ATTRIBUTES]) or big_script[idx]:
                     level = create_level(predicted_header_level, 'predicted header', '', attributes)
 
         if level is None:
@@ -198,9 +257,11 @@ def determine_levels(instructions_list, mapping_dict=None):
     # NOW USE SEQUENCE AND ATTRIBUTES IN THE LEVELS TO DETERMINE HIERARCHY FOR PREDICTED HEADERS
     levels = determine_predicted_header_levels(levels)
     return levels
-# prob here we want to find the attributes first (fast)
-# then try for the regex.
+
 def convert_instructions_to_dict(instructions_list, mapping_dict=None):
+    # CHANGE: Split mixed header-content groups first
+    instructions_list = split_header_instructions(instructions_list)
+    
     # Get pre-calculated levels for each instruction
     levels = determine_levels(instructions_list, mapping_dict)
     
@@ -221,7 +282,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
     # Process each instruction using pre-calculated levels
     for idx, instructions in enumerate(instructions_list):
         instruction = instructions[0]
-        level,level_class,standardized_title = levels[idx]
+        level, level_class, standardized_title = levels[idx]
 
         if level >= 0:
             # This is a section header
@@ -238,7 +299,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
                 title = '[Non-text header]'  # Fallback, though this shouldn't happen
             
             # Create new section
-            new_section = {'title': title, 'standardized_title':standardized_title, 'class': level_class, 'contents': {}}
+            new_section = {'title': title, 'standardized_title': standardized_title, 'class': level_class, 'contents': {}}
             
             # Add section to parent's contents with index as key
             parent = current_path[-1]
@@ -248,30 +309,15 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
             current_path.append(new_section)
             current_levels.append(level)
             current_section = new_section
+            
+            # CHANGE: Removed mixed content handling here since groups are now pure
 
-        # add instructions where first is header, but rest are not. on same line
-        if level >= 0 and len(instructions) > 1:
-            for instruction in instructions[1:]:
-                if 'text' in instruction:
-                    if not current_section['contents'].get(idx):
-                        current_section['contents'][idx] = {level_class:''}
-                    if level_class in current_section['contents'][idx]:
-                        current_section['contents'][idx][level_class] += instruction['text']
-                    else:
-                        current_section['contents'][idx][level_class] = instruction['text']
-                elif 'image' in instruction:
-                    if not current_section['contents'].get(idx):
-                        current_section['contents'][idx] = {}
-                    current_section['contents'][idx]['image'] = instruction['image']
-                elif 'table' in instruction:
-                    # note: tables should only appear in length one instructions, so should be safe
-                    current_section['contents'][idx] = {'table':[[extract_cell_content(cell) for cell in row] for row in instruction['table']]}
-
+        # CHANGE: Simplified - only process regular content (no mixed groups anymore)
         if level in [-1, -2]:
             for instruction in instructions:
                 if 'text' in instruction:
                     if not current_section['contents'].get(idx):
-                        current_section['contents'][idx] = {level_class:''}
+                        current_section['contents'][idx] = {level_class: ''}
                     if level_class in current_section['contents'][idx]:
                         current_section['contents'][idx][level_class] += instruction['text']
                     else:
@@ -279,8 +325,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
                 elif 'image' in instruction:
                     current_section['contents'][idx] = {'image': instruction['image']}
                 elif 'table' in instruction:
-                    current_section['contents'][idx] = {'table':[[extract_cell_content(cell) for cell in row] for row in instruction['table']]}
-
+                    current_section['contents'][idx] = {'table': [[extract_cell_content(cell) for cell in row] for row in instruction['table']]}
     
     # Create final result with metadata
     result = {

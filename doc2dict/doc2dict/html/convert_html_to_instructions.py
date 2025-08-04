@@ -1,10 +1,4 @@
-# TO ADD
-# merge same line
-# merge across lines
-# look at old before deletion
-# left indent
-
-from copy import deepcopy
+import re
 
 # params 
 tag_groups = {
@@ -72,10 +66,25 @@ def walk(node):
     yield ("end",node)
 
 def check_text_style(text):
-    # Check if the text is all caps
+    if not text or not text.strip():
+        return {}
+    
+    styles = {}
+    
     if text.isupper():
-        return True
-    return False
+        styles['all_caps'] = True
+    else:
+        # Stop words that can be lowercase in proper case
+        stop_words = r'\b(and|or|of|the|in|on|at|to|for|with|by|a|an)\b'
+        
+        # Replace stop words with placeholder, check if remaining words are proper case
+        text_no_stops = re.sub(stop_words, 'STOP', text, flags=re.IGNORECASE)
+        
+        # Check if all non-stop words start with capital and have at least one capital
+        if re.match(r'^[A-Z][a-zA-Z]*(\s+(STOP|[A-Z][a-zA-Z]*))*$', text_no_stops) and re.search(r'[A-Z]', text):
+            styles['proper_case'] = True
+    
+    return styles
 
 
 def style_to_dict(style_string):
@@ -832,8 +841,8 @@ def convert_html_to_instructions(root):
             
                 instruction = {'text': text}
 
-                if check_text_style(text):
-                    instruction['all_caps'] = True
+                text_styles = check_text_style(text)
+                instruction.update(text_styles)
 
                 for key in current_attributes:
                     val = current_attributes[key]
