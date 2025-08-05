@@ -5,6 +5,15 @@ version = pkg_resources.get_distribution("doc2dict").version
 
 LIKELY_HEADER_ATTRIBUTES = ['bold', 'italic', 'underline', 'text-center', 'all_caps', 'fake_table','proper_case']
 
+def remove_empty_contents(obj):
+    """Recursively remove empty contents dictionaries"""
+    if isinstance(obj, dict):
+        if 'contents' in obj and not obj['contents']:
+            del obj['contents']
+        else:
+            for value in obj.values():
+                remove_empty_contents(value)
+
 def create_level(level_num=-1, class_name='text', title='', attributes=None):
     """Factory function to create level dictionaries with all required fields"""
     return {
@@ -299,7 +308,9 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
                 title = '[Non-text header]'  # Fallback, though this shouldn't happen
             
             # Create new section
-            new_section = {'title': title, 'standardized_title': standardized_title, 'class': level_class, 'contents': {}}
+            new_section = {'title': title, 'class': level_class, 'contents': {}}
+            if standardized_title:  # Only add if not empty
+                new_section['standardized_title'] = standardized_title
             
             # Add section to parent's contents with index as key
             parent = current_path[-1]
@@ -337,4 +348,5 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
         'document': document['contents']
     }
     
+    remove_empty_contents(result)
     return result
