@@ -307,10 +307,12 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
             else:
                 title = '[Non-text header]'  # Fallback, though this shouldn't happen
             
-            # Create new section
-            new_section = {'title': title, 'class': level_class, 'contents': {}}
-            if standardized_title:  # Only add if not empty
+            # Create new section, in correct order
+            new_section = {'title': title}
+            if standardized_title:  # Add right after title
                 new_section['standardized_title'] = standardized_title
+            new_section['class'] = level_class
+            new_section['contents'] = {}
             
             # Add section to parent's contents with index as key
             parent = current_path[-1]
