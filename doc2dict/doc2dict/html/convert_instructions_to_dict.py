@@ -1,7 +1,7 @@
 import re
-import pkg_resources
+from importlib.metadata import version
 
-version = pkg_resources.get_distribution("doc2dict").version
+__version__ = version("doc2dict")
 
 LIKELY_HEADER_ATTRIBUTES = ['bold', 'italic', 'underline', 'text-center', 'all_caps', 'fake_table','proper_case']
 
@@ -345,7 +345,7 @@ def convert_instructions_to_dict(instructions_list, mapping_dict=None):
         'metadata': {
             'parser': 'doc2dict',
             'github': 'https://github.com/john-friedman/doc2dict',
-            'version': version
+            "version": __version__,
         },
         'document': document['contents']
     }
