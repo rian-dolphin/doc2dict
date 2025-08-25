@@ -1,6 +1,10 @@
 from doc2dict.mapping import DocumentProcessor
 
-def txt2dict(content,mapping_dict):
+def txt2dict(content,mapping_dict=None):
+
+    if mapping_dict is None:
+        return {'content': [{'text': content}]}
+    
     # Split by double newlines to get paragraphs
     paragraphs = content.split('\n\n')
     
@@ -16,6 +20,8 @@ def txt2dict(content,mapping_dict):
             processed[1:] = ['\n' + line for line in processed[1:]]
             lines.extend(processed)
             
+
     processor = DocumentProcessor(mapping_dict)
     result = processor.process(lines)
+
     return result
