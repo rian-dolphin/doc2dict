@@ -3,7 +3,7 @@ from doc2dict.mapping import DocumentProcessor
 def txt2dict(content,mapping_dict=None):
 
     if mapping_dict is None:
-        return {'content': [{'text': content}]}
+        return {'content': [{'0': {'text': content}}]}
     
     # Split by double newlines to get paragraphs
     paragraphs = content.split('\n\n')
