@@ -237,7 +237,7 @@ def determine_levels(instructions_list, mapping_dict=None):
             level = create_level(-2, 'textsmall')
         elif 'text' in header:
             if mapping_dict is not None:
-                text = header['text'].lower()
+                text = header['text'].lower().strip()
                 regex_tuples = [(item[0][1], item[0][0], item[1]) for item in mapping_dict.items()]
                 
                 for regex, header_class, hierarchy_level in regex_tuples:
